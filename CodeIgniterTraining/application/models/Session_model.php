@@ -15,7 +15,7 @@ class Session_model extends CI_Model
         //delete query prep and having pipeline to specify which to delete
         $query = $this->db
             ->where("session_ID", $session_ID)
-            ->delete('session');
+            ->delete('kk_session');
 
         //return query to execute
         return $query;
@@ -44,4 +44,10 @@ class Session_model extends CI_Model
 
         return $query;
     }
-}
+
+    public function update_session_status($session_ID, $status)
+    {
+        $this->db->where('SESSION_ID', $session_ID);
+        $this->db->set('SESSION_STATUS', $status);
+        $this->db->update('kk_session');
+    }}
