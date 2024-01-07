@@ -442,31 +442,29 @@
             <!-- system -->
             <div class="form-group">
               <label>Jenis Permohonan</label>
-              <div style='display:inline;'>
-                <div class="radio">
-                  <label>
-                    <input type="radio" style="margin-top: auto;" name="optionsRadios" id="optionsRadios1" value="option1">
-                    Permohonan Biasa
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                    Permohonan Rayuan
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio"  name="optionsRadios" id="optionsRadios3" value="option3">
-                    Status Permohonan
-                  </label>
-                </div>
-                <div class="radio">
-                  <label>
-                    <input type="radio"  name="optionsRadios" id="optionsRadios4" value="option4">
-                    Pengesahan Terimaan
-                  </label>
-                </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1">
+                  Permohonan Biasa
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                  Permohonan Rayuan
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">
+                  Status Permohonan
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="optionsRadios" id="optionsRadios4" value="option4">
+                  Pengesahan Terimaan
+                </label>
               </div>
             </div>
 
