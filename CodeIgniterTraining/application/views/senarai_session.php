@@ -12,7 +12,7 @@
                         <tr>
                             <th>SESSION_ID</th>
                             <th>Semester</th>
-                            <th>Permohonan</th>
+                            <th>Jenis Permohonan</th>
                             <th>Tarikh Mula</th>
                             <th>Tarikh Tamat</th>
                             <th>Status</th>
