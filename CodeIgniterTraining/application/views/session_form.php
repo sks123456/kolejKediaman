@@ -22,7 +22,7 @@
                 <?php if ($update && $session->num_rows() > 0) : ?>
                     <?php $row = $session->row(); ?>
                     <!-- Hidden field for session_id -->
-                    <input type="hidden" name="session_id"value="<?= $row->SESSION_ID ?>">
+                    <input type="hidden" name="session_id" value="<?= $row->SESSION_ID ?>">
                 <?php endif; ?>
 
                 <label>Jenis Permohonan</label>
@@ -31,22 +31,22 @@
                         <?php $row = $session->row(); ?>
                         <div class="col-md-3">
                             <label class="radio-inline">
-                                <input type="radio" name="application_type" value="Permohonan Biasa" <?= ($row->APPLICATION_TYPE == 'Permohonan Biasa') ? 'checked' : '' ?> required readonly> Permohonan Biasa
+                                <input type="radio" name="application_type" value="Permohonan Biasa" <?= ($row->APPLICATION_TYPE == 'Permohonan Biasa') ? 'checked' : 'disabled' ?> required> Permohonan Biasa
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="radio-inline">
-                                <input type="radio" name="application_type" value="Permohonan Rayuan" <?= ($row->APPLICATION_TYPE == 'Permohonan Rayuan') ? 'checked' : '' ?> required readonly> Permohonan Rayuan
+                                <input type="radio" name="application_type" value="Permohonan Rayuan" <?= ($row->APPLICATION_TYPE == 'Permohonan Rayuan') ? 'checked' : 'disabled' ?> required> Permohonan Rayuan
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="radio-inline">
-                                <input type="radio" name="application_type" value="Status Permohonan" <?= ($row->APPLICATION_TYPE == 'Status Permohonan') ? 'checked' : '' ?> required readonly> Status Permohonan
+                                <input type="radio" name="application_type" value="Status Permohonan" <?= ($row->APPLICATION_TYPE == 'Status Permohonan') ? 'checked' : 'disabled' ?> required> Status Permohonan
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="radio-inline">
-                                <input type="radio" name="application_type" value="Pengesahan Terimaan" <?= ($row->APPLICATION_TYPE == 'Pengesahan Terimaan') ? 'checked' : '' ?> required readonly> Pengesahan Terimaan
+                                <input type="radio" name="application_type" value="Pengesahan Terimaan" <?= ($row->APPLICATION_TYPE == 'Pengesahan Terimaan') ? 'checked' : 'disabled' ?> required> Pengesahan Terimaan
                             </label>
                         </div>
                     <?php else : ?>
@@ -54,12 +54,18 @@
                             <label class="radio-inline">
                                 <input type="radio" name="application_type" value="Permohonan Biasa" required> Permohonan Biasa
                             </label>
+                        </div>
+                        <div class="col-md-3">
                             <label class="radio-inline">
                                 <input type="radio" name="application_type" value="Permohonan Biasa" required> Permohonan Rayuan
                             </label>
+                        </div>
+                        <div class="col-md-3">
                             <label class="radio-inline">
                                 <input type="radio" name="application_type" value="Permohonan Biasa" required> Status Permohonan
                             </label>
+                        </div>
+                        <div class="col-md-3">
                             <label class="radio-inline">
                                 <input type="radio" name="application_type" value="Permohonan Biasa" required> Pengesahan Terimaan
                             </label>
