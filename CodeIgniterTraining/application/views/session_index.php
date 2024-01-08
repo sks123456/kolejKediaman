@@ -51,7 +51,7 @@
       <!-- Logo -->
       <a href="index2.html" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
+        <span class="logo-mini"><b>U</b>MT</span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>UMT</b>Hostel</span>
       </a>
@@ -144,49 +144,7 @@
                 <li class="footer"><a href="#">See All Messages</a></li>
               </ul>
             </li>
-            <!-- Notifications: style can be found in dropdown.less -->
-            <li class="dropdown notifications-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-bell-o"></i>
-                <span class="label label-warning">10</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">You have 10 notifications</li>
-                <li>
-                  <!-- inner menu: contains the actual data -->
-                  <ul class="menu">
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                        page and may cause design problems
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-users text-red"></i> 5 new members joined
-                      </a>
-                    </li>
-
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-user text-red"></i> You changed your username
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="footer"><a href="#">View all</a></li>
-              </ul>
-            </li>
+            
             <!-- Tasks: style can be found in dropdown.less -->
             <li class="dropdown tasks-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -313,107 +271,11 @@
     </header>
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
-      <!-- sidebar: style can be found in sidebar.less -->
-      <section class="sidebar">
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
-            <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-              </button>
-            </span>
-          </div>
-        </form>
-        <!-- /.search form -->
-        <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MAIN NAVIGATION</li>
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-users"></i> <span>Makluman Pelajar</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href=""><i class="fa fa-circle-o"></i> Enrolmen</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Carian Pelajar</a></li>
-            </ul>
-          </li>
-          <li class="active treeview">
-            <a href="#">
-              <i class="fa fa-laptop"></i>
-              <span>Setup Maklumat</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="Admin_openApp.html"><i class="fa fa-circle-o"></i> Buka Permohonan</a></li>
-              <li><a href="Admin_channelApp.html"><i class="fa fa-circle-o"></i> Saluran Permohonan</a></li>
-              <li><a href="Admin_channelUni.html"><i class="fa fa-circle-o"></i> Saluran Uniform</a></li>
-              <li><a href="Admin_mppReg.html"><i class="fa fa-circle-o"></i> Pendaftaran JPKK/MPP</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-book"></i>
-              <span>Bilik</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href="Admin_roomList.html"><i class="fa fa-circle-o"></i> Senarai Bilik Senior(KK)</a></li>
-              <li><a href="Admin_roomGenerate.html"><i class="fa fa-circle-o"></i> Jana Bilik</a></li>
-              <li><a href="Admin_roomReg.html"><i class="fa fa-circle-o"></i> Kemaskini Bilik</a></li>
-              <li><a href="Admin_blokUpdate.html"><i class="fa fa-circle-o"></i> Kemaskini Blok</a></li>
-              <li><a href="Admin_roomAllocate.html"><i class="fa fa-circle-o"></i> Jana Penempatan Bilik</a></li>
-              <li><a href="Admin_roomErr.html"><i class="fa fa-circle-o"></i> Ralat Kapasiti Bilik</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-edit"></i> <span>Permohonan</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href=""><i class="fa fa-circle-o"></i> Pendaftaran Permohonan</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Kemaskini Status Kelulusan</a></li>
-            </ul>
-          </li>
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-pie-chart"></i>
-              <span>Laporan</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li><a href=""><i class="fa fa-circle-o"></i> Senarai Keseluruhan</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Senarai Permohonan</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Senarai Permohonan Rayuan</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Senarai Mengikut Status Kelulusan</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Senarai Penempatan Bilik</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Senarai Tiada Penempatan</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Senarai Bilik</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Statistik Saluran/Jantina</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Statistik Status/Saluran/Jantina</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Statistik Status Pengesahan</a></li>
-              <li><a href=""><i class="fa fa-circle-o"></i> Statistik Bilik Kosong</a></li>
-            </ul>
-          </li>
-        </ul>
-      </section>
-      <!-- /.sidebar -->
+    <?php $this->load->view('sidebar'); ?>
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+    <div class="content-wrapper" style="min-height:max-content;">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <h1>
@@ -428,104 +290,12 @@
 
       <!-- Main content -->
       <section class="content">
-        <!-- buka permohonan form -->
-        <div class="box box-info">
-          <div class="box-header with-border">
-            <h3 class="box-title">Pendaftaran Buka Permohonan</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <form role="form" action="<?php echo base_url() ?>CodeIgniterTraining/index.php/crudsession/save" method="post" onsubmit=>
-              <!-- system -->
-              <div>
-                <label style="margin-right: 10px;">Jenis Permohonan</label>
-                <div style="display: flex; flex-direction: row;">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="application_type" id="optionsRadios1" value="Permohonan Biasa">
-                      Permohonan Biasa
-                    </label>
-                  </div>
-                  <div class="radio" style="margin: 10px;">
-                    <label>
-                      <input type="radio" name="application_type" id="optionsRadios2" value="Permohonan Rayuan">
-                      Permohonan Rayuan
-                    </label>
-                  </div>
-                  <div class="radio" style="margin: 10px;">
-                    <label>
-                      <input type="radio" name="application_type" id="optionsRadios3" value="Status Permohonan">
-                      Status Permohonan
-                    </label>
-                  </div>
-                  <div class="radio" style="margin: 10px;">
-                    <label>
-                      <input type="radio" name="application_type" id="optionsRadios4" value="Pengesahan Terimaan">
-                      Pengesahan Terimaan
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-
-              <!-- semester -->
-              <div class="form-group">
-                <label>Semester</label>
-                <select class="form-control" style="width:max-content;" name="session_name">
-                  <option>-- Sila Pilih --</option>
-                  <option>SEMESTER I SESI 2023/2024 (SARJANA MUDA)</option>
-                  <option>SEMESTER I SESI 2023/2024 (DIPLOMA)</option>
-                  <option>SEMESTER II SESI 2023/2024 (SARJANA MUDA)</option>
-                  <option>SEMESTER II SESI 2023/2024 (DIPLOMA)</option>
-                </select>
-              </div>
-
-              <!-- date -->
-              <div class="row" style="display:flex; flex-direction:row; margin-left:auto">
-                <div class="form-group" style="margin-right: 7%;">
-                  <label>Tarikh Mula</label>
-                  <div class="input-group date">
-                    <input type="date" class="form-control pull-right" name="start_date" id="start_date" onchange="return validateForm()">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label>Tarikh Tamat</label>
-                  <div class="input-group date">
-                    <input type="date" class="form-control pull-right" name="end_date" id="end_date" onchange="return validateForm()">
-                  </div>
-                </div>
-              </div>
-              <div class="box-footer">
-                <button type="submit" class="btn btn-primary pull-right">Simpan</button>
-              </div>
-            </form>
-
-            <script>
-              function validateForm() {
-                var startDate = new Date(document.getElementById("start_date").value);
-                var endDate = new Date(document.getElementById("end_date").value);
-
-                if (startDate > endDate) {
-                  alert("Tarikh Tamat harus selepas Tarikh Mula. Sila pilih tarikh yang betul.");
-                  document.getElementById("start_date").value = null;
-                  document.getElementById("end_date").value = null;
-                }
-
-                return true; // Allow form submission
-              }
-            </script>
-            </form>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-
+      <?php $this->load->view('session_form');?>
         <!-- Include the Senarai Session view here -->
                 <?php $this->load->view('senarai_session', ['list' => $list]); ?>
 
                 <?php $this->load->view('footer');?>
         
-
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
           <!-- Create the tabs -->
