@@ -7,7 +7,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="senarai_session" class="table table-bordered table-hover">
                     <thead>
                         <tr>
                             <th>Bil</th>
@@ -15,6 +15,7 @@
                             <th>Permohonan</th>
                             <th>Tarikh Mula</th>
                             <th>Tarikh Tamat</th>
+                            <th>Status</th>
                             <th>Tindakan</th>
                         </tr>
                     </thead>
@@ -28,8 +29,18 @@
                                 <td><?= $row->START_DATE ?></td>
                                 <td><?= $row->END_DATE ?></td>
                                 <td><?= $row->SESSION_STATUS ?></td>
-                                <td><a class="delete-link" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/delete/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">DELETE</a></td>
-                                <td><a class="delete-link" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/update/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">UPDATE</a></td>
+
+                                <?php
+                                // Check if START_DATE or END_DATE is '0000-00-00'
+                                $showDeleteButton = ($row->START_DATE == '0000-00-00' || $row->END_DATE == '0000-00-00');
+                                ?>
+
+                                <td>
+                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/update/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">UPDATE</a>
+                                    <?php if ($showDeleteButton) : ?>
+                                        <a class="btn btn-primary pull-right" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/delete/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">DELETE</a>
+                                        <?php endif; ?>
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
