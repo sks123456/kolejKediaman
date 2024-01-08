@@ -507,6 +507,7 @@
 
                 if (startDate > endDate) {
                   alert("Tarikh Tamat harus selepas Tarikh Mula. Sila pilih tarikh yang betul.");
+                  document.getElementById("start_date").value = null;
                   document.getElementById("end_date").value = null;
                 }
 
@@ -522,13 +523,8 @@
         <!-- Include the Senarai Session view here -->
                 <?php $this->load->view('senarai_session', ['list' => $list]); ?>
 
-        <footer class="main-footer">
-          <div class="pull-right hidden-xs">
-            <b>Version</b> 2.4.18
-          </div>
-          <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-          reserved.
-        </footer>
+                <?php $this->load->view('footer');?>
+        
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -782,42 +778,7 @@
         $('#datemask2').inputmask('mm/dd/yyyy', {
           'placeholder': 'mm/dd/yyyy'
         })
-        //Money Euro
-        $('[data-mask]').inputmask()
-
-        //Date range picker
-        $('#reservation').daterangepicker()
-        //Date range picker with time picker
-        $('#reservationtime').daterangepicker({
-          timePicker: true,
-          timePickerIncrement: 30,
-          locale: {
-            format: 'MM/DD/YYYY hh:mm A'
-          }
-        })
-        //Date range as a button
-        $('#daterange-btn').daterangepicker({
-            ranges: {
-              'Today': [moment(), moment()],
-              'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-              'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-              'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-              'This Month': [moment().startOf('month'), moment().endOf('month')],
-              'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-            },
-            startDate: moment().subtract(29, 'days'),
-            endDate: moment()
-          },
-          function(start, end) {
-            $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-          }
-        )
-
-        //Date picker
-        $('#datepicker').datepicker({
-          autoclose: true
-        })
-
+        
         //iCheck for checkbox and radio inputs
         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
           checkboxClass: 'icheckbox_minimal-blue',

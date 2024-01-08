@@ -28,9 +28,6 @@ class CrudSession extends CI_Controller {
             }
         }
 
-        // Displaying output
-        echo 'no of rows: ' . $list->num_rows();
-
         // Injecting list data into an array
         $data = [
             "list" => $list
