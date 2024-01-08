@@ -54,6 +54,15 @@
                             <label class="radio-inline">
                                 <input type="radio" name="application_type" value="Permohonan Biasa" required> Permohonan Biasa
                             </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="application_type" value="Permohonan Biasa" required> Permohonan Rayuan
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="application_type" value="Permohonan Biasa" required> Status Permohonan
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="application_type" value="Permohonan Biasa" required> Pengesahan Terimaan
+                            </label>
                         </div>
                         <!-- Add similar blocks for other radio options -->
                     <?php endif; ?>
