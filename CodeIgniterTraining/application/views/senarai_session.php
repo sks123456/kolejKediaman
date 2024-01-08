@@ -10,7 +10,7 @@
                 <table id="senarai_session" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Bil</th>
+                            <th>SESSION_ID</th>
                             <th>Semester</th>
                             <th>Permohonan</th>
                             <th>Tarikh Mula</th>

@@ -22,7 +22,7 @@
                 <?php if ($update && $session->num_rows() > 0) : ?>
                     <?php $row = $session->row(); ?>
                     <!-- Hidden field for session_id -->
-                    <input type="text" name="session_id"value="<?= $row->SESSION_ID ?>">
+                    <input type="hidden" name="session_id"value="<?= $row->SESSION_ID ?>">
                 <?php endif; ?>
 
                 <label>Jenis Permohonan</label>
