@@ -10,6 +10,7 @@
         <li class="active"><?= isset($update) && $update ? 'Update Permohonan' : 'Pembukaan Permohonan Baru' ?></li>
     </ol>
 </section>
+<section class="content">
 <div class="box box-info">
     <div class="box-header with-border">
         <h3 class="box-title"><?= isset($update) && $update ? 'Update Permohonan' : 'Pembukaan Permohonan Baru' ?></h3>
