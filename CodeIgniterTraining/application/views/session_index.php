@@ -144,7 +144,7 @@
                 <li class="footer"><a href="#">See All Messages</a></li>
               </ul>
             </li>
-            
+
             <!-- Tasks: style can be found in dropdown.less -->
             <li class="dropdown tasks-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -271,31 +271,25 @@
     </header>
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
-    <?php $this->load->view('sidebar'); ?>
+      <?php $this->load->view('sidebar'); ?>
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="min-height:max-content;">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          Buka Permohonan
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li><a href="#">Setup Permohonan</a></li>
-          <li class="active">Buka Permohonan</li>
-        </ol>
-      </section>
+      
 
       <!-- Main content -->
       <section class="content">
-      <?php $this->load->view('session_form');?>
+        <?php
+          // Load the session_form view
+          $this->load->view('session_form');
+        ?>
         <!-- Include the Senarai Session view here -->
-                <?php $this->load->view('senarai_session', ['list' => $list]); ?>
+        <?php $this->load->view('senarai_session', ['list' => $list]); ?>
 
-                <?php $this->load->view('footer');?>
-        
+        <!-- Footer -->
+        <?php $this->load->view('footer'); ?>
+
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
           <!-- Create the tabs -->
@@ -548,7 +542,7 @@
         $('#datemask2').inputmask('mm/dd/yyyy', {
           'placeholder': 'mm/dd/yyyy'
         })
-        
+
         //iCheck for checkbox and radio inputs
         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
           checkboxClass: 'icheckbox_minimal-blue',

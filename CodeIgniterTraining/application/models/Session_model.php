@@ -50,4 +50,26 @@ class Session_model extends CI_Model
         $this->db->where('SESSION_ID', $session_ID);
         $this->db->set('SESSION_STATUS', $status);
         $this->db->update('kk_session');
-    }}
+    }
+
+    public function update_session()
+    {
+        $session_id = $this->input->post("session_id");
+
+        $this->db->set("SESSION_NAME", $this->input->post("session_name"));
+        $this->db->set("APPLICATION_TYPE", $this->input->post("application_type"));
+        $this->db->set("START_DATE", $this->input->post("start_date"));
+        $this->db->set("END_DATE", $this->input->post("end_date"));
+
+        // Check if the start date is after the current date
+        $current_date = date('Y-m-d'); // Use 'Y-m-d' for date format
+        $session_status = ($this->input->post("start_date") <= $current_date) ? 'Active' : 'Inactive';
+        $this->db->set("SESSION_STATUS", $session_status);
+
+        // Use where clause to specify the condition
+        $this->db->where('SESSION_ID', $session_id);
+
+        // Update the row in the 'kk_session' table
+        $this->db->update('kk_session');
+    }
+}
