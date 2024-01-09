@@ -26,6 +26,7 @@ class Channel_model extends CI_Model
 
         $this->db->set("CHANNEL_NAME", $this->input->post("channel_name"));
         $this->db->set("CHANNEL_STATUS", $this->input->post("channel_status"));
+        $this->db->insert('kk_channel');
 
     }
 
@@ -38,9 +39,10 @@ class Channel_model extends CI_Model
         return $query;
     }
 
-    public function update_channel_status($channel_ID, $status)
+    public function update_channel_status()
     {
-        $this->db->where('CHANNEL_ID', $channel_ID);
-        $this->db->set('CHANNEL_STATUS', $status);
+        $this->db->where('CHANNEL_ID', $this->input->post("channel_id"));
+        $this->db->set('CHANNEL_STATUS', $this->input->post("channel_status"));
         $this->db->update('kk_channel');
-    }}
+    }
+}

@@ -39,7 +39,7 @@ class CrudChannel extends CI_Controller
         $this->load->model("channel_model");
 
         //delete operations
-        $this->session_model->delete_channel_id($channel_id);
+        $this->channel_model->delete_channel_id($channel_id);
 
         redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
     }
@@ -63,7 +63,7 @@ class CrudChannel extends CI_Controller
     public function update()
     {
         $this->load->model("channel_model");
-        $this->channel_model->update_channel();
+        $this->channel_model->update_channel_status();
     
         redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
 
