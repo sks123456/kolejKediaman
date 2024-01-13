@@ -58,17 +58,17 @@
                         </div>
                         <div class="col-md-3">
                             <label class="radio-inline">
-                                <input type="radio" name="application_type" value="Permohonan Biasa" required> Permohonan Rayuan
+                                <input type="radio" name="application_type" value="Permohonan Rayuan" required> Permohonan Rayuan
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="radio-inline">
-                                <input type="radio" name="application_type" value="Permohonan Biasa" required> Status Permohonan
+                                <input type="radio" name="application_type" value="Status Permohonan" required> Status Permohonan
                             </label>
                         </div>
                         <div class="col-md-3">
                             <label class="radio-inline">
-                                <input type="radio" name="application_type" value="Permohonan Biasa" required> Pengesahan Terimaan
+                                <input type="radio" name="application_type" value="Pengesahan Terimaan" required> Pengesahan Terimaan
                             </label>
                         </div>
                         <!-- Add similar blocks for other radio options -->
