@@ -55,3 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['login'] = 'login/login_student';
 $route['admin'] = 'session';
 $route['session'] = 'crudsession/index';
+// Add this line to your routes.php file
+$route['crudsession/download/(:any)'] = 'crudsession/download/$1';
