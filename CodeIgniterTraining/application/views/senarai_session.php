@@ -21,7 +21,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($list->result() as $row) : ?>
+                                                <?php foreach ($list->result() as $row) : ?>
                             <?php
                             // Check if START_DATE or END_DATE is '0000-00-00'
                             $showDeleteButton = ($row->START_DATE == '0000-00-00' || $row->END_DATE == '0000-00-00');

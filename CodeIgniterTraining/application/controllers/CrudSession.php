@@ -6,13 +6,13 @@ class CrudSession extends CI_Controller
     public function index()
     {
         $this->load->helper('url');
-
+            
         // Pulling data into model
         $this->load->model("session_model");
-
+    
         // Converting the model data into a list
         $list = $this->session_model->get_all_session();
-
+    
         // Check if the current date is between start date and end date
         foreach ($list->result() as $row) {
             $currentDate = date('Y-m-d');

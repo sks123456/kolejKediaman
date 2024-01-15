@@ -21,15 +21,15 @@ class Session_model extends CI_Model
         return $query;
     }
 
-    public function save_session($file_content,$file_name)
+    public function save_session($file_content, $file_name)
     {
 
         $this->db->set("SESSION_NAME", $this->input->post("session_name"));
         $this->db->set("APPLICATION_TYPE", $this->input->post("application_type"));
         $this->db->set("START_DATE", $this->input->post("start_date"));
         $this->db->set("END_DATE", $this->input->post("end_date"));
-        $this ->db->set("DOCUMENT",$file_content);
-        $this ->db->set("DOCUMENT_NAME",$file_name);
+        $this->db->set("DOCUMENT", $file_content);
+        $this->db->set("DOCUMENT_NAME", $file_name);
 
         // Check if the start date is after the current date
         $current_date = date('dd-mm-yyyy');
