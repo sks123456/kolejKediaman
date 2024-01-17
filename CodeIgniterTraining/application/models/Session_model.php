@@ -54,7 +54,7 @@ class Session_model extends CI_Model
         $this->db->update('kk_session');
     }
 
-    public function update_session()
+    public function update_session($file_content, $file_name)
     {
         $session_id = $this->input->post("session_id");
 
@@ -62,6 +62,9 @@ class Session_model extends CI_Model
         $this->db->set("APPLICATION_TYPE", $this->input->post("application_type"));
         $this->db->set("START_DATE", $this->input->post("start_date"));
         $this->db->set("END_DATE", $this->input->post("end_date"));
+        $this->db->set("DOCUMENT", $file_content);
+        $this->db->set("DOCUMENT_NAME", $file_name);
+
 
         // Check if the start date is after the current date
         $current_date = date('Y-m-d'); // Use 'Y-m-d' for date format

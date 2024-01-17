@@ -17,7 +17,7 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-        <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/crudsession/<?= isset($update) && $update ? 'update' : 'save' ?>" method="post" enctype="multipart/form-data">
+            <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/crudsession/<?= isset($update) && $update ? 'update' : 'save' ?>" method="post" enctype="multipart/form-data">
                 <!-- System -->
                 <div class="form-group">
                     <?php if ($update && $session->num_rows() > 0) : ?>
@@ -126,7 +126,33 @@
                 <!-- File Upload -->
                 <div class="form-group">
                     <label for="pdf_document">Upload PDF Document</label>
-                    <input type="file" name="pdf_document" id="pdf_document" accept=".pdf">
+
+                    <?php if ($update && $session->num_rows() > 0) : ?>
+                        <?php $row = $session->row(); ?>
+
+                        <!-- Display existing document and provide option to replace -->
+                        <div>
+                            <label>Current Document:</label>
+                            <?php if (!empty($row->DOCUMENT)) : ?>
+                                <div>
+                                    <a href="<?= base_url('CodeIgniterTraining/index.php/crudsession/download/' . $row->SESSION_ID) ?>" target="_blank">
+                                        <?php echo $row->DOCUMENT_NAME;?>
+                                    </a>
+                                </div>
+                            <?php else : ?>
+                                <div>No document uploaded.</div>
+                            <?php endif; ?>
+
+                            <!-- Option to replace the existing document -->
+                            <label for="replace_document">Replace with New Document:</label>
+                            <input type="file" name="pdf_document" id="pdf_document" accept=".pdf">
+                        </div>
+
+                    <?php else : ?>
+                        <!-- Create new record - standard file upload input -->
+                        <input type="file" name="pdf_document" id="pdf_document" accept=".pdf">
+
+                    <?php endif; ?>
                 </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary  col-md-6 pull-right" style="width:max-content;">
