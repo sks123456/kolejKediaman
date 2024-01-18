@@ -171,25 +171,37 @@ class CrudSession extends CI_Controller
     }
 
     public function download($session_id)
-    {
-        // Load necessary libraries and models
-        $this->load->helper('url');
-        $this->load->model("session_model");
+{
+    // Load necessary libraries and models
+    $this->load->helper('url');
+    $this->load->model("session_model");
 
-        // Fetch blob data for the selected session
-        $blobData = $this->session_model->get_blob_data($session_id); // Replace with your actual model method
+    // Fetch data for the selected session
+    $query = $this->session_model->get_session($session_id);
 
-        if ($blobData) {
+    if ($query->num_rows() > 0) {
+        $sessionData = $query->row();
+
+        // Check if the required fields are set
+        if (isset($sessionData->DOCUMENT_NAME, $sessionData->DOCUMENT)) {
             // Set the headers for PDF download
             header('Content-Type: application/pdf');
-            header('Content-Disposition: attachment; filename="downloaded_file.pdf"');
+            header('Content-Disposition: attachment; filename="' . $sessionData->DOCUMENT_NAME . '.pdf"');
 
             // Output the blob data
-            echo base64_decode($blobData); // Assuming your blob data is stored as base64 in the database
+            echo base64_decode($sessionData->DOCUMENT); // Assuming your blob data is stored as base64 in the database
             exit;
         } else {
-            // Handle the case where blob data is not available (e.g., show an error message)
+            // Handle the case where data is not available or blob data is not found
+            http_response_code(404);
             echo "File not found";
         }
+    } else {
+        // Handle the case where the session with the given ID is not found
+        http_response_code(404);
+        echo "Session not found";
     }
+}
+
+    
 }
