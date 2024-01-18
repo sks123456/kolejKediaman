@@ -49,11 +49,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'crudsession/index';
+$route['default_controller'] = 'session/main';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
-$route['login'] = 'login/login_student';
-$route['admin'] = 'session';
-$route['session'] = 'crudsession/index';
+// $route['translate_uri_dashes'] = FALSE;
+// $route['admin'] = 'session';
+ $route['session'] = 'crudsession/index';
+ $route['channel'] = 'crudchannel/index';
 // Add this line to your routes.php file
 $route['crudsession/download/(:any)'] = 'crudsession/download/$1';

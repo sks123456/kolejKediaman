@@ -5,7 +5,7 @@
         Saluran Permohonan
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Setup Permohonan</a></li>
         <li class="active"><?= isset($update) && $update ? 'Update Saluran' : 'Pembukaan Saluran Baru' ?></li>
     </ol>

@@ -4,7 +4,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
-          <li class="treeview">
+          <li class="treeview" name="pelajar">
             <a href="#">
               <i class="fa fa-users"></i> <span>Makluman Pelajar</span>
               <span class="pull-right-container">
@@ -16,7 +16,7 @@
               <li><a href=""> Carian Pelajar</a></li>
             </ul>
           </li>
-          <li class="active treeview">
+          <li class="active treeview" name="setup">
             <a href="#">
               <i class="fa fa-laptop"></i>
               <span>Setup Maklumat</span>
@@ -25,13 +25,13 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/crudsession/index'));?>"> Buka Permohonan</a></li>
-              <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/crudchannel/index'));?>"> Saluran Permohonan</a></li>
+              <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/session'));?>"> Buka Permohonan</a></li>
+              <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/channel'));?>"> Saluran Permohonan</a></li>
               <li><a href="Admin_channelUni.html"> Saluran Uniform</a></li>
               <li><a href="Admin_mppReg.html"> Pendaftaran JPKK/MPP</a></li>
             </ul>
           </li>
-          <li class="treeview">
+          <li class="treeview" name="bilik">
             <a href="#">
               <i class="fa fa-book"></i>
               <span>Bilik</span>
@@ -48,7 +48,7 @@
               <li><a href="Admin_roomErr.html"> Ralat Kapasiti Bilik</a></li>
             </ul>
           </li>
-          <li class="treeview">
+          <li class="treeview" name="permohonan">
             <a href="#">
               <i class="fa fa-edit"></i> <span>Permohonan</span>
               <span class="pull-right-container">
@@ -60,7 +60,7 @@
               <li><a href=""> Kemaskini Status Kelulusan</a></li>
             </ul>
           </li>
-          <li class="treeview">
+          <li class="treeview" name="laporan">
             <a href="#">
               <i class="fa fa-pie-chart"></i>
               <span>Laporan</span>

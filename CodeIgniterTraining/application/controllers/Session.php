@@ -30,4 +30,7 @@ class Session extends CI_Controller {
 	{
         $this->load->view('login');
 	}
+	public function main(){
+		$this->load->view('home');
+	}
 }
