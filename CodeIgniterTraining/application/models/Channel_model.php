@@ -23,11 +23,28 @@ class Channel_model extends CI_Model
 
     public function save_channel()
     {
+        $this->load->model("channel_model");
+        $channelResult = $this->channel_model->get_all_channel();
 
-        $this->db->set("CHANNEL_NAME", $this->input->post("channel_name"));
-        $this->db->set("CHANNEL_STATUS", $this->input->post("channel_status"));
-        $this->db->insert('kk_channel');
+        // Assuming you have the input channel_name via POST
+        $inputChannelName = $this->input->post("channel_name");
 
+        // Convert query result to array
+        $channel = $channelResult->result_array();
+
+        $channelFound = false;
+
+        foreach ($channel as $channelDetail) {
+            // Assuming each $channel has a 'name' key
+            $channelName = $channelDetail['CHANNEL_NAME'];
+
+            if (strtoupper($inputChannelName) == $channelName) {
+                // Channel name found in the list
+                $channelFound = true;
+                break; // Exit the loop since we found a match
+            }
+        }
+        return $channelFound;
     }
 
     public function get_channel($channel_ID)

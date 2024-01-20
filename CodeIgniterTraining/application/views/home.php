@@ -154,7 +154,7 @@
                                 <ul class="list-unstyled">
                                     <li><a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/session" class="text-dark">Buka Permohonan</a></li>
                                     <li><a href="http://localhost/fyp_kk/CodeIgniterTraining/index.php/channel" class="text-dark">Saluran Permohonan</a></li>
-                                    <li><a href="#" class="text-dark">Saluran Uniform</a></li>
+                                    <li><a href="http://localhost/fyp_kk/CodeIgniterTraining/index.php/uniform" class="text-dark">Saluran Unit Uniform</a></li>
                                     <li><a href="#" class="text-dark">Pendaftaran JPKK/MPP</a></li>
                                 </ul>
                             </div>

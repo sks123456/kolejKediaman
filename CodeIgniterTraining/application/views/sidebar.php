@@ -27,7 +27,7 @@
             <ul class="treeview-menu">
               <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/session'));?>"> Buka Permohonan</a></li>
               <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/channel'));?>"> Saluran Permohonan</a></li>
-              <li><a href="Admin_channelUni.html"> Saluran Uniform</a></li>
+              <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/uniform'));?>"> Saluran Unit Uniform</a></li>
               <li><a href="Admin_mppReg.html"> Pendaftaran JPKK/MPP</a></li>
             </ul>
           </li>

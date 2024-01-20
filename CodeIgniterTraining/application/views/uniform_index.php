@@ -114,10 +114,10 @@
       <!-- Main content -->
       <?php
       // Load the session_form view
-      $this->load->view('channel_form');
+      $this->load->view('uniform_form');
       ?>
       <!-- Include the Senarai Channel view here -->
-      <?php $this->load->view('senarai_channel', ['list' => $list]); ?>
+      <?php $this->load->view('senarai_uniform', ['list' => $list]); ?>
       </section>
       <!-- Footer -->
       <?php $this->load->view('footer'); ?>
