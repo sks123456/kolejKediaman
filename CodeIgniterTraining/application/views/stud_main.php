@@ -69,12 +69,12 @@
     </style>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+<body class="hold-transition skin-purple sidebar-mini sidebar-collapse">
     <div class="wrapper">
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/" class="logo">
+            <a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/student" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>U</b>MT</span>
                 <!-- logo for regular state and mobile devices -->
@@ -140,7 +140,7 @@
                         <div class="card bg-dark">
                             <a href="<?php echo (base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan')); ?>">
                                 <div class="card-body">
-                                    <i class="fa fa-users"></i>
+                                    <i class="fa fa-book"></i>
                                     <h5 class="card-title">PERATURAN</h5>
                                 </div>
                             </a>
@@ -151,7 +151,7 @@
                     <div class="col-md-4">
                         <div class="card bg-dark">
                             <div class="card-body">
-                                <i class="fa fa-laptop"></i>
+                                <i class="fa fa-file"></i>
                                 <h5 class="card-title">PERMOHONAN</h5>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                     <div class="col-md-4">
                         <div class="card bg-dark">
                             <div class="card-body">
-                                <i class="fa fa-book"></i>
+                                <i class="fa fa-print"></i>
                                 <h5 class="card-title">CETAK</h5>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
                     <div class="col-md-4">
                         <div class="card bg-dark">
                             <div class="card-body">
-                                <i class="fa fa-edit"></i>
+                                <i class="fa fa-spinner"></i>
                                 <h5 class="card-title">STATUS PERMOHONAN</h5>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
                     <div class="col-md-4">
                         <div class="card bg-dark">
                             <div class="card-body">
-                                <i class="fa fa-pie-chart"></i>
+                                <i class="fa fa-check-circle"></i>
                                 <h5 class="card-title">PENGESAHAN</h5>
                             </div>
                         </div>

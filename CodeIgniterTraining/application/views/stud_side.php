@@ -4,35 +4,35 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
-          <li class="" name="pelajar">
+          <li class="active" name="rules">
             <a href="<?php echo (base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan'));?>">
-              <i class="fa fa-users"></i> <span>PERATURAN</span>
+              <i class="fa fa-book"></i> <span>PERATURAN</span>
               <span class="pull-right-container">
               </span>
             </a>
           </li>
-          <li class="active " name="setup">
+          <li class="" name="application">
             <a href="#">
-              <i class="fa fa-laptop"></i>
+              <i class="fa fa-file"></i>
               <span>PERMOHONAN</span>
               <span class="pull-right-container">
               </span>
             </a>
           </li>
-          <li class="" name="bilik">
-              <a href="Admin_roomList.html"><i class="fa fa-book"></i>
+          <li class="" name="print">
+              <a href="#"><i class="fa fa-print"></i>
               <span>CETAK</span></a>
               <span class="pull-right-container">
               </span>
           </li>
-          <li class="" name="permohonan">
+          <li class="" name="status">
             <a href="#">
-              <i class="fa fa-edit"></i> <span>STATUS PERMOHONAN</span>
+              <i class="fa fa-spinner"></i> <span>STATUS PERMOHONAN</span>
             </a>
           </li>
-          <li class="" name="laporan">
+          <li class="" name="confirm">
             <a href="#">
-              <i class="fa fa-pie-chart"></i>
+              <i class="fa fa-check-circle"></i>
               <span>PENGESAHAN</span>
               </span>
             </a>

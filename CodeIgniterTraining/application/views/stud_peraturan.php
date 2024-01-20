@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hostel App | Room</title>
+    <title>Hostel App | Student</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -69,12 +69,12 @@
     </style>
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+<body class="hold-transition skin-purple sidebar-mini sidebar-collapse">
     <div class="wrapper">
 
         <header class="main-header">
             <!-- Logo -->
-            <a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/" class="logo">
+            <a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/student" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>U</b>MT</span>
                 <!-- logo for regular state and mobile devices -->
