@@ -26,7 +26,7 @@ class CrudChannel extends CI_Controller
     public function save()
     {
         $this->load->model("channel_model");
-        $channelFound = $this->channel_model->save_channel();
+        $channelFound = $this->channel_model->valid_channel();
         
         if ($channelFound) {
             // Display an error alert
@@ -35,10 +35,8 @@ class CrudChannel extends CI_Controller
             echo 'window.location.href = "' . base_url('CodeIgniterTraining/index.php/channel') . '";';
             echo '</script>';
         } else {
-            $this->db->set("CHANNEL_NAME", $this->input->post("channel_name"));
-            $this->db->set("CHANNEL_STATUS", $this->input->post("channel_status"));
-            $this->db->insert('kk_channel');
-            redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
+            $channelFound = $this->channel_model->save_channel();
+
         }
         
     }

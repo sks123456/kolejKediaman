@@ -21,7 +21,7 @@ class Channel_model extends CI_Model
         return $query;
     }
 
-    public function save_channel()
+    public function valid_channel()
     {
         $this->load->model("channel_model");
         $channelResult = $this->channel_model->get_all_channel();
@@ -45,6 +45,13 @@ class Channel_model extends CI_Model
             }
         }
         return $channelFound;
+    }
+    public function save_channel()
+    {
+        $this->db->set("CHANNEL_NAME", strtoupper($this->input->post("channel_name")));
+            $this->db->set("CHANNEL_STATUS", $this->input->post("channel_status"));
+            $this->db->insert('kk_channel');
+            redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
     }
 
     public function get_channel($channel_ID)

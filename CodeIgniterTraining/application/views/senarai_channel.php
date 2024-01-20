@@ -10,7 +10,6 @@
                 <table id="senarai_session" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Bil</th>
                             <th>Saluran</th>
                             <th>Status</th>
                             <th>Tindakan</th>
@@ -20,7 +19,6 @@
                         <?php foreach ($list->result() as $row) : ?>
                             <tr>
                                 <!-- placing data into the table -->
-                                <td><?= $row->CHANNEL_ID ?></td>
                                 <td><?= $row->CHANNEL_NAME ?></td>
                                 <td><?= $row->CHANNEL_STATUS ?></td>
                                 <td>
