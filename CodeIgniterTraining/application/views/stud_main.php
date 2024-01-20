@@ -43,23 +43,28 @@
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-     <!-- Additional Styles -->
-     <style>
+    <!-- Additional Styles -->
+    <style>
         .card {
-            border: 1px solid #ddd; /* Add border to the card */
-            margin-bottom: 20px; /* Adjust spacing between cards */
+            border: 1px solid #ddd;
+            /* Add border to the card */
+            margin-bottom: 20px;
+            /* Adjust spacing between cards */
         }
 
         .card-body {
-            padding: 15px; /* Add padding to the card body */
+            padding: 15px;
+            /* Add padding to the card body */
         }
 
         .card-title {
-            margin-bottom: 15px; /* Adjust spacing between card title and list */
+            margin-bottom: 15px;
+            /* Adjust spacing between card title and list */
         }
 
         .list-unstyled {
-            margin-left: 20px; /* Adjust spacing for the list */
+            margin-left: 20px;
+            /* Adjust spacing for the list */
         }
     </style>
 </head>
@@ -133,10 +138,12 @@
                     <!-- Makluman Pelajar -->
                     <div class="col-md-4">
                         <div class="card bg-dark">
-                            <div class="card-body">
-                                <i class="fa fa-users"></i>
-                                <h5 class="card-title">PERATURAN</h5>
-                            </div>
+                            <a href="<?php echo (base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan')); ?>">
+                                <div class="card-body">
+                                    <i class="fa fa-users"></i>
+                                    <h5 class="card-title">PERATURAN</h5>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
