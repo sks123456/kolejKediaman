@@ -80,7 +80,7 @@ class CrudSession extends CI_Controller
     {
         $config['upload_path']   = FCPATH . 'uploads/'; // use server path
         $config['allowed_types'] = 'pdf';
-        $config['max_size']      = 5048; // 100 MB
+        $config['max_size']      = 5048; // 5 MB
 
         $this->load->library('upload', $config);
 

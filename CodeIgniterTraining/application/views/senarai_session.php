@@ -10,7 +10,6 @@
                 <table id="senarai_session" class="table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>SESSION_ID</th>
                             <th>Semester</th>
                             <th>Jenis Permohonan</th>
                             <th>Tarikh Mula</th>
@@ -31,7 +30,6 @@
                             ?>
                             <tr>
                                 <!-- placing data into the table -->
-                                <td><?= $row->SESSION_ID ?></td>
                                 <td><?= $row->SESSION_NAME ?></td>
                                 <td><?= $row->APPLICATION_TYPE ?></td>
                                 <td><?= $startDate ?></td>
