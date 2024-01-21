@@ -132,9 +132,10 @@
         </aside>
         <!-- Buka Permohonan Form -->
         <!-- Content Header (Page header) -->
+        <div class="content-wrapper" style="min-height:902.55px;">
             <section class="content-header">
                 <h1>
-                    PERMOHONAN
+                    PERATURAN
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="http://localhost/fyp_kk/CodeIgniterTraining/index.php/studcrud/index#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -153,8 +154,8 @@
             <?php $this->load->view('footer'); ?>
             <div class="control-sidebar-bg"></div>
             <?php $this->load->view('control_sidebar'); ?>
+        </div>
     </div>
-
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
