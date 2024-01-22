@@ -22,8 +22,8 @@
                                 <td><?= $row->UNIFORM_NAME ?></td>
                                 <td><?= $row->UNIFORM_STATUS ?></td>
                                 <td>
-                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/cruduniform/updateUniform/' . $row->UNIFORM_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">UPDATE</a>
-                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/cruduniform/delete/' . $row->UNIFORM_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">DELETE</a>   
+                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/cruduniform/updateUniform/' . $row->UNIFORM_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">KEMASKINI</a>
+                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/cruduniform/delete/' . $row->UNIFORM_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">PADAM</a>   
                                 </td>
                             </tr>
                         <?php endforeach; ?>

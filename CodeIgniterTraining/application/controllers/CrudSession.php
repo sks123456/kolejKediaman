@@ -157,12 +157,12 @@ class CrudSession extends CI_Controller
         foreach ($list->result() as $row) {
             $currentDate = date('Y-m-d');
             if ($currentDate >= $row->START_DATE && $currentDate <= $row->END_DATE) {
-                $row->SESSION_STATUS = 'Active';
+                $row->SESSION_STATUS = 'Aktif';
 
                 // Update SESSION_STATUS in the database
                 $this->session_model->update_session_status($row->SESSION_ID, 'Active');
             } else {
-                $row->SESSION_STATUS = 'Inactive';
+                $row->SESSION_STATUS = 'Tidak Aktif';
 
                 // Update SESSION_STATUS in the database
                 $this->session_model->update_session_status($row->SESSION_ID, 'Inactive');
@@ -194,12 +194,12 @@ class CrudSession extends CI_Controller
         } else {
             // Handle the case where data is not available or blob data is not found
             http_response_code(404);
-            echo "File not found";
+            echo "Fail tidak dijumpai";
         }
     } else {
         // Handle the case where the session with the given ID is not found
         http_response_code(404);
-        echo "Session not found";
+        echo "Sesi tidak dijumpai";
     }
 }
 

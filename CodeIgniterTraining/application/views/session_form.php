@@ -125,14 +125,14 @@
                 </div>
                 <!-- File Upload -->
                 <div class="form-group">
-                    <label for="pdf_document">Upload PDF Document</label>
+                    <label for="pdf_document">Muat Naik Dokumen PDF</label>
 
                     <?php if ($update && $session->num_rows() > 0) : ?>
                         <?php $row = $session->row(); ?>
 
                         <!-- Display existing document and provide option to replace -->
                         <div>
-                            <label>Current Document:</label>
+                            <label>Dokumen Semasa:</label>
                             <?php if (!empty($row->DOCUMENT)) : ?>
                                 <div>
                                     <a href="<?= base_url('CodeIgniterTraining/index.php/crudsession/download/' . $row->SESSION_ID) ?>" target="_blank">
@@ -140,11 +140,11 @@
                                     </a>
                                 </div>
                             <?php else : ?>
-                                <div>No document uploaded.</div>
+                                <div>Tiada Dokumen Dimuat Naik.</div>
                             <?php endif; ?>
 
                             <!-- Option to replace the existing document -->
-                            <label for="replace_document">Replace with New Document:</label>
+                            <label for="replace_document">Gantikan dengan Dokumen Baharu:</label>
                             <input type="file" name="pdf_document" id="pdf_document" accept=".pdf">
                         </div>
 

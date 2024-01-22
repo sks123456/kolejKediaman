@@ -31,7 +31,7 @@ class CrudChannel extends CI_Controller
         if ($channelFound) {
             // Display an error alert
             echo '<script>';
-            echo 'alert("Channel already exists!");';
+            echo 'alert("Saluran sudah wujud!");';
             echo 'window.location.href = "' . base_url('CodeIgniterTraining/index.php/channel') . '";';
             echo '</script>';
         } else {

@@ -40,14 +40,14 @@
                                     <?php if ($row->DOCUMENT) : ?>
                                         <a href="<?= base_url('CodeIgniterTraining/index.php/crudsession/download/' . $row->SESSION_ID) ?>" target="_blank"><?= $row->DOCUMENT_NAME ?></a>
                                     <?php else : ?>
-                                        No Document
+                                        Tiada Dokumen
                                     <?php endif; ?>
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/updateSession/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">UPDATE</a>
+                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/updateSession/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">KEMASKINI</a>
                                     <?php if ($showDeleteButton) : ?>
-                                        <a class="btn btn-primary pull-right" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/delete/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">DELETE</a>
+                                        <a class="btn btn-primary pull-right" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/delete/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">PADAM</a>
                                     <?php endif; ?>
                                 </td>
                             </tr>
