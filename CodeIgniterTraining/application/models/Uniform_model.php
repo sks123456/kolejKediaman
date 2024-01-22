@@ -21,13 +21,37 @@ class Uniform_model extends CI_Model
         return $query;
     }
 
+    public function valid_uniform()
+    {
+        $this->load->model("uniform_model");
+        $uniformResult = $this->uniform_model->get_all_uniform();
+
+        // Assuming you have the input uniform_name via POST
+        $inputUniformName = $this->input->post("uniform_name");
+
+        // Convert query result to array
+        $uniform = $uniformResult->result_array();
+
+        $uniformFound = false;
+
+        foreach ($uniform as $uniformDetail) {
+            // Assuming each $uniform has a 'name' key
+            $uniformName = $uniformDetail['UNIFORM_NAME'];
+
+            if (strtoupper($inputUniformName) == $uniformName) {
+                // Uniform name found in the list
+                $uniformFound = true;
+                break; // Exit the loop since we found a match
+            }
+        }
+        return $uniformFound;
+    }
     public function save_uniform()
     {
-
-        $this->db->set("UNIFORM_NAME", $this->input->post("uniform_name"));
-        $this->db->set("UNIFORM_STATUS", $this->input->post("uniform_status"));
-        $this->db->insert('kk_uniform');
-
+        $this->db->set("UNIFORM_NAME", strtoupper($this->input->post("uniform_name")));
+            $this->db->set("UNIFORM_STATUS", $this->input->post("uniform_status"));
+            $this->db->insert('kk_uniform');
+            redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index'));
     }
 
     public function get_uniform($uniform_ID)

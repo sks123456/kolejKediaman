@@ -6,7 +6,7 @@ class CrudUniform extends CI_Controller
     public function index()
     {
         $this->load->helper('url');
-
+        
         // Pulling data into model
         $this->load->model("uniform_model");
 
@@ -26,8 +26,19 @@ class CrudUniform extends CI_Controller
     public function save()
     {
         $this->load->model("uniform_model");
-        $this->uniform_model->save_uniform();
-        redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index'));
+        $uniformFound = $this->uniform_model->valid_uniform();
+        
+        if ($uniformFound) {
+            // Display an error alert
+            echo '<script>';
+            echo 'alert("Saluran Uniform sudah wujud!");';
+            echo 'window.location.href = "' . base_url('CodeIgniterTraining/index.php/uniform') . '";';
+            echo '</script>';
+        } else {
+            $uniformFound = $this->uniform_model->save_uniform();
+
+        }
+        
     }
 
     public function delete($uniform_id)
