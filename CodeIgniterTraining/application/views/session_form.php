@@ -125,7 +125,7 @@
                 </div>
                 <!-- File Upload -->
                 <div class="form-group">
-                    <label for="pdf_document">Muat Naik Dokumen PDF</label>
+                    <label for="pdf_document">Muat Naik Dokumen Peraturan Permohonan PDF</label>
 
                     <?php if ($update && $session->num_rows() > 0) : ?>
                         <?php $row = $session->row(); ?>
