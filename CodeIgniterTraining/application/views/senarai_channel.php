@@ -9,7 +9,7 @@
             <div class="box-body">
                 <table id="senarai_session" class="table table-bordered table-hover">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>Saluran</th>
                             <th>Status</th>
                             <th>Tindakan</th>
@@ -22,8 +22,8 @@
                                 <td><?= $row->CHANNEL_NAME ?></td>
                                 <td><?= $row->CHANNEL_STATUS ?></td>
                                 <td>
-                                    <a class="btn btn-warning btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/updateChannel/' . $row->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')"><i class="fas"></i>KEMASKINI</a>
-                                    <a class="btn btn-primary pull-right" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/delete/' . $row->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">PADAM</a>   
+                                    <a class="btn btn-info btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/updateChannel/' . $row->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')"><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-danger btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/delete/' . $row->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')"><i class="fa fa-trash"></i></a>   
                                 </td>
                             </tr>
                         <?php endforeach; ?>

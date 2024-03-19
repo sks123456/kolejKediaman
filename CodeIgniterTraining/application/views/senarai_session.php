@@ -45,10 +45,21 @@
                                 </td>
 
                                 <td>
-                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/updateSession/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">KEMASKINI</a>
-                                    <?php if ($showDeleteButton) : ?>
-                                        <a class="btn btn-primary pull-right" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/delete/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">PADAM</a>
-                                    <?php endif; ?>
+                                    <table border=0>
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-info btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/updateSession/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')"><i class="fa fa-edit"></i></a>
+                                            </td>
+                                            <td>&nbsp;</td>
+                                            <td>
+                                                <?php if ($showDeleteButton) : ?>
+                                                    <a class="btn btn-danger btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudsession/delete/' . $row->SESSION_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')"><i class="fa fa-trash"></i></a>
+                                                <?php endif; ?>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                                    
                                 </td>
                             </tr>
                         <?php endforeach; ?>
