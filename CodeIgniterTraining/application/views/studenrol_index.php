@@ -112,12 +112,65 @@
 
 
       <!-- Main content -->
-      <?php
-      // Load the session_form view
-      $this->load->view('session_form');
-      ?>
-      <!-- Include the Senarai Session view here -->
-      <?php $this->load->view('senarai_session', ['list' => $list]); ?>
+      <section class="content">
+        <!-- /.box -->
+        <!-- Permohonan List -->
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="box box-info">
+              <div class="box-header">
+                <h3 class="box-title">Maklumat Pelajar</h3>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Bil</th>
+                    <th>No Matrik</th>
+                    <th>Nama Pelajar</th>
+                    <th>Merit Sesi Semasa</th>
+                    <th>Merit Kolej</th>
+                    <th>Kenderaan</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>S64634</td>
+                    <td>ALI BIN AHMAD</td>
+                    <td>4.0</td>
+                    <td>1000</td>
+                    <td>600</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>S64521</td>
+                    <td>AMIRAH BINTI HASSAN</td>
+                    <td>3.7</td>
+                    <td>2000</td>
+                    <td>1000</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>S50231</td>
+                    <td>AMIR BIN SAMAD</td>
+                    <td>1000</td>
+                    <td>600</td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-body -->
+            </div>
+            <!-- /.box -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
       </section>
       <!-- Footer -->
       <?php $this->load->view('footer'); ?>
