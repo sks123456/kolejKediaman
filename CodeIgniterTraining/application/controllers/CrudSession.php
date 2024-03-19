@@ -160,12 +160,12 @@ class CrudSession extends CI_Controller
                 $row->SESSION_STATUS = 'Aktif';
 
                 // Update SESSION_STATUS in the database
-                $this->session_model->update_session_status($row->SESSION_ID, 'Active');
+                $this->session_model->update_session_status($row->SESSION_ID, 'Aktif');
             } else {
                 $row->SESSION_STATUS = 'Tidak Aktif';
 
                 // Update SESSION_STATUS in the database
-                $this->session_model->update_session_status($row->SESSION_ID, 'Inactive');
+                $this->session_model->update_session_status($row->SESSION_ID, 'Tak Aktif');
             }
         }
     }

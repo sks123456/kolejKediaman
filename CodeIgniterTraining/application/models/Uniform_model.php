@@ -9,6 +9,12 @@ class Uniform_model extends CI_Model
         return $query;
     }
 
+    public function get_unit_id_and_name() {
+        $query = $this->db->select('UNIFORM_ID, UNIFORM_NAME')
+        ->where('UNIFORM_STATUS','Aktif')->get('kk_uniform');
+        return $query->result();
+    }
+
     public function delete_uniform_id($uniform_ID)
     {
 

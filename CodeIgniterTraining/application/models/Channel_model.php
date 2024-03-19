@@ -9,6 +9,12 @@ class Channel_model extends CI_Model
         return $query;
     }
 
+    public function get_channel_id_and_name() {
+        $query = $this->db->select('channel_id, channel_name')
+        ->where('channel_status','Aktif')->get('kk_channel');
+        return $query->result();
+    }
+
     public function delete_channel_id($channel_ID)
     {
 
