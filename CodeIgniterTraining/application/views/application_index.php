@@ -116,6 +116,7 @@
             // Load the session_form view
             $this->load->view('application_form');
             ?>
+        </div>
             <!-- Footer -->
             <?php $this->load->view('footer'); ?>
 

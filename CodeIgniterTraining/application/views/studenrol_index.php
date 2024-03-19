@@ -110,7 +110,16 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="min-height:max-content;">
 
-
+    <section class="content-header">
+        <h1>
+            Enrolmen
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="#">Maklumat Pelajar</a></li>
+            <li class="active">Enrolmen</li>
+        </ol>
+    </section>
       <!-- Main content -->
       <section class="content">
         <!-- /.box -->
@@ -174,11 +183,13 @@
         </div>
         <!-- /.row -->
       </section>
+    </div>
       <!-- Footer -->
       <?php $this->load->view('footer'); ?>
 
       <!-- Control Sidebar -->
       <?php $this->load->view('control_sidebar'); ?>
+    </div>
 </body>
 
 </html>

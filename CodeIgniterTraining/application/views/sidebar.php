@@ -6,7 +6,7 @@
           <li class="header">MAIN NAVIGATION</li>
           <li class="treeview" name="pelajar">
             <a href="#">
-              <i class="fa fa-users"></i> <span>Makluman Pelajar</span>
+              <i class="fa fa-users"></i> <span>Maklumat Pelajar</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
