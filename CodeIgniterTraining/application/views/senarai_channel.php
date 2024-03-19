@@ -22,7 +22,7 @@
                                 <td><?= $row->CHANNEL_NAME ?></td>
                                 <td><?= $row->CHANNEL_STATUS ?></td>
                                 <td>
-                                    <a class="btn btn-primary" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/updateChannel/' . $row->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')">KEMASKINI</a>
+                                    <a class="btn btn-warning btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/updateChannel/' . $row->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')"><i class="fas"></i>KEMASKINI</a>
                                     <a class="btn btn-primary pull-right" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/delete/' . $row->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')">PADAM</a>   
                                 </td>
                             </tr>

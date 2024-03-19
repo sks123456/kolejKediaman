@@ -129,6 +129,7 @@
                     <th>Bil</th>
                     <th>No Matrik</th>
                     <th>Nama Pelajar</th>
+                    <th>CGPA</th>
                     <th>Merit Sesi Semasa</th>
                     <th>Merit Kolej</th>
                     <th>Kenderaan</th>
@@ -157,6 +158,7 @@
                     <td>3</td>
                     <td>S50231</td>
                     <td>AMIR BIN SAMAD</td>
+                    <td>3.8</td>
                     <td>1000</td>
                     <td>600</td>
                     <td></td>

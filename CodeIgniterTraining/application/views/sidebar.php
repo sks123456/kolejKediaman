@@ -12,7 +12,7 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li class="active"><a href=""></i> Enrolmen</a></li>
+              <li class="active"><a href="<?php echo (base_url('CodeIgniterTraining/index.php/enrollment'));?>"></i> Enrolmen</a></li>
               <li><a href=""> Carian Pelajar</a></li>
             </ul>
           </li>
