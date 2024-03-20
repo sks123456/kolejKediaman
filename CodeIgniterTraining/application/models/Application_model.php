@@ -33,7 +33,7 @@ class Application_model extends CI_Model
         $this->db->set("SUBMITTED_BY", date('Y-m-d H:i:s')); // Set submitted_by as current datetime
         $this->db->set("STUD_MATRIC", $this->input->post("stud_matric"));
         $this->db->set("DOCUMENT", $file_content);
-        $this->db->set("DOCUMENT_NAME", $file_name);
+        $this->db->set("APPLICATION_UPLOAD_NAME", $file_name);
 
         $this->db->insert('application'); // Assuming 'application' is your table name
     }
