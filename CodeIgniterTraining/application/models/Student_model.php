@@ -14,7 +14,7 @@ class Student_model extends CI_Model
 
         //delete query prep and having pipeline to specify which to delete
         $query = $this->db
-            ->where("id_pelajar", $id_pelajar)
+            ->where("STUD_MATRIC", $id_pelajar)
             ->delete('student_profile');
 
         //return query to execute
@@ -34,7 +34,7 @@ class Student_model extends CI_Model
     public function get_student($id_pelajar)
     {
         $query = $this->db
-            ->where("id_pelajar", $id_pelajar)
+            ->where("STUD_MATRIC", $id_pelajar)
             ->get('student_profile');
 
         return $query;
@@ -43,7 +43,7 @@ class Student_model extends CI_Model
     public function check_student_existence($student_id)
     {
         // Query the database to check if the student ID exists
-        $query = $this->db->get_where('student_profile', array('ID_PELAJAR' => $student_id));
+        $query = $this->db->get_where('student_profile', array('STUD_MATRIC' => $student_id));
         return ($query->num_rows() > 0);
     }
 }

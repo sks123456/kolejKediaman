@@ -62,3 +62,5 @@ $route['404_override'] = '';
 $route['crudsession/download/(:any)'] = 'crudsession/download/$1';
 $route['application'] = 'application/index';
 $route['enrollment'] = 'crudstudent/index';
+$route['application_approval'] = 'application_approval/index';
+

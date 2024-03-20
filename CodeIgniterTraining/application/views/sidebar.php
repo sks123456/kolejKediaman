@@ -57,7 +57,7 @@
             </a>
             <ul class="treeview-menu">
               <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/application'));?>"> Pendaftaran Permohonan</a></li>
-              <li><a href=""> Kemaskini Status Kelulusan</a></li>
+              <li><a href="<?php echo (base_url('CodeIgniterTraining/index.php/application_approval'));?>"> Kemaskini Status Kelulusan</a></li>
             </ul>
           </li>
           <li class="treeview" name="laporan">

@@ -1,6 +1,6 @@
 <?php
 class Application_model extends CI_Model
-{ 
+{
     // private $application_ID;
     // private $session_ID;
     // private $channel_ID;
@@ -24,7 +24,8 @@ class Application_model extends CI_Model
         return $query;
     }
 
-    public function submit_application($file_content, $file_name){
+    public function submit_application($file_content, $file_name)
+    {
         $this->db->set("SESSION_ID", $this->input->post("session_id"));
         $this->db->set("CHANNEL_ID", $this->input->post("channel_selected"));
         $this->db->set("UNIT_ID", $this->input->post("unit_uniform"));
@@ -33,10 +34,26 @@ class Application_model extends CI_Model
         $this->db->set("STUD_MATRIC", $this->input->post("stud_matric"));
         $this->db->set("DOCUMENT", $file_content);
         $this->db->set("DOCUMENT_NAME", $file_name);
-        
+
         $this->db->insert('application'); // Assuming 'application' is your table name
     }
-    
 
+    public function get_application($application_id)
+    {
+        $query = $this->db
+            ->where("APPLICATION_ID", $application_id)
+            ->get('application');
 
+        return $query;
+    }
+
+    // application_model.php
+    public function updateStatus($application_id, $status)
+    {
+        $data = array(
+            'APPLICATION_STATUS' => $status
+        );
+        $this->db->where('APPLICATION_ID', $application_id);
+        $this->db->update('application', $data);
+    }
 }
