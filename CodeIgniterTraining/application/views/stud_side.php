@@ -20,7 +20,7 @@
             </a>
           </li>
           <li class="" name="print">
-              <a href="#"><i class="fa fa-print"></i>
+              <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/s62270/'));?>"><i class="fa fa-print"></i>
               <span>CETAK</span></a>
               <span class="pull-right-container">
               </span>

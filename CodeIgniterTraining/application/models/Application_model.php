@@ -56,4 +56,13 @@ class Application_model extends CI_Model
         $this->db->where('APPLICATION_ID', $application_id);
         $this->db->update('application', $data);
     }
+    public function get_application_by_studentID_session_id($session_id,$stud_matric)
+    {
+        $query = $this->db
+            ->where("SESSION_ID", $session_id)
+            ->and ("STUD_MATRIC", $stud_matric)
+            ->get('application');
+
+        return $query;
+    }
 }
