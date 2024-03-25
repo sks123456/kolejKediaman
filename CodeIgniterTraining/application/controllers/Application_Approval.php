@@ -36,31 +36,33 @@ class Application_Approval extends CI_Controller
     }
     public function query_list()
     {
-        // Retrieve form data
+        // Retrieve form inputs
+        // Loading the view page with the array
+        $this->load->helper('url');
+        $this->load->model("Session_model");
+        $this->load->model("Channel_model");
+
+        // Fetch session data containing only session ID and session name
+        $sessions = $this->Session_model->get_session_id_and_name();
+        $channels = $this->Channel_model->get_channel_id_and_name();
+
+        $data['sessions'] = $sessions;
+        $data['channels'] = $channels;
+
         $session_selected = $this->input->post('session_selected');
         $channel_selected = $this->input->post('channel_selected');
         $room_type = $this->input->post('room_type');
         $gender = $this->input->post('gender');
         $status = $this->input->post('status');
 
-        // SQL query to join kk_application and kk_student tables
-        $query = $this->db->query("
-            SELECT *
-            FROM application AS a
-            JOIN student_profile AS s ON a.stud_matric = s.stud_matric
-            WHERE a.session_id = '$session_selected'
-            OR a.channel_id = '$channel_selected'
-            OR s.religion = '$room_type'
-            OR s.gender = '$gender'
-            OR a.application_status = '$status'
-        ");
-        $records = $query->result();
+        // Load model
+        $this->load->model('Application_model');
 
-        // Pass the records to the view
-        $data['records'] = $records;
+        // Call a method in your model to perform the query
+        $data['records'] = $this->Application_model->get_records($session_selected, $channel_selected, $room_type, $gender, $status);
 
-        // Load the view to display the list of records
-        $this->load->view('application_list', $data);
+        // Pass the data to the view
+        $this->load->view('application_approval_index', $data);
     }
 
     public function download($application_id)
@@ -100,7 +102,7 @@ class Application_Approval extends CI_Controller
     {
         $this->load->helper('url');
         $this->load->model("application_model");
-        
+
         // Update the application status to 'Approved' in the database
         $this->application_model->updateStatus($application_id, 'APPROVED');
         // Redirect or display success message
@@ -111,7 +113,7 @@ class Application_Approval extends CI_Controller
     {
         $this->load->helper('url');
         $this->load->model("application_model");
-        
+
         // Update the application status to 'Rejected' in the database
         $this->application_model->updateStatus($application_id, 'REJECTED');
         // Redirect or display success message

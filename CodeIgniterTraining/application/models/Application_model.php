@@ -65,4 +65,34 @@ class Application_model extends CI_Model
 
         return $query;
     }
+
+    public function get_records($session_selected, $channel_selected, $room_type, $gender, $status) {
+        // Start building the query
+        $this->db->select('application.*, kk_session.SESSION_NAME, kk_channel.CHANNEL_NAME, student_profile.*');
+        $this->db->from('application');
+        $this->db->join('kk_session', 'application.SESSION_ID = kk_session.SESSION_ID', 'left');
+        $this->db->join('kk_channel', 'application.CHANNEL_ID = kk_channel.CHANNEL_ID', 'left');
+        $this->db->join('student_profile', 'application.STUD_MATRIC = student_profile.STUD_MATRIC', 'left');
+
+        // Add conditions based on non-empty form inputs
+        if (!empty($session_selected)) {
+            $this->db->where('application.SESSION_ID', $session_selected);
+        }
+        if (!empty($channel_selected)) {
+            $this->db->where('application.CHANNEL_ID', $channel_selected);
+        }
+        if (!empty($room_type)) {
+            $this->db->where('student_profile.RELIGION', $room_type);
+        }
+        if (!empty($gender)) {
+            $this->db->where('student_profile.GENDER', $gender);
+        }
+        if (!empty($status)) {
+            $this->db->where('application.APPLICATION_STATUS', $status);
+        }
+
+        // Execute the query and retrieve data from the database
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

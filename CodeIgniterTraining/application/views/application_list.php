@@ -1,32 +1,44 @@
 <!-- Permohonan List -->
-<div class="row">
-    <div class="col-xs-12">
-        <div class="box box-info">
-            <div class="box-header">
-                <h3 class="box-title">Senarai Applikasi</h3>
-            </div>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <h3 class="box-title">Senarai Applikasi</h3>
+                </div>
 
-            <!-- /.box-header -->
-            <div class="box-body">
-                <table id="senarai_session" class="table table-bordered table-hover">
-                    <thead>
-                        <tr class="text-center">
-                            <th>Status</th>
-                            <th>Matric No</th>
-                            <th>Name</th>
-                            <th>Session</th>
-                            <th>Channel</th>
-                            <th>Document</th>
-                            <th>Room Type</th>
-                            <th>Gender</th>
-                            <th>MERIT</th>
-                            <th>MERIT_KOLEJ</th>
-                            <th>Vehicle</th>
-                            <th>Tindakan</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($records as $record) : ?>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <table id="senarai_session" class="table table-bordered table-hover">
+                        <thead>
+                            <tr class="text-center">
+                                <th onclick="sortTable(0)">Status <span class="sort-icon">&uarr;</span></th>
+                                <th onclick="sortTable(1)">Matric No <span class="sort-icon">&uarr;</span></th>
+                                <th onclick="sortTable(2)">Name <span class="sort-icon">&uarr;</span></th>
+                                <th onclick="sortTable(3)">Session <span class="sort-icon">&uarr;</span></th>
+                                <th onclick="sortTable(4)">Channel <span class="sort-icon">&uarr;</span></th>
+                                <th>Document</th>
+                                <th onclick="sortTable(6)">Room Type <span class="sort-icon">&uarr;</span></th>
+                                <th onclick="sortTable(7)">Gender <span class="sort-icon">&uarr;</span></th>
+                                <th onclick="sortTable(8)">MERIT <span class="sort-icon">&uarr;</span></th>
+                                <th onclick="sortTable(9)">MERIT KOLEJ<span class="sort-icon">&uarr;</span></th>
+                                <th>Vehicle</th>
+                                <th>Tindakan</th>
+                            </tr>
+                        </thead>
+                       <tbody>
+                        <?php
+                        $recordsPerPage = 2;
+                        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+                        $start = ($currentPage - 1) * $recordsPerPage;
+                        $end = $start + $recordsPerPage;
+                        $totalPages = ceil(count($records) / $recordsPerPage);
+
+                        // Slice the records array to display only the records for the current page
+                        $paginatedRecords = array_slice($records, $start, $recordsPerPage);
+
+                        foreach ($paginatedRecords as $record) :
+                        ?>
                             <tr>
                                 <td><?= $record->APPLICATION_STATUS ?></td>
                                 <td><?= $record->STUD_MATRIC ?></td>
@@ -104,6 +116,15 @@
                         <?php endforeach; ?>
                     </tbody>
                 </table>
+
+                <!-- Pagination links -->
+                <ul class="pagination pull-right">
+                    <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                        <li <?php if ($i == $currentPage) echo 'class="active"'; ?>>
+                            <a href="?page=<?= $i ?>"><?= $i ?></a>
+                        </li>
+                    <?php endfor; ?>
+                </ul>
             </div>
             <!-- /.box-body -->
         </div>
@@ -113,6 +134,58 @@
 </div>
 <!-- /.row -->
 </section>
-<!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+<script>
+    var sortDirection = [];
+
+    function sortTable(columnIndex) {
+        var table, rows, switching, i, x, y, shouldSwitch;
+        table = document.getElementById("senarai_session");
+        switching = true;
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("td")[columnIndex];
+                y = rows[i + 1].getElementsByTagName("td")[columnIndex];
+                var xValue = x.innerHTML.toLowerCase();
+                var yValue = y.innerHTML.toLowerCase();
+                if (sortDirection[columnIndex] === 'asc') {
+                    if (xValue > yValue) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                } else {
+                    if (xValue < yValue) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+        toggleSortIcon(columnIndex);
+        updateSortDirection(columnIndex);
+    }
+
+    function toggleSortIcon(columnIndex) {
+        var header = document.getElementsByTagName('th')[columnIndex];
+        var sortIcon = header.getElementsByClassName('sort-icon')[0];
+        if (sortDirection[columnIndex] === 'asc') {
+            sortIcon.innerHTML = '&uarr;';
+        } else {
+            sortIcon.innerHTML = '&darr;';
+        }
+    }
+
+    function updateSortDirection(columnIndex) {
+        if (!sortDirection[columnIndex] || sortDirection[columnIndex] === 'asc') {
+            sortDirection[columnIndex] = 'desc';
+        } else {
+            sortDirection[columnIndex] = 'asc';
+        }
+    }
+</script>
