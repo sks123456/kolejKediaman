@@ -135,18 +135,30 @@
         <div class="content-wrapper" style="min-height:902.55px;">
             <section class="content-header">
                 <h1>
-                    Peraturan
+                    Status Permohonan
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="http://localhost/fyp_kk/CodeIgniterTraining/index.php/studcrud/index#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Peraturan</li>
+                    <li class="active">Status Permohonan</li>
                 </ol>
             </section>
             <section class="content">
-                <div class="box box-info">
+                <div class="box box-primary">
                     <!-- /.box-header -->
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Semester I Sesi 2023/2024(Sarjana Muda)</h3>
+                    </div>
                     <div class="box-body">
-                        <iframe src="http://localhost/FYP_kk/CodeIgniterTraining/index.php/studcrud/peraturan" width="100%" height="902.75px" frameborder="0"></iframe>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 250px">Tarikh Hantar Permohonan </td>
+                                <td>: Simpan Pada 11/11/2023</td>
+                            </tr>
+                            <tr>
+                                <td>Status Kelulusan </td>
+                                <td>: Dalam Proses</td>
+                            </tr>
+                        </table>
                     </div>
 
                 </div>

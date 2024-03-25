@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class cetak extends CI_Controller
+class status_permohonan extends CI_Controller
 {
     public function index()
     {
@@ -14,7 +14,7 @@ class cetak extends CI_Controller
         $data['sessions'] = $sessions;
         
         $this->load->model("application_model");    
-        $this->load->view('stud_print', $data);
+        $this->load->view('stud_status', $data);
     }
 
 }

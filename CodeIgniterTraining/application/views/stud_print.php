@@ -135,18 +135,45 @@
         <div class="content-wrapper" style="min-height:902.55px;">
             <section class="content-header">
                 <h1>
-                    Peraturan
+                    Cetak Borang Permohonan
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="http://localhost/fyp_kk/CodeIgniterTraining/index.php/studcrud/index#"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active">Peraturan</li>
+                    <li class="active">Cetak</li>
                 </ol>
             </section>
             <section class="content">
-                <div class="box box-info">
+                <div class="box box-primary">
                     <!-- /.box-header -->
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Semester I Sesi 2023/2024(Sarjana Muda)</h3>
+                    </div>
                     <div class="box-body">
-                        <iframe src="http://localhost/FYP_kk/CodeIgniterTraining/index.php/studcrud/peraturan" width="100%" height="902.75px" frameborder="0"></iframe>
+                        <table class="table">
+                            <tr>
+                                <td style="width: 100px">Nama </td>
+                                <td style="width: 400px">:*Nama*</td>
+                                <td style="width: 100px">No Matrik </td>
+                                <td>:*No Matrik*</td>
+                            </tr>
+                            <tr>
+                                <td>Program </td>
+                                <td>:*Program*</td>
+                            </tr>
+                            <tr>
+                                <td>Saluran </td>
+                                <td>:*Saluran*</td>
+                            </tr>
+                            <tr>
+                                <td>Lampiran </td>
+                                <td>:*Dokumen*</td>
+                            </tr>
+                            <tr>
+                                <td>Jumlah Merit </td>
+                            </tr>
+                        </table>
+                        <br>
+                        <button type="submit" class="btn bg-purple ">Cetak</button>
                     </div>
 
                 </div>

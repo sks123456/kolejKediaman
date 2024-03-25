@@ -4,7 +4,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
-          <li class="active" name="rules">
+          <li class="nav-link <?php if($this->uri->segment(1) == 'studcrud') echo 'active' ?>" name="rules">
             <a href="<?php echo (base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan'));?>">
               <i class="fa fa-book"></i> <span>PERATURAN</span>
               <span class="pull-right-container">
@@ -19,14 +19,14 @@
               </span>
             </a>
           </li>
-          <li class="" name="print">
-              <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/s62270/'));?>"><i class="fa fa-print"></i>
+          <li class="nav-link <?php if($this->uri->segment(1) == 'cetak') echo 'active' ?>" name="print">
+              <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index'));?>"><i class="fa fa-print"></i>
               <span>CETAK</span></a>
               <span class="pull-right-container">
               </span>
           </li>
-          <li class="" name="status">
-            <a href="#">
+          <li class="nav-link <?php if($this->uri->segment(1) == 'status_permohonan') echo 'active' ?>" name="status">
+            <a href="<?php echo (base_url('CodeIgniterTraining/index.php/status_permohonan/index'));?>">
               <i class="fa fa-spinner"></i> <span>STATUS PERMOHONAN</span>
             </a>
           </li>
