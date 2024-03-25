@@ -112,12 +112,11 @@
 
     <section class="content-header">
         <h1>
-            Enrolmen
+          Maklumat Pelajar
         </h1>
         <ol class="breadcrumb">
             <li><a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Maklumat Pelajar</a></li>
-            <li class="active">Enrolmen</li>
+            <li class="active">Maklumat Pelajar</li>
         </ol>
     </section>
     <!-- Main content -->
