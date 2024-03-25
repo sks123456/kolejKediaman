@@ -108,7 +108,7 @@
     </aside>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="min-height:max-content;">
+<div class="content-wrapper" style="min-height:max-content;">
 
     <section class="content-header">
         <h1>
@@ -120,45 +120,48 @@
             <li class="active">Enrolmen</li>
         </ol>
     </section>
-      <!-- Main content -->
-      <section class="content">
-      <!-- search student -->
-        
-      
-      <!-- student list -->
-        <div class="row">
-          <div class="col-xs-12">
+    <!-- Main content -->
+    <!-- search student -->
+    <?php $this->load->view('enrollmen_search'); ?>
+
+    <!-- student list -->
+    <div class="row">
+        <div class="col-xs-12">
             <div class="box box-info">
-              <div class="box-header">
-                <h3 class="box-title">Senarai Pelajar</h3>
-              </div>
-              <!-- /.box-header -->
-              <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>No Matrik</th>
-                    <th>Nama Pelajar</th>
-                    <th>Program</th>
-                    <th>No K/P</th>
-                    <th>Merit</th>
-                    <th>Merit Kolej</th>
-                    <th>Kenderaan</th>
-                  </tr>
-                  </thead>
-                  <?php $no =1;
-                  foreach($students as $std) : ?>
-                  <tbody>
-                    <tr>
-                      <td> <?= $no++ ?></td>
-                      <td> <?= $std->STUD_MATRIC ?></td>
-                      <td> <?= $std->NAMA_PELAJAR ?></td>
-                      <td> <?= $std->PROGRAM ?></td>
-                      <td> <?= $std->ICNO ?></td>
-                      <td> <?= $std->MERIT ?></td>
-                      <td> <?= $std->MERIT_KOLEJ ?></td>
-                      <td style="background-color: <?php
+                <div class="box-header">
+                    <h3 class="box-title">Senarai Pelajar</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <!-- Back Button -->
+                    <?php if(isset($searched_student)): ?>
+                    <div class="pull-right">
+                        <a href="<?php echo base_url('CodeIgniterTraining/index.php/enrollmen'); ?>" class="btn btn-default">Back</a>
+                    </div>
+                    <?php endif; ?>
+                    <!-- End Back Button -->
+                    <table id="example2" class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>No Matrik</th>
+                                <th>Nama Pelajar</th>
+                                <th>Program</th>
+                                <th>No K/P</th>
+                                <th>Merit</th>
+                                <th>Merit Kolej</th>
+                                <th>Kenderaan</th>
+                            </tr>
+                        </thead>
+                        <?php foreach($students as $std) : ?>
+                        <tbody>
+                            <tr>
+                                <td><?= $std->STUD_MATRIC ?></td>
+                                <td><?= $std->NAMA_PELAJAR ?></td>
+                                <td><?= $std->PROGRAM ?></td>
+                                <td><?= $std->ICNO ?></td>
+                                <td><?= $std->MERIT ?></td>
+                                <td><?= $std->MERIT_KOLEJ ?></td>
+                                <td style="background-color: <?php
                                                                 if ($std->VEHICLE === 'M') {
                                                                     echo 'orange';
                                                                 } elseif ($std->VEHICLE === 'C') {
@@ -168,20 +171,21 @@
                                                                 }
                                                                 ?>;">
                                 </td>
-                    </tr>
-                  </tbody>
-                  <?php endforeach ?>
-                </table>
-              </div>
-              <!-- /.box-body -->
+                            </tr>
+                        </tbody>
+                        <?php endforeach ?>
+                    </table>
+                </div>
+                <!-- /.box-body -->
             </div>
             <!-- /.box -->
-          </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-      </section>
+        <!-- /.col -->
     </div>
+    <!-- /.row -->
+</section>
+</div>
+
       <!-- Footer -->
       <?php $this->load->view('footer'); ?>
 

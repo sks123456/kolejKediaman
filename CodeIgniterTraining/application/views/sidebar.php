@@ -4,19 +4,12 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
           <li class="header">MAIN NAVIGATION</li>
-          <li class="treeview" name="pelajar">
-            <a href="#">
+          <li class="nav-link <?php if($this->uri->segment(1) == 'enrollment') echo 'active' ?>">
+            <a href="<?php echo (base_url('CodeIgniterTraining/index.php/enrollment'));?>">
               <i class="fa fa-users"></i> <span>Maklumat Pelajar</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
             </a>
-            <ul class="treeview-menu">
-              <li class="active"><a href="<?php echo (base_url('CodeIgniterTraining/index.php/enrollment'));?>"></i> Enrolmen</a></li>
-              <li><a href=""> Carian Pelajar</a></li>
-            </ul>
           </li>
-          <li class="active treeview" name="setup">
+          <li class="treeview" name="setup">
             <a href="#">
               <i class="fa fa-laptop"></i>
               <span>Setup Maklumat</span>
