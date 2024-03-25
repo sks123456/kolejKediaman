@@ -61,6 +61,6 @@ $route['404_override'] = '';
 // Add this line to your routes.php file
 $route['crudsession/download/(:any)'] = 'crudsession/download/$1';
 $route['application'] = 'application/index';
-$route['enrollment'] = 'crudstudent/index';
+$route['enrollment'] = 'enrollmen/index';
 $route['application_approval'] = 'application_approval/index';
 

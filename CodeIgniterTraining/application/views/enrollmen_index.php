@@ -122,57 +122,55 @@
     </section>
       <!-- Main content -->
       <section class="content">
-        <!-- /.box -->
-        <!-- Permohonan List -->
+      <!-- search student -->
+        
+      
+      <!-- student list -->
         <div class="row">
           <div class="col-xs-12">
             <div class="box box-info">
               <div class="box-header">
-                <h3 class="box-title">Maklumat Pelajar</h3>
+                <h3 class="box-title">Senarai Pelajar</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Bil</th>
+                    <th>No</th>
                     <th>No Matrik</th>
                     <th>Nama Pelajar</th>
-                    <th>CGPA</th>
-                    <th>Merit Sesi Semasa</th>
+                    <th>Program</th>
+                    <th>No K/P</th>
+                    <th>Merit</th>
                     <th>Merit Kolej</th>
                     <th>Kenderaan</th>
                   </tr>
                   </thead>
+                  <?php $no =1;
+                  foreach($students as $std) : ?>
                   <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>S64634</td>
-                    <td>ALI BIN AHMAD</td>
-                    <td>4.0</td>
-                    <td>1000</td>
-                    <td>600</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>S64521</td>
-                    <td>AMIRAH BINTI HASSAN</td>
-                    <td>3.7</td>
-                    <td>2000</td>
-                    <td>1000</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>S50231</td>
-                    <td>AMIR BIN SAMAD</td>
-                    <td>3.8</td>
-                    <td>1000</td>
-                    <td>600</td>
-                    <td></td>
-                  </tr>
+                    <tr>
+                      <td> <?= $no++ ?></td>
+                      <td> <?= $std->STUD_MATRIC ?></td>
+                      <td> <?= $std->NAMA_PELAJAR ?></td>
+                      <td> <?= $std->PROGRAM ?></td>
+                      <td> <?= $std->ICNO ?></td>
+                      <td> <?= $std->MERIT ?></td>
+                      <td> <?= $std->MERIT_KOLEJ ?></td>
+                      <td style="background-color: <?php
+                                                                if ($std->VEHICLE === 'M') {
+                                                                    echo 'orange';
+                                                                } elseif ($std->VEHICLE === 'C') {
+                                                                    echo 'red';
+                                                                } else {
+                                                                    echo 'green';
+                                                                }
+                                                                ?>;">
+                                </td>
+                    </tr>
                   </tbody>
+                  <?php endforeach ?>
                 </table>
               </div>
               <!-- /.box-body -->
