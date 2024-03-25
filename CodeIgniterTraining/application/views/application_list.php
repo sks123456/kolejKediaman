@@ -28,7 +28,7 @@
                         </thead>
                        <tbody>
                         <?php
-                        $recordsPerPage = 2;
+                        $recordsPerPage = 10;
                         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
                         $start = ($currentPage - 1) * $recordsPerPage;
                         $end = $start + $recordsPerPage;
