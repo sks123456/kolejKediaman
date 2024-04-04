@@ -56,7 +56,7 @@ $route['404_override'] = '';
  $route['session'] = 'crudsession/index';
  $route['channel'] = 'crudchannel/index';
  $route['uniform'] = 'cruduniform/index';
- $route['blank'] = 'session/blank';
+ $route['login'] = 'logincontroller/index';
  $route['student']='studcrud/index';
 // Add this line to your routes.php file
 $route['crudsession/download/(:any)'] = 'crudsession/download/$1';

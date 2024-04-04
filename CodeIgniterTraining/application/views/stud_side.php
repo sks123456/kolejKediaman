@@ -1,4 +1,8 @@
 <!-- sidebar: style can be found in sidebar.less -->
+<?php
+// Retrieve user data from session
+$student_data = $this->session->userdata('student_data');
+?>
 <section class="sidebar">
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -20,7 +24,7 @@
             </a>
           </li>
           <li class="nav-link <?php if($this->uri->segment(1) == 'cetak') echo 'active' ?>" name="print">
-              <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index'));?>"><i class="fa fa-print"></i>
+              <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/'));?><?=$student_data['STUD_MATRIC']?>"><i class="fa fa-print"></i>
               <span>CETAK</span></a>
               <span class="pull-right-container">
               </span>

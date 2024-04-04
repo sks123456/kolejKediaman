@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+// Retrieve user data from session
+$student_data = $this->session->userdata('student_data');
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -96,7 +99,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">John Doe</span>
+                                <span class="hidden-xs"><?=$student_data['STUD_MATRIC']?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -146,30 +149,38 @@
                 <div class="box box-primary">
                     <!-- /.box-header -->
                     <div class="box-header with-border">
-                        <h3 class="box-title">Semester I Sesi 2023/2024(Sarjana Muda)</h3>
+                        <h3 class="box-title"><?=$sessions['SESSION_NAME']?></h3>
                     </div>
                     <div class="box-body">
                         <table class="table">
                             <tr>
                                 <td style="width: 100px">Nama </td>
-                                <td style="width: 400px">:*Nama*</td>
+                                <td style="width: 400px">: <?=$student_data['NAMA_PELAJAR']?></td>
                                 <td style="width: 100px">No Matrik </td>
-                                <td>:*No Matrik*</td>
+                                <td style="width: 400px">: <?=$student_data['STUD_MATRIC']?></td>
+                                <td></td>
                             </tr>
                             <tr>
                                 <td>Program </td>
-                                <td>:*Program*</td>
+                                <td>: <?=$student_data['PROGRAM']?></td>
                             </tr>
                             <tr>
                                 <td>Saluran </td>
-                                <td>:*Saluran*</td>
+                                <td>: <?=$application['CHANNEL_NAME']?></td>
                             </tr>
                             <tr>
                                 <td>Lampiran </td>
                                 <td>:*Dokumen*</td>
                             </tr>
                             <tr>
-                                <td>Jumlah Merit </td>
+                                <td>Merit </td>
+                                <td>: <?=$application['MERIT']?></td>
+
+                            </tr>
+                            <tr>
+                                <td>Merit Kolej</td>
+                                <td>: <?=$application['MERIT_KOLEJ']?></td>
+
                             </tr>
                         </table>
                         <br>

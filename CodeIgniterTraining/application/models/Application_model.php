@@ -47,6 +47,7 @@ class Application_model extends CI_Model
         return $query;
     }
 
+
     // application_model.php
     public function updateStatus($application_id, $status)
     {
@@ -60,7 +61,7 @@ class Application_model extends CI_Model
     {
         $query = $this->db
             ->where("SESSION_ID", $session_id)
-            ->and ("STUD_MATRIC", $stud_matric)
+            ->where ("STUD_MATRIC", $stud_matric)
             ->get('application');
 
         return $query;

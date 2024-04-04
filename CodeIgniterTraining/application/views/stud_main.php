@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-
+<?php
+// Retrieve user data from session
+$student_data = $this->session->userdata('student_data');
+?>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -96,7 +99,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">John Doe</span>
+                                <span class="hidden-xs"><?= $student_data['STUD_MATRIC'] ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -104,7 +107,7 @@
                                     <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                                     <p>
-                                        John Doe - Student
+                                        <?= $student_data['NAMA_PELAJAR'] ?> - <?=$student_data['PROGRAM']?>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
