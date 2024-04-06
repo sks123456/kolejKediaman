@@ -101,50 +101,52 @@ class Application extends CI_Controller
 
         }
     }
-        // Abstracted method for handling file upload
-        private function handleFileUpload()
-        {
-            $config['upload_path']   = FCPATH . 'uploads/'; // use server path
-            $config['allowed_types'] = 'pdf';
-            $config['max_size']      = 5048; // 5 MB
-    
-            $this->load->library('upload', $config);
-    
-            if ($this->upload->do_upload('pdf_document')) {
-                $upload_data = $this->upload->data();
-    
-                // Check file size before encoding
-                if ($upload_data['file_size'] > 5048) {
-                    // File size exceeds 5 MB, display popup and return to index
-                    return array('success' => false, 'error_message' => 'File is too large. Maximum allowed size is 5 MB.');
-                }
-    
-                // Get the file content and convert it to base64
-                $file_content = base64_encode(file_get_contents($upload_data['full_path']));
-                $file_name = $upload_data['file_name'];
-    
-                // Return the upload result
-                return array(
-                    'success' => true,
-                    'file_content' => $file_content,
-                    'file_name' => $file_name,
-                    'full_path' => $upload_data['full_path']
-                );
-            } else {
-                // Return the upload result with an error message
-                return array('success' => false, 'error_message' => $this->upload->display_errors());
-            }
+
+    private function handleFileUpload()
+    {
+        $config['upload_path']   = FCPATH . 'uploads/'; // use server path
+        $config['allowed_types'] = 'pdf';
+        $config['max_size']      = 5048; // 5 MB
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('pdf_document')) {
+            $upload_data = $this->upload->data();
+
+            // Check if the file is moved successfully
+            $file_path = $upload_data['full_path'];
+            log_message('debug', 'Uploaded file path: ' . $file_path);
+
+            // Get the file content and convert it to base64
+            $file_content = base64_encode(file_get_contents($file_path));
+            $file_name = $upload_data['file_name'];
+
+            // Log file name for verification
+            log_message('debug', 'Uploaded file name: ' . $file_name);
+
+            // Return the upload result
+            return array(
+                'success' => true,
+                'file_content' => $file_content,
+                'file_name' => $file_name,
+                'full_path' => $file_path
+            );
+        } else {
+            // Return the upload result with an error message
+            return array('success' => false, 'error_message' => $this->upload->display_errors());
         }
-    
-        public function handleAfterUpload($file_path)
-        {
-            if (file_exists($file_path)) {
-                unlink($file_path);
-            } else {
-                // Log or handle the error if the file doesn't exist
-                log_message('error', 'File not found for deletion: ' . $file_path);
-            }
-    
-            redirect(base_url('CodeIgniterTraining/index.php/application'));
+    }
+
+    public function handleAfterUpload($file_path)
+    {
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        } else {
+            // Log or handle the error if the file doesn't exist
+            log_message('error', 'File not found for deletion: ' . $file_path);
         }
+
+        redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
+    }
+    
 }

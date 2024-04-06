@@ -78,10 +78,10 @@ class Application_Approval extends CI_Controller
             $sessionData = $query->row();
 
             // Check if the required fields are set
-            if (isset($sessionData->DOCUMENT_NAME, $sessionData->DOCUMENT)) {
+            if (isset($sessionData->APPLICATION_UPLOAD_NAME, $sessionData->DOCUMENT)) {
                 // Set the headers for PDF download
                 header('Content-Type: application/pdf');
-                header('Content-Disposition: attachment; filename="' . $sessionData->DOCUMENT_NAME . '.pdf"');
+                header('Content-Disposition: attachment; filename="' . $sessionData->APPLICATION_UPLOAD_NAME . '"');
 
                 // Output the blob data
                 echo base64_decode($sessionData->DOCUMENT); // Assuming your blob data is stored as base64 in the database

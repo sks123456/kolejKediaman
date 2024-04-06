@@ -4,6 +4,7 @@
 // Retrieve user data from session
 $student_data = $this->session->userdata('student_data');
 ?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -99,7 +100,7 @@ $student_data = $this->session->userdata('student_data');
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?=$student_data['STUD_MATRIC']?></span>
+                                <span class="hidden-xs"><?= $student_data['STUD_MATRIC'] ?></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
@@ -135,59 +136,67 @@ $student_data = $this->session->userdata('student_data');
         </aside>
         <!-- Buka Permohonan Form -->
         <!-- Content Header (Page header) -->
+        <!-- Content Wrapper -->
         <div class="content-wrapper" style="min-height:902.55px;">
             <section class="content-header">
-                <h1>
-                    Cetak Borang Permohonan
-                </h1>
+                <h1>Cetak Borang Permohonan</h1>
                 <ol class="breadcrumb">
                     <li><a href="http://localhost/fyp_kk/CodeIgniterTraining/index.php/studcrud/index#"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li class="active">Cetak</li>
                 </ol>
             </section>
             <section class="content">
-                <div class="box box-primary">
-                    <!-- /.box-header -->
-                    <div class="box-header with-border">
-                        <h3 class="box-title"><?=$sessions['SESSION_NAME']?></h3>
+                <?php foreach ($applications as $application) : ?>
+                    <!-- Card for each application -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title"><table><tr><td style="padding-right: 25px";><?= $application['SESSION_NAME'] ?><td><td style="color:red";><?=$application['APPLICATION_STATUS']?></td></td></table></h3>
+                        </div>
+                        <div class="box-body">
+                            <table class="table">
+                                <tr>
+                                    <td style="width: 100px">Nama </td>
+                                    <td style="width: 400px">: <?= $student_data['NAMA_PELAJAR'] ?></td>
+                                    <td style="width: 100px">No Matrik </td>
+                                    <td style="width: 400px">: <?= $student_data['STUD_MATRIC'] ?></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Program </td>
+                                    <td>: <?= $student_data['PROGRAM'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Saluran </td>
+                                    <td>: <?= $application['CHANNEL_NAME'] ?></td>
+                                    <?php if ($application['CHANNEL_ID'] =='2') : ?>
+                                        <td>Unit Uniform</td>
+                                        <td><?=$application['UNIFORM_NAME']?></td>
+                                        <?php endif?>
+                                </tr>
+                                <tr>
+                                    <td>Lampiran </td>
+                                    <td>
+                                        <?php if (isset($application['APPLICATION_UPLOAD_NAME'])) : ?>
+                                            <a href="<?= base_url('CodeIgniterTraining/index.php/application_approval/download/' . $application['APPLICATION_ID']) ?>" target="_blank"><?= $application['APPLICATION_UPLOAD_NAME'] ?></a>
+                                        <?php else : ?>
+                                            Tiada Dokumen
+                                        <?php endif; ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Merit </td>
+                                    <td>: <?= $application['MERIT'] ?></td>
+                                </tr>
+                                <tr>
+                                    <td>Merit Kolej</td>
+                                    <td>: <?= $application['MERIT_KOLEJ'] ?></td>
+                                </tr>
+                            </table>
+                            <br>
+                            <button type="submit" class="btn bg-purple">Cetak</button>
+                        </div>
                     </div>
-                    <div class="box-body">
-                        <table class="table">
-                            <tr>
-                                <td style="width: 100px">Nama </td>
-                                <td style="width: 400px">: <?=$student_data['NAMA_PELAJAR']?></td>
-                                <td style="width: 100px">No Matrik </td>
-                                <td style="width: 400px">: <?=$student_data['STUD_MATRIC']?></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>Program </td>
-                                <td>: <?=$student_data['PROGRAM']?></td>
-                            </tr>
-                            <tr>
-                                <td>Saluran </td>
-                                <td>: <?=$application['CHANNEL_NAME']?></td>
-                            </tr>
-                            <tr>
-                                <td>Lampiran </td>
-                                <td>:*Dokumen*</td>
-                            </tr>
-                            <tr>
-                                <td>Merit </td>
-                                <td>: <?=$application['MERIT']?></td>
-
-                            </tr>
-                            <tr>
-                                <td>Merit Kolej</td>
-                                <td>: <?=$application['MERIT_KOLEJ']?></td>
-
-                            </tr>
-                        </table>
-                        <br>
-                        <button type="submit" class="btn bg-purple ">Cetak</button>
-                    </div>
-
-                </div>
+                <?php endforeach; ?>
             </section>
             <?php $this->load->view('footer'); ?>
             <div class="control-sidebar-bg"></div>
