@@ -42,6 +42,6 @@ class LoginController extends CI_Controller
         // Destroy session on logout
         $this->session->unset_userdata('student_data');
         // Redirect to login page
-        redirect('login');
+        $this->load->view('login_view');
     }
 }
