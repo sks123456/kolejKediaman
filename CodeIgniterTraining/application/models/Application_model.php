@@ -1,22 +1,7 @@
 <?php
 class Application_model extends CI_Model
 {
-    // private $application_ID;
-    // private $session_ID;
-    // private $channel_ID;
-    // private $unit_ID;
-    // private $document;
-    // private $application_status;
-    // private $submitted_by;
-    // private $approved_by;
-    // private $validate_by;
-    // private $petition;
-    // private $merit;
-    // private $merit_kolej;
-    // private $vehicle;
-    // private $stud_matric;
-    // private $validation_status;
-
+    
     public function get_all_applications($file_content, $file_name)
     {
         //run query to get all student records from db
