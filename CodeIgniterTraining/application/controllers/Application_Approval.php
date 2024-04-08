@@ -9,19 +9,14 @@ class Application_Approval extends CI_Controller
         $this->load->helper('url');
         $this->load->model("Session_model");
         $this->load->model("Channel_model");
+        $this->load->model("Application_model");
 
         // Fetch session data containing only session ID and session name
         $sessions = $this->Session_model->get_session_id_and_name();
         $channels = $this->Channel_model->get_channel_id_and_name();
         // Converting the model data into a list
         // SQL query to join kk_application and kk_student tables
-        $query = $this->db->query("
-        SELECT *
-        FROM application AS a
-        JOIN student_profile AS s ON a.stud_matric = s.stud_matric
-        JOIN kk_session AS c ON a.session_id = c.session_id
-        JOIN kk_channel AS k ON a.channel_id = k.channel_id
-        ");
+        $query = $this->Application_model->getStudentApplication();
         $records = $query->result();
 
         // Pass the records to the view

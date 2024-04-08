@@ -15,8 +15,8 @@ $student_data = $this->session->userdata('student_data');
               </span>
             </a>
           </li>
-          <li class="" name="application">
-            <a href="#">
+          <li class="nav-link" name="application">
+            <a href="<?php echo (base_url('CodeIgniterTraining/index.php/studapplication')); ?>">
               <i class="fa fa-file"></i>
               <span>PERMOHONAN</span>
               <span class="pull-right-container">

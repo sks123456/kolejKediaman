@@ -81,4 +81,14 @@ class Application_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function getStudentApplication(){
+        $this->db->select('*');
+        $this->db->from('application AS a');
+        $this->db->join('student_profile AS s', 'a.stud_matric = s.stud_matric');
+        $this->db->join('kk_session AS c', 'a.session_id = c.session_id');
+        $this->db->join('kk_channel AS k', 'a.channel_id = k.channel_id');
+        $query = $this->db->get();
+        return $query;
+    }
 }

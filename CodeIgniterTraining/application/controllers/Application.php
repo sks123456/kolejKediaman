@@ -3,6 +3,44 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Application extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->library('session');
+    }
+    public function stud_index()
+    {
+        $this->load->helper('url');
+        $this->load->model("Session_model");
+        $this->load->model("Channel_model");
+        $this->load->model("Application_model");
+        $this->load->model("Uniform_model");
+        
+
+        // Fetch session data containing only session ID and session name
+        $sessions = $this->Session_model->get_active_session()->row_array();
+
+        // Fetch channel data
+        $channels = $this->Channel_model->get_all_channel()->result_array();
+
+        // Fetch past applications data
+        $applications = $this->Application_model->getStudentApplication();
+
+        // Fetch uniform data
+        $uniforms = $this->Uniform_model->get_all_uniform()->result_array();
+
+        // Pass the session data to the view
+        $data['sessions'] = $sessions;
+        // Pass the channel data to the view
+        $data['channels'] = $channels;
+        // Pass the application data to the view
+        $data['applications'] = $applications;
+        // Pass the uniform data to the view
+        $data['uniforms'] = $uniforms;
+
+        // Load the view
+        $this->load->view('stud_application', $data);
+    }
     public function index()
     {
         $this->load->helper('url');
@@ -96,9 +134,36 @@ class Application extends CI_Controller
             redirect(base_url('CodeIgniterTraining/index.php/application'));
         } else {
             // Handle the error appropriately (e.g., show a flash message or log the error)
-            $this->application_model->submit_application(null,null);
+            $this->application_model->submit_application(null, null);
             redirect(base_url('CodeIgniterTraining/index.php/application'));
+        }
+    }
 
+    public function stud_submit_application()
+    {
+        $this->load->model("application_model");
+        $this->load->helper('download'); // Load the download helper
+
+        // Call the file upload method
+        $upload_result = $this->handleFileUpload();
+
+        if ($upload_result['success']) {
+            // Extract necessary data from the upload result
+            $file_content = $upload_result['file_content'];
+            $file_name = $upload_result['file_name'];
+
+            // Save the session along with the file content in the database
+            $this->application_model->submit_application($file_content, $file_name);
+
+            // After successful save, attempt to delete the uploaded file
+            $file_path = realpath($upload_result['full_path']);
+            $this->handleAfterUpload($file_path);
+
+            redirect(base_url('CodeIgniterTraining/index.php/student'));
+        } else {
+            // Handle the error appropriately (e.g., show a flash message or log the error)
+            $this->application_model->submit_application(null, null);
+            redirect(base_url('CodeIgniterTraining/index.php/student'));
         }
     }
 
@@ -146,7 +211,7 @@ class Application extends CI_Controller
             log_message('error', 'File not found for deletion: ' . $file_path);
         }
 
-        redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
     }
+   
     
 }

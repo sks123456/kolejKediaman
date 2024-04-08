@@ -63,4 +63,5 @@ $route['crudsession/download/(:any)'] = 'crudsession/download/$1';
 $route['application'] = 'application/index';
 $route['enrollment'] = 'enrollmen/index';
 $route['application_approval'] = 'application_approval/index';
+$route['studapplication'] = 'application/stud_index';
 

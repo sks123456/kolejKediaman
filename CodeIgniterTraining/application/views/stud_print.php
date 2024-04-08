@@ -7,7 +7,6 @@
 <aside class="main-sidebar">
     <?php $this->load->view('stud_side'); ?>
 </aside>
-<!-- Buka Permohonan Form -->
 <!-- Content Header (Page header) -->
 <!-- Content Wrapper -->
 <div class="content-wrapper" style="min-height:902.55px;">
