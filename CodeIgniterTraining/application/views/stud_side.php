@@ -30,7 +30,7 @@ $student_data = $this->session->userdata('student_data');
               </span>
           </li>
           <li class="nav-link <?php if($this->uri->segment(1) == 'status_permohonan') echo 'active' ?>" name="status">
-            <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/stud_status'));?>">
+            <a href="<?php echo (base_url('CodeIgniterTraining/index.php/status_permohonan/index'));?>">
               <i class="fa fa-spinner"></i> <span>STATUS PERMOHONAN</span>
             </a>
           </li>
