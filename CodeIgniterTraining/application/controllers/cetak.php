@@ -37,11 +37,9 @@ class cetak extends CI_Controller
         $this->load->view('stud_print', $data);
     }
 
-    public function stud_status()
+    public function stud_status($student_id)
     {
-        // Retrieve student ID from session
-        $student_id = $this->session->userdata('student_id');
-
+        
         // Fetch active session data
         $sessions = $this->Session_model->get_active_session()->row_array();
 
@@ -57,6 +55,7 @@ class cetak extends CI_Controller
             JOIN kk_channel AS k ON a.channel_id = k.channel_id
             LEFT JOIN kk_uniform AS u ON a.UNIT_ID = u.UNIFORM_ID
             WHERE a.stud_matric = '$student_id'
+            AND c.SESSION_STATUS = 'Aktif'
         ")->result_array();
 
         // Pass the session data, student data, and applications array to the view
