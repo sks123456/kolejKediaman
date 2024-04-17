@@ -21,7 +21,7 @@
                 <li class="nav-link <?php if($this->uri->segment(1) == 'session') echo 'active' ?>"><a href="<?php echo base_url('CodeIgniterTraining/index.php/session');?>"> Buka Permohonan</a></li>
                 <li class="nav-link <?php if($this->uri->segment(1) == 'channel') echo 'active' ?>"><a href="<?php echo base_url('CodeIgniterTraining/index.php/channel');?>"> Saluran Permohonan</a></li>
                 <li class="nav-link <?php if($this->uri->segment(1) == 'uniform') echo 'active' ?>"><a href="<?php echo base_url('CodeIgniterTraining/index.php/uniform');?>"> Saluran Unit Uniform</a></li>
-                <li><a href="#"> Pendaftaran JPKK/MPP</a></li>
+                <li class="nav-link <?php if($this->uri->segment(1) == 'mpp') echo 'active' ?>"><a href="<?php echo base_url('CodeIgniterTraining/index.php/mpp');?>"> Pendaftaran JPKK/MPP</a></li>
             </ul>
         </li>
         <li class="treeview <?php if($this->uri->segment(1) == 'room') echo 'active menu-open'; ?>">

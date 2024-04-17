@@ -15,7 +15,7 @@ $student_data = $this->session->userdata('student_data');
               </span>
             </a>
           </li>
-          <li class="nav-link" name="application">
+          <li class="nav-link <?php if($this->uri->segment(1) == 'studapplication') echo 'active' ?>" name="application">
             <a href="<?php echo (base_url('CodeIgniterTraining/index.php/studapplication')); ?>">
               <i class="fa fa-file"></i>
               <span>PERMOHONAN</span>
@@ -23,13 +23,13 @@ $student_data = $this->session->userdata('student_data');
               </span>
             </a>
           </li>
-          <li class="nav-link <?php if($this->uri->segment(1) == 'cetak') echo 'active' ?>" name="print">
+          <li class="nav-link <?php if($this->uri->segment(1) == 'cetak' && $this->uri->segment(2) != 'stud_status') echo 'active' ?>" name="print">
               <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/'));?><?=$student_data['STUD_MATRIC']?>"><i class="fa fa-print"></i>
               <span>CETAK</span></a>
               <span class="pull-right-container">
               </span>
           </li>
-          <li class="nav-link <?php if($this->uri->segment(1) == 'status_permohonan') echo 'active' ?>" name="status">
+          <li class="nav-link <?php if($this->uri->segment(1) == 'cetak' && $this->uri->segment(2) == 'stud_status') echo 'active' ?>" name="status">
             <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/stud_status/'));?><?=$student_data['STUD_MATRIC']?>">
               <i class="fa fa-spinner"></i> <span>STATUS PERMOHONAN</span>
             </a>
