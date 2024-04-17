@@ -11,7 +11,6 @@ class cetak extends CI_Controller
         $this->load->model("Session_model");
         $this->load->model("Student_model");
         $this->load->model("Application_model");
-
     }
 
     public function index($student_id)
@@ -39,7 +38,7 @@ class cetak extends CI_Controller
 
     public function stud_status($student_id)
     {
-        
+
         // Fetch active session data
         $sessions = $this->Session_model->get_active_session()->row_array();
 
@@ -67,5 +66,31 @@ class cetak extends CI_Controller
         $this->load->view('stud_status', $data);
     }
 
+    public function pengesahan($student_id)
+    {
+        // Fetch active session data
+        $sessions = $this->Session_model->get_active_session()->row_array();
 
+        // Fetch student data
+        $student_data = $this->Student_model->get_student($student_id)->row_array();
+
+        // Fetch multiple application records for the student
+        $applications = $this->db->query("
+            SELECT *
+            FROM application AS a
+            JOIN student_profile AS s ON a.stud_matric = s.stud_matric
+            JOIN kk_session AS c ON a.session_id = c.session_id
+            JOIN kk_channel AS k ON a.channel_id = k.channel_id
+            LEFT JOIN kk_uniform AS u ON a.UNIT_ID = u.UNIFORM_ID
+            WHERE a.stud_matric = '$student_id'
+            AND c.SESSION_STATUS = 'Aktif'
+        ")->result_array();
+
+        // Pass the session data, student data, and applications array to the view
+        $data['sessions'] = $sessions;
+        $data['student_data'] = $student_data;
+        $data['applications'] = $applications;
+        // Load the view
+        $this->load->view('stud_pengesahan', $data);
+    }
 }

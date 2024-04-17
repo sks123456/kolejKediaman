@@ -35,7 +35,7 @@ $student_data = $this->session->userdata('student_data');
             </a>
           </li>
           <li class="" name="confirm">
-            <a href="#">
+            <a href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/pengesahan/'));?><?=$student_data['STUD_MATRIC']?>">
               <i class="fa fa-check-circle"></i>
               <span>PENGESAHAN</span>
               </span>
