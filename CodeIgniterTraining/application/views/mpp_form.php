@@ -34,11 +34,13 @@
                 <!-- Matrik No -->
                 <div class="form-group">
                     <label for="student_id">Matrik</label>
-                    <div>
-                        <input type="text" style="width: 400px" class="form-control" id="student_id" name="student_id" placeholder="Sila Masukkan ID Pelajar" value="<?= isset($_POST['student_id']) ? $_POST['student_id'] : '' ?>" required>
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-primary">Semak Matrik >></button>
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <input type="text" style="width: 300px" class="form-control" id="student_id" name="student_id" placeholder="Sila Masukkan ID Pelajar" value="<?= isset($_POST['student_id']) ? $_POST['student_id'] : '' ?>" required>
+                        </div>
+                        <div class="col-xs-2">
+                            <button type="submit">Semak Matrik >></button>
+                        </div>
                     </div>
                 </div>
                 
@@ -46,7 +48,6 @@
                 <div class="form-group">
                     <!-- Hidden field for role_id -->
                     <input type="hidden" name="role_id" value="">
-
                     <label>Jawatan</label>
                     <div class="row">
                         <div class="col-md-3">
@@ -71,7 +72,6 @@
                 <div class="form-group">
                     <!-- Hidden field for role_id -->
                     <input type="hidden" name="status_id" value="">
-
                     <label>Status Aktif</label>
                     <div class="row">
                         <div class="col-md-3">
