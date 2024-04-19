@@ -1,0 +1,225 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9;
+  padding: 0 10px;
+  background: #009efb;
+  background: -moz-linear-gradient(left, #0178bc 0%, #00bdda 100%);
+  background: -webkit-linear-gradient(left, #0178bc 0%, #00bdda 100%);
+  background: linear-gradient(to right, #0178bc 0%, #00bdda 100%);
+
+  .navbar {
+    min-height: $headerHeight;
+
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+
+    .navbar-nav {
+      .hover-dd {
+        position: static;
+
+        .dropdown-menu-nav {
+          max-width: 860px;
+          width: 100%;
+        }
+
+        &:hover {
+          .dropdown-menu {
+            display: block;
+
+            li {
+              line-height: normal;
+            }
+
+          }
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        min-width: 200px;
+        padding-top: 0;
+
+        .dropdown-item {
+          font-weight: 500;
+        }
+
+        @include media-breakpoint-up(md) {
+          &.content-dd {
+            width: $dropdown-width;
+          }
+        }
+      }
+
+      .nav-item {
+        .nav-link {
+          display: flex;
+          align-items: center;
+          line-height: 70px;
+          height: 70px;
+          padding: $linkSpacer;
+          font-size: 14px;
+          color: rgba($white, 0.8);
+
+          iconify-icon {
+            font-size: $linkFontSize;
+          }
+        }
+      }
+    }
+  }
+
+  .user-dd,
+  .mailbox {
+    width: 300px;
+  }
+}
+
+.message-body {
+  max-height: 360px;
+}
+
+//
+// Search box
+//
+.app-search {
+  display: inline-block;
+  background-color: var(--bs-white);
+  border-radius: 50px;
+
+  input {
+    width: 200px;
+    font-size: 14px;
+    transition: 0.5s ease-in;
+
+    &:focus {
+      width: 240px;
+    }
+  }
+}
+
+
+.popup-badge {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -2px;
+  right: 6px;
+}
+
+.notify {
+  position: relative;
+  top: 0;
+  right: -8px;
+
+  .heartbit {
+    position: absolute;
+    top: -20px;
+    right: -4px;
+    height: 25px;
+    width: 25px;
+    z-index: 10;
+    border: 5px solid var(--bs-danger);
+    border-radius: 70px;
+    -moz-animation: heartbit 1s ease-out;
+    -moz-animation-iteration-count: infinite;
+    -o-animation: heartbit 1s ease-out;
+    -o-animation-iteration-count: infinite;
+    -webkit-animation: heartbit 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+
+  .point {
+    width: 6px;
+    height: 6px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    background-color: var(--bs-danger);
+    position: absolute;
+    right: 5px;
+    top: -10px;
+  }
+}
+
+@keyframes heartbit {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  25% {
+    transform: scale(0.1);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: scale(0.5);
+    opacity: 0.3;
+  }
+
+  75% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.mailbox {
+  .profile-status {
+    border: 2px solid var(--bs-white);
+    height: 10px;
+    left: 30px;
+    position: absolute;
+    top: 1px;
+    width: 10px;
+  }
+
+  .online {
+    background: var(--bs-success);
+  }
+
+  .busy {
+    background: var(--bs-danger);
+  }
+
+  .away {
+    background: var(--bs-warning);
+  }
+
+  .offline {
+    background: var(--bs-warning);
+  }
+}
+
+
+@include media-breakpoint-down(md) {
+  .topbar {
+    .navbar-nav {
+      .dropdown-menu {
+        position: absolute;
+        width: 100%;
+      }
+
+      .nav-item.dropdown {
+        position: static;
+      }
+    }
+  }
+}
+
+.dropdown-menu-end{
+  right:15px;
+  left: auto;
+}

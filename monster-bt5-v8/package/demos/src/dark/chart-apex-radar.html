@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-bs-theme="dark" data-color-theme="Blue_Theme" data-layout="vertical">
+
+<head>
+  @@include("partials/head.html")
+  <title>Monster Bootstrap Admin</title>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <img src="@@webRoot/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+  </div>
+  <div id="main-wrapper">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar with-vertical">
+      <div>@@include("partials/sidebar.html", { "page": "dashboard", })</div>
+    </aside>
+    <!--  Sidebar End -->
+    <div class="page-wrapper">
+      <!--  Header Start -->
+      <header class="topbar card rounded-0 border-0">
+        <div class="with-vertical">@@include("partials/header.html")</div>
+        <div class="app-header with-horizontal">
+          @@include("partials/horizontal-header.html")
+        </div>
+      </header>
+      <!--  Header End -->
+
+      <aside class="left-sidebar with-horizontal">
+        @@include("partials/horizontal-sidebar.html", { "page": "dashboard",
+        })
+      </aside>
+
+      <div class="body-wrapper">
+        <div class="container-fluid">
+          @@include("partials/breadcrumb.html", {"title": "Chart Apex Radar", "subtitle": 'Home'})
+          <!-- Start Basic Radar Chart -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5>Basic Radar Chart</h5>
+                  <div id="chart-radar-basic"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Basic Radar Chart -->
+          <!-- Start Multiple Series Radar Chart -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5>Multiple Series Radar Chart</h5>
+                  <div id="chart-radar-multiple-series"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Multiple Series Radar Chart -->
+          <!-- Start Polygon-fill Radar Chart -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5>Polygon Fill Radar Chart</h5>
+                  <div id="chart-radar-polygon-fill"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Polygon-fill Radar Chart -->
+        </div>
+      </div>
+      @@include("partials/customizer.html")
+    </div>
+
+    
+
+  </div>
+  <div class="dark-transparent sidebartoggler"></div>
+  <script src="@@webRoot/assets/js/vendor.min.js"></script>
+  @@include("partials/scripts.html")
+  <script src="@@webRoot/node_modules/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="@@webRoot/assets/js/apex-chart/apex.radar.init.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,318 @@
+// ----------------------------------------------
+// Variables Style
+// ----------------------------------------------
+
+// colors
+$white: #fff !default;
+$gray-100: #ebf3f5 !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #959DB2 !default;
+$gray-600: #868e96 !default;
+$gray-700: #4f5467 !default;
+$gray-800: #263238 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// Color
+$blue: #009efb !default; 
+$red: #F55151 !default; 
+$yellow: #FAAB34 !default; 
+$green: #04B440 !default; 
+$primary: #009efb !default;
+$text-muted: #959DB2 !default;
+
+$dark-transparent: rgba(0, 0, 0, 0.05);
+
+// Main Colors
+$primary: $blue !default;
+$secondary: #963BF1 !default;
+$success: $green !default;
+$info: $blue !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+// Theme Colorss
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark,
+  "text-muted": $text-muted,
+) !default;
+
+// light colors
+$primary-bg-subtle: #EBF7FF !default;//
+$secondary-bg-subtle: #F5ECFE !default;//
+$success-bg-subtle: #EBFFF2 !default;
+$info-bg-subtle: #EBF7FF !default;
+$warning-bg-subtle: #FEF7EB !default;
+$danger-bg-subtle: #FEECEC !default;
+$light-bg-subtle: $gray-100 !default;
+$dark-bg-subtle: $gray-600 !default;
+
+$primary-text-emphasis: shade-color($primary, 60%) !default;
+$secondary-text-emphasis: shade-color($secondary, 60%) !default;
+$success-text-emphasis: shade-color($success, 60%) !default;
+$info-text-emphasis: shade-color($info, 60%) !default;
+$warning-text-emphasis: shade-color($warning, 60%) !default;
+$danger-text-emphasis: shade-color($danger, 60%) !default;
+$light-text-emphasis: $gray-100 !default;
+$dark-text-emphasis: $gray-600 !default;
+
+// Spacer
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: 12px,
+  7: 30px,
+  8: 10px,
+  9: 20px,
+) !default;
+
+$utilities: () !default;
+$utilities: (
+  "width": (
+    property: width,
+    class: w,
+    values: (
+      20: 20%,
+      25: 25%,
+      30: 30%,
+      40: 40%,
+      50: 50%,
+      60: 60%,
+      70: 70%,
+      75: 75%,
+      85: 85%,
+      100: 100%,
+      auto: auto,
+    ),
+  ),
+);
+
+// Common
+$min-contrast-ratio: 1.7 !default;
+
+// Margins
+$enable-negative-margins: true !default;
+$enable-shadows: true !default;
+
+// Global
+$text-muted: #8392a5 !default;
+$grid-gutter-width: 30px !default;
+
+// Font Weight
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-medium: 400 !default;
+$font-weight-bold: 500 !default;
+$font-weight-base: 400 !default;
+
+$h1-font-size: 36px !default;
+$h2-font-size: 24px !default;
+$h3-font-size: 21px !default;
+$h4-font-size: 18px !default;
+$h5-font-size: 16px !default;
+$h6-font-size: 14px !default;
+
+// Buttons
+$btn-font-weight: 500 !default;
+$btn-border-radius: 6px !default;
+$btn-box-shadow: 0 1px 0 rgba($white, 0.15) !default;
+$btn-border-radius-lg: 9px !default;
+
+// Font Family
+$font-family-sans-serif: "Inter", sans-serif !default;
+
+// Font Sizes
+$font-sizes: (
+  1: 10px,
+  2: 12px,
+  3: 14px,
+  4: 16px,
+  5: 18px,
+  6: 20px,
+  7: 24px,
+  8: 30px,
+  9: 36px,
+  10: 40px,
+  11: 45px,
+  12: 48px,
+  13: 55px,
+) !default;
+$font-size-base: 0.875rem !default;
+
+// Line Heght
+$line-height-base: 1.5 !default;
+$line-height-sm: 1.25 !default;
+$line-height-lg: 2 !default;
+
+// Body
+$body-bg: $white !default;
+$body-color: #556777 !default;
+
+// Heading
+$headings-color: #3A3F4F !default;
+$headings-line-height: 1.5 !default;
+$headings-font-weight: 600 !default;
+
+// Border Color
+$border-color: rgba(51, 55, 71, 0.08) !default;
+
+// Box Shadow
+$box-shadow-sm: 0px 2px 9px 0px rgba(169, 184, 200, 0.2) !default;
+
+// Card
+$card-title-color: $headings-color !default;
+$card-subtitle-color: $text-muted !default;
+$card-box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.03), 0px 0px 1px 0px rgba(0, 0, 0, 0.10) !default;
+$card-spacer-y: 24px !default;
+$card-spacer-x: 24px !default;
+$card-border-width: 0px !default;
+$card-border-radius: 7px !default;
+$card-border-color: transparent !default;
+$card-columns-margin: 20px !default;
+
+// Border Radius
+$border-radius: 7px !default;
+$border-radius-sm: 5px !default;
+$border-radius-lg: 15px !default;
+$border-radius-xl: 12px !default;
+
+// Badges
+$badge-font-weight: 500 !default;
+$badge-pill-padding-x: 0.5rem !default;
+$badge-font-size: 0.75rem !default;
+$badge-padding-y: 8px !default;
+$badge-padding-x: 8px !default;
+
+// Progressbar
+$progress-height: 5px !default;
+$progress-box-shadow: none !default;
+
+// Table
+$table-color: #3A3F4F;
+$table-bg-accent: $gray-100;
+$table-hover-bg: $gray-100;
+$table-th-font-weight: 600 !default;
+$table-cell-padding-y: 14px !default;
+$table-cell-padding-x: 14px !default;
+$table-bg-level: -10 !default;
+$table-border-color: rgba(51, 55, 71, 0.08) !default;
+$table-group-separator-color: transparent;
+$table-striped-bg: $light !default;
+$table-cell-padding-y-sm: 10px !default;
+$table-cell-padding-x-sm: 15px !default;
+
+// Tabs
+$nav-link-color: $dark !default;
+$nav-link-hover-color: $dark !default;
+$nav-tabs-link-active-color: $white !default;
+$nav-tabs-link-active-bg: $primary !default;
+$nav-tabs-border-radius: 10px !default;
+$nav-tabs-border-width: 0 !default;
+$nav-link-font-size: 16px !default;
+$nav-link-font-weight: $font-weight-normal !default;
+
+// Tooltips
+$tooltip-font-size: 12px !default;
+$tooltip-bg: $dark;
+
+// Input
+$form-label-color: $dark;
+$form-select-indicator-padding: 38px;
+$form-select-border-radius: 5px !default;
+$form-select-box-shadow: unset !default;
+$form-select-color: #565F76;
+$input-font-weight: 400;
+$input-box-shadow: unset !default;
+$input-border-radius: 7px !default;
+$input-group-addon-bg: $gray-200 !default;
+$input-group-addon-border-color: $light !default;
+$input-border-color: #dfe5ef !default;
+$input-bg: transparent !default;
+$input-color: $gray-500 !default;
+$input-padding-y: 8px;
+$input-padding-x: 16px;
+$form-check-input-width: 1.313em;
+$form-check-min-height: 1.313em;
+$form-check-input-border: 1.25px solid #dfe5ef;
+
+// Paganation
+$pagination-active-color: $white !default;
+$pagination-active-bg: $primary !default;
+
+// Dropdown
+$dropdown-width: 360px !default;
+$dropdown-item-padding-x: 1rem !default;
+$dropdown-item-padding-y: 0.65rem !default;
+$dropdown-border-color: rgba(51, 55, 71, 0.08) !default;
+$dropdown-divider-bg: $gray-100;
+$dropdown-link-color: $gray-600 !default;
+$dropdown-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.1) !default;
+$dropdown-border-width: 0 !default;
+$dropdown-border-radius: 0 !default;
+$dropdown-link-hover-bg: #f2f7f8 !default;
+$dropdown-link-active-bg: #f2f7f8 !default;
+
+$link-color: #2a3547 !default;
+
+$link-hover-color: $primary !default;
+
+// Offcanvas
+$offcanvas-border-width: 0 !default;
+$offcanvas-horizontal-width: 330px !default;
+
+// Modal
+$modal-content-border-width: 0 !default;
+
+// Breadcrumb
+$breadcrumb-font-size: 14px;
+$breadcrumb-padding-y: 0;
+$breadcrumb-padding-x: 0;
+$breadcrumb-item-padding-x: 0.5rem;
+$breadcrumb-margin-bottom: 0;
+$breadcrumb-divider-color: $gray-600;
+$breadcrumb-active-color: $blue;
+$breadcrumb-divider: quote("•");
+$breadcrumb-divider-flipped: $breadcrumb-divider;
+
+// Accordion
+$accordion-padding-y: 1.25rem;
+$accordion-padding-x: 2rem;
+$accordion-button-color: $dark;
+$accordion-body-padding-y: 1rem;
+$accordion-border-color: $border-color;
+$accordion-button-active-bg: transparent !default;
+$accordion-button-active-color: $dark;
+$accordion-icon-color: #0000008a;
+$accordion-icon-active-color: #0000008a;
+
+// toast
+$toast-border-width: 0 !default;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1300px,
+  xxl: 1400px,
+) !default;
+
+
+$hr-border-color: $border-color !default;
+$hr-opacity: 1 !default;

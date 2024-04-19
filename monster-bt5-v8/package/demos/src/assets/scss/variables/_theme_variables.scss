@@ -1,0 +1,42 @@
+// ----------------------------------------------
+// Theme Variables Configration
+// ----------------------------------------------
+
+// header
+$headerHeight: 70px;
+$linkSpacer: 0 14px;
+$linkFontSize: 20px;
+
+
+
+// sidebar
+$sidebar-link-padding: 12px 22px 12px 22px;//
+$sidebar-icon-size: 23px;
+$sidebar-first-level-padding: 0 0 10px 0;
+$sidebar-first-level-link-padding: 12px 22px 12px 54px;//
+$sidebar-first-level-icon-size: 14px;
+$sidebar-width-full: 260px;
+$sidebar-width-iconbar: 180px;
+$sidebar-width-mini: 60px;
+$sidebar-spacing-x: 0 24px;
+$link-disabled: 0.38;
+
+$boxedWidth: 1300px;
+
+// horizontal
+$horizontal-boxed-page-breadcrumb-container-padding-lg: 20px 10px;
+$horizontal-pagewrapper-padding-top-lg: 200px;
+$horizontal-pagewrapper-padding-top-sm: 100px;
+$sidebar-height: 65px;
+$sidebar-li-width: 260px;
+$sidebar-first-level-width: 400px;
+$horizontal-list-shadow: 0 15px 30px rgb(0 0 0 / 12%);
+
+
+// #############################
+// Sticky Left & Right Sidebar
+// #############################
+$left-part-width: 260px;
+$right-part-width: calc(100% - 260px);
+$right-part-height: calc(100vh - 129px);
+$topbar-height: 65px;

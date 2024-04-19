@@ -27,7 +27,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <table border=0>
+                                    <table style="border:0">
                                         <tr>
                                             <td>
                                                 <a class="btn btn-info btn-sm" href="" onclick="return confirm('Adakah anda pasti nak mengedit record ini?')"><i class="fa fa-edit"></i></a>

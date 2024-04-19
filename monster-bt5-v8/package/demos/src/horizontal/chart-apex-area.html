@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="horizontal">
+
+<head>
+  @@include("partials/head.html")
+  <title>Monster Bootstrap Admin</title>
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <img src="@@webRoot/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+  </div>
+  <div id="main-wrapper">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar with-vertical">
+      <div>@@include("partials/sidebar.html", { "page": "dashboard", })</div>
+    </aside>
+    <!--  Sidebar End -->
+    <div class="page-wrapper">
+      <!--  Header Start -->
+      <header class="topbar card rounded-0 border-0">
+        <div class="with-vertical">@@include("partials/header.html")</div>
+        <div class="app-header with-horizontal">
+          @@include("partials/horizontal-header.html")
+        </div>
+      </header>
+      <!--  Header End -->
+
+      <aside class="left-sidebar with-horizontal">
+        @@include("partials/horizontal-sidebar.html", { "page": "dashboard",
+        })
+      </aside>
+
+      <div class="body-wrapper">
+        <div class="container-fluid">
+          @@include("partials/breadcrumb.html", {"title": "Chart Apex Area",
+          "subtitle": 'Home'})
+          <div class="row">
+            <div class="col-12">
+              <!-- start Basic Area Chart -->
+              <div class="card">
+                <div class="card-body">
+                  <h5>Basic Area Chart</h5>
+                  <div id="chart-area-basic"></div>
+                </div>
+              </div>
+              <!-- end Basic Area Chart -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <!-- start Spline Area Chart -->
+              <div class="card">
+                <div class="card-body">
+                  <h5>Spline Area Chart</h5>
+                  <div id="chart-area-spline"></div>
+                </div>
+              </div>
+              <!-- end Spline Area Chart -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <!-- start DateTime X-axis Area Chart -->
+              <div class="card">
+                <div class="card-body">
+                  <h5>DateTime X-axis Area Chart</h5>
+                  <div id="chart-area-datetime"></div>
+                </div>
+              </div>
+              <!-- end DateTime X-axis Area Chart -->
+            </div>
+          </div>
+        </div>
+      </div>
+      @@include("partials/customizer.html")
+    </div>
+
+    
+  </div>
+  <div class="dark-transparent sidebartoggler"></div>
+  <script src="@@webRoot/assets/js/vendor.min.js"></script>
+  @@include("partials/scripts.html")
+  <script src="@@webRoot/node_modules/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="@@webRoot/assets/js/apex-chart/apex.area.init.js"></script>
+</body>
+
+</html>
