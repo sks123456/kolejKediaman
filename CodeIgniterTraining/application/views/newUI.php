@@ -3,16 +3,16 @@
 
 <head>
   <!-- Required meta tags -->
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Favicon icon-->
-<link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" />
+  <!-- Favicon icon-->
+  <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" />
 
-<!-- Core Css -->
-<link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/css/styles.css" />
-  <title><?php echo base_url() ?>monster Bootstrap Admin</title>
+  <!-- Core Css -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/css/styles.css" />
+  <title><?php echo base_url() ?>Hostel App | Admin</title>
   <!-- Owl Carousel  -->
   <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
 </head>
@@ -35,30 +35,30 @@
       <div class="body-wrapper">
         <div class="container-fluid">
           <div class="d-md-flex align-items-center justify-content-between mb-7">
-  <div class="mb-4 mb-md-0">
-    <h4 class="fs-6 mb-0">Dashboard</h4>
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb mb-0">
-        <li class="breadcrumb-item">
-          <a class="text-muted text-decoration-none" href="<?php echo base_url() ?>monster-bt5-v8/dist/main/index.html">Home</a>
-        </li>
-        <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-      </ol>
-    </nav>
-  </div>
-  <div class="d-flex align-items-center justify-content-between gap-6">
-    <select class="form-select border fs-3" aria-label="Default select example">
-      <option selected>November 2023</option>
-      <option value="1">February 2023</option>
-      <option value="2">March 2023</option>
-      <option value="3">April 2023</option>
-    </select>
-    <button class="btn btn-success d-flex align-items-center gap-1 fs-3 py-2 px-9">
-      <i class="ti ti-plus fs-4"></i>
-      Create
-    </button>
-  </div>
-</div>
+            <div class="mb-4 mb-md-0">
+              <h4 class="fs-6 mb-0">Dashboard</h4>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item">
+                    <a class="text-muted text-decoration-none" href="<?php echo base_url() ?>monster-bt5-v8/dist/main/index.html">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="d-flex align-items-center justify-content-between gap-6">
+              <select class="form-select border fs-3" aria-label="Default select example">
+                <option selected>November 2023</option>
+                <option value="1">February 2023</option>
+                <option value="2">March 2023</option>
+                <option value="3">April 2023</option>
+              </select>
+              <button class="btn btn-success d-flex align-items-center gap-1 fs-3 py-2 px-9">
+                <i class="ti ti-plus fs-4"></i>
+                Create
+              </button>
+            </div>
+          </div>
           <!-- Row -->
           <div class="row">
             <!-- Column -->
@@ -72,8 +72,7 @@
                     <span class="text-muted fs-3 fw-bold">$45,987</span>
                   </div>
                   <div class="progress bg-warning-subtle" style="height: 4px">
-                    <div class="progress-bar w-70 text-bg-warning" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar w-70 text-bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -90,8 +89,7 @@
                     <span class="text-muted fs-3 fw-bold">567 Kwh</span>
                   </div>
                   <div class="progress bg-indigo-subtle" style="height: 4px">
-                    <div class="progress-bar w-70 text-bg-secondary" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar w-70 text-bg-secondary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -108,8 +106,7 @@
                     <span class="text-muted fs-3 fw-bold">467 Gb</span>
                   </div>
                   <div class="progress bg-danger-subtle" style="height: 4px">
-                    <div class="progress-bar w-70 text-bg-danger" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar w-70 text-bg-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -126,8 +123,7 @@
                     <span class="text-muted fs-3 fw-bold">$45,987</span>
                   </div>
                   <div class="progress bg-success-subtle" style="height: 4px">
-                    <div class="progress-bar w-70 text-bg-success" role="progressbar" aria-valuenow="70"
-                      aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar w-70 text-bg-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -263,8 +259,7 @@
                 <div class="card-body">
                   <div class="d-flex flex-row">
                     <div class="">
-                      <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-6.jpg" alt="user" class="rounded-circle"
-                        width="96" />
+                      <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-6.jpg" alt="user" class="rounded-circle" width="96" />
                     </div>
                     <div class="ps-9">
                       <h3 class="fs-6">Michael Jordan</h3>
@@ -396,8 +391,7 @@
                   <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center gap-6 w-85">
                       <a class="position-relative" href="javascript:void(0)"> <i class="ti ti-paperclip fs-6"></i></a>
-                      <input type="text" class="bg-transparent form-control fw-bold text-muted border-0 p-0 shadow-none"
-                        placeholder="Write a message">
+                      <input type="text" class="bg-transparent form-control fw-bold text-muted border-0 p-0 shadow-none" placeholder="Write a message">
                     </div>
                     <ul class="list-unstyled mb-0 d-flex align-items-center gap-6">
                       <li><a class="fs-6" href="javascript:void(0)"><i class="ti ti-mood-smile"></i></a></li>
@@ -581,8 +575,7 @@
                       <tr>
                         <td>
                           <div class="hstack gap-3">
-                            <span
-                              class="round-48 rounded-circle overflow-hidden bg-danger-subtle flex-shrink-0 hstack justify-content-center">
+                            <span class="round-48 rounded-circle overflow-hidden bg-danger-subtle flex-shrink-0 hstack justify-content-center">
                               <h6 class="mb-0 fw-bold text-danger fs-4">S</h6>
                             </span>
                             <div>
@@ -602,8 +595,7 @@
                       <tr>
                         <td>
                           <div class="hstack gap-3">
-                            <span
-                              class="round-48 rounded-circle overflow-hidden bg-warning-subtle flex-shrink-0 hstack justify-content-center">
+                            <span class="round-48 rounded-circle overflow-hidden bg-warning-subtle flex-shrink-0 hstack justify-content-center">
                               <h6 class="mb-0 fw-bold text-warning fs-4">A</h6>
                             </span>
                             <div>
@@ -623,8 +615,7 @@
                       <tr>
                         <td>
                           <div class="hstack gap-3">
-                            <span
-                              class="round-48 rounded-circle overflow-hidden bg-info-subtle flex-shrink-0 hstack justify-content-center">
+                            <span class="round-48 rounded-circle overflow-hidden bg-info-subtle flex-shrink-0 hstack justify-content-center">
                               <h6 class="mb-0 fw-bold text-info fs-4">N</h6>
                             </span>
                             <div>
@@ -644,8 +635,7 @@
                       <tr>
                         <td>
                           <div class="hstack gap-3">
-                            <span
-                              class="round-48 rounded-circle overflow-hidden bg-danger-subtle flex-shrink-0 hstack justify-content-center">
+                            <span class="round-48 rounded-circle overflow-hidden bg-danger-subtle flex-shrink-0 hstack justify-content-center">
                               <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-7.jpg" alt="" class="img-fluid">
                             </span>
                             <div>
@@ -665,8 +655,7 @@
                       <tr>
                         <td>
                           <div class="hstack gap-3">
-                            <span
-                              class="round-48 rounded-circle overflow-hidden bg-secondary-subtle flex-shrink-0 hstack justify-content-center">
+                            <span class="round-48 rounded-circle overflow-hidden bg-secondary-subtle flex-shrink-0 hstack justify-content-center">
                               <h6 class="mb-0 fw-bold text-secondary fs-4">M</h6>
                             </span>
                             <div>
@@ -695,9 +684,7 @@
                     <h4 class="card-title mb-0 text-white">Weather Report</h4>
                     <div class="ms-auto">
                       <div class="dropdown">
-                        <button
-                          class="btn border-white border-opacity-10 text-white shadow-none dropdown-toggle fs-3 py-2 px-3"
-                          type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn border-white border-opacity-10 text-white shadow-none dropdown-toggle fs-3 py-2 px-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Today
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end fs-3">
@@ -707,8 +694,7 @@
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="hstack justify-content-between align-items-end pb-4 border-white border-bottom border-opacity-10">
+                  <div class="hstack justify-content-between align-items-end pb-4 border-white border-bottom border-opacity-10">
                     <div>
                       <i class="ti ti-cloud-rain fs-10 mb-2 text-white d-block"></i>
                       <h2 class="mb-0 text-white fs-10 fw-light">18° C</h2>
@@ -720,24 +706,21 @@
                     <div class="hstack gap-6 mb-3">
                       <h6 class="mb-0 text-white flex-shrink-0 fw-normal">7 PM</h6>
                       <div class="progress bg-white bg-opacity-05 w-100 rounded-3" style="height: 16px;">
-                        <div class="progress-bar bg-info rounded-3" role="progressbar" style="width: 44%"
-                          aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info rounded-3" role="progressbar" style="width: 44%" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                       <h6 class="mb-0 text-white flex-shrink-0 fw-normal">44%</h6>
                     </div>
                     <div class="hstack gap-6 mb-3">
                       <h6 class="mb-0 text-white flex-shrink-0 fw-normal">8 PM</h6>
                       <div class="progress bg-white bg-opacity-05 w-100 rounded-3" style="height: 16px;">
-                        <div class="progress-bar bg-info rounded-3" role="progressbar" style="width: 30%"
-                          aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info rounded-3" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                       <h6 class="mb-0 text-white flex-shrink-0 fw-normal">30%</h6>
                     </div>
                     <div class="hstack gap-6">
                       <h6 class="mb-0 text-white flex-shrink-0 fw-normal">9 PM</h6>
                       <div class="progress bg-white bg-opacity-05 w-100 rounded-3" style="height: 16px;">
-                        <div class="progress-bar bg-info rounded-3" role="progressbar" style="width: 67%"
-                          aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-info rounded-3" role="progressbar" style="width: 67%" aria-valuenow="67" aria-valuemin="0" aria-valuemax="100"></div>
                       </div>
                       <h6 class="mb-0 text-white flex-shrink-0 fw-normal">67%</h6>
                     </div>
@@ -760,14 +743,12 @@
             <!-- Column -->
             <div class="col-lg-4">
               <div class="card">
-                <a href="#"><img class="card-img-top img-responsive" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/blog/blog-img1.jpg"
-                    alt="Card" /></a>
+                <a href="#"><img class="card-img-top img-responsive" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/blog/blog-img1.jpg" alt="Card" /></a>
                 <div class="card-body">
                   <div class="hstack mb-6">
                     <span class="fs-3 fw-normal">20 May 2023</span>
                     <div class="ms-auto">
-                      <a href="javascript:void(0)" class="link hstack gap-1 lh-1 fw-light fs-3 fw-normal text-muted"><i
-                          class="ti ti-message-circle-2 fs-5"></i>3 Comments</a>
+                      <a href="javascript:void(0)" class="link hstack gap-1 lh-1 fw-light fs-3 fw-normal text-muted"><i class="ti ti-message-circle-2 fs-5"></i>3 Comments</a>
                     </div>
                   </div>
                   <h4 class="mb-0">
@@ -780,14 +761,12 @@
             <!-- Column -->
             <div class="col-lg-4">
               <div class="card">
-                <a href="#"><img class="card-img-top img-responsive" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/blog/blog-img2.jpg"
-                    alt="Card" /></a>
+                <a href="#"><img class="card-img-top img-responsive" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/blog/blog-img2.jpg" alt="Card" /></a>
                 <div class="card-body">
                   <div class="hstack mb-6">
                     <span class="fs-3 fw-normal">20 May 2023</span>
                     <div class="ms-auto">
-                      <a href="javascript:void(0)" class="link hstack gap-1 lh-1 fw-light fs-3 fw-normal text-muted"><i
-                          class="ti ti-message-circle-2 fs-5"></i>3 Comments</a>
+                      <a href="javascript:void(0)" class="link hstack gap-1 lh-1 fw-light fs-3 fw-normal text-muted"><i class="ti ti-message-circle-2 fs-5"></i>3 Comments</a>
                     </div>
                   </div>
                   <h4 class="mb-0">
@@ -800,14 +779,12 @@
             <!-- Column -->
             <div class="col-lg-4">
               <div class="card">
-                <a href="#"><img class="card-img-top img-responsive" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/blog/blog-img3.jpg"
-                    alt="Card" /></a>
+                <a href="#"><img class="card-img-top img-responsive" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/blog/blog-img3.jpg" alt="Card" /></a>
                 <div class="card-body">
                   <div class="hstack mb-6">
                     <span class="fs-3 fw-normal">20 May 2023</span>
                     <div class="ms-auto">
-                      <a href="javascript:void(0)" class="link hstack gap-1 lh-1 fw-light fs-3 fw-normal text-muted"><i
-                          class="ti ti-message-circle-2 fs-5"></i>3 Comments</a>
+                      <a href="javascript:void(0)" class="link hstack gap-1 lh-1 fw-light fs-3 fw-normal text-muted"><i class="ti ti-message-circle-2 fs-5"></i>3 Comments</a>
                     </div>
                   </div>
                   <h4 class="mb-0">
@@ -831,8 +808,7 @@
                   <div class="comment-widgets position-relative mb-2" data-simplebar="" style="height: 450px">
                     <!-- Comment Row -->
                     <div class="d-flex gap-9 comment-row mb-5">
-                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-2.jpg" alt="user"
-                          width="56" height="56" class="rounded-circle" /></span>
+                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-2.jpg" alt="user" width="56" height="56" class="rounded-circle" /></span>
                       <div class="comment-text">
                         <div class="hstack justify-content-between gap-6 mb-6">
                           <div class="hstack gap-6">
@@ -848,16 +824,14 @@
                         </p>
                         <ul class="list-unstyled mb-0 hstack gap-3 lh-1">
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-edit"></i></a></li>
-                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i
-                                class="ti ti-square-check"></i></a></li>
+                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-square-check"></i></a></li>
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-heart"></i></a></li>
                         </ul>
                       </div>
                     </div>
                     <!-- Comment Row -->
                     <div class="d-flex gap-9 comment-row mb-5">
-                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-3.jpg" alt="user"
-                          width="56" height="56" class="rounded-circle" /></span>
+                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-3.jpg" alt="user" width="56" height="56" class="rounded-circle" /></span>
                       <div class="comment-text">
                         <div class="hstack justify-content-between gap-6 mb-6">
                           <div class="hstack gap-6">
@@ -873,16 +847,14 @@
                         </p>
                         <ul class="list-unstyled mb-0 hstack gap-3 lh-1">
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-edit"></i></a></li>
-                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i
-                                class="ti ti-square-check"></i></a></li>
+                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-square-check"></i></a></li>
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-heart"></i></a></li>
                         </ul>
                       </div>
                     </div>
                     <!-- Comment Row -->
                     <div class="d-flex gap-9 comment-row mb-5">
-                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-4.jpg" alt="user"
-                          width="56" height="56" class="rounded-circle" /></span>
+                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-4.jpg" alt="user" width="56" height="56" class="rounded-circle" /></span>
                       <div class="comment-text">
                         <div class="hstack justify-content-between gap-6 mb-6">
                           <div class="hstack gap-6">
@@ -898,16 +870,14 @@
                         </p>
                         <ul class="list-unstyled mb-0 hstack gap-3 lh-1">
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-edit"></i></a></li>
-                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i
-                                class="ti ti-square-check"></i></a></li>
+                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-square-check"></i></a></li>
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-heart"></i></a></li>
                         </ul>
                       </div>
                     </div>
                     <!-- Comment Row -->
                     <div class="d-flex gap-9 comment-row mb-5">
-                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-5.jpg" alt="user"
-                          width="56" height="56" class="rounded-circle" /></span>
+                      <span class="flex-shrink-0"><img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-5.jpg" alt="user" width="56" height="56" class="rounded-circle" /></span>
                       <div class="comment-text">
                         <div class="hstack justify-content-between gap-6 mb-6">
                           <div class="hstack gap-6">
@@ -923,8 +893,7 @@
                         </p>
                         <ul class="list-unstyled mb-0 hstack gap-3 lh-1">
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-edit"></i></a></li>
-                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i
-                                class="ti ti-square-check"></i></a></li>
+                          <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-square-check"></i></a></li>
                           <li><a class="fs-6 text-muted" href="javascript:void(0)"><i class="ti ti-heart"></i></a></li>
                         </ul>
                       </div>
@@ -939,8 +908,7 @@
                   <div class="d-flex align-items-center mb-7">
                     <h4 class="card-title mb-0">To Do list</h4>
                     <div class="ms-auto">
-                      <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal"
-                        data-bs-target="#myModal">
+                      <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class="ti ti-plus fs-6"></i>
                         Add Task
                       </button>
@@ -987,36 +955,29 @@
                     <ul class="list-task todo-list mb-0" data-role="tasklist">
                       <li class="border-0 p-0 mb-4" data-role="task">
                         <div class="form-check border-start border-3 border-info ps-9">
-                          <input type="checkbox" class="form-check-input ms-0" id="inputSchedule"
-                            name="inputCheckboxesSchedule" />
+                          <input type="checkbox" class="form-check-input ms-0" id="inputSchedule" name="inputCheckboxesSchedule" />
                           <label for="inputSchedule" class="form-check-label ps-3 gap-3 hstack">
                             <h5 class="mb-0 fw-bold">Schedule meeting with</h5>
                           </label>
                         </div>
                         <ul class="assignedto list-inline m-0 ps-5 ms-2 mt-1">
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-3.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Steave" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-3.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Steave" />
                           </li>
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-4.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Jessica" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-4.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Jessica" />
                           </li>
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-6.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title=""
-                              data-original-title="Priyanka" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-6.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Priyanka" />
                           </li>
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-2.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Selina" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-2.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Selina" />
                           </li>
                         </ul>
                       </li>
                       <li class="border-0 p-0 mb-4" data-role="task">
                         <div class="form-check border-start border-3 border-danger ps-9 d-flex">
-                          <input type="checkbox" class="form-check-input ms-0" id="inputCall"
-                            name="inputCheckboxesCall" />
+                          <input type="checkbox" class="form-check-input ms-0" id="inputCall" name="inputCheckboxesCall" />
                           <label for="inputCall" class="form-check-label ps-3 gap-3 hstack">
                             <h5 class="mb-0 fw-bold opacity-50 text-decoration-line-through">Give Purchase report to
                             </h5>
@@ -1025,20 +986,16 @@
                         </div>
                         <ul class="assignedto list-inline m-0 ps-5 ms-2 mt-1 opacity-50">
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-8.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title=""
-                              data-original-title="Priyanka" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-8.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Priyanka" />
                           </li>
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-7.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Selina" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-7.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Selina" />
                           </li>
                         </ul>
                       </li>
                       <li class="border-0 p-0 mb-4" data-role="task">
                         <div class="form-check border-start border-3 border-secondary ps-9">
-                          <input type="checkbox" class="form-check-input ms-0" id="inputBook"
-                            name="inputCheckboxesBook" />
+                          <input type="checkbox" class="form-check-input ms-0" id="inputBook" name="inputCheckboxesBook" />
                           <label for="inputBook" class="form-check-label ps-3 gap-3 hstack">
                             <h5 class="mb-0 fw-bold opacity-50 text-decoration-line-through">Book flight for holiday
                             </h5>
@@ -1050,8 +1007,7 @@
                       </li>
                       <li class="border-0 p-0 mb-4" data-role="task">
                         <div class="form-check border-start border-3 border-warning ps-9">
-                          <input type="checkbox" class="form-check-input ms-0" id="inputForward"
-                            name="inputCheckboxesForward" />
+                          <input type="checkbox" class="form-check-input ms-0" id="inputForward" name="inputCheckboxesForward" />
                           <label for="inputForward" class="form-check-label ps-3 gap-3 hstack">
                             <h5 class="mb-0 fw-bold">Forward all tasks</h5>
                             <span class="badge bg-warning-subtle text-warning rounded-pill">2 weeks</span>
@@ -1063,8 +1019,7 @@
                       </li>
                       <li class="border-0 p-0 mb-4" data-role="task">
                         <div class="form-check border-start border-3 border-secondary ps-9">
-                          <input type="checkbox" class="form-check-input ms-0" id="inputRecieve"
-                            name="inputCheckboxesRecieve" />
+                          <input type="checkbox" class="form-check-input ms-0" id="inputRecieve" name="inputCheckboxesRecieve" />
                           <label for="inputRecieve" class="form-check-label ps-3 gap-3 hstack">
                             <h5 class="mb-0 fw-bold">Recieve shipment</h5>
                           </label>
@@ -1075,8 +1030,7 @@
                       </li>
                       <li class="border-0 p-0 mb-4" data-role="task">
                         <div class="form-check border-start border-3 border-success ps-9">
-                          <input type="checkbox" class="form-check-input ms-0" id="inputForward2"
-                            name="inputCheckboxesd" />
+                          <input type="checkbox" class="form-check-input ms-0" id="inputForward2" name="inputCheckboxesd" />
                           <label for="inputForward2" class="form-check-label ps-3 gap-3 hstack">
                             <h5 class="mb-0 fw-bold">Send payment today</h5>
                             <span class="badge bg-success-subtle text-success rounded-pill">3 weeks</span>
@@ -1084,26 +1038,19 @@
                         </div>
                         <ul class="assignedto list-inline m-0 ps-5 ms-2 mt-1">
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-3.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title=""
-                              data-original-title="Assign to Steave" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-3.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Assign to Steave" />
                           </li>
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-6.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title=""
-                              data-original-title="Assign to Jessica" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-6.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Assign to Jessica" />
                           </li>
                           <li class="list-inline-item">
-                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-7.jpg" alt="user"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title=""
-                              data-original-title="Assign to Selina" />
+                            <img class="rounded-circle" src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-7.jpg" alt="user" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-original-title="Assign to Selina" />
                           </li>
                         </ul>
                       </li>
                       <li class="border-0 p-0 mb-4" data-role="task">
                         <div class="form-check border-start border-3 border-primary ps-9">
-                          <input type="checkbox" class="form-check-input ms-0" id="inputRecieve2"
-                            name="inputCheckboxesRecieve" />
+                          <input type="checkbox" class="form-check-input ms-0" id="inputRecieve2" name="inputCheckboxesRecieve" />
                           <label for="inputRecieve2" class="form-check-label ps-3 gap-3 hstack">
                             <h5 class="mb-0 fw-bold">Recieve shipment</h5>
                           </label>
@@ -1122,173 +1069,149 @@
         </div>
       </div>
       <script>
-  function handleColorTheme(e) {
-    $("html").attr("data-color-theme", e);
-    $(e).prop("checked", !0);
-  }
-</script>
-<button class="btn btn-info p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn"
-  type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  <iconify-icon icon="solar:settings-linear" class="fs-7"></iconify-icon>
-</button>
+        function handleColorTheme(e) {
+          $("html").attr("data-color-theme", e);
+          $(e).prop("checked", !0);
+        }
+      </script>
+      <button class="btn btn-info p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <iconify-icon icon="solar:settings-linear" class="fs-7"></iconify-icon>
+      </button>
 
-<div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample"
-  aria-labelledby="offcanvasExampleLabel">
-  <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
-    <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">
-      Settings
-    </h4>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body h-n80" data-simplebar>
-    <h6 class="fw-semibold fs-4 mb-2">Theme</h6>
-
-    <div class="d-flex flex-row gap-3 customizer-box" role="group">
-      <input type="radio" class="btn-check light-layout" name="theme-layout" id="light-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="light-layout">
-        <iconify-icon icon="solar:sun-2-bold" class="icon fs-7 me-2"></iconify-icon>Light</label>
-
-      <input type="radio" class="btn-check dark-layout" name="theme-layout" id="dark-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="dark-layout"><iconify-icon icon="solar:moon-linear"
-          class="icon fs-7 me-2"></iconify-icon>Dark</label>
-    </div>
-
-    <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Direction</h6>
-    <div class="d-flex flex-row gap-3 customizer-box" role="group">
-      <input type="radio" class="btn-check" name="direction-l" id="ltr-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="ltr-layout">
-        <iconify-icon icon="solar:align-left-linear" class="icon fs-7 me-2"></iconify-icon>LTR</label>
-
-      <input type="radio" class="btn-check" name="direction-l" id="rtl-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="rtl-layout"><iconify-icon icon="solar:align-right-linear"
-          class="icon fs-7 me-2"></iconify-icon>RTL</label>
-    </div>
-
-    <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Colors</h6>
-
-    <div class="d-flex flex-row flex-wrap gap-3 customizer-box color-pallete" role="group">
-      <input type="radio" class="btn-check" name="color-theme-layout" id="Blue_Theme" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center"
-        onclick="handleColorTheme('Blue_Theme')" for="Blue_Theme" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-title="BLUE_THEME">
-        <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-1">
-          <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+      <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+          <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">
+            Settings
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-      </label>
+        <div class="offcanvas-body h-n80" data-simplebar>
+          <h6 class="fw-semibold fs-4 mb-2">Theme</h6>
 
-      <input type="radio" class="btn-check" name="color-theme-layout" id="Aqua_Theme" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center"
-        onclick="handleColorTheme('Aqua_Theme')" for="Aqua_Theme" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-title="AQUA_THEME">
-        <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-2">
-          <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check light-layout" name="theme-layout" id="light-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="light-layout">
+              <iconify-icon icon="solar:sun-2-bold" class="icon fs-7 me-2"></iconify-icon>Light</label>
+
+            <input type="radio" class="btn-check dark-layout" name="theme-layout" id="dark-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="dark-layout"><iconify-icon icon="solar:moon-linear" class="icon fs-7 me-2"></iconify-icon>Dark</label>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Direction</h6>
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check" name="direction-l" id="ltr-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="ltr-layout">
+              <iconify-icon icon="solar:align-left-linear" class="icon fs-7 me-2"></iconify-icon>LTR</label>
+
+            <input type="radio" class="btn-check" name="direction-l" id="rtl-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="rtl-layout"><iconify-icon icon="solar:align-right-linear" class="icon fs-7 me-2"></iconify-icon>RTL</label>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Colors</h6>
+
+          <div class="d-flex flex-row flex-wrap gap-3 customizer-box color-pallete" role="group">
+            <input type="radio" class="btn-check" name="color-theme-layout" id="Blue_Theme" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Blue_Theme')" for="Blue_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="BLUE_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-1">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="Aqua_Theme" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Aqua_Theme')" for="Aqua_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="AQUA_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-2">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="Purple_Theme" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Purple_Theme')" for="Purple_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PURPLE_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-3">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="green-theme-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Green_Theme')" for="green-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="GREEN_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-4">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="cyan-theme-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Cyan_Theme')" for="cyan-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="CYAN_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-5">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="orange-theme-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Orange_Theme')" for="orange-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="ORANGE_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-6">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Layout Type</h6>
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <div>
+              <input type="radio" class="btn-check" name="page-layout" id="vertical-layout" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="vertical-layout"><iconify-icon icon="solar:sidebar-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Vertical</label>
+            </div>
+            <div>
+              <input type="radio" class="btn-check" name="page-layout" id="horizontal-layout" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="horizontal-layout"><iconify-icon icon="solar:airbuds-case-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Horizontal</label>
+            </div>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Container Option</h6>
+
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check" name="layout" id="boxed-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="boxed-layout"><iconify-icon icon="solar:align-horizonta-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Boxed</label>
+
+            <input type="radio" class="btn-check" name="layout" id="full-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="full-layout"><iconify-icon icon="solar:align-vertical-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Full</label>
+          </div>
+
+          <h6 class="fw-semibold fs-4 mb-2 mt-5">Sidebar Type</h6>
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <a href="javascript:void(0)" class="fullsidebar">
+              <input type="radio" class="btn-check" name="sidebar-type" id="full-sidebar" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="full-sidebar"><iconify-icon icon="solar:mirror-left-linear" class="icon fs-7 me-2"></iconify-icon>Full</label>
+            </a>
+            <div>
+              <input type="radio" class="btn-check " name="sidebar-type" id="mini-sidebar" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="mini-sidebar"><iconify-icon icon="solar:mirror-right-linear" class="icon fs-7 me-2"></iconify-icon>Collapse</label>
+            </div>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Card With</h6>
+
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check" name="card-layout" id="card-with-border" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="card-with-border"><iconify-icon icon="solar:quit-full-screen-square-linear" class="icon fs-7 me-2"></iconify-icon>Border</label>
+
+            <input type="radio" class="btn-check" name="card-layout" id="card-without-border" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="card-without-border"><iconify-icon icon="solar:minimize-square-2-linear" class="icon fs-7 me-2"></iconify-icon>Shadow</label>
+          </div>
         </div>
-      </label>
-
-      <input type="radio" class="btn-check" name="color-theme-layout" id="Purple_Theme" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center"
-        onclick="handleColorTheme('Purple_Theme')" for="Purple_Theme" data-bs-toggle="tooltip" data-bs-placement="top"
-        data-bs-title="PURPLE_THEME">
-        <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-3">
-          <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
-        </div>
-      </label>
-
-      <input type="radio" class="btn-check" name="color-theme-layout" id="green-theme-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center"
-        onclick="handleColorTheme('Green_Theme')" for="green-theme-layout" data-bs-toggle="tooltip"
-        data-bs-placement="top" data-bs-title="GREEN_THEME">
-        <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-4">
-          <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
-        </div>
-      </label>
-
-      <input type="radio" class="btn-check" name="color-theme-layout" id="cyan-theme-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center"
-        onclick="handleColorTheme('Cyan_Theme')" for="cyan-theme-layout" data-bs-toggle="tooltip"
-        data-bs-placement="top" data-bs-title="CYAN_THEME">
-        <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-5">
-          <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
-        </div>
-      </label>
-
-      <input type="radio" class="btn-check" name="color-theme-layout" id="orange-theme-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center"
-        onclick="handleColorTheme('Orange_Theme')" for="orange-theme-layout" data-bs-toggle="tooltip"
-        data-bs-placement="top" data-bs-title="ORANGE_THEME">
-        <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-6">
-          <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
-        </div>
-      </label>
-    </div>
-
-    <h6 class="mt-5 fw-semibold fs-4 mb-2">Layout Type</h6>
-    <div class="d-flex flex-row gap-3 customizer-box" role="group">
-      <div>
-        <input type="radio" class="btn-check" name="page-layout" id="vertical-layout" autocomplete="off" />
-        <label class="btn p-9 btn-outline-primary" for="vertical-layout"><iconify-icon
-            icon="solar:sidebar-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Vertical</label>
       </div>
-      <div>
-        <input type="radio" class="btn-check" name="page-layout" id="horizontal-layout" autocomplete="off" />
-        <label class="btn p-9 btn-outline-primary" for="horizontal-layout"><iconify-icon
-            icon="solar:airbuds-case-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Horizontal</label>
-      </div>
-    </div>
-
-    <h6 class="mt-5 fw-semibold fs-4 mb-2">Container Option</h6>
-
-    <div class="d-flex flex-row gap-3 customizer-box" role="group">
-      <input type="radio" class="btn-check" name="layout" id="boxed-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="boxed-layout"><iconify-icon
-          icon="solar:align-horizonta-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Boxed</label>
-
-      <input type="radio" class="btn-check" name="layout" id="full-layout" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="full-layout"><iconify-icon
-          icon="solar:align-vertical-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Full</label>
-    </div>
-
-    <h6 class="fw-semibold fs-4 mb-2 mt-5">Sidebar Type</h6>
-    <div class="d-flex flex-row gap-3 customizer-box" role="group">
-      <a href="javascript:void(0)" class="fullsidebar">
-        <input type="radio" class="btn-check" name="sidebar-type" id="full-sidebar" autocomplete="off" />
-        <label class="btn p-9 btn-outline-primary" for="full-sidebar"><iconify-icon icon="solar:mirror-left-linear"
-            class="icon fs-7 me-2"></iconify-icon>Full</label>
-      </a>
-      <div>
-        <input type="radio" class="btn-check " name="sidebar-type" id="mini-sidebar" autocomplete="off" />
-        <label class="btn p-9 btn-outline-primary" for="mini-sidebar"><iconify-icon icon="solar:mirror-right-linear"
-            class="icon fs-7 me-2"></iconify-icon>Collapse</label>
-      </div>
-    </div>
-
-    <h6 class="mt-5 fw-semibold fs-4 mb-2">Card With</h6>
-
-    <div class="d-flex flex-row gap-3 customizer-box" role="group">
-      <input type="radio" class="btn-check" name="card-layout" id="card-with-border" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="card-with-border"><iconify-icon
-          icon="solar:quit-full-screen-square-linear" class="icon fs-7 me-2"></iconify-icon>Border</label>
-
-      <input type="radio" class="btn-check" name="card-layout" id="card-without-border" autocomplete="off" />
-      <label class="btn p-9 btn-outline-primary" for="card-without-border"><iconify-icon
-          icon="solar:minimize-square-2-linear" class="icon fs-7 me-2"></iconify-icon>Shadow</label>
-    </div>
-  </div>
-</div>
     </div>
   </div>
   <div class="dark-transparent sidebartoggler"></div>
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/vendor.min.js"></script>
   <!-- Import Js Files -->
-<script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/simplebar/dist/simplebar.min.js"></script>
-<script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.init.js"></script>
-<script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/theme.js"></script>
-<script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.min.js"></script>
-<script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/sidebarmenu.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.init.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/theme.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/sidebarmenu.js"></script>
 
-<!-- solar icons -->
-<script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <!-- solar icons -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/dashboards/dashboard.js"></script>

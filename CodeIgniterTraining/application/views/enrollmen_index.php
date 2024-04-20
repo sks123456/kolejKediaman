@@ -1,208 +1,275 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
 <head>
   <!-- Required meta tags -->
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon icon-->
-  <link rel="shortcut icon" type="image/png" href="monster4-bt5-v8/dist/assets/images/logos/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" />
 
   <!-- Core Css -->
-  <link rel="stylesheet" href="monster4-bt5-v8/dist//assets/css/styles.css" />
-  <title>Hostel App | Maklumat Pelajar</title>
+  <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/css/styles.css" />
+  <title><?php echo base_url() ?>Hostel App | Admin</title>
   <!-- Owl Carousel  -->
-  <link rel="stylesheet" href="monster4-bt5-v8/dist//assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
 </head>
 
-<!-- Tell the browser to be responsive to screen width -->
-<!-- Bootstrap 3.3.7 -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap/dist/css/bootstrap.min.css">
-<!-- Font Awesome -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/font-awesome/css/font-awesome.min.css">
-<!-- daterange picker -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-<!-- bootstrap datepicker -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-<!-- iCheck for checkboxes and radio inputs -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/plugins/iCheck/all.css">
-<!-- Bootstrap Color Picker -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-<!-- Bootstrap time Picker -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/plugins/timepicker/bootstrap-timepicker.min.css">
-<!-- Select2 -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/select2/dist/css/select2.min.css">
-<!-- Ionicons -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/Ionicons/css/ionicons.min.css">
-<!-- DataTables -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-<!-- Theme style -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/dist/css/AdminLTE.min.css">
-<!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-<link rel="stylesheet" href="<?php echo base_url() ?>html_ref/dist/css/skins/_all-skins.min.css">
-
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-<!-- Google Font -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-</head>
-
-
-<body class="hold-transition skin-blue sidebar-mini">
-  <div class="wrapper">
-
-    <header class="main-header">
-      <!-- Logo -->
-      <a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>U</b>MT</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>UMT</b>Hostel</span>
-      </a>
-      <!-- Header Navbar: style can be found in header.less -->
-      <nav class="navbar navbar-static-top">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </a>
-
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <!-- User Account: style can be found in dropdown.less -->
-            <li class="dropdown user user-menu">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                <span class="hidden-xs">John Doe</span>
-              </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                  <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                  <p>
-                    John Doe - Staff KK
-                    <small>Kolej Kediaman UMT</small>
-                  </p>
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <!-- Control Sidebar Toggle Button -->
-            <li>
-              <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar">
-      <?php $this->load->view('sidebar'); ?>
-    </aside>
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="min-height:max-content;">
-
-      <section class="content-header">
-        <h1>
-          Maklumat Pelajar
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Maklumat Pelajar</li>
-        </ol>
-      </section>
-      <!-- Main content -->
-      <!-- search student -->
-      <?php $this->load->view('enrollmen_search'); ?>
-
-      <!-- student list -->
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box box-info">
-            <div class="box-header">
-              <h3 class="box-title">Senarai Pelajar</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- Back Button -->
-              <?php if (isset($searched_student)) : ?>
-                <div class="pull-right">
-                  <a href="<?php echo base_url('CodeIgniterTraining/index.php/enrollmen'); ?>" class="btn btn-default">Back</a>
-                </div>
-              <?php endif; ?>
-              <!-- End Back Button -->
-              <table id="example2" class="table table-bordered table-hover">
-                <thead>
-                  <tr>
-                    <th>No Matrik</th>
-                    <th>Nama Pelajar</th>
-                    <th>Program</th>
-                    <th>No K/P</th>
-                    <th>Merit</th>
-                    <th>Merit Kolej</th>
-                    <th>Kenderaan</th>
-                  </tr>
-                </thead>
-                <?php foreach ($students as $std) : ?>
-                  <tbody>
-                    <tr>
-                      <td><?= $std->STUD_MATRIC ?></td>
-                      <td><?= $std->NAMA_PELAJAR ?></td>
-                      <td><?= $std->PROGRAM ?></td>
-                      <td><?= $std->ICNO ?></td>
-                      <td><?= $std->MERIT ?></td>
-                      <td><?= $std->MERIT_KOLEJ ?></td>
-                      <td style="background-color: <?php
-                                                    if ($std->VEHICLE === 'M') {
-                                                      echo 'orange';
-                                                    } elseif ($std->VEHICLE === 'C') {
-                                                      echo 'red';
-                                                    } else {
-                                                      echo 'green';
-                                                    }
-                                                    ?>;">
-                      </td>
-                    </tr>
-                  </tbody>
-                <?php endforeach ?>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-      </section>
-    </div>
-
-    <!-- Footer -->
-    <?php $this->load->view('footer'); ?>
-
-    <!-- Control Sidebar -->
-    <?php $this->load->view('control_sidebar'); ?>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
   </div>
+  <div id="main-wrapper">
+    <!-- Sidebar Start -->
+    <?php $this->load->view('newSide'); ?>
+
+    <!--  Sidebar End -->
+    <div class="page-wrapper">
+      <!--  Header Start -->
+      <?php $this->load->view('newTopBar'); ?>
+      <!--  Header End -->
+      <div class="body-wrapper">
+        <div class="container-fluid">
+          <div class="d-md-flex align-items-center justify-content-between mb-7">
+            <div class="mb-4 mb-md-0">
+              <h4 class="fs-6 mb-0">Student Information</h4>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                  <li class="breadcrumb-item">
+                    <a class="text-muted text-decoration-none" href="<?php echo base_url() ?>monster-bt5-v8/dist/main/index.html">Home</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">Student Information</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <!-- Row -->
+          <div class="row">
+            <!-- Column -->
+            <div class="col-lg-12">
+              <div class="card w-100 position-relative overflow-hidden">
+                <div class="px-4 py-3 border-bottom">
+                  <div class="d-flex align-items-center">
+                    <h4 class="card-title mb-0">List of Students</h4>
+                    <div class="ms-auto">
+                      <div class="row align-items-center">
+                        <div class="col-md-6">
+                          <form class="app-search position-relative" action="<?= base_url() ?>CodeIgniterTraining/index.php/enrollmen/search_student" method="post" enctype="multipart/form-data">
+                            <input type="text" class="form-control rounded-pill border-0 shadow" name="student_id" placeholder="Student Matric">
+                        </div>
+                        <div class="col-md-6 d-flex justify-content-end">
+                          <button type="submit" class="srh-btn btn" style="border: none; background: none; cursor: pointer;">
+                            <iconify-icon icon="solar:magnifer-linear" class="me-2"></iconify-icon>
+                          </button>
+                        </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body p-4">
+                  <?php if (!empty($students)) : ?>
+                    <div class="table-responsive mb-4">
+                      <table id="example2" class="table border text-nowrap mb-0 align-middle">
+                        <thead>
+                          <tr>
+                            <th>No Matrik</th>
+                            <th>Nama Pelajar</th>
+                            <th>Program</th>
+                            <th>No K/P</th>
+                            <th>Merit</th>
+                            <th>Merit Kolej</th>
+                            <th>Kenderaan</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($students as $std) : ?>
+                            <tr>
+                              <td><?= $std->STUD_MATRIC ?></td>
+                              <td><?= $std->NAMA_PELAJAR ?></td>
+                              <td><?= $std->PROGRAM ?></td>
+                              <td><?= $std->ICNO ?></td>
+                              <td><?= $std->MERIT ?></td>
+                              <td><?= $std->MERIT_KOLEJ ?></td>
+                              <td style="background-color: <?php
+                                                            if ($std->VEHICLE === 'M') {
+                                                              echo 'orange';
+                                                            } elseif ($std->VEHICLE === 'C') {
+                                                              echo 'red';
+                                                            } else {
+                                                              echo 'green';
+                                                            }
+                                                            ?>;">
+                              </td>
+                            </tr>
+                          <?php endforeach ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  <?php else : ?>
+                    <div class="alert alert-danger" role="alert">
+                      No students found.
+                    </div>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <script>
+        function handleColorTheme(e) {
+          $("html").attr("data-color-theme", e);
+          $(e).prop("checked", !0);
+        }
+      </script>
+      <button class="btn btn-info p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <iconify-icon icon="solar:settings-linear" class="fs-7"></iconify-icon>
+      </button>
+
+      <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+          <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">
+            Settings
+          </h4>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body h-n80" data-simplebar>
+          <h6 class="fw-semibold fs-4 mb-2">Theme</h6>
+
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check light-layout" name="theme-layout" id="light-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="light-layout">
+              <iconify-icon icon="solar:sun-2-bold" class="icon fs-7 me-2"></iconify-icon>Light</label>
+
+            <input type="radio" class="btn-check dark-layout" name="theme-layout" id="dark-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="dark-layout"><iconify-icon icon="solar:moon-linear" class="icon fs-7 me-2"></iconify-icon>Dark</label>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Direction</h6>
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check" name="direction-l" id="ltr-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="ltr-layout">
+              <iconify-icon icon="solar:align-left-linear" class="icon fs-7 me-2"></iconify-icon>LTR</label>
+
+            <input type="radio" class="btn-check" name="direction-l" id="rtl-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="rtl-layout"><iconify-icon icon="solar:align-right-linear" class="icon fs-7 me-2"></iconify-icon>RTL</label>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Colors</h6>
+
+          <div class="d-flex flex-row flex-wrap gap-3 customizer-box color-pallete" role="group">
+            <input type="radio" class="btn-check" name="color-theme-layout" id="Blue_Theme" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Blue_Theme')" for="Blue_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="BLUE_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-1">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="Aqua_Theme" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Aqua_Theme')" for="Aqua_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="AQUA_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-2">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="Purple_Theme" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Purple_Theme')" for="Purple_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PURPLE_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-3">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="green-theme-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Green_Theme')" for="green-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="GREEN_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-4">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="cyan-theme-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Cyan_Theme')" for="cyan-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="CYAN_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-5">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+
+            <input type="radio" class="btn-check" name="color-theme-layout" id="orange-theme-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Orange_Theme')" for="orange-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="ORANGE_THEME">
+              <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-6">
+                <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+              </div>
+            </label>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Layout Type</h6>
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <div>
+              <input type="radio" class="btn-check" name="page-layout" id="vertical-layout" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="vertical-layout"><iconify-icon icon="solar:sidebar-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Vertical</label>
+            </div>
+            <div>
+              <input type="radio" class="btn-check" name="page-layout" id="horizontal-layout" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="horizontal-layout"><iconify-icon icon="solar:airbuds-case-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Horizontal</label>
+            </div>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Container Option</h6>
+
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check" name="layout" id="boxed-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="boxed-layout"><iconify-icon icon="solar:align-horizonta-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Boxed</label>
+
+            <input type="radio" class="btn-check" name="layout" id="full-layout" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="full-layout"><iconify-icon icon="solar:align-vertical-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Full</label>
+          </div>
+
+          <h6 class="fw-semibold fs-4 mb-2 mt-5">Sidebar Type</h6>
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <a href="javascript:void(0)" class="fullsidebar">
+              <input type="radio" class="btn-check" name="sidebar-type" id="full-sidebar" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="full-sidebar"><iconify-icon icon="solar:mirror-left-linear" class="icon fs-7 me-2"></iconify-icon>Full</label>
+            </a>
+            <div>
+              <input type="radio" class="btn-check " name="sidebar-type" id="mini-sidebar" autocomplete="off" />
+              <label class="btn p-9 btn-outline-primary" for="mini-sidebar"><iconify-icon icon="solar:mirror-right-linear" class="icon fs-7 me-2"></iconify-icon>Collapse</label>
+            </div>
+          </div>
+
+          <h6 class="mt-5 fw-semibold fs-4 mb-2">Card With</h6>
+
+          <div class="d-flex flex-row gap-3 customizer-box" role="group">
+            <input type="radio" class="btn-check" name="card-layout" id="card-with-border" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="card-with-border"><iconify-icon icon="solar:quit-full-screen-square-linear" class="icon fs-7 me-2"></iconify-icon>Border</label>
+
+            <input type="radio" class="btn-check" name="card-layout" id="card-without-border" autocomplete="off" />
+            <label class="btn p-9 btn-outline-primary" for="card-without-border"><iconify-icon icon="solar:minimize-square-2-linear" class="icon fs-7 me-2"></iconify-icon>Shadow</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dark-transparent sidebartoggler"></div>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/vendor.min.js"></script>
+  <!-- Import Js Files -->
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/simplebar/dist/simplebar.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.init.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/theme.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/sidebarmenu.js"></script>
+
+  <!-- solar icons -->
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/dashboards/dashboard.js"></script>
 </body>
 
 </html>
