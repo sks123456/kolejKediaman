@@ -19,9 +19,9 @@
 
 <body>
   <!-- Preloader -->
-  <div class="preloader">
+  <!-- <div class="preloader">
     <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
-  </div>
+  </div> -->
   <div id="main-wrapper">
     <!-- Sidebar Start -->
     <?php $this->load->view('newSide'); ?>
@@ -72,29 +72,33 @@
                             <h4 class="modal-title"><?= isset($update) && $update ? 'Update Session' : 'Create New Session' ?></h4>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                            <?php $this->load->view("session_form")?>
-                          </div>
+                          <?php $this->load->view("session_form") ?>
                         </div>
-                        <!-- /.modal-content -->
                       </div>
-                      <!-- /.modal-dialog -->
+                      <!-- /.modal-content -->
                     </div>
-                    <!-- /.modal -->
+                    <!-- /.modal-dialog -->
                   </div>
+                  <!-- /.modal -->
                 </div>
+              </div>
 
-                <div class="card-body p-4">
-                  <div class="table-responsive mb-4">
-                    <?php $this->load->view("senarai_session"); ?>
-                  </div>
+              <div class="card-body p-4">
+                <div class="table-responsive mb-4">
+                  <?php $this->load->view("senarai_session"); ?>
                 </div>
               </div>
             </div>
-            <!-- Row -->
+          </div>
+          <!-- Row -->
+          <!-- Pagination links -->
+          <div class="pagination-links mt-2">
+            <?php echo $pagination_links; ?>
           </div>
         </div>
       </div>
     </div>
+  </div>
   </div>
   <script>
     function handleColorTheme(e) {

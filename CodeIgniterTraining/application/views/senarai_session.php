@@ -2,7 +2,7 @@
   <thead class="text-dark fs-4">
     <tr>
       <th>
-        <h6 class="fs-4 fw-semibold mb-0">Semester</h6>
+      <h6 class="fs-4 fw-semibold mb-0">Session Name</h6>
       </th>
       <th>
         <h6 class="fs-4 fw-semibold mb-0">Registration Type</h6>
@@ -73,7 +73,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <?php
-                      
+
                       $data['session'] = $session;
                       $data['update'] = true;
 
@@ -101,6 +101,8 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+
+
 
 <script>
   // JavaScript code to handle update button click

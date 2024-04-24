@@ -2,23 +2,32 @@
 class Session_model extends CI_Model
 {
 
-    public function get_all_session()
+    public function count_all_sessions()
     {
-        // query to get all session records
-        $query = $this->db->get('kk_session');
+        return $this->db->count_all('kk_session');
+    }
+
+    public function get_all_session($limit, $offset)
+    {
+        // query to get paginated session records
+        $query = $this->db->limit($limit, $offset)
+            ->get('kk_session');
         return $query;
     }
 
-    public function get_session_id_and_name() {
+
+    public function get_session_id_and_name()
+    {
         $query = $this->db->select('session_id, session_name')
-        ->get('kk_session');
+            ->get('kk_session');
         return $query->result();
     }
 
-    public function get_session_name($session_id) {
+    public function get_session_name($session_id)
+    {
         $query = $this->db->select('session_id, session_name')
-        ->where("session_id",$session_id)
-        ->get('kk_session');
+            ->where("session_id", $session_id)
+            ->get('kk_session');
         return $query->result();
     }
 

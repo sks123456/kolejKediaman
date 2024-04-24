@@ -3,27 +3,79 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class CrudSession extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('session_model');
+        $this->load->library('pagination');
+    }
+
     public function index()
     {
         $this->load->helper('url');
 
+        // Define the sort_by variable
+        $sort_by = '';
+
+        // Pagination configuration
+        $config['base_url'] = base_url('CodeIgniterTraining/index.php/crudsession/index');
+        $config['total_rows'] = $this->session_model->count_all_sessions(); // Update this according to your model method
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 0; // Segment containing the offset
+
+        $this->pagination->initialize($config);
+
+        /*
+      start 
+      add boostrap class and styles
+    */
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['last_link'] = 'Last';
+        $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</span></li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</span></li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</span></li>';
+        $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</span></li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</span></li>';
+        /*
+      end 
+      add boostrap class and styles
+    */
+        $this->pagination->initialize($config);
+
         // Pulling data into model
         $this->load->model("session_model");
 
+        // Get current page from URI segment
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
         // Converting the model data into a list
-        $list = $this->session_model->get_all_session();
+        $list = $this->session_model->get_all_session($config['per_page'], $page);
 
         // Check if the current date is between start date and end date
         $this->checkValidity($list);
+
         // Injecting list data into an array
         $data = [
             "list" => $list,
-            "update" => null
+            "update" => null,
+            'pagination_links' => $this->pagination->create_links(), // Pass pagination links to the view
         ];
 
         // Loading the view page with the array
         $this->load->view('session_index', $data);
     }
+
 
     public function save()
     {
@@ -153,7 +205,8 @@ class CrudSession extends CI_Controller
         $this->load->view('session_index', $data);
     }
 
-    public function checkValidity($list){
+    public function checkValidity($list)
+    {
         foreach ($list->result() as $row) {
             $currentDate = date('Y-m-d');
             if ($currentDate >= $row->START_DATE && $currentDate <= $row->END_DATE) {
@@ -171,37 +224,35 @@ class CrudSession extends CI_Controller
     }
 
     public function download($session_id)
-{
-    // Load necessary libraries and models
-    $this->load->helper('url');
-    $this->load->model("session_model");
+    {
+        // Load necessary libraries and models
+        $this->load->helper('url');
+        $this->load->model("session_model");
 
-    // Fetch data for the selected session
-    $query = $this->session_model->get_session($session_id);
+        // Fetch data for the selected session
+        $query = $this->session_model->get_session($session_id);
 
-    if ($query->num_rows() > 0) {
-        $sessionData = $query->row();
+        if ($query->num_rows() > 0) {
+            $sessionData = $query->row();
 
-        // Check if the required fields are set
-        if (isset($sessionData->DOCUMENT_NAME, $sessionData->DOCUMENT)) {
-            // Set the headers for PDF download
-            header('Content-Type: application/pdf');
-            header('Content-Disposition: attachment; filename="' . $sessionData->DOCUMENT_NAME . '.pdf"');
+            // Check if the required fields are set
+            if (isset($sessionData->DOCUMENT_NAME, $sessionData->DOCUMENT)) {
+                // Set the headers for PDF download
+                header('Content-Type: application/pdf');
+                header('Content-Disposition: attachment; filename="' . $sessionData->DOCUMENT_NAME . '.pdf"');
 
-            // Output the blob data
-            echo base64_decode($sessionData->DOCUMENT); // Assuming your blob data is stored as base64 in the database
-            exit;
+                // Output the blob data
+                echo base64_decode($sessionData->DOCUMENT); // Assuming your blob data is stored as base64 in the database
+                exit;
+            } else {
+                // Handle the case where data is not available or blob data is not found
+                http_response_code(404);
+                echo "Fail tidak dijumpai";
+            }
         } else {
-            // Handle the case where data is not available or blob data is not found
+            // Handle the case where the session with the given ID is not found
             http_response_code(404);
-            echo "Fail tidak dijumpai";
+            echo "Sesi tidak dijumpai";
         }
-    } else {
-        // Handle the case where the session with the given ID is not found
-        http_response_code(404);
-        echo "Sesi tidak dijumpai";
     }
-}
-
-    
 }
