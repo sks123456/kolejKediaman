@@ -3,16 +3,16 @@
     <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/crudsession/<?= isset($update) && $update ? 'update' : 'save' ?>" method="post" enctype="multipart/form-data">
         <!-- System -->
         <div class="form-group">
-            <?php if ($update && $session->num_rows() > 0) : ?>
-                <?php $row = $session->row(); ?>
+            <?php if ($update && !empty($session)) : ?>
+                <?php $row = $session; ?>
                 <!-- Hidden field for session_id -->
                 <input type="hidden" name="session_id" value="<?= $row->SESSION_ID ?>">
             <?php endif; ?>
 
             <label>Jenis Permohonan</label>
             <div class="row">
-                <?php if ($update && $session->num_rows() > 0) : ?>
-                    <?php $row = $session->row(); ?>
+                <?php if ($update) : ?>
+                    <?php $row = $session; ?>
                     <div class="col-md-3">
                         <label class="radio-inline">
                             <input type="radio" name="application_type" value="Permohonan Biasa" <?= ($row->APPLICATION_TYPE == 'Permohonan Biasa') ? 'checked' : 'disabled' ?> required> Permohonan Biasa
@@ -62,9 +62,9 @@
         <!-- Semester -->
         <div class="mb-3">
             <label>Semester</label>
-            <select class="form-control" name="session_name" <?php echo ($update && $session->num_rows() > 0) ? 'readonly' : ''; ?>>
-                <?php if ($update && $session->num_rows() > 0) : ?>
-                    <?php $row = $session->row(); ?>
+            <select class="form-control" name="session_name" <?php echo ($update && !empty($session)) ? 'readonly' : ''; ?>>
+                <?php if ($update && !empty($session)) : ?>
+                    <?php $row = $session; ?>
                     <option selected><?= $row->SESSION_NAME ?></option>
                     <!-- Add similar blocks for other session options -->
                 <?php else : ?>
@@ -82,8 +82,8 @@
                 <div class="form-group">
                     <label class="pull-left">Tarikh Mula</label>
                     <div class="input-group date pull-right" style="width:60%;">
-                        <?php if ($update && $session->num_rows() > 0) : ?>
-                            <?php $row = $session->row(); ?>
+                        <?php if ($update && !empty($session)) : ?>
+                            <?php $row = $session?>
                             <input type="date" class="form-control" name="start_date" id="start_date" onchange="validateForm()" value="<?= $row->START_DATE ?>">
                         <?php else : ?>
                             <input type="date" class="form-control" name="start_date" id="start_date" onchange="validateForm()">
@@ -96,8 +96,8 @@
                 <div class="form-group">
                     <label class="pull-left">Tarikh Tamat</label>
                     <div class="input-group date pull-right" style="width:60%;">
-                        <?php if ($update && $session->num_rows() > 0) : ?>
-                            <?php $row = $session->row(); ?>
+                        <?php if ($update && !empty($session)) : ?>
+                            <?php $row = $session?>
                             <input type="date" class="form-control" name="end_date" id="end_date" onchange="validateForm()" value="<?= $row->END_DATE ?>">
                         <?php else : ?>
                             <input type="date" class="form-control" name="end_date" id="end_date" onchange="validateForm()">
@@ -111,8 +111,8 @@
         <div class="mb-3">
             <label for="pdf_document">Muat Naik Dokumen Peraturan Permohonan PDF</label>
 
-            <?php if ($update && $session->num_rows() > 0) : ?>
-                <?php $row = $session->row(); ?>
+            <?php if ($update && !empty($session)) : ?>
+                <?php $row = $session; ?>
 
                 <!-- Display existing document and provide option to replace -->
                 <div>
