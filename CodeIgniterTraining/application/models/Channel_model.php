@@ -2,6 +2,19 @@
 class Channel_model extends CI_Model
 {
 
+    public function count_all_channels()
+    {
+        return $this->db->count_all('kk_channel');
+    }
+
+    public function get_all_channel2($limit, $offset)
+    {
+        // query to get paginated session records
+        $query = $this->db->limit($limit, $offset)
+            ->get('kk_channel');
+        return $query;
+    }
+
     public function get_all_channel()
     {
         // query to get all session records
