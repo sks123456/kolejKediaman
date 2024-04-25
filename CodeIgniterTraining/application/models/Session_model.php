@@ -72,7 +72,7 @@ class Session_model extends CI_Model
     public function get_active_session()
     {
         $query = $this->db
-            ->where("SESSION_STATUS", "Aktif")
+            ->where("SESSION_STATUS", "Active")
             ->get('kk_session');
 
         return $query;
