@@ -63,9 +63,9 @@
           <table border=0>
             <tr>
               <td>
-                <a class="btn btn-info btn-sm " data-bs-toggle="modal" data-bs-target="#updateModal"><i class="fa fa-edit"></i></a>
+              <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $session->SESSION_ID ?>"><i class="fa fa-edit"></i></a>
                 <!-- .modal for add task -->
-                <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal fade" id="updateModal<?= $session->SESSION_ID ?>" tabindex="-1" role="dialog" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content" style="width:max-content">
                       <div class="modal-header d-flex align-items-center">
