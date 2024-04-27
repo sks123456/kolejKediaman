@@ -24,7 +24,7 @@ class Channel_model extends CI_Model
 
     public function get_channel_id_and_name() {
         $query = $this->db->select('channel_id, channel_name')
-        ->where('channel_status','Aktif')->get('kk_channel');
+        ->where('channel_status','Active')->get('kk_channel');
         return $query->result();
     }
 

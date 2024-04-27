@@ -1,408 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hostel App | Setup Maklumat</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- daterange picker -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap-daterangepicker/daterangepicker.css">
-    <!-- bootstrap datepicker -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-    <!-- iCheck for checkboxes and radio inputs -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/plugins/iCheck/all.css">
-    <!-- Bootstrap Color Picker -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
-    <!-- Bootstrap time Picker -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/plugins/timepicker/bootstrap-timepicker.min.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/select2/dist/css/select2.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>html_ref/dist/css/skins/_all-skins.min.css">
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" />
 
-    <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- Core Css -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/css/styles.css" />
+    <title><?php echo base_url() ?>Hostel App | Admin</title>
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+<body>
+    <!-- Preloader -->
+    <!-- <div class="preloader">
+    <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+  </div> -->
+    <div id="main-wrapper">
+        <!-- Sidebar Start -->
+        <?php $this->load->view('newSide'); ?>
 
-        <header class="main-header">
-            <!-- Logo -->
-            <a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>U</b>MT</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>UMT</b>Hostel</span>
-            </a>
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+        <!--  Sidebar End -->
+        <div class="page-wrapper">
+            <!--  Header Start -->
+            <?php $this->load->view('newTopBar'); ?>
+            <!--  Header End -->
+            <div class="body-wrapper">
+                <div class="container-fluid">
+                    <div class="d-md-flex align-items-center justify-content-between mb-7">
+                        <div class="mb-4 mb-md-0">
+                            <h4 class="fs-6 mb-0">Registration Approval</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb mb-0">
+                                    <li class="breadcrumb-item">
+                                        <a class="text-muted text-decoration-none" href="<?php echo base_url() ?>monster-bt5-v8/dist/main/index.html">Home</a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a class="text-muted text-decoration-none">Application</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Registration Approval</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card w-100 position-relative overflow-hidden">
+                            <div class="px-4 py-3 border-bottom">
+                                <?php $this->load->view("kelulusan_form"); ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row -->
+                    <div class="row">
+                        <!-- Column -->
+                        <div class="col-lg-12">
+                            <div class="card w-100 position-relative overflow-hidden">
+                                <div class="px-4 py-3 border-bottom">
+                                    <h4 class="card-title mb-0">List of Registration</h4>
+                                    <div class="table-responsive mb-4">
+                                        <?php $this->load->view("application_list"); ?>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function handleColorTheme(e) {
+            $("html").attr("data-color-theme", e);
+            $(e).prop("checked", !0);
+        }
+    </script>
+    <button class="btn btn-info p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+        <iconify-icon icon="solar:settings-linear" class="fs-7"></iconify-icon>
+    </button>
+
+    <div class="offcanvas customizer offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="d-flex align-items-center justify-content-between p-3 border-bottom">
+            <h4 class="offcanvas-title fw-semibold" id="offcanvasExampleLabel">
+                Settings
+            </h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body h-n80" data-simplebar>
+            <h6 class="fw-semibold fs-4 mb-2">Theme</h6>
+
+            <div class="d-flex flex-row gap-3 customizer-box" role="group">
+                <input type="radio" class="btn-check light-layout" name="theme-layout" id="light-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="light-layout">
+                    <iconify-icon icon="solar:sun-2-bold" class="icon fs-7 me-2"></iconify-icon>Light</label>
+
+                <input type="radio" class="btn-check dark-layout" name="theme-layout" id="dark-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="dark-layout"><iconify-icon icon="solar:moon-linear" class="icon fs-7 me-2"></iconify-icon>Dark</label>
+            </div>
+
+            <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Direction</h6>
+            <div class="d-flex flex-row gap-3 customizer-box" role="group">
+                <input type="radio" class="btn-check" name="direction-l" id="ltr-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="ltr-layout">
+                    <iconify-icon icon="solar:align-left-linear" class="icon fs-7 me-2"></iconify-icon>LTR</label>
+
+                <input type="radio" class="btn-check" name="direction-l" id="rtl-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="rtl-layout"><iconify-icon icon="solar:align-right-linear" class="icon fs-7 me-2"></iconify-icon>RTL</label>
+            </div>
+
+            <h6 class="mt-5 fw-semibold fs-4 mb-2">Theme Colors</h6>
+
+            <div class="d-flex flex-row flex-wrap gap-3 customizer-box color-pallete" role="group">
+                <input type="radio" class="btn-check" name="color-theme-layout" id="Blue_Theme" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Blue_Theme')" for="Blue_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="BLUE_THEME">
+                    <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-1">
+                        <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+                    </div>
+                </label>
+
+                <input type="radio" class="btn-check" name="color-theme-layout" id="Aqua_Theme" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Aqua_Theme')" for="Aqua_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="AQUA_THEME">
+                    <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-2">
+                        <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+                    </div>
+                </label>
+
+                <input type="radio" class="btn-check" name="color-theme-layout" id="Purple_Theme" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Purple_Theme')" for="Purple_Theme" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="PURPLE_THEME">
+                    <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-3">
+                        <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+                    </div>
+                </label>
+
+                <input type="radio" class="btn-check" name="color-theme-layout" id="green-theme-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Green_Theme')" for="green-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="GREEN_THEME">
+                    <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-4">
+                        <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+                    </div>
+                </label>
+
+                <input type="radio" class="btn-check" name="color-theme-layout" id="cyan-theme-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Cyan_Theme')" for="cyan-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="CYAN_THEME">
+                    <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-5">
+                        <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+                    </div>
+                </label>
+
+                <input type="radio" class="btn-check" name="color-theme-layout" id="orange-theme-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary d-flex align-items-center justify-content-center" onclick="handleColorTheme('Orange_Theme')" for="orange-theme-layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="ORANGE_THEME">
+                    <div class="color-box rounded-circle d-flex align-items-center justify-content-center skin-6">
+                        <iconify-icon icon="tabler:check" class="text-white d-flex icon fs-5"></iconify-icon>
+                    </div>
+                </label>
+            </div>
+
+            <h6 class="mt-5 fw-semibold fs-4 mb-2">Layout Type</h6>
+            <div class="d-flex flex-row gap-3 customizer-box" role="group">
+                <div>
+                    <input type="radio" class="btn-check" name="page-layout" id="vertical-layout" autocomplete="off" />
+                    <label class="btn p-9 btn-outline-primary" for="vertical-layout"><iconify-icon icon="solar:sidebar-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Vertical</label>
+                </div>
+                <div>
+                    <input type="radio" class="btn-check" name="page-layout" id="horizontal-layout" autocomplete="off" />
+                    <label class="btn p-9 btn-outline-primary" for="horizontal-layout"><iconify-icon icon="solar:airbuds-case-minimalistic-linear" class="icon fs-7 me-2"></iconify-icon>Horizontal</label>
+                </div>
+            </div>
+
+            <h6 class="mt-5 fw-semibold fs-4 mb-2">Container Option</h6>
+
+            <div class="d-flex flex-row gap-3 customizer-box" role="group">
+                <input type="radio" class="btn-check" name="layout" id="boxed-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="boxed-layout"><iconify-icon icon="solar:align-horizonta-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Boxed</label>
+
+                <input type="radio" class="btn-check" name="layout" id="full-layout" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="full-layout"><iconify-icon icon="solar:align-vertical-spacing-linear" class="icon fs-7 me-2"></iconify-icon>Full</label>
+            </div>
+
+            <h6 class="fw-semibold fs-4 mb-2 mt-5">Sidebar Type</h6>
+            <div class="d-flex flex-row gap-3 customizer-box" role="group">
+                <a href="javascript:void(0)" class="fullsidebar">
+                    <input type="radio" class="btn-check" name="sidebar-type" id="full-sidebar" autocomplete="off" />
+                    <label class="btn p-9 btn-outline-primary" for="full-sidebar"><iconify-icon icon="solar:mirror-left-linear" class="icon fs-7 me-2"></iconify-icon>Full</label>
                 </a>
-
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                                <span class="hidden-xs">John Doe</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header">
-                                    <img src="<?php echo base_url() ?>html_ref/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                                    <p>
-                                        John Doe - Staff KK
-                                        <small>Kolej Kediaman UMT</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Control Sidebar Toggle Button -->
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
-                    </ul>
+                <div>
+                    <input type="radio" class="btn-check " name="sidebar-type" id="mini-sidebar" autocomplete="off" />
+                    <label class="btn p-9 btn-outline-primary" for="mini-sidebar"><iconify-icon icon="solar:mirror-right-linear" class="icon fs-7 me-2"></iconify-icon>Collapse</label>
                 </div>
-            </nav>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <?php $this->load->view('sidebar'); ?>
-        </aside>
+            </div>
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="min-height:max-content;">
+            <h6 class="mt-5 fw-semibold fs-4 mb-2">Card With</h6>
 
+            <div class="d-flex flex-row gap-3 customizer-box" role="group">
+                <input type="radio" class="btn-check" name="card-layout" id="card-with-border" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="card-with-border"><iconify-icon icon="solar:quit-full-screen-square-linear" class="icon fs-7 me-2"></iconify-icon>Border</label>
 
-            <!-- Main content -->
-            <?php
-            // Load the session_form view
-            $this->load->view('kelulusan_form');
-            ?>
-            <?php
-            // Load the session_form view
-            $this->load->view('application_list');
-            ?>
+                <input type="radio" class="btn-check" name="card-layout" id="card-without-border" autocomplete="off" />
+                <label class="btn p-9 btn-outline-primary" for="card-without-border"><iconify-icon icon="solar:minimize-square-2-linear" class="icon fs-7 me-2"></iconify-icon>Shadow</label>
+            </div>
         </div>
-            <!-- Footer -->
-            <?php $this->load->view('footer'); ?>
+    </div>
+    </div>
+    </div>
+    <div class="dark-transparent sidebartoggler"></div>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/vendor.min.js"></script>
+    <!-- Import Js Files -->
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.init.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/theme.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/app.min.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/theme/sidebarmenu.js"></script>
 
-            <!-- Control Sidebar -->
-            <aside class="control-sidebar control-sidebar-dark">
-                <!-- Create the tabs -->
-                <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                    <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                    <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <!-- Home tab content -->
-                    <div class="tab-pane" id="control-sidebar-home-tab">
-                        <h3 class="control-sidebar-heading">Recent Activity</h3>
-                        <ul class="control-sidebar-menu">
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                        <p>Will be 23 on April 24th</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                        <p>New phone +1(800)555-1234</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                        <p>nora@example.com</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                                    <div class="menu-info">
-                                        <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                        <p>Execution time 5 seconds</p>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
-
-                        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                        <ul class="control-sidebar-menu">
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h4 class="control-sidebar-subheading">
-                                        Custom Template Design
-                                        <span class="label label-danger pull-right">70%</span>
-                                    </h4>
-
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h4 class="control-sidebar-subheading">
-                                        Update Resume
-                                        <span class="label label-success pull-right">95%</span>
-                                    </h4>
-
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h4 class="control-sidebar-subheading">
-                                        Laravel Integration
-                                        <span class="label label-warning pull-right">50%</span>
-                                    </h4>
-
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h4 class="control-sidebar-subheading">
-                                        Back End Framework
-                                        <span class="label label-primary pull-right">68%</span>
-                                    </h4>
-
-                                    <div class="progress progress-xxs">
-                                        <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- /.control-sidebar-menu -->
-
-                    </div>
-                    <!-- /.tab-pane -->
-                    <!-- Stats tab content -->
-                    <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-                    <!-- /.tab-pane -->
-                    <!-- Settings tab content -->
-                    <div class="tab-pane" id="control-sidebar-settings-tab">
-                        <form method="post">
-                            <h3 class="control-sidebar-heading">General Settings</h3>
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Report panel usage
-                                    <input type="checkbox" class="pull-right" checked>
-                                </label>
-
-                                <p>
-                                    Some information about this general settings option
-                                </p>
-                            </div>
-                            <!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Allow mail redirect
-                                    <input type="checkbox" class="pull-right" checked>
-                                </label>
-
-                                <p>
-                                    Other sets of options are available
-                                </p>
-                            </div>
-                            <!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Expose author name in posts
-                                    <input type="checkbox" class="pull-right" checked>
-                                </label>
-
-                                <p>
-                                    Allow the user to show his name in blog posts
-                                </p>
-                            </div>
-                            <!-- /.form-group -->
-
-                            <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Show me as online
-                                    <input type="checkbox" class="pull-right" checked>
-                                </label>
-                            </div>
-                            <!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Turn off notifications
-                                    <input type="checkbox" class="pull-right">
-                                </label>
-                            </div>
-                            <!-- /.form-group -->
-
-                            <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    Delete chat history
-                                    <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                                </label>
-                            </div>
-                            <!-- /.form-group -->
-                        </form>
-                    </div>
-                    <!-- /.tab-pane -->
-                </div>
-            </aside>
-            <!-- /.control-sidebar -->
-            <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
-            <div class="control-sidebar-bg"></div>
-        </div>
-        <!-- ./wrapper -->
-
-        <!-- jQuery 3 -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- Select2 -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/select2/dist/js/select2.full.min.js"></script>
-        <!-- InputMask -->
-        <script src="<?php echo base_url() ?>html_ref/plugins/input-mask/jquery.inputmask.js"></script>
-        <script src="<?php echo base_url() ?>html_ref/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
-        <script src="<?php echo base_url() ?>html_ref/plugins/input-mask/jquery.inputmask.extensions.js"></script>
-        <!-- date-range-picker -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/moment/min/moment.min.js"></script>
-        <script src="<?php echo base_url() ?>html_ref/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
-        <!-- bootstrap datepicker -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-        <!-- bootstrap color picker -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-        <!-- bootstrap time picker -->
-        <script src="<?php echo base_url() ?>html_ref/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-        <!-- DataTables -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="<?php echo base_url() ?>html_ref/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <!-- SlimScroll -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <!-- FastClick -->
-        <script src="<?php echo base_url() ?>html_ref/bower_components/fastclick/lib/fastclick.js"></script>
-        <!-- iCheck 1.0.1 -->
-        <script src="<?php echo base_url() ?>html_ref/plugins/iCheck/icheck.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="<?php echo base_url() ?>html_ref/dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="<?php echo base_url() ?>html_ref/dist/js/demo.js"></script>
-        <!-- page script -->
-        <script>
-            $(function() {
-                $('#example1').DataTable()
-                $('#example2').DataTable({
-                    'paging': true,
-                    'lengthChange': false,
-                    'searching': false,
-                    'ordering': true,
-                    'info': true,
-                    'autoWidth': false
-                })
-
-                //Initialize Select2 Elements
-                $('.select2').select2()
-
-                //Datemask dd/mm/yyyy
-                $('#datemask').inputmask('dd/mm/yyyy', {
-                    'placeholder': 'dd/mm/yyyy'
-                })
-                //Datemask2 mm/dd/yyyy
-                $('#datemask2').inputmask('mm/dd/yyyy', {
-                    'placeholder': 'mm/dd/yyyy'
-                })
-
-                //iCheck for checkbox and radio inputs
-                $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-                    checkboxClass: 'icheckbox_minimal-blue',
-                    radioClass: 'iradio_minimal-blue'
-                })
-                //Red color scheme for iCheck
-                $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
-                    checkboxClass: 'icheckbox_minimal-red',
-                    radioClass: 'iradio_minimal-red'
-                })
-                //Flat red color scheme for iCheck
-                $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
-                    checkboxClass: 'icheckbox_flat-green',
-                    radioClass: 'iradio_flat-green'
-                })
-
-                //Colorpicker
-                $('.my-colorpicker1').colorpicker()
-                //color picker with addon
-                $('.my-colorpicker2').colorpicker()
-
-                //Timepicker
-                $('.timepicker').timepicker({
-                    showInputs: false
-                })
-            })
-        </script>
+    <!-- solar icons -->
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/dashboards/dashboard.js"></script>
 </body>
 
 </html>
