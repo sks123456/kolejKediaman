@@ -14,10 +14,13 @@
     </thead>
     <tbody>
         <?php foreach ($list->result() as $channel) : ?>
+            <?php
+            $statusClass = ($channel->CHANNEL_STATUS == "Active") ? "badge rounded-pill bg-success-subtle text-success fw-semibold fs-2" : "badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2";
+            ?>
             <tr>
                 <!-- placing data into the table -->
                 <td><?= $channel->CHANNEL_NAME ?></td>
-                <td><?= $channel->CHANNEL_STATUS ?></td>
+                <td><span class="<?= $statusClass ?>"><?= $channel->CHANNEL_STATUS ?></td>
                 <td>
                     <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $channel->CHANNEL_ID ?>"><i class="fa fa-edit"></i></a>
                     <!-- .modal for add task -->
@@ -25,7 +28,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content" style="width:100%">
                                 <div class="modal-header d-flex align-items-center">
-                                    <h4 class="modal-title">Update Session</h4>
+                                    <h4 class="modal-title">Update Channel</h4>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <?php
@@ -43,7 +46,7 @@
                     </div>
                     <!-- /.modal -->
                     </div>
-                    <a class="btn btn-danger btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/delete/' . $channel->CHANNEL_ID) ?>" onclick="return confirm('Adakah anda pasti nak padam record ini?')"><i class="fa fa-trash"></i></a>
+                    <a class="btn btn-danger btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/crudchannel/delete/' . $channel->CHANNEL_ID) ?>" onclick="return confirm('Confirmation for deleting the channel?')"><i class="fa fa-trash"></i></a>
 
                 </td>
 
@@ -74,13 +77,13 @@
                 const channelName = row.querySelector('td:nth-child(1) p').textContent.trim();
                 const channelStatus = row.querySelector('td:nth-child(2) p').textContent.trim();
 
-                // Update modal with session data
+                // Update modal with channel data
                 const modalTitle = document.querySelector('.modal-title');
-                const sessionForm = document.querySelector('.channel-form');
+                const channelForm = document.querySelector('.channel-form');
 
-                modalTitle.textContent = 'Update Session';
+                modalTitle.textContent = 'Update Channel';
 
-                // Assuming session form elements have IDs, update their values
+                // Assuming channel form elements have IDs, update their values
                 document.getElementById('channelName').value = channelName;
                 document.getElementById('channelStatus').value = channelStatus;
 

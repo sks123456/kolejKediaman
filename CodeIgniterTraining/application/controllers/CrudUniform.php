@@ -3,20 +3,66 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class CrudUniform extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('uniform_model');
+        $this->load->library('pagination');
+    }
+
     public function index()
     {
         $this->load->helper('url');
-        
-        // Pulling data into model
-        $this->load->model("uniform_model");
+
+        // Pagination configuration
+        $config['base_url'] = base_url('CodeIgniterTraining/index.php/uniform/index');
+        $config['total_rows'] = $this->uniform_model->count_all_uniforms(); // Update this according to your model method
+        $config['per_page'] = 10;
+        $config['uri_segment'] = 0; // Segment containing the offset
+
+        $this->pagination->initialize($config);
+
+        /*
+      start 
+      add boostrap class and styles
+    */
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['last_link'] = 'Last';
+        $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</span></li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</span></li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</span></li>';
+        $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</span></li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</span></li>';
+        /*
+  end 
+  add boostrap class and styles
+*/
+        $this->pagination->initialize($config);
+
+        // Get current page from URI segment
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
 
         // Converting the model data into a list
-        $list = $this->uniform_model->get_all_uniform();
+        $list = $this->uniform_model->get_all_uniforms2($config['per_page'], $page);
 
         // Injecting list data into an array
         $data = [
             "list" => $list,
-            "update" => null
+            "update" => null,
+            'pagination_links' => $this->pagination->create_links(), // Pass pagination links to the view
+
         ];
 
         // Loading the view page with the array
@@ -27,7 +73,7 @@ class CrudUniform extends CI_Controller
     {
         $this->load->model("uniform_model");
         $uniformFound = $this->uniform_model->valid_uniform();
-        
+
         if ($uniformFound) {
             // Display an error alert
             echo '<script>';
@@ -36,9 +82,7 @@ class CrudUniform extends CI_Controller
             echo '</script>';
         } else {
             $uniformFound = $this->uniform_model->save_uniform();
-
         }
-        
     }
 
     public function delete($uniform_id)
@@ -75,9 +119,7 @@ class CrudUniform extends CI_Controller
     {
         $this->load->model("uniform_model");
         $this->uniform_model->update_uniform_status();
-    
-        redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index'));
 
+        redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index'));
     }
-    
 }

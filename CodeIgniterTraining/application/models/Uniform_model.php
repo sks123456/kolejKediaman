@@ -2,6 +2,19 @@
 class Uniform_model extends CI_Model
 {
 
+    public function count_all_uniforms()
+    {
+        return $this->db->count_all('kk_uniform');
+    }
+
+    public function get_all_uniforms2($limit, $offset)
+    {
+        // query to get paginated session records
+        $query = $this->db->limit($limit, $offset)
+            ->get('kk_uniform');
+        return $query;
+    }
+
     public function get_all_uniform()
     {
         // query to get all session records
