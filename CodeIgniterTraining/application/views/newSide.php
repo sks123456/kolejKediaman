@@ -107,7 +107,7 @@
           </a>
           <ul aria-expanded="false" class="collapse first-level">
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/ui-cards.html" class="sidebar-link">
+              <a href="<?php echo base_url('CodeIgniterTraining/index.php/room'); ?>" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">List of Rooms for Seniors</span>
               </a>
