@@ -1,4 +1,3 @@
-<!-- Buka Permohonan Form -->
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
@@ -6,92 +5,117 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Pendaftaran JPKK/MPP</a></li>
+        <li><a href="#">Registration for JPKK/MPP</a></li>
     </ol>
 </section>
 <section class="content">
     <div class="box box-info">
         <div class="box-header with-border">
-            <h3 class="box-title">Pendaftaran JPKK/MPP</h3>
+            <h3 class="box-title">Registration for JPKK/MPP</h3>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-            <form role="form" action="" method="post" enctype="multipart/form-data">
-                <!-- Sesi Akademik -->
-                <div class="form-group">
-                    <label>Sesi Akademik</label>
-                    <select class="form-control" name="session_name">
-                        <option selected></option>
-                        <!-- Add similar blocks for other session options -->
-                        <option>-- Sila Pilih --</option>
-                        <option>S202324-I</option>
-                        <option>S202324-II</option>
-                        <option>S202425-I</option>
-                        <option>S202425-II</option>
-                    </select>
-                </div>
-                
-                <!-- Matrik No -->
-                <div class="form-group">
-                    <label for="student_id">Matrik</label>
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <input type="text" style="width: 300px" class="form-control" id="student_id" name="student_id" placeholder="Sila Masukkan ID Pelajar" value="<?= isset($_POST['student_id']) ? $_POST['student_id'] : '' ?>" required>
-                        </div>
-                        <div class="col-xs-2">
-                            <button type="submit">Semak Matrik >></button>
-                        </div>
+            <?php if (!isset($student_data)) : ?>
+                <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/register_MPP/check_student_id" method="post" enctype="multipart/form-data">
+            <?php endif; ?>
+
+            <!-- Sesi Akademik -->
+            <div class="form-group">
+                <label for="session_selected">Academic Session</label>
+                <select class="form-control" name="session_selected">
+                    <?php if (count($sessions) > 1) : ?>
+                        <option value="">-- Please Choose --</option>
+                    <?php endif ?>
+                    <?php foreach ($sessions as $academic_session) : ?>
+                        <option value="<?= $academic_session->sesi_akademik_id ?>"><?= $academic_session->sesi_akademik_desc ?></option>
+                    <?php endforeach; ?>
+
+                </select>
+            </div>
+
+            <!-- Student ID input -->
+            <div class="form-group">
+                <label for="student_id">Student ID</label>
+                <div class="row">
+                    <div class="col-xs-10">
+                        <input type="text" style="width: 300px" class="form-control" id="student_id" name="student_id" placeholder="Enter Student ID" value="<?= isset($_POST['student_id']) ? $_POST['student_id'] : '' ?>" required>
+                        <?php if (isset($message)) echo '<div class="text-danger">' . $message . '</div>'; ?>
+                    </div>
+                    <div class="col-xs-2">
+                        <?php if (!isset($student_data)) : ?>
+                            <button type="submit" class="btn btn-primary">Check Matric ID >></button>
+                        <?php endif; ?>
                     </div>
                 </div>
-                
-                <!-- Jawatan -->
-                <div class="form-group">
-                    <!-- Hidden field for role_id -->
-                    <input type="hidden" name="role_id" value="">
-                    <label>Jawatan</label>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="std_role" value="MKS" required> MKS
-                            </label>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="std_role" value="JPKK" required> JPKK
-                            </label>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="std_role" value="MPP" required> MPP
-                            </label>
-                        </div>
+            </div>
+
+            <!-- Student details -->
+            <?php if (isset($student_data)) : ?>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <h4>Student Details:</h4>
+                        <p>Name: <?= $student_data['NAMA_PELAJAR'] ?></p>
+                        <p>Program: <?= $student_data['PROGRAM'] ?></p>
+                        <!-- Add more details as needed -->
                     </div>
                 </div>
 
-                <!-- Status -->
-                <div class="form-group">
-                    <!-- Hidden field for role_id -->
-                    <input type="hidden" name="status_id" value="">
-                    <label>Status Aktif</label>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="std_status" value="MKS" required> Ya
-                            </label>
+                <div class="col-md-12">
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Student Role Information</h3>
                         </div>
-                        <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="std_status" value="JPKK" required> Tidak
-                            </label>
+                        <div class="box-body">
+                            <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/register_MPP/submit_form" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="stud_matric" value="<?= isset($_POST['student_id']) ? $_POST['student_id'] : '' ?>">
+                                
+                                <!-- Role -->
+                                <div class="form-group">
+                                    <label>Role</label>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="studrole_role" value="MKS" required> MKS
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="studrole_role" value="JPKK" required> JPKK
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="studrole_role" value="MPP" required> MPP
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Status -->
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="studrole_status" value="Active" required> Active
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="studrole_status" value="Not Active" required> Not Active
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
+            <?php endif; ?>
+            </form> <!-- Closing form tag moved here -->
 
-                <div class="box-footer">
-                    <button type="submit" class="btn btn-primary col-md-6 pull-right" style="width:max-content;"> Simpan
-                    </button>
-                </div>
-            </form>
 
             <script>
                 function validateForm() {
