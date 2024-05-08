@@ -54,7 +54,7 @@ class cetak extends CI_Controller
             JOIN kk_channel AS k ON a.channel_id = k.channel_id
             LEFT JOIN kk_uniform AS u ON a.UNIT_ID = u.UNIFORM_ID
             WHERE a.stud_matric = '$student_id'
-            AND c.SESSION_STATUS = 'Aktif'
+            AND c.SESSION_STATUS = 'Active'
         ")->result_array();
 
         // Pass the session data, student data, and applications array to the view
@@ -83,7 +83,7 @@ class cetak extends CI_Controller
             JOIN kk_channel AS k ON a.channel_id = k.channel_id
             LEFT JOIN kk_uniform AS u ON a.UNIT_ID = u.UNIFORM_ID
             WHERE a.stud_matric = '$student_id'
-            AND c.SESSION_STATUS = 'Aktif'
+            AND c.SESSION_STATUS = 'Active'
         ")->result_array();
 
         // Pass the session data, student data, and applications array to the view
