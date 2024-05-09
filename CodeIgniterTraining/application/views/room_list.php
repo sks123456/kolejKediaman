@@ -8,6 +8,7 @@
         <tr class="text-center">
             <th><a href="?sort=ROOM_CODE&amp;dir=<?= $sortColumn == 'ROOM_CODE' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">Room Code <?= $sortColumn == 'ROOM_CODE' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
             <th>Room Type</th>
+            <th>Room GENDER</th>
             <th><a href="?sort=KOLEJ&amp;dir=<?= $sortColumn == 'KOLEJ' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">KOLEJ<?= $sortColumn == 'KOLEJ' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
             <th>Block</th>
             <th><a href="?sort=ROOM_LEVEL&amp;dir=<?= $sortColumn == 'ROOM_LEVEL' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">Room Level <?= $sortColumn == 'ROOM_LEVEL' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
@@ -33,6 +34,7 @@
             <tr>
                 <td><?= $record->ROOM_CODE ?></td>
                 <td><?= $record->ROOM_TYPE ?></td>
+                <td><?= $record->ROOM_GENDER ?></td>
                 <td><?= $record->KOLEJ ?></td>
                 <td><?= $record->BLOCK ?></td>
                 <td><?= $record->ROOM_LEVEL ?></td>
@@ -42,13 +44,13 @@
                 <td style="background-color: <?php
                                                 if ($record->ROOM_STATUS === '2') {
                                                     echo 'orange';
-                                                    $roomStatus = "occupied";
+                                                    $roomStatus = "NOT FULL";
                                                 } elseif ($record->ROOM_STATUS === '1') {
                                                     echo 'green';
-                                                    $roomStatus = "ACTIVE";
+                                                    $roomStatus = "FULL";
                                                 } else {
                                                     echo 'red';
-                                                    $roomStatus = "ERROR";
+                                                    $roomStatus = "NOT AVAILABLE";
                                                 }
                                                 ?>;">
                     <?= $roomStatus ?>

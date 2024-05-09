@@ -25,5 +25,28 @@ class Room_model extends CI_Model
         return $query;
     }
 
+    public function get_records($room_type, $gender, $status, $kolej)
+    {
+        // Start building the query
+        $this->db->select('*');
+        $this->db->from('kk_room');
 
+        // Add conditions based on non-empty form inputs
+        if (!empty($room_type)) {
+            $this->db->where('ROOM_TYPE', $room_type);
+        }
+        if (!empty($gender)) {
+            $this->db->where('ROOM_GENDER', $gender);
+        }
+        if (!empty($status)) {
+            $this->db->where('ROOM_STATUS', $status);
+        }
+        if (!empty($kolej)) {
+            $this->db->where('KOLEJ', $kolej);
+        }
+
+        // Execute the query and retrieve data from the database
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
