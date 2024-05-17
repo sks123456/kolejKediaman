@@ -3,30 +3,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Register_MPP extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
+        $this->load->library('session');
         $this->load->library('form_validation');
-        $this->load->model("Studrole_model");
+        $this->load->model('Studrole_model');
     }
 
-    public function index()
-    {
+    public function index() {
         $this->load->helper('url');
+        
         $sessions = $this->Studrole_model->get_academic_session_id_and_name();
         $data['sessions'] = $sessions;
         $this->load->view('mpp_index', $data);
     }
 
-    public function check_student_id()
-    {
+    public function check_student_id() {
         $this->load->library('form_validation');
         $this->load->model('Student_model');
-        $this->load->model('Studrole_model');
         $this->form_validation->set_rules('student_id', 'Student ID', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $data['message'] = 'Invalid Input, Please Try Again';
+            $data['sessions'] = $this->Studrole_model->get_academic_session_id_and_name();
             $this->load->view('mpp_index', $data);
         } else {
             $student_id = $this->input->post('student_id');
@@ -47,26 +46,21 @@ class Register_MPP extends CI_Controller {
         }
     }
 
-    public function submit_form()
-    {
-        $this->load->model("Student_model");
-        $this->load->model("Studrole_model");
+    public function submit_form() {
+        $this->load->model('Student_model');
         $this->form_validation->set_rules('session_selected', 'Academic Session', 'required');
         $this->form_validation->set_rules('student_id', 'Student ID', 'required');
         $this->form_validation->set_rules('studrole_role', 'Role', 'required');
         $this->form_validation->set_rules('studrole_status', 'Status', 'required');
 
-        if ($this->form_validation->run() == FALSE)
-        {
+        if ($this->form_validation->run() == FALSE) {
             $this->index();
-        }
-        else
-        {
+        } else {
             $data = array(
-                'sesi_akademik_id' => $this->input->post('sesi_akademik_id'),
-                'student_id' => $this->input->post('student_id'),
-                'role_id' => $this->input->post('studrole_role'),
-                'status_id' => $this->input->post('studrole_status'),
+                'SESI_AKADEMIK_ID' => $this->input->post('session_selected'),
+                'STUD_MATRIC' => $this->input->post('student_id'),
+                'STUDROLE_ROLE' => $this->input->post('studrole_role'),
+                'STUDROLE_STATUS' => $this->input->post('studrole_status'),
             );
 
             $result = $this->Studrole_model->save_studrole($data);

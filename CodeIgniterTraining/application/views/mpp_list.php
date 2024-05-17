@@ -22,7 +22,7 @@
                     <tbody>
                             <tr>
                                 <!-- placing data into the table -->
-                                <td></td>
+                                <td><?= $sessions -> SESI_AKADEMIK_ID ?></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
