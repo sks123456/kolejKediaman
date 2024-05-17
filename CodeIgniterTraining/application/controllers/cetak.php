@@ -11,6 +11,7 @@ class cetak extends CI_Controller
         $this->load->model("Session_model");
         $this->load->model("Student_model");
         $this->load->model("Application_model");
+        $this->load->model("Room_model");
     }
 
     public function index($student_id)
@@ -31,6 +32,8 @@ class cetak extends CI_Controller
         $data['sessions'] = $sessions;
         $data['student_data'] = $student_data;
         $data['applications'] = $applications;
+        
+        
 
         $this->load->model("application_model");
         $this->load->view('stud_print', $data);
@@ -74,6 +77,9 @@ class cetak extends CI_Controller
         // Fetch student data
         $student_data = $this->Student_model->get_student($student_id)->row_array();
 
+        $room2 = $this->Room_model->getAvailableRoom(2,$student_data['RELIGION'],$student_data['GENDER']);
+        $room3 = $this->Room_model->getAvailableRoom(3,$student_data['RELIGION'],$student_data['GENDER']);
+        $room4 = $this->Room_model->getAvailableRoom(4,$student_data['RELIGION'],$student_data['GENDER']);
         // Fetch multiple application records for the student
         $applications = $this->db->query("
             SELECT *
@@ -90,6 +96,9 @@ class cetak extends CI_Controller
         $data['sessions'] = $sessions;
         $data['student_data'] = $student_data;
         $data['applications'] = $applications;
+        $data['room2'] = $room2;
+        $data['room3'] = $room3;
+        $data['room4'] = $room4;
         // Load the view
         $this->load->view('stud_pengesahan', $data);
     }

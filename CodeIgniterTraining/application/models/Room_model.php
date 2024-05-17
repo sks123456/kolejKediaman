@@ -25,6 +25,23 @@ class Room_model extends CI_Model
         return $query;
     }
 
+    public function getAvailableRoom($room_capacity, $religion,$gender)
+    {
+        // Start building the query
+        $this->db->select('*');
+        $this->db->from('kk_room');
+        $this->db->where('CAPACITY', $room_capacity);
+        $this->db->where('FILLED_ROOM < CAPACITY');
+        if (!empty($religion)) {
+            $this->db->where('ROOM_TYPE', $religion);
+        }if (!empty($gender)) {
+            $this->db->where('ROOM_GENDER', $gender);
+        }
+
+        // Execute the query and retrieve data from the database
+        $query = $this->db->get();
+        return $query->result();
+    }
     public function get_records($room_type, $gender, $status, $kolej)
     {
         // Start building the query
@@ -45,6 +62,18 @@ class Room_model extends CI_Model
             $this->db->where('KOLEJ', $kolej);
         }
 
+        // Execute the query and retrieve data from the database
+        $query = $this->db->get();
+        return $query->result();
+    }
+    public function search_room($room_code)
+    {
+        // Start building the query
+        $this->db->select('*');
+        $this->db->from('kk_room');
+        if (!empty($room_code)) {
+            $this->db->where('ROOM_CODE', $room_code);
+        }
         // Execute the query and retrieve data from the database
         $query = $this->db->get();
         return $query->result();

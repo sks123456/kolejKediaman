@@ -64,8 +64,8 @@
                                             <div class="row align-items-center">
 
                                                 <div class="col-md-6">
-                                                    <form class="app-search position-relative" action="<?= base_url() ?>CodeIgniterTraining/index.php/enrollmen/search_student" method="post" enctype="multipart/form-data">
-                                                        <input type="text" class="form-control rounded-pill border-0 shadow" name="student_id" placeholder="Student Matric">
+                                                    <form class="app-search position-relative" action="<?= base_url() ?>CodeIgniterTraining/index.php/manage_room/search_room" method="post" enctype="multipart/form-data">
+                                                        <input type="text" class="form-control rounded-pill border-0 shadow" name="room_code" placeholder="Room Code" id='room_code'>
                                                 </div>
                                                 <div class="col-md-6 d-flex justify-content-end">
                                                     <button type="submit" class="srh-btn btn" style="border: none; background: none; cursor: pointer;">
@@ -73,10 +73,10 @@
                                                     </button>
                                                     </form>
 
-                                                    <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
+                                                    <!-- <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
                                                         <i class="ti ti-plus fs-6"></i>
                                                         Filter
-                                                    </button>
+                                                    </button> -->
                                                 </div>
                                             </div>
 
