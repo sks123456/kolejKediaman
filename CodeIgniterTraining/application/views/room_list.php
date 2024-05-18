@@ -14,7 +14,7 @@
             <th><a href="?sort=ROOM_LEVEL&amp;dir=<?= $sortColumn == 'ROOM_LEVEL' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">Room Level <?= $sortColumn == 'ROOM_LEVEL' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
             <th>Room Description</th>
             <th><a href="?sort=CAPACITY&amp;dir=<?= $sortColumn == 'CAPACITY' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">CAPACITY <?= $sortColumn == 'CAPACITY' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
-            <th><a href="?sort=AVAILABILITY&amp;dir=<?= $sortColumn == 'AVAILABILITY' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">AVAILABILITY <?= $sortColumn == 'AVAILABILITY' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
+            <th><a href="?sort=FILLED_ROOM&amp;dir=<?= $sortColumn == 'FILLED_ROOM' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">FILLED_ROOM <?= $sortColumn == 'FILLED_ROOM' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
             <th>Room Status</th>
         </tr>
     </thead>
@@ -40,7 +40,7 @@
                 <td><?= $record->ROOM_LEVEL ?></td>
                 <td><?= $record->ROOM_DESC ?></td>
                 <td><?= $record->CAPACITY ?></td>
-                <td><?= $record->AVAILABILITY ?></td>
+                <td><?= $record->FILLED_ROOM ?></td>
                 <td style="background-color: <?php
                                                 if ($record->ROOM_STATUS === '2') {
                                                     echo 'orange';
