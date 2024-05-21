@@ -30,18 +30,22 @@
     <div class="page-wrapper">
       <!--  Header Start -->
       <?php $this->load->view('newTopBar'); ?>
+
       <!--  Header End -->
       <div class="body-wrapper">
         <div class="container-fluid">
           <div class="d-md-flex align-items-center justify-content-between mb-7">
             <div class="mb-4 mb-md-0">
-              <h4 class="fs-6 mb-0">Student Information</h4>
+              <h4 class="fs-6 mb-0">Student Role Register</h4>
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item">
                     <a class="text-muted text-decoration-none" href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/">Home</a>
                   </li>
-                  <li class="breadcrumb-item active" aria-current="page">Student Information</li>
+                  <li class="breadcrumb-item">
+                    <a class="text-muted text-decoration-none">Information Setup</a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">Student Leaders</li>
                 </ol>
               </nav>
             </div>
@@ -54,68 +58,35 @@
               <div class="card w-100 position-relative overflow-hidden">
                 <div class="px-4 py-3 border-bottom">
                   <div class="d-flex align-items-center">
-                    <h4 class="card-title mb-0">List of Students</h4>
+                    <h4 class="card-title mb-0">List of Student Leaders</h4>
                     <div class="ms-auto">
-                      <div class="row align-items-center">
-                        <div class="col-md-6">
-                          <form class="app-search position-relative" action="<?= base_url() ?>CodeIgniterTraining/index.php/enrollmen/search_student" method="post" enctype="multipart/form-data">
-                            <input type="text" class="form-control rounded-pill border-0 shadow" name="student_id" placeholder="Student Matric">
+                      <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <i class="ti ti-plus fs-6"></i>
+                        Add New
+                      </button>
+                    </div>
+                    <!-- .modal for add create new session -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content" style="width:max-content">
+                          <div class="modal-header d-flex align-items-center">
+                            <h4 class="modal-title"></h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <?php $this->load->view("studrole_form") ?>
                         </div>
-                        <div class="col-md-6 d-flex justify-content-end">
-                          <button type="submit" class="srh-btn btn" style="border: none; background: none; cursor: pointer;">
-                            <iconify-icon icon="solar:magnifer-linear" class="me-2"></iconify-icon>
-                          </button>
-                        </div>
-                        </form>
                       </div>
+                      <!-- /.modal-content -->
                     </div>
+                    <!-- /.modal-dialog -->
                   </div>
+                  <!-- /.modal -->
                 </div>
+              </div>
 
-                <div class="card-body p-4">
-                  <?php if (!empty($students)) : ?>
-                    <div class="table-responsive mb-4">
-                      <table id="example2" class="table border text-nowrap mb-0 align-middle">
-                        <thead>
-                          <tr>
-                            <th>No Matrik</th>
-                            <th>Nama Pelajar</th>
-                            <th>Program</th>
-                            <th>No K/P</th>
-                            <th>Merit</th>
-                            <th>Merit Kolej</th>
-                            <th>Kenderaan</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <?php foreach ($students as $std) : ?>
-                            <tr>
-                              <td><?= $std->STUD_MATRIC ?></td>
-                              <td><?= $std->NAMA_PELAJAR ?></td>
-                              <td><?= $std->PROGRAM ?></td>
-                              <td><?= $std->ICNO ?></td>
-                              <td><?= $std->MERIT ?></td>
-                              <td><?= $std->MERIT_KOLEJ ?></td>
-                              <td style="background-color: <?php
-                                                            if ($std->VEHICLE === 'M') {
-                                                              echo 'orange';
-                                                            } elseif ($std->VEHICLE === 'C') {
-                                                              echo 'red';
-                                                            } else {
-                                                              echo 'green';
-                                                            }
-                                                            ?>;">
-                              </td>
-                            </tr>
-                          <?php endforeach ?>
-                        </tbody>
-                      </table>
-                    </div>
-                  <?php else : ?>
-                    <div class="alert alert-danger" role="alert">
-                      No students found.
-                    </div>
-                  <?php endif; ?>
+              <div class="card-body p-4">
+                <div class="table-responsive mb-4">
+                  <?php $this->load->view("studrole_list"); ?>
                 </div>
               </div>
             </div>

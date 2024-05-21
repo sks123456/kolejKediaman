@@ -39,7 +39,7 @@
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
                   <li class="breadcrumb-item">
-                    <a class="text-muted text-decoration-none" href="<?php echo base_url() ?>monster-bt5-v8/dist/main/index.html">Home</a>
+                    <a class="text-muted text-decoration-none" href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/">Home</a>
                   </li>
                   <li class="breadcrumb-item">
                     <a class="text-muted text-decoration-none">Room</a>

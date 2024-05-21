@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Register_MPP extends CI_Controller {
+class Register_Studrole extends CI_Controller {
 
     public function index()
     {
@@ -16,7 +16,7 @@ class Register_MPP extends CI_Controller {
         $data['sessions'] = $sessions;
 
         // Load the view
-        $this->load->view('mpp_index', $data); // Pass both session and student data to the view
+        $this->load->view('studrole_index', $data); // Pass both session and student data to the view
     }
 }
 ?>
