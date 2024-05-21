@@ -119,7 +119,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/ui-card-weather.html" class="sidebar-link">
+              <a href="<?php echo base_url('CodeIgniterTraining/index.php/update_room') ?>" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">Update Room Information</span>
               </a>

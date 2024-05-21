@@ -66,4 +66,5 @@ $route['application_approval'] = 'application_approval/index';
 $route['studapplication'] = 'application/stud_index';
 $route['mpp'] = 'register_mpp/index';
 $route['room'] = 'manage_room/index';
+$route['update_room'] = 'room_update/index';
 

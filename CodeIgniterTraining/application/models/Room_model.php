@@ -78,4 +78,23 @@ class Room_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
+    public function get_room_codes_with_id()
+    {
+        // Fetch room codes and IDs from the database
+        $this->db->select('ID, ROOM_CODE');
+        $query = $this->db->get('kk_room');
+        return $query->result();
+    }
+
+    public function update_room_status($room_id, $room_status)
+    {
+        // Update the room status in the database
+        $data = array(
+            'ROOM_STATUS' => $room_status
+        );
+
+        $this->db->where('ID', $room_id);
+        $this->db->update('kk_room', $data);
+    }
 }
