@@ -44,10 +44,10 @@
                 <td style="background-color: <?php
                                                 if ($record->ROOM_STATUS === '2') {
                                                     echo 'orange';
-                                                    $roomStatus = "NOT FULL";
+                                                    $roomStatus = "FULL";
                                                 } elseif ($record->ROOM_STATUS === '1') {
                                                     echo 'green';
-                                                    $roomStatus = "FULL";
+                                                    $roomStatus = "NOT FULL";
                                                 } else {
                                                     echo 'red';
                                                     $roomStatus = "NOT AVAILABLE";

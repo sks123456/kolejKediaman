@@ -24,7 +24,7 @@ class Uniform_model extends CI_Model
 
     public function get_unit_id_and_name() {
         $query = $this->db->select('UNIFORM_ID, UNIFORM_NAME')
-        ->where('UNIFORM_STATUS','Aktif')->get('kk_uniform');
+        ->where('UNIFORM_STATUS','Active')->get('kk_uniform');
         return $query->result();
     }
 
