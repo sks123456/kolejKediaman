@@ -38,7 +38,7 @@
       ?>
       <tr>
         <td>
-          <p class="mb-0 fw-normal fs-4"><?= $session->SESSION_NAME ?></p>
+          <p class="mb-0 fw-normal fs-4"><?= $session->SEM_DESC ?></p>
         </td>
         <td>
           <p class="mb-0 fw-normal fs-4"><?= $session->APPLICATION_TYPE ?></p>

@@ -8,6 +8,7 @@ class CrudSession extends CI_Controller
         parent::__construct();
         $this->load->model('session_model');
         $this->load->library('pagination');
+        $this->load->model('AcademicSess_model');
     }
 
     public function index()
@@ -61,12 +62,14 @@ class CrudSession extends CI_Controller
 
         // Converting the model data into a list
         $list = $this->session_model->get_all_session($config['per_page'], $page);
+        $listSem =$this->AcademicSess_model->get_all_academic_sess();
 
         // Check if the current date is between start date and end date
         $this->checkValidity($list);
 
         // Injecting list data into an array
         $data = [
+            "listSem" => $listSem,
             "list" => $list,
             "update" => null,
             'pagination_links' => $this->pagination->create_links(), // Pass pagination links to the view

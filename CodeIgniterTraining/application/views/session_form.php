@@ -65,14 +65,13 @@
             <select class="form-control" name="session_name" <?php echo ($update && !empty($session)) ? 'readonly' : ''; ?>>
                 <?php if ($update && !empty($session)) : ?>
                     <?php $row = $session; ?>
-                    <option selected><?= $row->SESSION_NAME ?></option>
+                    <option selected><?= $row->SEM_DESC ?></option>
                     <!-- Add similar blocks for other session options -->
                 <?php else : ?>
                     <option>-- Sila Pilih --</option>
-                    <option>SEMESTER I SESI 2023/2024 (SARJANA MUDA)</option>
-                    <option>SEMESTER I SESI 2023/2024 (DIPLOMA)</option>
-                    <option>SEMESTER II SESI 2023/2024 (SARJANA MUDA)</option>
-                    <option>SEMESTER II SESI 2023/2024 (DIPLOMA)</option>
+                    <?php foreach ($listSem as $sem) : ?>
+                        <option value="<?=$sem->SEM_KOD_SESISEM?>"><?=$sem->SEM_DESC?></option>
+                    <?php endforeach?>
                 <?php endif; ?>
             </select>
         </div>

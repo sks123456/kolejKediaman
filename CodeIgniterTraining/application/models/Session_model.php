@@ -8,12 +8,16 @@ class Session_model extends CI_Model
     }
 
     public function get_all_session($limit, $offset)
-    {
-        // query to get paginated session records
-        $query = $this->db->limit($limit, $offset)
-            ->get('kk_session');
-        return $query;
-    }
+{
+    // query to get paginated session records with a join
+    $query = $this->db->select('*') // Select the columns you need
+        ->from('kk_session') // Main table
+        ->join('academic_session', 'kk_session.ACADEMIC_ID = academic_session.SEM_KOD_SESISEM', 'left') // Join condition
+        ->limit($limit, $offset) // Pagination
+        ->get(); // Execute the query
+    return $query;
+}
+
 
 
     public function get_session_id_and_name()
@@ -46,7 +50,7 @@ class Session_model extends CI_Model
     public function save_session($file_content, $file_name)
     {
 
-        $this->db->set("SESSION_NAME", $this->input->post("session_name"));
+        $this->db->set("ACADEMIC_ID", $this->input->post("session_name"));
         $this->db->set("APPLICATION_TYPE", $this->input->post("application_type"));
         $this->db->set("START_DATE", $this->input->post("start_date"));
         $this->db->set("END_DATE", $this->input->post("end_date"));
