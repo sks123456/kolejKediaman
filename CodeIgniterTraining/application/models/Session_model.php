@@ -73,14 +73,28 @@ class Session_model extends CI_Model
         return $query;
     }
 
-    public function get_active_session()
+    public function get_active_session($sem)
     {
+        // Determine the SEM_PERINGKAT value based on the first character of $sem
+        $sem_peringkat = '';
+        if (strpos($sem, 'D') === 0) {
+            $sem_peringkat = 'DIPLOMA';
+        } elseif (strpos($sem, 'S') === 0) {
+            $sem_peringkat = 'SARJANA MUDA';
+        }
+    
+        // Perform the query with the join and condition
         $query = $this->db
-            ->where("SESSION_STATUS", "Active")
-            ->get('kk_session');
-
+            ->select('kk_session.*, academic_session.*')
+            ->from('kk_session')
+            ->join('academic_session', 'kk_session.ACADEMIC_ID = academic_session.SEM_KOD_SESISEM')
+            ->where('kk_session.SESSION_STATUS', 'Active')
+            ->where('academic_session.SEM_PERINGKAT', $sem_peringkat)
+            ->get();
+    
         return $query;
     }
+    
 
     public function update_session_status($session_ID, $status)
     {

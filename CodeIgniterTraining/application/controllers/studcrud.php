@@ -17,11 +17,13 @@ class studcrud extends CI_Controller
     public function peraturan()
     {
         // Load necessary libraries and models
+        // Retrieve user data from session
+        $student_data = $this->session->userdata('student_data');
         $this->load->helper('url');
         $this->load->model("session_model");
 
         // Get the active session data
-        $query = $this->session_model->get_active_session();
+        $query = $this->session_model->get_active_session($student_data['STUD_MATRIC']);
 
         // Check if the query returned any rows
         if ($query->num_rows() > 0) {
@@ -72,5 +74,4 @@ class studcrud extends CI_Controller
         // Output the PDF
         $pdf->Output();
     }
-
 }

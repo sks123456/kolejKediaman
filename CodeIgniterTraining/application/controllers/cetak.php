@@ -16,7 +16,7 @@ class cetak extends CI_Controller
 
     public function index($student_id)
     {
-        $sessions = $this->Session_model->get_active_session()->row_array();
+        //$sessions = $this->Session_model->get_active_session()->row_array();
         $student_data = $this->Student_model->get_student($student_id)->row_array();
         // Fetch multiple application records for the student
         $applications = $this->db->query("
@@ -29,7 +29,7 @@ class cetak extends CI_Controller
         WHERE a.stud_matric = '$student_id'
     ")->result_array();
         // Pass the session data and applications array to the view
-        $data['sessions'] = $sessions;
+        //$data['sessions'] = $sessions;
         $data['student_data'] = $student_data;
         $data['applications'] = $applications;
         
@@ -43,7 +43,7 @@ class cetak extends CI_Controller
     {
 
         // Fetch active session data
-        $sessions = $this->Session_model->get_active_session()->row_array();
+        $sessions = $this->Session_model->get_active_session($student_id)->row_array();
 
         // Fetch student data
         $student_data = $this->Student_model->get_student($student_id)->row_array();
@@ -70,16 +70,20 @@ class cetak extends CI_Controller
     }
 
     public function pengesahan($student_id)
-    {
-        // Fetch active session data
-        $sessions = $this->Session_model->get_active_session()->row_array();
+{
+    // Fetch active session data
+    $sessions = $this->Session_model->get_active_session($student_id)->row_array();
 
+    // Check if sessions data is empty
+    if (empty($sessions)) {
+        $data['no_sessions'] = true;
+    } else {
         // Fetch student data
         $student_data = $this->Student_model->get_student($student_id)->row_array();
+        $room2 = $this->Room_model->getAvailableRoom(2, $student_data['RELIGION'], $student_data['GENDER']);
+        $room3 = $this->Room_model->getAvailableRoom(3, $student_data['RELIGION'], $student_data['GENDER']);
+        $room4 = $this->Room_model->getAvailableRoom(4, $student_data['RELIGION'], $student_data['GENDER']);
 
-        $room2 = $this->Room_model->getAvailableRoom(2,$student_data['RELIGION'],$student_data['GENDER']);
-        $room3 = $this->Room_model->getAvailableRoom(3,$student_data['RELIGION'],$student_data['GENDER']);
-        $room4 = $this->Room_model->getAvailableRoom(4,$student_data['RELIGION'],$student_data['GENDER']);
         // Fetch multiple application records for the student
         $applications = $this->db->query("
             SELECT *
@@ -90,6 +94,7 @@ class cetak extends CI_Controller
             LEFT JOIN kk_uniform AS u ON a.UNIT_ID = u.UNIFORM_ID
             WHERE a.stud_matric = '$student_id'
             AND c.SESSION_STATUS = 'Active'
+            AND a.APPLICATION_STATUS = 'APPROVED'
         ")->result_array();
 
         // Pass the session data, student data, and applications array to the view
@@ -99,7 +104,10 @@ class cetak extends CI_Controller
         $data['room2'] = $room2;
         $data['room3'] = $room3;
         $data['room4'] = $room4;
-        // Load the view
-        $this->load->view('stud_pengesahan', $data);
     }
+
+    // Load the view
+    $this->load->view('stud_pengesahan', $data);
+}
+
 }
