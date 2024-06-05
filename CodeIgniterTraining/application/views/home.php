@@ -54,7 +54,9 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card bg-box position-relative text-bg-info">
                 <div class="card-body text-center">
-                  <h2 class="fw-bold fs-8 text-white">2,064</h2>
+                  <h2 class="fw-bold fs-8 text-white">
+                    <?php echo $studentCount; // Dynamically populate student count ?>
+                  </h2>
                   <h6 class="text-white mb-0 fw-bold">Students</h6>
                 </div>
               </div>
@@ -64,7 +66,10 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card bg-box position-relative text-bg-secondary">
                 <div class="card-body text-center">
-                  <h2 class="fw-bold fs-8 text-white">2,064</h2>
+                  <h2 class="fw-bold fs-8 text-white">
+                    <?php echo $applicationCount; // Dynamically populate application count ?>
+                  </h2>
+                  </h2>
                   <h6 class="text-white mb-0 fw-bold">Applications</h6>
                 </div>
               </div>
@@ -74,7 +79,9 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card bg-box position-relative text-bg-success">
                 <div class="card-body text-center">
-                  <h2 class="fw-bold fs-8 text-white">2,064</h2>
+                  <h2 class="fw-bold fs-8 text-white">
+                    <?php echo $rejectedCount; // Dynamically populate rejected count ?>
+                  </h2>
                   <h6 class="text-white mb-0 fw-bold">Rejected</h6>
                 </div>
               </div>
@@ -84,7 +91,9 @@
             <div class="col-sm-6 col-lg-3">
               <div class="card bg-box position-relative text-bg-warning">
                 <div class="card-body text-center">
-                  <h2 class="fw-bold fs-8 text-white">2,064</h2>
+                  <h2 class="fw-bold fs-8 text-white">
+                    <?php echo $roomCount; // Dynamically populate room count ?>
+                  </h2>
                   <h6 class="text-white mb-0 fw-bold">Rooms</h6>
                 </div>
               </div>

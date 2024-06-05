@@ -69,4 +69,5 @@ $route['room'] = 'manage_room/index';
 $route['update_room'] = 'room_update/index';
 $route['generate_room'] = 'room_generate/index';
 $route['update_block'] = 'block_update/index';
+$route['dashboard'] = 'dashboard/index';
 
