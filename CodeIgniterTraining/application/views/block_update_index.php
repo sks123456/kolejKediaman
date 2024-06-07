@@ -18,6 +18,13 @@
 </head>
 
 <body>
+  <!-- pop up messg -->
+  <?php if ($this->session->flashdata('success')) : ?>
+    <script>
+      alert("<?php echo $this->session->flashdata('success'); ?>");
+    </script>
+  <?php endif; ?>
+
   <!-- Preloader -->
   <!-- <div class="preloader">
     <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
@@ -58,7 +65,7 @@
                 <div class="px-4 py-3 border-bottom">
                   <div class="d-flex align-items-center">
                     <h4 class="card-title mb-0">List of Blocks</h4>
-                    <div class="ms-auto">
+                    <!-- <div class="ms-auto">
                       <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class="ti ti-plus fs-6"></i>
                         Update Block
@@ -87,37 +94,36 @@
               <!-- Row -->
               <div class="row">
                 <!-- Column -->
-                  <div class="col-lg-12">
-                    <div class="card w-100 position-relative overflow-hidden">
-                      <div class="px-4 py-3 border-bottom">
-                          <div class="d-flex align-items-center">
-
-                                <!-- .modal for add create new session -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="width:full-content">
-                                      <div class="modal-header d-flex align-items-center">
-                                        <h4 class="modal-title">Filter Room</h4>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                          <?php $this->load->view("room_list_query_form") ?>
-                                    </div>
-                                  </div>
-                                  <!-- /.modal-content -->
-                                </div>
-                                <!-- /.modal-dialog -->
+                <div class="col-lg-12">
+                  <div class="card w-100 position-relative overflow-hidden">
+                    <div class="px-4 py-3 border-bottom">
+                      <div class="d-flex align-items-center">
+                        <!-- .modal for add create new session -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="width:full-content">
+                              <div class="modal-header d-flex align-items-center">
+                                <h4 class="modal-title">Filter Room</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <?php $this->load->view("room_list_query_form") ?>
+                            </div>
                           </div>
-                                <!-- /.modal -->
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="table-responsive mb-4">
-                                        <?php $this->load->view("block_update_list"); ?>
-                                    </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
+                    </div>
+                    <div class="card-body p-4">
+                      <div class="table-responsive mb-4">
+                        <?php $this->load->view("block_update_list"); ?>
                       </div>
                     </div>
                   </div>
+                </div>
               </div>
-            
+
             </div>
           </div>
           <!-- Row -->

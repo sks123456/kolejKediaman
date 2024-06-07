@@ -11,30 +11,14 @@
         <?php if (!empty($records)) : ?>
             <?php foreach ($records as $record) : ?>
                 <tr>
-                    <td></td>
-                    <td><?= htmlspecialchars($record->KOLEJ, ENT_QUOTES, 'UTF-8') ?></td>
-                    <td><?= htmlspecialchars($record->BLOCK, ENT_QUOTES, 'UTF-8') ?></td>
+                    <td><?= $record->KOD_SESI ?></td>
+                    <td><?= $record->KOLEJ ?></td>
+                    <td><?= $record->BLOCK ?></td>
                     <td>
-                        <a class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal"><i class="fa fa-edit"></i></a>
-                        <!-- .modal for add task -->
-                        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content" style="width:100%">
-                                    <div class="modal-header d-flex align-items-center">
-                                        <h4 class="modal-title">Update Block Status</h4>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->
-                    </div>
-                </td>
-            </tr>
-        <?php endforeach; ?>
+                        <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-kolej="<?= $record->KOLEJ ?>" data-block="<?= $record->BLOCK ?>"><i class="fa fa-edit"></i></button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
         <?php else : ?>
             <tr>
                 <td colspan="8" class="text-center">No records available.</td>
@@ -43,11 +27,64 @@
     </tbody>
 </table>
 
+<!-- Modal -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width:100%">
+            <div class="modal-header d-flex align-items-center">
+                <h4 class="modal-title">Update Block Status</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="updateForm" action="<?= base_url('CodeIgniterTraining/index.php/Block_Update/updateBlock') ?>" method="post">
+                    <input type="hidden" name="session" id="modalSession">
+                    <div class="mb-3">
+                        <label for="modalKolej" class="form-label">Kolej</label>
+                        <input type="text" class="form-control" id="modalKolej" name="kolej" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modalBlock" class="form-label">Block</label>
+                        <input type="text" class="form-control" id="modalBlock" name="block" readonly>
+                    </div>
+                    <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" name="status" value="1" required> Active
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="radio-inline">
+                                <input type="radio" name="status" value="0" required> Non-Active
+                            </label>
+                        </div>
+                    
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Pagination links -->
 <div class="pagination">
     <?php echo $this->pagination->create_links(); ?>
 </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var editButtons = document.querySelectorAll('.edit-btn');
+        
+        editButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var session = this.getAttribute('data-session');
+                var kolej = this.getAttribute('data-kolej');
+                var block = this.getAttribute('data-block');
+                
+                document.getElementById('modalSession').value = session;
+                document.getElementById('modalKolej').value = kolej;
+                document.getElementById('modalBlock').value = block;
+            });
+        });
+    });
+</script>
 
 <script>
     var sortDirection = [];

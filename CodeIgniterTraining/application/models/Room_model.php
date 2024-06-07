@@ -7,6 +7,13 @@ class Room_model extends CI_Model
         return $this->db->count_all('kk_room');
     }
 
+    public function get_block(){
+        $this->db->select('*');
+        $this->db->from('kk_room');
+        $this->db->group_by('BLOCK');
+        $query = $this->db->get();
+        return $query->result();
+    }
     public function get_paginated_rooms($limit, $offset, $sortColumn, $sortDirection)
     {
         // Query to get paginated records with sorting
@@ -96,5 +103,16 @@ class Room_model extends CI_Model
 
         $this->db->where('ID', $room_id);
         $this->db->update('kk_room', $data);
+    }
+
+    public function update_block_status($session, $kolej, $block, $status) {
+        $data = array(
+            'ROOM_STATUS' => $status
+        );
+
+        $this->db->where('BLOCK',$block);
+        $this->db->where('KOD_SESI', $session);
+        $this->db->where('KOLEJ', $kolej);
+        return $this->db->update('kk_room', $data);
     }
 }
