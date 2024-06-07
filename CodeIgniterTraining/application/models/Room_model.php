@@ -115,4 +115,16 @@ class Room_model extends CI_Model
         $this->db->where('KOLEJ', $kolej);
         return $this->db->update('kk_room', $data);
     }
+
+    public function allocateRoom($data) {
+        // Insert the allocation data into the room allocation table
+        return $this->db->insert('kk_room_allocation', $data);
+    }
+
+    public function incrementFilledRoom($roomCode) {
+        // Update the filled_room count
+        $this->db->set('filled_room', 'filled_room + 1', FALSE);
+        $this->db->where('room_code', $roomCode);
+        return $this->db->update('kk_room');
+    }
 }
