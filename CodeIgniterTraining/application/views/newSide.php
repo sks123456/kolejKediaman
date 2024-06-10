@@ -27,7 +27,7 @@
             </div>
             <!-- User profile text-->
             <div class="profile-text py-2 dropdown-center hide-menu">
-              <a href="#" class="dropdown-toggle link u-dropdown" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Markarn Doe <span class="caret"></span>
+              <a href="#" class="dropdown-toggle link u-dropdown" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Staff UMT <span class="caret"></span>
               </a>
               <div class="dropdown-menu animated flipInY dropdown-menu-end">
                 <a class="dropdown-item d-flex align-items-center gap-2" href="#">
@@ -235,10 +235,6 @@
     </nav>
 
     <div class="sidebar-footer hide-menu">
-      <!-- item-->
-      <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/page-account-settings.html" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Settings"><iconify-icon icon="solar:settings-linear"></iconify-icon></a>
-      <!-- item-->
-      <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/app-email.html" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Email"><iconify-icon icon="solar:inbox-linear"></iconify-icon></a>
       <!-- item-->
       <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/authentication-login.html" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Logout"><iconify-icon icon="solar:power-bold"></iconify-icon></a>
     </div>

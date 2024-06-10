@@ -42,7 +42,7 @@ class Application extends CI_Controller
             $data['no_sessions'] = true; // Add a flag to indicate no sessions found
         } else {
             // Fetch channel data
-            $channels = $this->Channel_model->get_all_channel();
+            $channels = $this->Channel_model->get_active_channel();
             if ($channels->num_rows() > 0) {
                 $data['channels'] = $channels->result_array();
             } else {

@@ -85,7 +85,7 @@
 
               <div class="card-body p-4">
                 <div class="table-responsive mb-4">
-                  <?php $this->load->view("senarai_channel"); ?>
+                  <?php $this->load->view("channel_list"); ?>
                 </div>
               </div>
             </div>

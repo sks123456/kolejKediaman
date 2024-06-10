@@ -21,6 +21,14 @@ class Channel_model extends CI_Model
         $query = $this->db->get('kk_channel');
         return $query;
     }
+    public function get_active_channel()
+    {
+        // query to get all session records with status = 'active'
+        $this->db->where('channel_status', 'active');
+        $query = $this->db->get('kk_channel');
+        return $query;
+    }
+    
 
     public function get_channel_id_and_name() {
         $query = $this->db->select('channel_id, channel_name')

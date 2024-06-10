@@ -15,7 +15,7 @@
     <tbody>
         <?php foreach ($list->result() as $channel) : ?>
             <?php
-            $statusClass = ($channel->CHANNEL_STATUS == "Active") ? "badge rounded-pill bg-success-subtle text-success fw-semibold fs-2" : "badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2";
+            $statusClass = ((strtoupper($channel->CHANNEL_STATUS) == "ACTIVE")) ? "badge rounded-pill bg-success-subtle text-success fw-semibold fs-2" : "badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2";
             ?>
             <tr>
                 <!-- placing data into the table -->
