@@ -56,8 +56,30 @@ class studcrud extends CI_Controller
 
     public function viewPeraturan()
     {
-        $this->load->view('stud_peraturan');
+        // Get the student data from session
+        $student_data = $this->session->userdata('student_data');
+    
+        // Load necessary helpers and models
+        $this->load->helper('url');
+        $this->load->model("session_model");
+    
+        // Check if student data exists in the session
+        if (!isset($student_data['STUD_MATRIC'])) {
+            // Handle the case where student data is not available (redirect or show an error)
+            show_error('Student data not found in session.');
+        }
+    
+        // Get the active session data for the student
+        $query = $this->session_model->get_active_session($student_data['STUD_MATRIC'])->row_array();
+    
+       
+        // Pass the query data to the view
+        $data['active_session'] = $query;
+    
+        // Load the view and pass the data
+        $this->load->view('stud_peraturan', $data);
     }
+    
 
     // Example usage in a CodeIgniter controller method
     public function generatePdf()

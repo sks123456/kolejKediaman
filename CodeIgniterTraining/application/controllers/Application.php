@@ -9,57 +9,66 @@ class Application extends CI_Controller
         $this->load->library('session');
     }
     public function stud_index()
-{
-    $this->load->helper('url');
-    $this->load->model("Session_model");
-    $this->load->model("Channel_model");
-    $this->load->model("Application_model");
-    $this->load->model("Uniform_model");
-    $student_data = $this->session->userdata('student_data');
+    {
+        $this->load->helper('url');
+        $this->load->model("Session_model");
+        $this->load->model("Channel_model");
+        $this->load->model("Application_model");
+        $this->load->model("Uniform_model");
+        $student_data = $this->session->userdata('student_data');
 
-    // Initialize data array to pass to the view
-    $data = [];
+        // Initialize data array to pass to the view
+        $data = [];
 
-    // Fetch session data containing only session ID and session name
-    $sessions = $this->Session_model->get_active_session($student_data['STUD_MATRIC']);
-    if ($sessions->num_rows() > 0) {
-        $data['sessions'] = $sessions->row_array();
-    } else {
-        $data['sessions'] = null; // Change to null for clarity
+        // Fetch session data containing only session ID and session name
+        // Fetch session data containing only session ID and session name
+        $sessions = $this->Session_model->get_active_session($student_data['STUD_MATRIC']);
+        if ($sessions->num_rows() > 0) {
+            $sessionData = $sessions->row(); // Fetch a single row from the result set
+            $applicationSubmitted = $this->Application_model->get_student_application($sessionData->SESSION_ID, $student_data['STUD_MATRIC']);
+            if ($applicationSubmitted != null) {
+                $data['sessions'] = null; // Change to null for clarity
+            } else {
+                $data['sessions'] = $sessionData; // Assign fetched session data to $data['sessions']
+
+            }
+        } else {
+            $data['sessions'] = null; // Change to null for clarity
+        }
+
+
+        // Check if sessions are empty and handle accordingly
+        if ($data['sessions'] === null) {
+            $data['no_sessions'] = true; // Add a flag to indicate no sessions found
+        } else {
+            // Fetch channel data
+            $channels = $this->Channel_model->get_all_channel();
+            if ($channels->num_rows() > 0) {
+                $data['channels'] = $channels->result_array();
+            } else {
+                $data['channels'] = [];
+            }
+
+            // Fetch past applications data
+            $applications = $this->Application_model->getStudentApplication();
+            if (!empty($applications)) {
+                $data['applications'] = $applications;
+            } else {
+                $data['applications'] = [];
+            }
+
+            // Fetch uniform data
+            $uniforms = $this->Uniform_model->get_all_uniform();
+            if ($uniforms->num_rows() > 0) {
+                $data['uniforms'] = $uniforms->result_array();
+            } else {
+                $data['uniforms'] = [];
+            }
+        }
+
+        // Load the view and pass the data
+        $this->load->view('stud_application', $data);
     }
-
-    // Check if sessions are empty and handle accordingly
-    if ($data['sessions'] === null) {
-        $data['no_sessions'] = true; // Add a flag to indicate no sessions found
-    } else {
-        // Fetch channel data
-        $channels = $this->Channel_model->get_all_channel();
-        if ($channels->num_rows() > 0) {
-            $data['channels'] = $channels->result_array();
-        } else {
-            $data['channels'] = [];
-        }
-
-        // Fetch past applications data
-        $applications = $this->Application_model->getStudentApplication();
-        if (!empty($applications)) {
-            $data['applications'] = $applications;
-        } else {
-            $data['applications'] = [];
-        }
-
-        // Fetch uniform data
-        $uniforms = $this->Uniform_model->get_all_uniform();
-        if ($uniforms->num_rows() > 0) {
-            $data['uniforms'] = $uniforms->result_array();
-        } else {
-            $data['uniforms'] = [];
-        }
-    }
-
-    // Load the view and pass the data
-    $this->load->view('stud_application', $data);
-}
 
     public function index()
     {

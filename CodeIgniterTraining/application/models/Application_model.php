@@ -1,7 +1,7 @@
 <?php
 class Application_model extends CI_Model
 {
-    
+
     public function get_all_applications($file_content, $file_name)
     {
         //run query to get all student records from db
@@ -9,6 +9,23 @@ class Application_model extends CI_Model
         return $query;
     }
 
+    public function get_student_application($sessions_id, $student_matric)
+    {
+        $this->db->select('*');
+        $this->db->from('application'); // Replace 'your_table_name' with your actual table name
+        $this->db->where('session_id', $sessions_id);
+        $this->db->where('STUD_MATRIC', $student_matric);
+        $query = $this->db->get();
+
+        // Check if any applications are found
+        if ($query->num_rows() > 0) {
+            // Return the result as an array of objects
+            return $query->result();
+        } else {
+            // If no applications are found, return false or an empty array, depending on your preference
+            return []; // You can also return false here if you prefer
+        }
+    }
     public function submit_application($file_content, $file_name)
     {
         $this->db->set("SESSION_ID", $this->input->post("session_id"));
@@ -42,17 +59,18 @@ class Application_model extends CI_Model
         $this->db->where('APPLICATION_ID', $application_id);
         $this->db->update('application', $data);
     }
-    public function get_application_by_studentID_session_id($session_id,$stud_matric)
+    public function get_application_by_studentID_session_id($session_id, $stud_matric)
     {
         $query = $this->db
             ->where("SESSION_ID", $session_id)
-            ->where ("STUD_MATRIC", $stud_matric)
+            ->where("STUD_MATRIC", $stud_matric)
             ->get('application');
 
         return $query;
     }
 
-    public function get_records($session_selected, $channel_selected, $room_type, $gender, $status) {
+    public function get_records($session_selected, $channel_selected, $room_type, $gender, $status)
+    {
         // Start building the query
         $this->db->select('application.*, kk_session.SESSION_NAME, kk_channel.CHANNEL_NAME, student_profile.*');
         $this->db->from('application');
@@ -82,7 +100,8 @@ class Application_model extends CI_Model
         return $query->result();
     }
 
-    public function getStudentApplication(){
+    public function getStudentApplication()
+    {
         $this->db->select('*');
         $this->db->from('application AS a');
         $this->db->join('student_profile AS s', 'a.stud_matric = s.stud_matric');
