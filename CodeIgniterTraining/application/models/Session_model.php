@@ -8,21 +8,21 @@ class Session_model extends CI_Model
     }
 
     public function get_all_session($limit, $offset)
-{
-    // query to get paginated session records with a join
-    $query = $this->db->select('*') // Select the columns you need
-        ->from('kk_session') // Main table
-        ->join('academic_session', 'kk_session.ACADEMIC_ID = academic_session.SEM_KOD_SESISEM', 'left') // Join condition
-        ->limit($limit, $offset) // Pagination
-        ->get(); // Execute the query
-    return $query;
-}
+    {
+        // query to get paginated session records with a join
+        $query = $this->db->select('*') // Select the columns you need
+            ->from('kk_session') // Main table
+            ->join('academic_session', 'kk_session.ACADEMIC_ID = academic_session.SEM_KOD_SESISEM', 'left') // Join condition
+            ->limit($limit, $offset) // Pagination
+            ->get(); // Execute the query
+        return $query;
+    }
 
 
 
     public function get_session_id_and_name()
     {
-        $query = $this->db->select('session_id, session_name')
+        $query = $this->db->select('session_id, session_name,academic_id')
             ->get('kk_session');
         return $query->result();
     }
@@ -82,7 +82,7 @@ class Session_model extends CI_Model
         } elseif (strpos($sem, 'S') === 0) {
             $sem_peringkat = 'SARJANA MUDA';
         }
-    
+
         // Perform the query with the join and condition
         $query = $this->db
             ->select('kk_session.*, academic_session.*')
@@ -91,10 +91,11 @@ class Session_model extends CI_Model
             ->where('kk_session.SESSION_STATUS', 'Active')
             ->where('academic_session.SEM_PERINGKAT', $sem_peringkat)
             ->get();
-    
+
         return $query;
     }
-    
+
+
 
     public function update_session_status($session_ID, $status)
     {
