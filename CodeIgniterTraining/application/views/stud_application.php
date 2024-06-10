@@ -24,9 +24,9 @@ $student_data = $this->session->userdata('student_data');
 
 <body>
     <!-- Preloader -->
-    <!-- <div class="preloader">
-    <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
-  </div> -->
+    <div class="preloader">
+        <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+    </div>
     <div id="main-wrapper">
         <!-- Sidebar Start -->
         <?php $this->load->view('stud_side'); ?>
