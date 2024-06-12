@@ -58,10 +58,10 @@
                 <div class="px-4 py-3 border-bottom">
                   <div class="d-flex align-items-center">
                     <h4 class="card-title mb-0">List of Rooms</h4>
-                    <div class="ms-auto">
+                    <!-- <div class="ms-auto">
                       <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class="ti ti-plus fs-6"></i>
-                        Update Room
+                        Update Block
                       </button>
                     </div>
                     <!-- .modal for add create new session -->
@@ -87,56 +87,36 @@
               <!-- Row -->
               <div class="row">
                 <!-- Column -->
-                  <div class="col-lg-12">
-                    <div class="card w-100 position-relative overflow-hidden">
-                      <div class="px-4 py-3 border-bottom">
-                          <div class="d-flex align-items-center">
-                                <div class="ms-auto ">
-                                    <div class="row align-items-center">
-                                      <div class="col-md-6">
-                                        <form class="app-search position-relative" action="<?= base_url() ?>CodeIgniterTraining/index.php/manage_room/search_room" method="post" enctype="multipart/form-data">
-                                            <input type="text" class="form-control rounded-pill border-0 shadow" name="room_code" placeholder="Room Code" id='room_code'>
-                                      </div>
-                                      <div class="col-md-6 d-flex justify-content-end">
-                                        <button type="submit" class="srh-btn btn" style="border: none; background: none; cursor: pointer;">
-                                          <iconify-icon icon="solar:magnifer-linear" class="me-2"></iconify-icon>
-                                        </button>
-                                      </form>
-
-                                      <!-- <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
-                                        <i class="ti ti-plus fs-6"></i>
-                                        Filter
-                                      </button> -->
-                                      </div>
-                                    </div>
-                                </div>
-
-                                <!-- .modal for add create new session -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="width:full-content">
-                                      <div class="modal-header d-flex align-items-center">
-                                        <h4 class="modal-title">Filter Room</h4>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      </div>
-                                          <?php $this->load->view("room_list_query_form") ?>
-                                    </div>
-                                  </div>
-                                  <!-- /.modal-content -->
-                                </div>
-                                <!-- /.modal-dialog -->
+                <div class="col-lg-12">
+                  <div class="card w-100 position-relative overflow-hidden">
+                    <div class="px-4 py-3 border-bottom">
+                      <div class="d-flex align-items-center">
+                        <!-- .modal for add create new session -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content" style="width:full-content">
+                              <div class="modal-header d-flex align-items-center">
+                                <h4 class="modal-title">Filter Room</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <?php $this->load->view("room_list_query_form") ?>
+                            </div>
                           </div>
-                                <!-- /.modal -->
-                                </div>
-                                <div class="card-body p-4">
-                                    <div class="table-responsive mb-4">
-                                        <?php $this->load->view("room_update_list"); ?>
-                                    </div>
+                          <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                      </div>
+                      <!-- /.modal -->
+                    </div>
+                    <div class="card-body p-4">
+                      <div class="table-responsive mb-4">
+                        <?php $this->load->view("room_update_list"); ?>
                       </div>
                     </div>
                   </div>
+                </div>
               </div>
-            
+
             </div>
           </div>
           <!-- Row -->

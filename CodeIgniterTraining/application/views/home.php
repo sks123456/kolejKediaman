@@ -100,55 +100,73 @@
             </div>
           </div>
 
+          <!-- Row -->
           <div class="row">
-            <!-- Statistics -->
-            <div class="col-lg-12">
-              <div class="card">
+            <div class="col-lg-6 d-flex align-items-stretch">
+              <div class="card w-100">
                 <div class="card-body">
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="d-flex align-items-center flex-wrap">
-                        <div>
-                          <h4 class="card-title">Applications Statistics</h3>
-                            <h6 class="card-subtitle">January 2023</h6>
-                        </div>
-                        <div class="ms-auto">
-
-                          <ul class="list-unstyled mb-0 hstack gap-3">
-                            <li>
-                              <h6 class="text-muted mb-0 hstack gap-2 fw-bold">
-                                <span class="text-bg-success round-10 rounded-circle"></span>Semester I
-                              </h6>
-                            </li>
-                            <li>
-                              <h6 class="text-muted mb-0 hstack gap-2 fw-bold">
-                                <span class="text-bg-info round-10 rounded-circle"></span>Semester II
-                              </h6>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <div id="revenue-statistics" style="height: 300px"></div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
-                      <h2 class="fw-bold">$54,578</h2>
-                      <p class="text-muted mb-0 fs-3">Total Revenue</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
-                      <h2 class="fw-bold">$43,451</h2>
-                      <p class="text-muted mb-0 fs-3">Online Revenue</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
-                      <h2 class="fw-bold">$44,578</h2>
-                      <p class="text-muted mb-0 fs-3">Product A</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4 mt-3 text-center">
-                      <h2 class="fw-bold">$12,578</h2>
-                      <p class="text-muted mb-0 fs-3">Product B</p>
+                  <div class="d-md-flex align-items-center no-block">
+                    <h4 class="card-title">Total Application</h4>
+                    <div class="ms-auto">
+                      <select class="form-select">
+                        <option selected>2024</option>
+                        <option value="1">2023</option>
+                        <option value="2">2022</option>
+                      </select>
                     </div>
                   </div>
+                  <!-- Row -->
+                  <div class="row mt-4">
+                    <div class="col-md-7">
+                      <div id="sales-of-the-month" class="m-auto"></div>
+                      <!-- <div class="round-overlap sales"><i class="mdi mdi-cart"></i></div> -->
+                    </div>
+                    <div class="col-md-5 align-self-center">
+                      <h1 class="mb-0">65<small>%</small></h1>
+                      <h6 class="text-muted">160 Total Application</h6>
+                      <ul class="list-icons mt-4 list-style-none">
+                        <li class="my-1 py-1 hstack gap-2">
+                          <i class="fa fa-circle text-success"></i> Approve
+                        </li>
+                        <li class="my-1 py-1 hstack gap-2">
+                          <i class="fa fa-circle text-warning"></i> Pending
+                        </li>
+                        <li class="my-1 py-1 hstack gap-2">
+                          <i class="fa fa-circle text-danger"></i> Rejected
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- Row -->
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-stretch">
+              <div class="card w-100">
+                <div class="card-body">
+                  <div class="d-md-flex align-items-center">
+                    <h4 class="card-title">Total Application</h4>
+                    <div class="ms-auto">
+                      <ul class="list-inline">
+                        <li class="list-inline-item">
+                          <h6 class="text-muted">
+                            <i class="fa fa-circle me-1 text-success"></i>Semester I
+                          </h6>
+                        </li>
+                        <li class="list-inline-item">
+                          <h6 class="text-muted">
+                            <i class="fa fa-circle me-1 text-info"></i>Semester II
+                          </h6>
+                        </li>
+                        <li class="list-inline-item">
+                          <h6 class="text-muted">
+                            <i class="fa fa-circle me-1 text-warning"></i>Semester III
+                          </h6>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div id="income-of-the-year"></div>
                 </div>
               </div>
             </div>
@@ -161,6 +179,187 @@
           $("html").attr("data-color-theme", e);
           $(e).prop("checked", !0);
         }
+
+        // -----------------------------------------------------------------------
+        // doughnut chart option
+        // -----------------------------------------------------------------------
+
+        var option_Sales_of_the_Month = {
+        series: [9, 3, 2, 2],
+        labels: ["Approved", "Pending", "Rejected"],
+        chart: {
+            type: "donut",
+            height: 270,
+            offsetY: 20,
+            fontFamily: "inherit",
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        stroke: {
+            width: 0,
+        },
+        plotOptions: {
+            pie: {
+                expandOnClick: true,
+                donut: {
+                    size: "88",
+                    labels: {
+                        show: false,
+                        name: {
+                            show: true,
+                            offsetY: 7,
+                        },
+                        value: {
+                            show: false,
+                        },
+                        total: {
+                            show: false,
+                            color: "#a1aab2",
+                            fontSize: "13px",
+                            label: "Our Visitor",
+                        },
+                    },
+                },
+            },
+        },
+        colors: ["#edf1f5", "var(--bs-primary)", "var(--bs-success)", "var(--bs-secondary)"],
+        tooltip: {
+            show: true,
+            fillSeriesColor: false,
+        },
+        legend: {
+            show: false,
+        },
+        responsive: [
+            {
+                breakpoint: 1025,
+                options: {
+                    chart: {
+                        width: 250,
+                    },
+                },
+            },
+            {
+                breakpoint: 769,
+                options: {
+                    chart: {
+                        height: 270,
+                        width: "100%",
+                    },
+                },
+            },
+            {
+                breakpoint: 426,
+                options: {
+                    chart: {
+                        height: 250,
+                        offsetX: -20,
+                        width: 250,
+                    },
+                },
+            },
+        ],
+    };
+
+        var chart_pie_donut = new ApexCharts(
+            document.querySelector("#sales-of-the-month"),
+            option_Sales_of_the_Month
+        );
+        chart_pie_donut.render();
+
+        // -----------------------------------------------------------------------
+        // Income of the year chart
+        // -----------------------------------------------------------------------
+
+        var options_Income_of_the_Year = {
+            series: [
+                {
+                    name: "Growth ",
+                    data: [5, 4, 3, 7, 5, 10, 3],
+                },
+                {
+                    name: "Net ",
+                    data: [3, 2, 9, 5, 4, 6, 4],
+                },
+            ],
+            chart: {
+                fontFamily: "inherit",
+                type: "bar",
+                height: 315,
+                offsetY: 10,
+                toolbar: {
+                    show: false,
+                },
+            },
+            grid: {
+                show: true,
+                strokeDashArray: 3,
+                borderColor: "rgba(0,0,0,0.1)",
+                xaxis: {
+                    lines: {
+                        show: true,
+                    },
+                },
+            },
+            colors: ["var(--bs-primary)", "var(--bs-success)"],
+            plotOptions: {
+                bar: {
+                    horizontal: false,
+                    columnWidth: "50%",
+                    borderRadius: 5,
+                    endingShape: "rounded",
+                },
+            },
+            dataLabels: {
+                enabled: false,
+            },
+            stroke: {
+                show: true,
+                width: 5,
+                colors: ["transparent"],
+            },
+            xaxis: {
+                type: "category",
+                categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+                tickAmount: "16",
+                tickPlacement: "on",
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false,
+                },
+                labels: {
+                    style: {
+                        colors: "#a1aab2",
+                    },
+                },
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: "#a1aab2",
+                    },
+                },
+            },
+            fill: {
+                opacity: 1,
+            },
+            tooltip: {
+                theme: "dark",
+            },
+            legend: {
+                show: false,
+            },
+        };
+
+        var chart_column_basic = new ApexCharts(
+            document.querySelector("#income-of-the-year"),
+            options_Income_of_the_Year
+        );
+        chart_column_basic.render();
+        
       </script>
       <button class="btn btn-info p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         <iconify-icon icon="solar:settings-linear" class="fs-7"></iconify-icon>

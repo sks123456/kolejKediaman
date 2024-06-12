@@ -7,6 +7,7 @@ class Room_update extends CI_Controller
     {
         parent::__construct();
         error_reporting(0);
+        $this->load->model('Room_Model');
         $this->load->library("session");
         $this->load->helper('url');
     }
@@ -19,6 +20,9 @@ class Room_update extends CI_Controller
 
         // Fetch room codes and IDs from the database
         $data['room_codes'] = $this->Room_model->get_room_codes_with_id();
+
+        // Fetch unique sessions
+        $data['unique_sessions'] = $this->Room_model->get_unique_sessions();
 
         // Get sorting parameters from URL
         $sortColumn = $this->input->get('sort') ? $this->input->get('sort') : 'ROOM_CODE';
@@ -92,33 +96,23 @@ class Room_update extends CI_Controller
     }
 
     // Room_update Controller
-    public function update() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Form submission - Update room status
-            $room_id = $this->input->post('room_id');
-            $room_status = $this->input->post('room_status');
+    public function updateRoom() {
+        
+        $room_id = $this->input->post('room_id');
+        $status_active = $this->input->post('status_active');
 
-            // Load the model
-            $this->load->model('Room_model');
-
-            // Update room status
-            $this->Room_model->update_room_status($room_id, $room_status);
-            
-            // Optionally, you can redirect the user to another page after the update
-            // redirect('another_controller/method');
+        if ($this->Room_Model->update_room_status($room_id, $status_active)) {
+            // Success
+            $this->session->set_flashdata('success', 'Room status updated successfully.');
         } else {
-            // Display the form
-            // Load necessary helpers and models
-            $this->load->helper('url');
-            $this->load->model("Room_model");
-
-            // Retrieve room codes and IDs for the dropdown
-            $data['room_codes'] = $this->Room_model->get_room_codes_with_id();
-
-            // Load the view with the form
-            $this->load->view('room_update_index', $data);
+            // Error
+            $this->session->set_flashdata('error', 'Failed to update room status.');
         }
+
+        redirect(base_url('CodeIgniterTraining/index.php/room_update/index'));
     }
+    
+
 
 
 }

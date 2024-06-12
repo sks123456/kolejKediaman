@@ -49,7 +49,7 @@ class Room_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    public function get_records($room_type, $gender, $status, $kolej)
+    public function get_records($room_type, $gender, $status, $status_active, $kolej)
     {
         // Start building the query
         $this->db->select('*');
@@ -64,6 +64,9 @@ class Room_model extends CI_Model
         }
         if (!empty($status)) {
             $this->db->where('ROOM_STATUS', $status);
+        }
+        if (!empty($status_active)) {
+            $this->db->where('STATUS_ACTIVE', $status_active);
         }
         if (!empty($kolej)) {
             $this->db->where('KOLEJ', $kolej);
@@ -89,21 +92,30 @@ class Room_model extends CI_Model
     public function get_room_codes_with_id()
     {
         // Fetch room codes and IDs from the database
-        $this->db->select('ID, ROOM_CODE');
+        $this->db->select('ID, ROOM_CODE, KOD_SESI');
         $query = $this->db->get('kk_room');
         return $query->result();
     }
 
-    public function update_room_status($room_id, $room_status)
+    public function get_unique_sessions()
     {
-        // Update the room status in the database
-        $data = array(
-            'ROOM_STATUS' => $room_status
-        );
-
-        $this->db->where('ID', $room_id);
-        $this->db->update('kk_room', $data);
+        $this->db->select('KOD_SESI');
+        $this->db->distinct();
+        $this->db->from('kk_room');
+        $query = $this->db->get();
+        return $query->result();
     }
+
+    public function update_room_status($room_id, $status_active) {
+        $data = array(
+            'STATUS_ACTIVE' => $status_active
+        );
+    
+        $this->db->where('ROOM_CODE', $room_id);
+        return $this->db->update('kk_room', $data);
+    }
+    
+
 
     public function update_block_status($session, $kolej, $block, $status) {
         $data = array(
