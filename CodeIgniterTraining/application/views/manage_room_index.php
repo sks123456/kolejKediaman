@@ -57,7 +57,7 @@
                                 <div class="px-4 py-3 border-bottom">
 
                                     <div class="d-flex align-items-center">
-                                        <h4 class="card-title mb-0">List of Registration Session</h4>
+                                        <h4 class="card-title mb-0">List of Rooms</h4>
 
 
                                         <div class="ms-auto ">

@@ -35,7 +35,7 @@
                 <div class="container-fluid">
                     <div class="d-md-flex align-items-center justify-content-between mb-7">
                         <div class="mb-4 mb-md-0">
-                            <h4 class="fs-6 mb-0">Pengesahan</h4>
+                            <h4 class="fs-6 mb-0">Confirmation</h4>
                         </div>
                     </div>
 
@@ -45,7 +45,7 @@
                             <div class="card w-100 position-relative overflow-hidden">
                                 <div class="px-4 py-3 border-bottom">
                                     <div class="d-flex align-items-center">
-                                        <h4 class="card-title mb-0">Pengesahan</h4>
+                                        <h4 class="card-title mb-0">Confirmation</h4>
                                     </div>
                                 </div>
                                 <div class="card-body p-4">
@@ -71,11 +71,11 @@
                                                                 <div class="box-body">
                                                                     <table class="table">
                                                                         <tr>
-                                                                            <td style="width: 250px">Tarikh Hantar Permohonan </td>
-                                                                            <td>: Disimpan pada <?= date('Y-m-d H:i:s', strtotime($application['SUBMITTED_BY'])) ?></td>
+                                                                            <td style="width: 250px">Date of Application Submission </td>
+                                                                            <td>: Submitted On <?= date('Y-m-d H:i:s', strtotime($application['SUBMITTED_BY'])) ?></td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>Status Kelulusan </td>
+                                                                            <td>Application Status </td>
                                                                             <td>: <?= $application['APPLICATION_STATUS'] ?></td>
                                                                         </tr>
                                                                     </table>
@@ -86,26 +86,26 @@
                                                         <div class="box box-primary">
                                                             <!-- /.box-header -->
                                                             <div class="box-header with-border">
-                                                                <h3 class="box-title">Pengesahan Terimaan/Tolak Permohonan</h3>
+                                                                <h3 class="box-title">Confirmation of Acceptance/Rejection of Application</h3>
                                                             </div>
                                                             <div class="box-body">
                                                                 <table class="table">
                                                                     <tr>
-                                                                        <td style="width: 250px">Saluran</td>
+                                                                        <td style="width: 250px">Channep</td>
                                                                         <td>: <?= $application['CHANNEL_NAME'] ?></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>Permohonan </td>
+                                                                        <td>Applcation </td>
                                                                         <td>
                                                                             <div class="form-check">
                                                                                 <input class="form-check-input" type="radio" name="approval" id="approve" value="approve" checked>
-                                                                                <label class="form-check-label" for="approve">Terima</label>
+                                                                                <label class="form-check-label" for="approve">Accept</label>
                                                                             </div>
                                                                         </td>
                                                                         <td>
                                                                             <div class="form-check">
                                                                                 <input class="form-check-input" type="radio" name="approval" id="reject" value="reject">
-                                                                                <label class="form-check-label" for="reject">Tolak</label>
+                                                                                <label class="form-check-label" for="reject">Reject</label>
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -115,20 +115,20 @@
                                                         <div class="box box-primary" id="bilikSection">
                                                             <!-- /.box-header -->
                                                             <div class="box-header with-border">
-                                                                <h3 class="box-title">Pilih Bilik</h3>
+                                                                <h3 class="box-title">Choose Room</h3>
                                                             </div>
                                                             <div class="box-body">
                                                                 <table class="table">
                                                                     <tr>
-                                                                        <td>Sila Pilih Bilik Mengikut Jenis Bilik</td>
+                                                                        <td>Please Select a Room by Room Type</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td style="width: 250px">Jenis Bilik</td>
+                                                                        <td style="width: 250px">Room Type</td>
                                                                         <td>
                                                                             <!-- Buttons to trigger the modals -->
-                                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBilikBerdua">Bilik Berdua RM5/Hari @ RM 665/Sem</button>
-                                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBilikBertiga">Bilik Bertiga RM4/Hari @ RM 532/Sem</button>
-                                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBilikBerempat">Bilik Berempat RM3/Hari @ RM 399/Sem</button>
+                                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBilikBerdua">Twin Room RM5/Day @ RM 665/Semester</button>
+                                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBilikBertiga">Three-Person Room RM4/Day @ RM 532/Semester</button>
+                                                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBilikBerempat">Four-Person Room RM3/Day @ RM 399/Semester</button>
                                                                         </td>
                                                                     </tr>
 
@@ -137,7 +137,7 @@
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="modalBilikBerduaLabel">Pilihan Bilik Berdua</h5>
+                                                                                    <h5 class="modal-title" id="modalBilikBerduaLabel">Choice of Two-Person Room</h5>
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                                                                                 </div>
@@ -205,7 +205,7 @@
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="modalBilikBertigaLabel">Pilihan Bilik Bertiga</h5>
+                                                                                    <h5 class="modal-title" id="modalBilikBertigaLabel">Choice of Three-Person Room</h5>
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                                                     </button>
                                                                                 </div>
@@ -272,7 +272,7 @@
                                                                         <div class="modal-dialog" role="document">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="modalBilikBerempatLabel">Pilihan Bilik Berempat</h5>
+                                                                                    <h5 class="modal-title" id="modalBilikBerempatLabel">Choice of Four-Person Room</h5>
                                                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                                                                                 </div>
@@ -352,31 +352,31 @@
                                                         </div>
                                                         <div id="infoBilik">
                                                             <div class="box-header with-border">
-                                                                <h3 class="box-title">Maklumat Pilihan Bilik</h3>
+                                                                <h3 class="box-title">Room Option Information</h3>
                                                             </div>
                                                             <div class="box-body">
                                                                 <table class="table" id="info-bilik">
                                                                     <tr>
-                                                                        <td style="width: 250px">Jenis Bilik</td>
+                                                                        <td style="width: 250px">Room Type</td>
                                                                         <td>
                                                                             <input type="hidden" id="applicationID" name="applicationID" value="<?= $application['APPLICATION_ID'] ?>">
                                                                             <input type="text" id="selectedRoomCapacity" name="selectedRoomCapacity">
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>Blok</td>
+                                                                        <td>Block</td>
                                                                         <td>
                                                                             <input type="text" id="selectedRoomCode" name="selectedRoomCode">
                                                                         </td>
                                                                     </tr>
                                                                 </table>
-                                                                <input type="submit" value="Hantar">
+                                                                <input type="submit" value="Submit">
                                                             </div>
                                                         </div>
                                                         <div class="box box-primary" id="confirmationSection" style="display: none;">
                                                             <div class="box-body">
-                                                                <h4>Anda pasti untuk menolak permohonan ini?</h4>
-                                                                <button class="btn btn-danger">Tolak Permohonan</button>
+                                                                <h4>Are you sure to reject this application?</h4>
+                                                                <button class="btn btn-danger">Reject Application</button>
                                                             </div>
                                                         </div>
                                                     </form>

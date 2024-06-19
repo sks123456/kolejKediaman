@@ -86,7 +86,7 @@ $student_data = $this->session->userdata('student_data');
                 <div class="modal-body" id="application-details"></div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="window.print()">Cetak</button>
+                    <button type="button" class="btn btn-primary" onclick="window.print()">Print</button>
                 </div>
             </div>
         </div>

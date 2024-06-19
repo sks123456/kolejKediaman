@@ -40,7 +40,7 @@ $student_data = $this->session->userdata('student_data');
                 <div class="container-fluid">
                     <div class="d-md-flex align-items-center justify-content-between mb-7">
                         <div class="mb-4 mb-md-0">
-                            <h4 class="fs-6 mb-0">Permohonan</h4>
+                            <h4 class="fs-6 mb-0">Application</h4>
                         </div>
                     </div>
 
@@ -69,10 +69,10 @@ $student_data = $this->session->userdata('student_data');
                                                                 <table class="table">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td class="col-md-2"><label for="Channels">Saluran Permohonan</label></td>
+                                                                            <td class="col-md-2"><label for="Channels">Application Channel</label></td>
                                                                             <td class="col-md-3">
                                                                                 <select class="form-control" name="channel_selected" id="channelSelect" required>
-                                                                                    <option value="">-- Sila Pilih --</option>
+                                                                                    <option value="">-- Please Choose --</option>
                                                                                     <?php foreach ($channels as $channel) : ?>
                                                                                         <option value="<?= $channel['CHANNEL_ID'] ?>"><?= $channel['CHANNEL_NAME'] ?></option>
                                                                                     <?php endforeach; ?>
@@ -83,9 +83,9 @@ $student_data = $this->session->userdata('student_data');
                                                                         <tr>
                                                                             <td>
                                                                                 <div class="form-group" id="unitUniformField" style="display: none;">
-                                                                                    <label for="unit_uniform">Nama Unit Uniform</label>
+                                                                                    <label for="unit_uniform">Unit Uniform Name</label>
                                                                                     <select class="form-control" name="unit_uniform" id="unit_uniform">
-                                                                                        <option value="">-- Sila Pilih --</option>
+                                                                                        <option value="">-- Please Choose --</option>
                                                                                         <?php foreach ($uniforms as $uniform) : ?>
                                                                                             <option value="<?= $uniform['UNIFORM_ID'] ?>"><?= $uniform['UNIFORM_NAME'] ?></option>
                                                                                         <?php endforeach; ?>
@@ -97,7 +97,7 @@ $student_data = $this->session->userdata('student_data');
                                                                             <td>
                                                                                 <!-- File Upload -->
                                                                                 <div class="form-group" id="pdfDocumentField" style="display: none;">
-                                                                                    <label for="pdf_document">Muat Naik Dokumen PDF</label>
+                                                                                    <label for="pdf_document">Upload PDF Document</label>
                                                                                     <!-- Create new record - standard file upload input -->
                                                                                     <input type="file" name="pdf_document" id="pdf_document" accept=".pdf">
                                                                                 </div>
@@ -110,7 +110,7 @@ $student_data = $this->session->userdata('student_data');
                                                     </div>
                                                     <div class="box box-info">
                                                         <div class="box-header with-border">
-                                                            <h3 class="box-title">Pengakuan</h3>
+                                                            <h3 class="box-title">Declaration of Acknowledgment</h3>
                                                         </div>
                                                         <div class="box-body">
                                                             <iframe src="../pengakuan/pengakuan.pdf" width="100%" height="600px"></iframe>
@@ -124,14 +124,14 @@ $student_data = $this->session->userdata('student_data');
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            Merit Kolej: <?= $student_data['MERIT_KOLEJ'] ?>
+                                                                            College Merit: <?= $student_data['MERIT_KOLEJ'] ?>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><input type="checkbox" id="checkbox" name="checkbox" required> Saya bersetuju dengan semua terma dan syarat yang dinyatakan di atas</td>
+                                                                        <td><input type="checkbox" id="checkbox" name="checkbox" required> I hereby acknowledge and agree to all the terms and conditions as stated above</td>
                                                                     </tr>
                                                                 </table>
-                                                                <input type="submit" value="Simpan dan Hantar Permohonan">
+                                                                <input type="submit" value="Save and Submit Application">
                                                             </div>
                                                         </div>
                                                     </div>

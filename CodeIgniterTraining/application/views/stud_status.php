@@ -35,7 +35,7 @@
                 <div class="container-fluid">
                     <div class="d-md-flex align-items-center justify-content-between mb-7">
                         <div class="mb-4 mb-md-0">
-                            <h4 class="fs-6 mb-0">Status Permohonan</h4>
+                            <h4 class="fs-6 mb-0">Application Status</h4>
                         </div>
                     </div>
 
@@ -60,12 +60,12 @@
                                                     <div class="box-body">
                                                         <table class="table">
                                                             <tr>
-                                                                <td style="width: 250px">Tarikh Hantar Permohonan </td>
-                                                                <td>: Disimpan pada <?= date('Y-m-d H:i:s', strtotime($application['SUBMITTED_BY'])) ?></td>
+                                                                <td style="width: 250px">Date of Application Submission </td>
+                                                                <td>: Submitted On <?= date('Y-m-d H:i:s', strtotime($application['SUBMITTED_BY'])) ?></td>
                                                             </tr>
                                                             </tr>
                                                             <tr>
-                                                                <td>Status Kelulusan </td>
+                                                                <td>Application Status </td>
                                                                 <td>: <?= $application['APPLICATION_STATUS'] ?></td>
                                                             </tr>
                                                         </table>

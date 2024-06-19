@@ -6,7 +6,7 @@ $student_data = $this->session->userdata('student_data');
         <!-- Start Vertical Layout Sidebar -->
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="<?php echo base_url('CodeIgniterTraining/index.php/dashboard'); ?>" class="text-nowrap logo-img">
+           < <a href="<?php echo base_url('CodeIgniterTraining/index.php/dashboard'); ?>" class="text-nowrap logo-img">
                 <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
                 <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
             </a>
@@ -55,31 +55,31 @@ $student_data = $this->session->userdata('student_data');
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan')); ?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
-                        <span class="hide-menu">PERATURAN</span>
+                        <span class="hide-menu">Rules</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/studapplication')); ?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
-                        <span class="hide-menu">PERMOHONAN</span>
+                        <span class="hide-menu">Application</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/'));?><?=$student_data['STUD_MATRIC']?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
-                        <span class="hide-menu">CETAK</span>
+                        <span class="hide-menu">Print</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/stud_status/'));?><?=$student_data['STUD_MATRIC']?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
-                        <span class="hide-menu">STATUS PERMOHONAN</span>
+                        <span class="hide-menu">Application Status</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/pengesahan/'));?><?=$student_data['STUD_MATRIC']?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
-                        <span class="hide-menu">PENGESAHAN</span>
+                        <span class="hide-menu">Validation</span>
                     </a>
                 </li>
             </ul>

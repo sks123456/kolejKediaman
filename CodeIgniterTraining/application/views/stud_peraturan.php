@@ -39,7 +39,7 @@ $student_data = $this->session->userdata('student_data');
                     <div class="d-md-flex align-items-center justify-content-between mb-7">
                         <div class="mb-4 mb-md-0">
                             <?php if (isset($active_session['SEM_KOD_SESISEM']) && !empty($active_session['SEM_KOD_SESISEM'])) : ?>
-                                <h4 class="fs-6 mb-0">Peraturan Untuk Sesi <?= htmlspecialchars($active_session['SEM_KOD_SESISEM']) ?></h4>
+                                <h4 class="fs-6 mb-0">Rules for Session <?= htmlspecialchars($active_session['SEM_KOD_SESISEM']) ?></h4>
                             <?php else : ?>
                             <?php endif; ?>
                         </div>

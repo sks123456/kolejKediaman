@@ -78,13 +78,13 @@
                       <table id="example2" class="table border text-nowrap mb-0 align-middle">
                         <thead>
                           <tr>
-                            <th>No Matrik</th>
-                            <th>Nama Pelajar</th>
-                            <th>Program</th>
-                            <th>No K/P</th>
+                            <th>Matric ID</th>
+                            <th>Student Name</th>
+                            <th>Programme</th>
+                            <th>IC No</th>
                             <th>Merit</th>
-                            <th>Merit Kolej</th>
-                            <th>Kenderaan</th>
+                            <th>College Merit</th>
+                            <th>Vehicle</th>
                           </tr>
                         </thead>
                         <tbody>
