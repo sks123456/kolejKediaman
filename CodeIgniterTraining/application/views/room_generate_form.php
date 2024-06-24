@@ -1,20 +1,20 @@
 <!-- Update Room Form -->
 <div class="modal-body">
-    <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/room_update/update" method="post" enctype="multipart/form-data">
+    <form role="form" action="<?= base_url('CodeIgniterTraining/index.php/room_generate/create_room') ?>" method="post" enctype="multipart/form-data">
 
         <!-- Room Code and ID -->
         <div class="form-group mb-3">
             
             <!-- Room -->
+            <!-- Session -->
             <div class="mb-3">
-                <label>Session</label>
-                <select class="form-control" name="room_id">
-                    <option value="">-- Please Choose --</option>
-                    <option value="">S202526-I</option>
-                    <option value="">S202526-II</option>
-                    <option value="">D202526-II</option>
-                    <option value="">D202526-I</option>
-                </select>
+                    <label>Session</label>
+                    <select class="form-control" name="session_id">
+                        <option value="">-- Please Choose --</option>
+                        <?php foreach ($sessions as $session) : ?>
+                            <option value="<?= $session->academic_id ?>"><?= $session->session_name ?></option>
+                        <?php endforeach; ?>
+                    </select>
             </div>
         </div>
 </div>
