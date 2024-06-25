@@ -1,5 +1,5 @@
 <table class="table border text-nowrap mb-0 align-middle">
-  <thead class="text-dark fs-4">
+  <thead class="text-dark fs-4 text-center">
     <tr>
       <th>
       <h6 class="fs-4 fw-semibold mb-0">Session Name</h6>
@@ -49,7 +49,7 @@
         <td>
           <p class="mb-0 fw-normal fs-4"><?= $endDate ?></p>
         </td>
-        <td>
+        <td class="text-center">
           <span class="<?= $statusClass ?>"><?= $session->SESSION_STATUS ?></span>
         </td>
         <td>

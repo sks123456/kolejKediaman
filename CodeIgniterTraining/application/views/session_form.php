@@ -9,49 +9,49 @@
                 <input type="hidden" name="session_id" value="<?= $row->SESSION_ID ?>">
             <?php endif; ?>
 
-            <label>Jenis Permohonan</label>
+            <label>Type of Application</label>
             <div class="row">
                 <?php if ($update) : ?>
                     <?php $row = $session; ?>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Permohonan Biasa" <?= ($row->APPLICATION_TYPE == 'Permohonan Biasa') ? 'checked' : 'disabled' ?> required> Permohonan Biasa
+                            <input type="radio" name="application_type" value="Common Student" <?= ($row->APPLICATION_TYPE == 'Common Student') ? 'checked' : 'disabled' ?> required> Common Student
                         </label>
                     </div>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Permohonan Rayuan" <?= ($row->APPLICATION_TYPE == 'Permohonan Rayuan') ? 'checked' : 'disabled' ?> required> Permohonan Rayuan
+                            <input type="radio" name="application_type" value="Appeal Application" <?= ($row->APPLICATION_TYPE == 'Appeal Application') ? 'checked' : 'disabled' ?> required> Appeal Application
                         </label>
                     </div>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Status Permohonan" <?= ($row->APPLICATION_TYPE == 'Status Permohonan') ? 'checked' : 'disabled' ?> required> Status Permohonan
+                            <input type="radio" name="application_type" value="Status Application" <?= ($row->APPLICATION_TYPE == 'Status Application') ? 'checked' : 'disabled' ?> required> Status Application
                         </label>
                     </div>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Pengesahan Terimaan" <?= ($row->APPLICATION_TYPE == 'Pengesahan Terimaan') ? 'checked' : 'disabled' ?> required> Pengesahan Terimaan
+                            <input type="radio" name="Acceptance Confirmation" value="Acceptance Confirmation" <?= ($row->APPLICATION_TYPE == 'Pengesahan Terimaan') ? 'checked' : 'disabled' ?> required> Acceptance Confirmation
                         </label>
                     </div>
                 <?php else : ?>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Permohonan Biasa" required> Permohonan Biasa
+                            <input type="radio" name="application_type" value="Common Student" required> Common Student
                         </label>
                     </div>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Permohonan Rayuan" required> Permohonan Rayuan
+                            <input type="radio" name="application_type" value="Appeal Application" required> Appeal Application
                         </label>
                     </div>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Status Permohonan" required> Status Permohonan
+                            <input type="radio" name="application_type" value="Status Application" required> Status Application
                         </label>
                     </div>
                     <div class="col-md-3">
                         <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Pengesahan Terimaan" required> Pengesahan Terimaan
+                            <input type="radio" name="application_type" value="Acceptance Confirmation" required> Acceptance Confirmation
                         </label>
                     </div>
                     <!-- Add similar blocks for other radio options -->
@@ -68,7 +68,7 @@
                     <option selected><?= $row->SEM_DESC ?></option>
                     <!-- Add similar blocks for other session options -->
                 <?php else : ?>
-                    <option>-- Sila Pilih --</option>
+                    <option>-- Please Choose --</option>
                     <?php foreach ($listSem as $sem) : ?>
                         <option value="<?=$sem->SEM_KOD_SESISEM?>"><?=$sem->SEM_DESC?></option>
                     <?php endforeach?>
@@ -79,7 +79,7 @@
         <div class="row mb-3">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label class="pull-left">Tarikh Mula</label>
+                    <label class="pull-left">Start Date</label>
                     <div class="input-group date pull-right" style="width:60%;">
                         <?php if ($update && !empty($session)) : ?>
                             <?php $row = $session?>
@@ -93,7 +93,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label class="pull-left">Tarikh Tamat</label>
+                    <label class="pull-left">End Date</label>
                     <div class="input-group date pull-right" style="width:60%;">
                         <?php if ($update && !empty($session)) : ?>
                             <?php $row = $session?>
@@ -108,14 +108,14 @@
         <!-- File Upload -->
         
         <div class="mb-3">
-            <label for="pdf_document">Muat Naik Dokumen Peraturan Permohonan PDF</label>
+            <label for="pdf_document">Upload Rules Appication Document PDF</label>
 
             <?php if ($update && !empty($session)) : ?>
                 <?php $row = $session; ?>
 
                 <!-- Display existing document and provide option to replace -->
                 <div>
-                    <label>Dokumen Semasa:</label>
+                    <label>Current Document:</label>
                     <?php if (!empty($row->DOCUMENT)) : ?>
                         <div>
                             <a href="<?= base_url('CodeIgniterTraining/index.php/crudsession/download/' . $row->SESSION_ID) ?>" target="_blank">
@@ -123,11 +123,11 @@
                             </a>
                         </div>
                     <?php else : ?>
-                        <div>Tiada Dokumen Dimuat Naik.</div>
+                        <div>No Uploaded Document.</div>
                     <?php endif; ?>
 
                     <!-- Option to replace the existing document -->
-                    <label for="replace_document">Gantikan dengan Dokumen Baharu:</label>
+                    <label for="replace_document">Upload New Document:</label>
                     <input class="form-control form-control-sm" type="file" name="pdf_document" id="pdf_document" accept=".pdf">
                 </div>
 

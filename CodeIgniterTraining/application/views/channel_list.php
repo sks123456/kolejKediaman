@@ -1,6 +1,6 @@
 <!-- Permohonan List -->
 <table class="table border text-nowrap mb-0 align-middle">
-    <thead class="text-dark fs-4">
+    <thead class="text-dark fs-4 text-center">
         <tr>
             <th>
                 <h6 class="fs-4 fw-semibold mb-0">Channel</h6>
@@ -20,7 +20,7 @@
             <tr>
                 <!-- placing data into the table -->
                 <td><?= $channel->CHANNEL_NAME ?></td>
-                <td><span class="<?= $statusClass ?>"><?= $channel->CHANNEL_STATUS ?></td>
+                <td class="text-center"><span class="<?= $statusClass ?>"><?= $channel->CHANNEL_STATUS ?></td>
                 <td>
                     <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $channel->CHANNEL_ID ?>"><i class="fa fa-edit"></i></a>
                     <!-- .modal for add task -->

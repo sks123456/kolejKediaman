@@ -56,7 +56,7 @@ class Register_Studrole extends CI_Controller
             // Insert data into database
             if ($this->Role_model->insert_role($data)) {
                 // Insert successful, redirect or load success view
-                redirect('<?= base_url() ?>CodeIgniterTraining/index.php/register_studrole/save'); // Create this view or adjust the path
+                redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index')); // Create this view or adjust the path
             } else {
                 // Insert failed, show error
                 $this->load->view('error'); // Create this view or adjust the path

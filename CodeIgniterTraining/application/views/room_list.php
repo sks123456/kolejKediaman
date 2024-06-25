@@ -32,27 +32,27 @@
         foreach ($paginatedRecords as $record) :
         ?>
             <tr>
-                <td><?= $record->ROOM_CODE ?></td>
-                <td><?= $record->ROOM_TYPE ?></td>
-                <td><?= $record->ROOM_GENDER ?></td>
+                <td class="text-center"><?= $record->ROOM_CODE ?></td>
+                <td class="text-center"><?= $record->ROOM_TYPE ?></td>
+                <td class="text-center"><?= $record->ROOM_GENDER ?></td>
                 <td><?= $record->KOLEJ ?></td>
-                <td><?= $record->BLOCK ?></td>
-                <td><?= $record->ROOM_LEVEL ?></td>
+                <td class="text-center"><?= $record->BLOCK ?></td>
+                <td class="text-center"><?= $record->ROOM_LEVEL ?></td>
                 <td><?= $record->ROOM_DESC ?></td>
-                <td><?= $record->CAPACITY ?></td>
-                <td><?= $record->FILLED_ROOM ?></td>
-                <td style="background-color: <?php
+                <td class="text-center"><?= $record->CAPACITY ?></td>
+                <td class="text-center"><?= $record->FILLED_ROOM ?></td>
+                <td style="background-color <?php
                                                 if ($record->ROOM_STATUS === '2') {
-                                                    echo 'orange';
-                                                    $roomStatus = "FULL";
+                                                    $statusClass =  'badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2';
+                                                    $roomStatus = "Full";
                                                 } elseif ($record->ROOM_STATUS === '1') {
-                                                    echo 'green';
-                                                    $roomStatus = "NOT FULL";
+                                                    $statusClass = 'badge rounded-pill bg-success-subtle text-success fw-semibold fs-2';
+                                                    $roomStatus = "Available";
                                                 } else {
-                                                    echo 'red';
-                                                    $roomStatus = "NOT AVAILABLE";
+                                                    $statusClass = 'badge rounded-pill bg-warning-subtle text-warning fw-semibold fs-2';
+                                                    $roomStatus = "Not Available";
                                                 }
-                                                ?>;">
+                                                ?>;" text-align: center; class="<?= $statusClass ?>">
                     <?= $roomStatus ?>
                 </td>
             </tr>

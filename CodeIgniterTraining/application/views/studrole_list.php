@@ -1,5 +1,5 @@
 <table class="table border text-nowrap mb-0 align-middle">
-    <thead class="text-dark fs-4">
+    <thead class="text-dark fs-4 text-center">
         <tr>
             <th>
                 <h6 class="fs-4 fw-semibold mb-0">Session</h6>
@@ -35,9 +35,9 @@
                 <td><?= $role->ROLE ?></td>
                 <td>
                     <?php if ($role->STATUS == 1) : ?>
-                        <span class="badge bg-success">Active</span>
+                        <span class="badge rounded-pill bg-success-subtle text-success fw-semibold fs-2">Active</span>
                     <?php else : ?>
-                        <span class="badge bg-danger">Inactive</span>
+                        <span class="badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2">Inactive</span>
                     <?php endif; ?>
                 </td>
                 <td>

@@ -250,12 +250,12 @@ class CrudSession extends CI_Controller
             } else {
                 // Handle the case where data is not available or blob data is not found
                 http_response_code(404);
-                echo "Fail tidak dijumpai";
+                echo "File not found";
             }
         } else {
             // Handle the case where the session with the given ID is not found
             http_response_code(404);
-            echo "Sesi tidak dijumpai";
+            echo "Session not found";
         }
     }
 }
