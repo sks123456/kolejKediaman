@@ -139,4 +139,32 @@ class Room_model extends CI_Model
         $this->db->where('room_code', $roomCode);
         return $this->db->update('kk_room');
     }
+
+    public function get_kod_sesi() {
+        $query = $this->db->distinct()
+                          ->select('KOD_SESI')
+                          ->from('kk_room')
+                          ->get();
+        return $query->result();
+    }
+
+    public function get_rooms_by_session($kod_sesi)
+    {
+        $this->db->where('KOD_SESI', $kod_sesi);
+        $query = $this->db->get('kk_room');
+        return $query->result();
+    }
+    
+    public function delete_room_by_session($kod_sesi)
+    {
+        $this->db->where('KOD_SESI', $kod_sesi);
+        return $this->db->delete('kk_room');
+    }
+
+    public function get_room_by_id($room_id) {
+        $this->db->where('ROOM_CODE', $room_id);
+        $query = $this->db->get('kk_room');
+        return $query->row();
+    }
+
 }

@@ -7,19 +7,16 @@ class Room_generate extends CI_Controller
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->library("session");
+        $this->load->library('session');
         $this->load->helper('url');
         $this->load->database(); // Load default database configuration (fyp_kk)
         $this->load->database('kk_db', TRUE); // Load kk_db database configuration
+        $this->load->model('Session_model');
+        $this->load->model('Room_model');
     }
 
     public function index()
     {
-        // Load necessary helpers and models
-        $this->load->helper('url');
-        $this->load->model("Session_model");
-        $this->load->model("Room_model");
-
         // Fetch session data containing only session ID and session name
         $sessions = $this->Session_model->get_session_id_and_name();
         $data['sessions'] = $sessions;
@@ -27,25 +24,25 @@ class Room_generate extends CI_Controller
         // Fetch room codes and IDs from the database
         $data['room_codes'] = $this->Room_model->get_room_codes_with_id();
 
+        // Get KOD_SESI from kk_room table
+        $data['kod_sesi'] = $this->Room_model->get_kod_sesi();
+
         // Get sorting parameters from URL
         $sortColumn = $this->input->get('sort') ? $this->input->get('sort') : 'ROOM_CODE';
         $sortDirection = $this->input->get('dir') ? $this->input->get('dir') : 'asc';
 
         // Calculate offset based on page number
-        $page = (int) $this->uri->segment(3, 1); // Get the 4th segment of the URI, default to 1 if not found
+        $page = (int)$this->uri->segment(3, 1); // Get the 4th segment of the URI, default to 1 if not found
 
         // Load the pagination library
         $this->load->library('pagination');
 
         // Pagination configuration
-        $config['base_url'] = base_url('CodeIgniterTraining/index.php/room_update/index');
+        $config['base_url'] = base_url('CodeIgniterTraining/index.php/room_generate/index');
         $config['total_rows'] = $this->Room_model->count_all_rooms(); // Update this according to your model method
         $config['per_page'] = 10;
-        $config['uri_segment'] = 0; // Segment containing the offset
-        // Apply sorting parameters to the pagination links
-        $config['reuse_query_string'] = TRUE;
-
         $config['use_page_numbers'] = true;
+        $config['reuse_query_string'] = true;
         $config['query_string_segment'] = 'page';
 
         // Pagination style customization
@@ -135,4 +132,48 @@ class Room_generate extends CI_Controller
             redirect(base_url('CodeIgniterTraining/index.php/room_generate/index'));
         }
     }
+
+    public function delete_room()
+    {
+        // Get session ID from form submission
+        $kod_sesi = $this->input->post('kod_sesi');
+
+        // Get all room data by session ID
+        $rooms = $this->Room_model->get_rooms_by_session($kod_sesi);
+
+        // Check if any room is filled
+        $is_room_filled = false;
+        foreach ($rooms as $room) {
+            if ($room->FILLED_ROOM!= 0) {
+                $is_room_filled = true;
+                break;
+            }
+        }
+
+        if (!$rooms) {
+            // Room not found
+            $message = 'Room not found.';
+        } elseif ($is_room_filled) {
+            // Cannot delete room with FILLED_ROOM not equal to 0
+            $message = 'Cannot delete the filled room.';
+        } else {
+            // Delete the rooms
+            $result = $this->Room_model->delete_room_by_session($kod_sesi);
+
+            if ($result) {
+                $message = 'Rooms deleted successfully.';
+            } else {
+                $message = 'Failed to delete rooms.';
+            }
+        }
+
+        // Display a JavaScript prompt message
+        echo '<script>alert("'.$message.'"); window.location.href="'.base_url('CodeIgniterTraining/index.php/room_generate/index').'";</script>';
+        exit;
+
+        // Always redirect after processing POST data
+        redirect(base_url('CodeIgniterTraining/index.php/room_generate/index'));
+    }
+
 }
+?>

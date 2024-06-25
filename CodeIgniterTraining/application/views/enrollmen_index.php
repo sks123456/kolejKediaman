@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
 </head>
 
+<style>
+    .text-center {
+        text-align: center;
+    }
+</style>
+
 <body>
   <!-- Preloader -->
   <div class="preloader">
@@ -76,7 +82,7 @@
                   <?php if (!empty($students)) : ?>
                     <div class="table-responsive mb-4">
                       <table id="example2" class="table border text-nowrap mb-0 align-middle">
-                        <thead>
+                        <thead class="text-center">
                           <tr>
                             <th>Matric ID</th>
                             <th>Student Name</th>
@@ -94,8 +100,8 @@
                               <td><?= $std->NAMA_PELAJAR ?></td>
                               <td><?= $std->PROGRAM ?></td>
                               <td><?= $std->ICNO ?></td>
-                              <td><?= $std->MERIT ?></td>
-                              <td><?= $std->MERIT_KOLEJ ?></td>
+                              <td class="text-center"><?= $std->MERIT ?></td>
+                              <td class="text-center"><?= $std->MERIT_KOLEJ ?></td>
                               <td style="background-color: <?php
                                                             if ($std->VEHICLE === 'M') {
                                                               echo 'orange';

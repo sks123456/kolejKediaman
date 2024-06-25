@@ -1,4 +1,10 @@
-<table id="room_list" class="table table-bordered table-hover" style="width: 1160px;">
+<style>
+    .text-center {
+        text-align: center;
+    }
+</style>
+
+<table id="room_list" class="table table-bordered table-hover text-center" style="width: 1160px;">
     <thead>
         <tr class="text-center">
             <th><a href="?sort=ROOM_CODE&dir=<?= $sortColumn == 'ROOM_CODE' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">Room Code <?= $sortColumn == 'ROOM_CODE' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>
@@ -20,7 +26,17 @@
                     <td><?= $room->ROOM_GENDER ?></td>
                     <td><?= $room->CAPACITY ?></td>
                     <td><?= $room->FILLED_ROOM ?></td>
-                    <td><?= $room->ROOM_STATUS ?></td>
+                    <td style="background-color: <?php
+                        if ($room->ROOM_STATUS == '0') {
+                            $roomStatus = "Not Active";
+                            $statusClass = "badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2";
+                        } elseif ($room->STATUS_ACTIVE == '1') {
+                            $roomStatus = "Active";
+                            $statusClass = "badge rounded-pill bg-success-subtle text-success fw-semibold fs-2";
+                        }
+                        ?>;" text-align: center; class="<?= $statusClass ?>">
+                        <?= htmlspecialchars($roomStatus, ENT_QUOTES, 'UTF-8') ?>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>

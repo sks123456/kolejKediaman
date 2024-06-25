@@ -59,7 +59,7 @@
                   <div class="d-flex align-items-center">
                     <h4 class="card-title mb-0">List of Rooms</h4>
                     <div class="ms-auto">
-                      <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
+                      <button class="btn btn-rounded btn-primary hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
                         <i class="ti ti-plus fs-6"></i>
                         Generate Room
                       </button>
@@ -96,11 +96,48 @@
                                       <div class="col-md-6">
                                         <form class="app-search position-relative" action="" method="post" enctype="multipart/form-data">
                                       </div>
-                                      <div class="col-md-6 d-flex justify-content-end">
-                                        <button type="submit" class="srh-btn btn" style="border: none; background: none; cursor: pointer;">
-                                          <iconify-icon icon="solar:trash-bin-minimalistic-linear" class="me-2"></iconify-icon>
-                                        </button>
+                                      <div class="d-flex justify-content-end">
+                                      <button type="button" class="justify-content-center w-100 btn mb-1 btn-danger d-flex align-items-center" onclick="confirmDelete()">
+                                        <i class="ti ti-trash fs-4 me-2"></i>
+                                        Delete
+                                      </button>
                                       </form>
+                                      
+                                      <!-- Delete Modal -->
+                                      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content" style="width:100%">
+                                            <div class="modal-header d-flex align-items-center">
+                                              <h4 class="modal-title">Delete Room</h4>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <form role="form" action="<?= base_url('CodeIgniterTraining/index.php/room_generate/delete_room') ?>" method="post" enctype="multipart/form-data">
+                                                <!-- Session -->
+                                                <div class="mb-3">
+                                                  <label>Session</label>
+                                                  <select class="form-control" name="kod_sesi">
+                                                    <option value="">-- Please Choose --</option>
+                                                    <?php foreach ($kod_sesi as $row) : ?>
+                                                        <option value="<?= $row->KOD_SESI ?>"><?= $row->KOD_SESI ?></option>
+                                                    <?php endforeach; ?>
+                                                  </select>
+                                                </div>
+                                                <!-- Modal Footer -->
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                                                    Cancel
+                                                  </button>
+                                                  <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">
+                                                    Delete
+                                                  </button>
+                                                </div>
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+
 
                                       <!-- <button class="btn btn-rounded btn-success hstack gap-1" data-bs-toggle="modal" data-bs-target="#myModal">
                                         <i class="ti ti-plus fs-6"></i>
@@ -276,6 +313,16 @@
   </div>
   </div>
   </div>
+  <script>
+    function confirmDelete() {
+      const confirmed = confirm('Are you sure you want to delete this room?');
+      if (confirmed) {
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        deleteModal.show();
+      }
+    }
+  </script>
+
   <div class="dark-transparent sidebartoggler"></div>
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/vendor.min.js"></script>
   <!-- Import Js Files -->
