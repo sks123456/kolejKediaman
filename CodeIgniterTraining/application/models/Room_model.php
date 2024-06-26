@@ -9,7 +9,8 @@ class Room_model extends CI_Model
 
     public function get_block()
     {
-        $this->db->select('KOD_SESI,KOLEJ, BLOCK, SUM(CAPACITY) as total_capacity, SUM(FILLED_ROOM) as total_filled_room');
+        $this->db->select('KOD_SESI, ,KOLEJ, BLOCK, SUM(CAPACITY) AS total_capacity, SUM(FILLED_ROOM) AS total_filled_room');
+        $this->db->select("(CASE WHEN SUM(CASE WHEN STATUS_ACTIVE = '1' THEN 1 ELSE 0 END) > 0 THEN '1' ELSE '0' END) AS block_status", false);
         $this->db->from('kk_room');
         $this->db->group_by(array('KOD_SESI', 'BLOCK'));
         $query = $this->db->get();

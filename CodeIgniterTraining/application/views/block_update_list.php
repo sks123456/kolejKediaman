@@ -6,6 +6,7 @@
             <th>Block</th>
             <th>Total Capacity</th>
             <th>Total Filled</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -18,11 +19,25 @@
                     <td><?= $record->BLOCK ?></td>
                     <td><?= $record->total_capacity ?></td>
                     <td><?= $record->total_filled_room ?></td>
+                    <td style="background-color <?php
+                                                if ($record->block_status === '0') {
+                                                    $statusClass =  'badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2';
+                                                    $roomStatus = "Inactive";
+                                                } elseif ($record->block_status === '1') {
+                                                    $statusClass = 'badge rounded-pill bg-success-subtle text-success fw-semibold fs-2';
+                                                    $roomStatus = "Available";
+                                                } else {
+                                                    $statusClass = 'badge rounded-pill bg-warning-subtle text-warning fw-semibold fs-2';
+                                                    $roomStatus = "Error";
+                                                }
+                                                ?>;" text-align: center; class="<?= $statusClass ?>">
+                        <?= $roomStatus ?>
+                    </td>
                     <?php if ($record->total_filled_room == 0) : ?>
 
-                    <td>
-                        <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-kolej="<?= $record->KOLEJ ?>" data-block="<?= $record->BLOCK ?>"><i class="fa fa-edit"></i></button>
-                    </td>
+                        <td>
+                            <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-kolej="<?= $record->KOLEJ ?>" data-block="<?= $record->BLOCK ?>"><i class="fa fa-edit"></i></button>
+                        </td>
                     <?php endif ?>
                 </tr>
             <?php endforeach; ?>
@@ -54,16 +69,16 @@
                         <input type="text" class="form-control" id="modalBlock" name="block" readonly>
                     </div>
                     <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="status" value="1" required> Active
-                            </label>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="status" value="0" required> Non-Active
-                            </label>
-                        </div>
-                    
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="1" required> Active
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="0" required> Non-Active
+                        </label>
+                    </div>
+
                     <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
@@ -78,13 +93,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var editButtons = document.querySelectorAll('.edit-btn');
-        
+
         editButtons.forEach(function(button) {
             button.addEventListener('click', function() {
                 var session = this.getAttribute('data-session');
                 var kolej = this.getAttribute('data-kolej');
                 var block = this.getAttribute('data-block');
-                
+
                 document.getElementById('modalSession').value = session;
                 document.getElementById('modalKolej').value = kolej;
                 document.getElementById('modalBlock').value = block;
