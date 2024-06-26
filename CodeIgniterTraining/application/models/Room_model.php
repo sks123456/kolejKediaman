@@ -7,10 +7,11 @@ class Room_model extends CI_Model
         return $this->db->count_all('kk_room');
     }
 
-    public function get_block(){
-        $this->db->select('*');
+    public function get_block()
+    {
+        $this->db->select('KOD_SESI, BLOCK, SUM(CAPACITY) as total_capacity, SUM(FILLED_ROOM) as total_filled_room');
         $this->db->from('kk_room');
-        $this->db->group_by('BLOCK');
+        $this->db->group_by(array('KOD_SESI', 'BLOCK'));
         $query = $this->db->get();
         return $query->result();
     }
@@ -32,7 +33,7 @@ class Room_model extends CI_Model
         return $query;
     }
 
-    public function getAvailableRoom($room_capacity, $religion,$gender)
+    public function getAvailableRoom($room_capacity, $religion, $gender)
     {
         // Start building the query
         $this->db->select('*');
@@ -41,7 +42,8 @@ class Room_model extends CI_Model
         $this->db->where('FILLED_ROOM < CAPACITY');
         if (!empty($religion)) {
             $this->db->where('ROOM_TYPE', $religion);
-        }if (!empty($gender)) {
+        }
+        if (!empty($gender)) {
             $this->db->where('ROOM_GENDER', $gender);
         }
 
@@ -106,45 +108,50 @@ class Room_model extends CI_Model
         return $query->result();
     }
 
-    public function update_room_status($room_id, $status_active) {
+    public function update_room_status($room_id, $status_active)
+    {
         $data = array(
             'STATUS_ACTIVE' => $status_active
         );
-    
+
         $this->db->where('ROOM_CODE', $room_id);
         return $this->db->update('kk_room', $data);
     }
-    
 
 
-    public function update_block_status($session, $kolej, $block, $status) {
+
+    public function update_block_status($session, $kolej, $block, $status)
+    {
         $data = array(
             'ROOM_STATUS' => $status
         );
 
-        $this->db->where('BLOCK',$block);
+        $this->db->where('BLOCK', $block);
         $this->db->where('KOD_SESI', $session);
         $this->db->where('KOLEJ', $kolej);
         return $this->db->update('kk_room', $data);
     }
 
-    public function allocateRoom($data) {
+    public function allocateRoom($data)
+    {
         // Insert the allocation data into the room allocation table
         return $this->db->insert('kk_room_allocation', $data);
     }
 
-    public function incrementFilledRoom($roomCode) {
+    public function incrementFilledRoom($roomCode)
+    {
         // Update the filled_room count
         $this->db->set('filled_room', 'filled_room + 1', FALSE);
         $this->db->where('room_code', $roomCode);
         return $this->db->update('kk_room');
     }
 
-    public function get_kod_sesi() {
+    public function get_kod_sesi()
+    {
         $query = $this->db->distinct()
-                          ->select('KOD_SESI')
-                          ->from('kk_room')
-                          ->get();
+            ->select('KOD_SESI')
+            ->from('kk_room')
+            ->get();
         return $query->result();
     }
 
@@ -154,17 +161,17 @@ class Room_model extends CI_Model
         $query = $this->db->get('kk_room');
         return $query->result();
     }
-    
+
     public function delete_room_by_session($kod_sesi)
     {
         $this->db->where('KOD_SESI', $kod_sesi);
         return $this->db->delete('kk_room');
     }
 
-    public function get_room_by_id($room_id) {
+    public function get_room_by_id($room_id)
+    {
         $this->db->where('ROOM_CODE', $room_id);
         $query = $this->db->get('kk_room');
         return $query->row();
     }
-
 }

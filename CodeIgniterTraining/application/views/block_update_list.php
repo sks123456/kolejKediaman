@@ -4,6 +4,8 @@
             <th>Session</th>
             <th>Kolej</th>
             <th>Block</th>
+            <th>Total Capacity</th>
+            <th>Total Filled</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -14,9 +16,14 @@
                     <td><?= $record->KOD_SESI ?></td>
                     <td><?= $record->KOLEJ ?></td>
                     <td><?= $record->BLOCK ?></td>
+                    <td><?= $record->total_capacity ?></td>
+                    <td><?= $record->total_filled_room ?></td>
+                    <?php if ($record->total_filled_room == 0) : ?>
+
                     <td>
                         <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-kolej="<?= $record->KOLEJ ?>" data-block="<?= $record->BLOCK ?>"><i class="fa fa-edit"></i></button>
                     </td>
+                    <?php endif ?>
                 </tr>
             <?php endforeach; ?>
         <?php else : ?>
