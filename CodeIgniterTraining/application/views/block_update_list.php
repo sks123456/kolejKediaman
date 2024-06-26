@@ -4,6 +4,7 @@
             <th>Session</th>
             <th>Kolej</th>
             <th>Block</th>
+            <th>Active Status</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -11,9 +12,16 @@
         <?php if (!empty($records)) : ?>
             <?php foreach ($records as $record) : ?>
                 <tr>
-                    <td><?= $record->KOD_SESI ?></td>
+                    <td class="text-center"><?= $record->KOD_SESI ?></td>
                     <td><?= $record->KOLEJ ?></td>
-                    <td><?= $record->BLOCK ?></td>
+                    <td class="text-center"><?= $record->BLOCK ?></td>
+                    <td class="text-center">
+                        <?php if ($record->is_active == 'Active') : ?>
+                            <span class="badge rounded-pill bg-success-subtle text-success fw-semibold fs-2">Active</span>
+                        <?php else : ?>
+                            <span class="badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2">Not Active</span>
+                        <?php endif; ?>
+                    </td>
                     <td>
                         <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-kolej="<?= $record->KOLEJ ?>" data-block="<?= $record->BLOCK ?>"><i class="fa fa-edit"></i></button>
                     </td>
@@ -47,17 +55,19 @@
                         <input type="text" class="form-control" id="modalBlock" name="block" readonly>
                     </div>
                     <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="status" value="1" required> Active
-                            </label>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="radio-inline">
-                                <input type="radio" name="status" value="0" required> Non-Active
-                            </label>
-                        </div>
-                    
-                    <button type="submit" class="btn btn-primary">Update</button>
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="1" required> Active
+                        </label>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="radio-inline">
+                            <input type="radio" name="status" value="0" required> Non-Active
+                        </label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Update</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -88,7 +98,6 @@
 
 <script>
     var sortDirection = [];
-
 
     function toggleSortIcon(columnIndex) {
         var headers = document.getElementsByTagName('th');
