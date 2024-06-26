@@ -16,7 +16,7 @@
                 <label class="form-label">Session</label>
                 <select class="form-select" name="session_selected">
                     <?php if (count($sessions) > 1) : ?>
-                        <option value="">-- Sila Pilih --</option>
+                        <option value="">-- Please Choose --</option>
                     <?php endif ?>
                     <?php foreach ($sessions as $session) : ?>
                         <option value="<?= $session->session_id ?>"><?= $session->session_name ?></option>
@@ -33,7 +33,7 @@
                         <?php if (isset($message)) echo '<div class="text-danger">' . $message . '</div>'; ?>
                     </div>
                     <?php if (!isset($student_data)) : ?>
-                        <button type="submit" class="btn btn-primary">Semak Matrik</button>
+                        <button type="submit" class="btn btn-primary">Check Matric ID</button>
                     <?php endif; ?>
                 </div>
 
@@ -51,15 +51,15 @@
                     <!-- New form -->
                     <div class="col-md-12">
                         <div class="card card-body">
-                            <h5>Maklumat Pilihan</h5>
+                            <h5>Preferred Details</h5>
                             <form class="form-horizontal" action="<?= base_url() ?>CodeIgniterTraining/index.php/application/submit_application" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="stud_matric" value="<?= isset($_POST['student_id']) ? $_POST['student_id'] : '' ?>">
                                 <input type="hidden" name="session_id" value="<?= $session->session_id ?>">
 
                                 <div class="mb-3">
-                                    <label class="form-label">Saluran Permohonan</label>
+                                    <label class="form-label">Channel</label>
                                     <select class="form-select" name="channel_selected" id="channelSelect">
-                                        <option value="">-- Sila Pilih --</option>
+                                        <option value="">-- Please Choose --</option>
                                         <?php foreach ($channels as $channel) : ?>
                                             <option value="<?= $channel->channel_id ?>"><?= $channel->channel_name ?></option>
                                         <?php endforeach; ?>
@@ -67,9 +67,9 @@
                                 </div>
 
                                 <div class="mb-3" id="unitUniformField" style="display: none;">
-                                    <label class="form-label">Nama Unit Uniform</label>
+                                    <label class="form-label">Name of Unit Uniform</label>
                                     <select class="form-select" name="unit_uniform" id="unit_uniform">
-                                        <option value="">-- Sila Pilih --</option>
+                                        <option value="">-- Please Choose --</option>
                                         <?php foreach ($uniforms as $uniform) : ?>
                                             <option value="<?= $uniform->UNIFORM_ID ?>"><?= $uniform->UNIFORM_NAME ?></option>
                                         <?php endforeach; ?>
@@ -77,7 +77,7 @@
                                 </div>
 
                                 <div class="mb-3" id="pdfDocumentField" style="display: none;">
-                                    <label class="form-label">Muat Naik Dokumen PDF</label>
+                                    <label class="form-label">Upload PDF Document</label>
                                     <input type="file" name="pdf_document" id="pdf_document" class="form-control" accept=".pdf">
                                 </div>
 
