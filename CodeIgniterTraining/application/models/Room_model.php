@@ -7,16 +7,13 @@ class Room_model extends CI_Model
         return $this->db->count_all('kk_room');
     }
 
-    public function get_block() {
-        $this->db->select('BLOCK, MAX(KOD_SESI) AS KOD_SESI, MAX(KOLEJ) AS KOLEJ, SUM(STATUS_ACTIVE) AS active_status_sum');
+    public function get_block(){
+        $this->db->select('*');
         $this->db->from('kk_room');
         $this->db->group_by('BLOCK');
         $query = $this->db->get();
         return $query->result();
     }
-    
-    
-    
     public function get_paginated_rooms($limit, $offset, $sortColumn, $sortDirection)
     {
         // Query to get paginated records with sorting
@@ -111,31 +108,24 @@ class Room_model extends CI_Model
 
     public function update_room_status($room_id, $status_active) {
         $data = array(
-            'ROOM_STATUS' => $status_active,
             'STATUS_ACTIVE' => $status_active
         );
     
         $this->db->where('ROOM_CODE', $room_id);
         return $this->db->update('kk_room', $data);
     }
+    
+
 
     public function update_block_status($session, $kolej, $block, $status) {
         $data = array(
-            'ROOM_STATUS' => $status,
-            'STATUS_ACTIVE' => $status
+            'ROOM_STATUS' => $status
         );
-    
+
+        $this->db->where('BLOCK',$block);
         $this->db->where('KOD_SESI', $session);
         $this->db->where('KOLEJ', $kolej);
-        $this->db->where('BLOCK', $block);
         return $this->db->update('kk_room', $data);
-    }
-    
-    public function get_rooms_by_block($block)
-    {
-        $this->db->where('BLOCK', $block);
-        $query = $this->db->get('kk_room');
-        return $query->result();
     }
 
     public function allocateRoom($data) {
