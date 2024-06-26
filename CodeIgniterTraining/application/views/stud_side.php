@@ -6,7 +6,7 @@ $student_data = $this->session->userdata('student_data');
         <!-- Start Vertical Layout Sidebar -->
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-           < <a href="<?php echo base_url('CodeIgniterTraining/index.php/dashboard'); ?>" class="text-nowrap logo-img">
+            <a href="<?php echo base_url('CodeIgniterTraining/index.php/dashboard'); ?>" class="text-nowrap logo-img">
                 <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/dark-logo.svg" class="dark-logo" alt="Logo-Dark" />
                 <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/light-logo.svg" class="light-logo" alt="Logo-light" />
             </a>
@@ -65,19 +65,19 @@ $student_data = $this->session->userdata('student_data');
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/'));?><?=$student_data['STUD_MATRIC']?>">
+                    <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/')); ?><?= $student_data['STUD_MATRIC'] ?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Print</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/stud_status/'));?><?=$student_data['STUD_MATRIC']?>">
+                    <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/stud_status/')); ?><?= $student_data['STUD_MATRIC'] ?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Application Status</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/pengesahan/'));?><?=$student_data['STUD_MATRIC']?>">
+                    <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/pengesahan/')); ?><?= $student_data['STUD_MATRIC'] ?>">
                         <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Validation</span>
                     </a>
@@ -85,7 +85,7 @@ $student_data = $this->session->userdata('student_data');
             </ul>
         </nav>
 
-        <div class="sidebar-footer hide-menu" >
+        <div class="sidebar-footer hide-menu">
             <a href="<?php echo base_url('CodeIgniterTraining/index.php/logincontroller/logout') ?>" class="link" data-bs-toggle="tooltip" data-bs-placement="top" title="Logout"><iconify-icon icon="solar:power-bold"></iconify-icon></a>
         </div>
 

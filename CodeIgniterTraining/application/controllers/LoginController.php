@@ -30,7 +30,7 @@ class LoginController extends CI_Controller
 
 
             // Student exists, redirect to next page
-            $this->load->view('stud_main');
+            $this->load->view('stud_peraturan');
         } else {
             // If student does not exist, redirect back to login page with error message
             $data['error'] = 'Invalid student ID';
