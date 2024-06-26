@@ -120,10 +120,10 @@ class Room_model extends CI_Model
 
 
 
-    public function update_block_status($session, $kolej, $block, $status)
+    public function update_block_status($session, $kolej, $block, $status_active)
     {
         $data = array(
-            'ROOM_STATUS' => $status
+            'STATUS_ACTIVE' => $status_active
         );
 
         $this->db->where('BLOCK', $block);
