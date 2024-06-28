@@ -141,12 +141,35 @@ class Room_model extends CI_Model
     }
 
     public function incrementFilledRoom($roomCode)
-    {
-        // Update the filled_room count
+{
+    // Get current filled_room count and capacity
+    $this->db->select('filled_room, capacity');
+    $this->db->where('room_code', $roomCode);
+    $query = $this->db->get('kk_room');
+    
+    if ($query->num_rows() > 0) {
+        $room = $query->row();
+        $currentFilledRoom = $room->filled_room;
+        $capacity = $room->capacity;
+        
+        // Increment the filled_room count
         $this->db->set('filled_room', 'filled_room + 1', FALSE);
         $this->db->where('room_code', $roomCode);
-        return $this->db->update('kk_room');
+        $this->db->update('kk_room');
+        
+        // Check if filled_room equals capacity
+        if ($currentFilledRoom + 1 == $capacity) {
+            // Update room_status to 6
+            $this->db->set('room_status', 2);
+            $this->db->where('room_code', $roomCode);
+            $this->db->update('kk_room');
+        }
+        
+        return true; // Update successful
+    } else {
+        return false; // Room not found
     }
+}
 
     public function get_kod_sesi()
     {
