@@ -94,7 +94,17 @@ class CrudChannel extends CI_Controller
         $this->load->model("channel_model");
 
         //delete operations
-        $this->channel_model->delete_channel_id($channel_id);
+        $result = $this->channel_model->delete_channel_id($channel_id);
+
+        if ($result) {
+            $message = 'Channel deleted successfully.';
+        } else {
+            $message = 'Failed to delete channel.';
+        }
+
+        // Display a JavaScript prompt message
+        echo '<script>alert("'.$message.'"); window.location.href="'.base_url('CodeIgniterTraining/index.php/crudchannel/index').'";</script>';
+        exit;
 
         redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
     }
