@@ -80,9 +80,9 @@ class cetak extends CI_Controller
         } else {
             // Fetch student data
             $student_data = $this->Student_model->get_student($student_id)->row_array();
-            $room2 = $this->Room_model->getAvailableRoom(2, $student_data['RELIGION'], $student_data['GENDER']);
-            $room3 = $this->Room_model->getAvailableRoom(3, $student_data['RELIGION'], $student_data['GENDER']);
-            $room4 = $this->Room_model->getAvailableRoom(4, $student_data['RELIGION'], $student_data['GENDER']);
+            $room2 = $this->Room_model->getAvailableRoom(2, $student_data['RELIGION'], $student_data['GENDER'],$sessions['ACADEMIC_ID']);
+            $room3 = $this->Room_model->getAvailableRoom(3, $student_data['RELIGION'], $student_data['GENDER'],$sessions['ACADEMIC_ID']);
+            $room4 = $this->Room_model->getAvailableRoom(4, $student_data['RELIGION'], $student_data['GENDER'],$sessions['ACADEMIC_ID']);
 
             // Fetch multiple application records for the student
             $applications = $this->db->query("

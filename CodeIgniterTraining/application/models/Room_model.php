@@ -34,12 +34,13 @@ class Room_model extends CI_Model
         return $query;
     }
 
-    public function getAvailableRoom($room_capacity, $religion, $gender)
+    public function getAvailableRoom($room_capacity, $religion, $gender,$academic_id)
     {
         // Start building the query
         $this->db->select('*');
         $this->db->from('kk_room');
         $this->db->where('CAPACITY', $room_capacity);
+        $this->db->where('KOD_SESI', $academic_id);
         $this->db->where('FILLED_ROOM < CAPACITY');
         if (!empty($religion)) {
             $this->db->where('ROOM_TYPE', $religion);
