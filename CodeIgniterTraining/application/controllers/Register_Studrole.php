@@ -12,11 +12,11 @@ class Register_Studrole extends CI_Controller
     public function index()
     {
         $this->load->helper('url');
-        $this->load->model("Session_model");
+        $this->load->model("AcademicSess_model");
         $this->load->model("Role_model");
 
         // Fetch session data containing only session ID and session name
-        $sessions = $this->Session_model->get_session_id_and_name();
+        $sessions = $this->AcademicSess_model->get_all_academic_sess();
 
         $role_models = $this->Role_model->get_all_role();
 

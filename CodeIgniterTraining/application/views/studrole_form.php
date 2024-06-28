@@ -18,7 +18,7 @@
                     <select class="form-control" name="session_id">
                         <option value="">-- Please Choose --</option>
                         <?php foreach ($sessions as $session) : ?>
-                            <option value="<?= $session->academic_id ?>"><?= $session->session_name ?></option>
+                            <option value="<?= $session->SEM_KOD_SESISEM ?>"><?= $session->SEM_DESC ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

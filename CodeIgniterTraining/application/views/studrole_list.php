@@ -41,9 +41,8 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal"><i class="fa fa-edit"></i></a>
-                    <!-- .modal for add task -->
-                    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $role->STUD_MATRIC ?>"><i class="fa fa-edit"></i></a>
+                    <div class="modal fade" id="updateModal<?= $role->STUD_MATRIC ?>" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content" style="width:100%">
                                 <div class="modal-header d-flex align-items-center">
@@ -51,33 +50,33 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="updateRoleForm" method="post" action="<?= base_url('your_controller/updateRole') ?>">
-                                        <input type="hidden" id="roleId" name="role_id">
+                                    <form id="updateRoleForm<?= $role->STUD_MATRIC ?>" method="post" action="<?= base_url('your_controller/updateRole') ?>">
+                                        <input type="hidden" id="roleId<?= $role->STUD_MATRIC ?>" name="role_id" value="<?= $role->STUD_MATRIC ?>">
                                         <div class="mb-3">
-                                            <label for="updateSession" class="form-label">Session</label>
-                                            <input type="text" class="form-control" id="updateSession" name="session" required>
+                                            <label for="updateSession<?= $role->STUD_MATRIC ?>" class="form-label">Session</label>
+                                            <input type="text" class="form-control" id="updateSession<?= $role->STUD_MATRIC ?>" name="session" value="<?= $role->CODE_SEM ?>" readonly>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="updateMatric" class="form-label">Matric Id</label>
-                                            <input type="text" class="form-control" id="updateMatric" name="matric_id" required>
+                                            <label for="updateMatric<?= $role->STUD_MATRIC ?>" class="form-label">Matric Id</label>
+                                            <input type="text" class="form-control" id="updateMatric<?= $role->STUD_MATRIC ?>" name="matric_id" value="<?= $role->STUD_MATRIC ?>" readonly>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="updateName" class="form-label">Name</label>
-                                            <input type="text" class="form-control" id="updateName" name="name" required>
+                                            <label for="updateName<?= $role->STUD_MATRIC ?>" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="updateName<?= $role->STUD_MATRIC ?>" name="name" value="<?= $role->NAMA_PELAJAR ?>" readonly>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="updateProgram" class="form-label">Programme</label>
-                                            <input type="text" class="form-control" id="updateProgram" name="program" required>
+                                            <label for="updateProgram<?= $role->STUD_MATRIC ?>" class="form-label">Programme</label>
+                                            <input type="text" class="form-control" id="updateProgram<?= $role->STUD_MATRIC ?>" name="program" value="<?= $role->PROGRAM ?>" readonly>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="updateRole" class="form-label">Role</label>
-                                            <input type="text" class="form-control" id="updateRole" name="role" required>
+                                            <label for="updateRole<?= $role->STUD_MATRIC ?>" class="form-label">Role</label>
+                                            <input type="text" class="form-control" id="updateRole<?= $role->STUD_MATRIC ?>" name="role" value="<?= $role->ROLE ?>" readonly>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="updateStatus" class="form-label">Status</label>
-                                            <select class="form-control" id="updateStatus" name="status" required>
-                                                <option value="1">Active</option>
-                                                <option value="0">Inactive</option>
+                                            <label for="updateStatus<?= $role->STUD_MATRIC ?>" class="form-label">Status</label>
+                                            <select class="form-control" id="updateStatus<?= $role->STUD_MATRIC ?>" name="status" required>
+                                                <option value="1" <?= $role->STATUS == 1 ? 'selected' : '' ?>>Active</option>
+                                                <option value="0" <?= $role->STATUS == 0 ? 'selected' : '' ?>>Inactive</option>
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Update</button>
@@ -85,17 +84,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                    </div>
-                    <!-- /.modal -->
                     </div>
                     <a class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         <?php endforeach; ?>
     </tbody>
+
 </table>
 
 <script>
