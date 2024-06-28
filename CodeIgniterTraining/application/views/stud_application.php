@@ -149,7 +149,7 @@ $student_data = $this->session->userdata('student_data');
                                                         } else {
                                                             unitUniformField.style.display = 'none';
                                                             // Show PDF document field only if the selected option is not 'Biasa' or the default option
-                                                            if (selectedOption !== 'Biasa' && selectedOption !== '-- Sila Pilih --') {
+                                                            if (selectedOption !== 'COMMON STUDENT' && selectedOption !== '-- Please Choose --') {
                                                                 pdfDocumentField.style.display = 'block';
                                                             } else {
                                                                 pdfDocumentField.style.display = 'none';
