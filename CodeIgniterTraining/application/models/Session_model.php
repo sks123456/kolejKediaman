@@ -36,11 +36,11 @@ class Session_model extends CI_Model
     }
 
     public function checkDuplicateSemester($semester, $session_id = null) {
-        $this->db->where('academic_id', $semester);
+        $this->db->where('ACADEMIC_ID', $semester);
         if ($session_id) {
             $this->db->where('SESSION_ID !=', $session_id);
         }
-        $query = $this->db->get('kk_session'); // Replace 'sessions' with your actual table name
+        $query = $this->db->get('kk_session'); 
 
         return $query->num_rows() > 0;
     }

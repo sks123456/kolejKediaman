@@ -88,7 +88,7 @@ class CrudSession extends CI_Controller
         $this->load->helper('download');
 
         // Retrieve input data
-        $semester = $this->input->post('semester-select'); // Adjust as per your form field name
+        $semester = $this->input->post('session_id'); // Adjust as per your form field name
 
         // Check if a session with this semester already exists
         if ($this->session_model->checkDuplicateSemester($semester)) {
