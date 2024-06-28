@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr" data-bs-theme="light" data-color-theme="Blue_Theme" data-layout="vertical">
 
 <head>
@@ -19,9 +19,9 @@
 
 <body>
     <!-- Preloader -->
-    <!-- <div class="preloader">
-    <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
-  </div> -->
+    <div class="preloader">
+        <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
+    </div>
     <div id="main-wrapper">
         <!-- Sidebar Start -->
         <?php $this->load->view('newSide'); ?>
