@@ -92,15 +92,18 @@ class CrudSession extends CI_Controller
             // Extract necessary data from the upload result
             $file_content = $upload_result['file_content'];
             $file_name = $upload_result['file_name'];
-
-            // Save the session along with the file content in the database
+    
+            // Update the session along with the new file content in the database
             $this->session_model->save_session($file_content, $file_name);
-
-            // After successful save, attempt to delete the uploaded file
-            $file_path = realpath($upload_result['full_path']);
+    
+            // After successful update, attempt to delete the uploaded file
+            $file_path = FCPATH . 'uploads/' . $file_name;
             $this->handleAfterUpload($file_path);
-
+        } elseif (isset($upload_result['no_file']) && $upload_result['no_file']) {
+            // Handle case where no file was uploaded, just update the session without file content
+            $this->session_model->save_session(null, null);
             redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
+    
         } else {
             // Handle the error appropriately (e.g., show a flash message or log the error)
             echo $upload_result['error_message'];

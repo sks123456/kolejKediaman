@@ -49,7 +49,8 @@ class Session_model extends CI_Model
 
     public function save_session($file_content, $file_name)
     {
-        $this->db->set("ACADEMIC_ID", $this->input->post("session_name"));
+        $this->db->set("ACADEMIC_ID", $this->input->post("session_id"));
+        $this->db->set("SESSION_NAME", $this->input->post("session_name"));
         $this->db->set("APPLICATION_TYPE", $this->input->post("application_type"));
         $this->db->set("START_DATE", $this->input->post("start_date"));
         $this->db->set("END_DATE", $this->input->post("end_date"));
@@ -111,8 +112,6 @@ class Session_model extends CI_Model
     {
         $session_id = $this->input->post("session_id");
 
-        $this->db->set("SESSION_NAME", $this->input->post("session_name"));
-        $this->db->set("APPLICATION_TYPE", $this->input->post("application_type"));
         $this->db->set("START_DATE", $this->input->post("start_date"));
         $this->db->set("END_DATE", $this->input->post("end_date"));
         if ($file_content != null) {
