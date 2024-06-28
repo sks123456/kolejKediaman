@@ -11,54 +11,7 @@
                 <input type="hidden" name="session_id" value="<?= $row->SESSION_ID ?>">
             <?php endif; ?>
 
-            <label>Type of Application</label>
-            <div class="row">
-                <?php if ($update) : ?>
-                    <?php $row = $session; ?>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Common Student" <?= ($row->APPLICATION_TYPE == 'Common Student') ? 'checked' : 'disabled' ?> required> Common Student
-                        </label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Appeal Application" <?= ($row->APPLICATION_TYPE == 'Appeal Application') ? 'checked' : 'disabled' ?> required> Appeal Application
-                        </label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Status Application" <?= ($row->APPLICATION_TYPE == 'Status Application') ? 'checked' : 'disabled' ?> required> Status Application
-                        </label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Acceptance Confirmation" <?= ($row->APPLICATION_TYPE == 'Acceptance Confirmation') ? 'checked' : 'disabled' ?> required> Acceptance Confirmation
-                        </label>
-                    </div>
-                <?php else : ?>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Common Student" required> Common Student
-                        </label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Appeal Application" required> Appeal Application
-                        </label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Status Application" required> Status Application
-                        </label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="radio-inline">
-                            <input type="radio" name="application_type" value="Acceptance Confirmation" required> Acceptance Confirmation
-                        </label>
-                    </div>
-                    <!-- Add similar blocks for other radio options -->
-                <?php endif; ?>
-            </div>
+
         </div>
 
         <!-- Semester -->
@@ -80,24 +33,24 @@
 
         <!-- Date -->
         <div class="row mb-3">
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <div class="form-group">
                     <label class="pull-left">Start Date</label>
-                    <div class="input-group date pull-right" style="width:60%;">
+                    <div class="input-group date pull-right" style="width:100%;">
                         <?php if ($update && !empty($session)) : ?>
                             <?php $row = $session ?>
-                            <input type="date" class="form-control" name="start_date" id="start_date" onchange="validateForm()" value="<?= $row->START_DATE ?>">
+                            <input type="date" style="width: max-content;" class="form-control" name="start_date" id="start_date" onchange="validateForm()" value="<?= $row->START_DATE ?>">
                         <?php else : ?>
                             <input type="date" class="form-control" name="start_date" id="start_date" onchange="validateForm()">
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div class="col-md-2"></div>
+            <div class="col-md-5">
                 <div class="form-group">
                     <label class="pull-left">End Date</label>
-                    <div class="input-group date pull-right" style="width:60%;">
+                    <div class="input-group date pull-right" style="width:100%;">
                         <?php if ($update && !empty($session)) : ?>
                             <?php $row = $session ?>
                             <input type="date" class="form-control" name="end_date" id="end_date" onchange="validateForm()" value="<?= $row->END_DATE ?>">
