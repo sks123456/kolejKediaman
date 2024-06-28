@@ -8,6 +8,7 @@ class CrudSession extends CI_Controller
         parent::__construct();
         $this->load->model('session_model');
         $this->load->library('pagination');
+        $this->load->library('session');
         $this->load->model('AcademicSess_model');
     }
 
@@ -62,7 +63,7 @@ class CrudSession extends CI_Controller
 
         // Converting the model data into a list
         $list = $this->session_model->get_all_session($config['per_page'], $page);
-        $listSem =$this->AcademicSess_model->get_all_academic_sess();
+        $listSem = $this->AcademicSess_model->get_all_academic_sess();
 
         // Check if the current date is between start date and end date
         $this->checkValidity($list);
@@ -82,8 +83,43 @@ class CrudSession extends CI_Controller
 
     public function save()
     {
+        // Load necessary components
         $this->load->model("session_model");
-        $this->load->helper('download'); // Load the download helper
+        $this->load->helper('download');
+
+        // Retrieve input data
+        $semester = $this->input->post('semester-select'); // Adjust as per your form field name
+
+        // Check if a session with this semester already exists
+        if ($this->session_model->checkDuplicateSemester($semester)) {
+            // If duplicate session found, set flashdata error message and redirect
+            $this->session->set_flashdata('error', 'A session with this semester already exists.');
+            redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Adjust URL as needed
+        } else {
+            // Proceed with saving the session
+            $upload_result = $this->handleFileUpload();
+
+            if ($upload_result['success']) {
+                // Handle successful upload
+                $file_content = $upload_result['file_content'];
+                $file_name = $upload_result['file_name'];
+                $this->session_model->save_session($file_content, $file_name); // Insert session data
+                $file_path = FCPATH . 'uploads/' . $file_name;
+                $this->handleAfterUpload($file_path); // Handle cleanup if necessary
+            } elseif (isset($upload_result['no_file']) && $upload_result['no_file']) {
+                // Handle case where no file was uploaded
+                $this->session_model->save_session(null, null); // Insert session data without file
+                redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Redirect to index
+            } else {
+                // Handle upload error
+                echo $upload_result['error_message'];
+            }
+        }
+    }
+
+    public function update()
+    {
+        $this->load->model("session_model");
 
         // Call the file upload method
         $upload_result = $this->handleFileUpload();
@@ -92,104 +128,74 @@ class CrudSession extends CI_Controller
             // Extract necessary data from the upload result
             $file_content = $upload_result['file_content'];
             $file_name = $upload_result['file_name'];
-    
+
             // Update the session along with the new file content in the database
-            $this->session_model->save_session($file_content, $file_name);
-    
+            $this->session_model->update_session($file_content, $file_name);
+
             // After successful update, attempt to delete the uploaded file
             $file_path = FCPATH . 'uploads/' . $file_name;
             $this->handleAfterUpload($file_path);
         } elseif (isset($upload_result['no_file']) && $upload_result['no_file']) {
             // Handle case where no file was uploaded, just update the session without file content
-            $this->session_model->save_session(null, null);
+            $this->session_model->update_session(null, null);
             redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
-    
         } else {
             // Handle the error appropriately (e.g., show a flash message or log the error)
             echo $upload_result['error_message'];
         }
     }
 
-    public function update()
-{
-    $this->load->model("session_model");
+    // Abstracted method for handling file upload
+    private function handleFileUpload()
+    {
+        $config['upload_path']   = FCPATH . 'uploads/'; // use server path
+        $config['allowed_types'] = 'pdf';
+        $config['max_size']      = 5048; // 5 MB
 
-    // Call the file upload method
-    $upload_result = $this->handleFileUpload();
+        $this->load->library('upload', $config);
 
-    if ($upload_result['success']) {
-        // Extract necessary data from the upload result
-        $file_content = $upload_result['file_content'];
-        $file_name = $upload_result['file_name'];
-
-        // Update the session along with the new file content in the database
-        $this->session_model->update_session($file_content, $file_name);
-
-        // After successful update, attempt to delete the uploaded file
-        $file_path = FCPATH . 'uploads/' . $file_name;
-        $this->handleAfterUpload($file_path);
-    } elseif (isset($upload_result['no_file']) && $upload_result['no_file']) {
-        // Handle case where no file was uploaded, just update the session without file content
-        $this->session_model->update_session(null, null);
-        redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
-
-    } else {
-        // Handle the error appropriately (e.g., show a flash message or log the error)
-        echo $upload_result['error_message'];
-    }
-}
-
-// Abstracted method for handling file upload
-private function handleFileUpload()
-{
-    $config['upload_path']   = FCPATH . 'uploads/'; // use server path
-    $config['allowed_types'] = 'pdf';
-    $config['max_size']      = 5048; // 5 MB
-
-    $this->load->library('upload', $config);
-
-    // Check if a file is being uploaded
-    if (!isset($_FILES['pdf_document']) || $_FILES['pdf_document']['error'] == UPLOAD_ERR_NO_FILE) {
-        return array('success' => false, 'no_file' => true);
-    }
-
-    if ($this->upload->do_upload('pdf_document')) {
-        $upload_data = $this->upload->data();
-
-        // Check file size before encoding
-        if ($upload_data['file_size'] > 5048) {
-            // File size exceeds 5 MB, display popup and return to index
-            return array('success' => false, 'error_message' => 'File is too large. Maximum allowed size is 5 MB.');
+        // Check if a file is being uploaded
+        if (!isset($_FILES['pdf_document']) || $_FILES['pdf_document']['error'] == UPLOAD_ERR_NO_FILE) {
+            return array('success' => false, 'no_file' => true);
         }
 
-        // Get the file content and convert it to base64
-        $file_content = base64_encode(file_get_contents($upload_data['full_path']));
-        $file_name = $upload_data['file_name'];
+        if ($this->upload->do_upload('pdf_document')) {
+            $upload_data = $this->upload->data();
 
-        // Return the upload result
-        return array(
-            'success' => true,
-            'file_content' => $file_content,
-            'file_name' => $file_name,
-            'full_path' => $upload_data['full_path']
-        );
-    } else {
-        // Return the upload result with an error message
-        return array('success' => false, 'error_message' => $this->upload->display_errors());
+            // Check file size before encoding
+            if ($upload_data['file_size'] > 5048) {
+                // File size exceeds 5 MB, display popup and return to index
+                return array('success' => false, 'error_message' => 'File is too large. Maximum allowed size is 5 MB.');
+            }
+
+            // Get the file content and convert it to base64
+            $file_content = base64_encode(file_get_contents($upload_data['full_path']));
+            $file_name = $upload_data['file_name'];
+
+            // Return the upload result
+            return array(
+                'success' => true,
+                'file_content' => $file_content,
+                'file_name' => $file_name,
+                'full_path' => $upload_data['full_path']
+            );
+        } else {
+            // Return the upload result with an error message
+            return array('success' => false, 'error_message' => $this->upload->display_errors());
+        }
     }
-}
 
-public function handleAfterUpload($file_path)
-{
-    if (file_exists($file_path)) {
-        unlink($file_path);
-    } else {
-        // Log or handle the error if the file doesn't exist
-        log_message('error', 'File not found for deletion: ' . $file_path);
+    public function handleAfterUpload($file_path)
+    {
+        if (file_exists($file_path)) {
+            unlink($file_path);
+        } else {
+            // Log or handle the error if the file doesn't exist
+            log_message('error', 'File not found for deletion: ' . $file_path);
+        }
+
+        redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
     }
-
-    redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
-}
 
     public function delete($session_id)
     {
