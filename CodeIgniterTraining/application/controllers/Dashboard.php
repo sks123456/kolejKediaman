@@ -10,11 +10,15 @@ class Dashboard extends CI_Controller
         // Load the database library
         $this->load->database();
         $this->load->model("Session_model");
+        $this->load->model("Application_model");
     }
 
 
     public function index()
     {
+        //get application for bar chart
+        $data['applications'] = $this->Application_model->getApplicationsByChannelAndStatus();
+
         // Get student count
         $studentCountQuery = $this->db->query("SELECT COUNT(*) as count FROM student_profile");
         $data['studentCount'] = $studentCountQuery->row()->count;
@@ -56,14 +60,15 @@ class Dashboard extends CI_Controller
         if ($this->getMaleCount() >= $this->getFemaleCount()) {
 
             $data['highest_gender'] = round(($this->getMaleCount() / $data['applicationCount']) * 100, 2);
-            $data['highest_gender2']= "Male";
+            $data['highest_gender2'] = "Male";
         } else {
             $data['highest_gender'] = round(($this->getFemaleCount() / $data['applicationCount']) * 100, 2);
-            $data['highest_gender2']= "Female";
+            $data['highest_gender2'] = "Female";
         }
         // Load the view and pass the data
         $this->load->view('home', $data);
     }
+    
     public function getPieChartData()
     {
         // Query to get male count

@@ -2,6 +2,24 @@
 class Application_model extends CI_Model
 {
 
+    public function getApplicationsByChannelAndStatus()
+    {
+        $this->db->select('kk_channel.CHANNEL_NAME, COUNT(*) AS count');
+        $this->db->from('application');
+        $this->db->join('kk_channel', 'application.CHANNEL_ID = kk_channel.CHANNEL_ID');
+        $this->db->join('kk_session', 'kk_session.SESSION_ID = application.SESSION_ID');
+        $this->db->where('kk_session.SESSION_STATUS', 'Active');
+        $this->db->group_by('kk_channel.CHANNEL_NAME');
+        $query = $this->db->get();
+
+        $applications = [];
+        foreach ($query->result() as $row) {
+            $applications[$row->CHANNEL_NAME] = $row->count;
+        }
+
+        return $applications;
+    }
+
     public function get_all_applications($file_content, $file_name)
     {
         //run query to get all student records from db
