@@ -8,6 +8,7 @@ class CrudChannel extends CI_Controller
         parent::__construct();
         $this->load->model('channel_model');
         $this->load->library('pagination');
+        $this->load->library('session');
     }
 
     public function index()
@@ -71,43 +72,47 @@ class CrudChannel extends CI_Controller
 
     public function save()
     {
+        // Load necessary components
         $this->load->model("channel_model");
+
+        // Check if the channel already exists
         $channelFound = $this->channel_model->valid_channel();
 
         if ($channelFound) {
-            // Display an error alert
-            echo '<script>';
-            echo 'alert("Channel already exist!");';
-            echo 'window.location.href = "' . base_url('CodeIgniterTraining/index.php/channel') . '";';
-            echo '</script>';
+            // If channel exists, set flashdata error message
+            $this->session->set_flashdata('error', 'Channel already exists!');
         } else {
-            $channelFound = $this->channel_model->save_channel();
+            // Save the channel
+            $this->channel_model->save_channel();
+
+            // Optionally, set a success flashdata message
+            $this->session->set_flashdata('success', 'Channel saved successfully!');
         }
+
+        redirect(base_url('CodeIgniterTraining/index.php/channel')); // Redirect to channel index page
     }
+
 
     public function delete($channel_id)
     {
-        //load the url using helper
+        // Load necessary components
         $this->load->helper('url');
-
-        //injecting data from model to $this
         $this->load->model("channel_model");
 
-        //delete operations
+        // Delete operations
         $result = $this->channel_model->delete_channel_id($channel_id);
 
         if ($result) {
-            $message = 'Channel deleted successfully.';
+            // Set success flashdata message
+            $this->session->set_flashdata('success', 'Channel deleted successfully.');
         } else {
-            $message = 'Failed to delete channel.';
+            // Set error flashdata message
+            $this->session->set_flashdata('error', 'Failed to delete channel.');
         }
 
-        // Display a JavaScript prompt message
-        echo '<script>alert("'.$message.'"); window.location.href="'.base_url('CodeIgniterTraining/index.php/crudchannel/index').'";</script>';
-        exit;
-
-        redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
+        redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index')); // Redirect to channel index page
     }
+
 
     public function updateChannel($channel_id)
     {
@@ -127,9 +132,21 @@ class CrudChannel extends CI_Controller
 
     public function update()
     {
+        // Load necessary components
         $this->load->model("channel_model");
-        $this->channel_model->update_channel_status();
 
-        redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
+        // Update channel status
+        $result = $this->channel_model->update_channel_status();
+
+        if ($result) {
+            // Set success flashdata message
+            $this->session->set_flashdata('success', 'Channel status updated successfully.');
+        } else {
+            // Set error flashdata message
+            $this->session->set_flashdata('error', 'Failed to update channel status.');
+        }
+
+        redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index')); // Redirect to channel index page
     }
+
 }

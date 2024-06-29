@@ -22,7 +22,7 @@
                 <td><?= $channel->CHANNEL_NAME ?></td>
                 <td class="text-center"><span class="<?= $statusClass ?>"><?= $channel->CHANNEL_STATUS ?></td>
                 <td>
-                    <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $channel->CHANNEL_ID ?>"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $channel->CHANNEL_ID ?>" onclick="return confirm('Confirmation for updating the channel?')"><i class="fa fa-edit"></i></a>
                     <!-- .modal for add task -->
                     <div class="modal fade" id="updateModal<?= $channel->CHANNEL_ID ?>" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">

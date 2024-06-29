@@ -75,10 +75,12 @@ class Channel_model extends CI_Model
     }
     public function save_channel()
     {
-        $this->db->set("CHANNEL_NAME", strtoupper($this->input->post("channel_name")));
-            $this->db->set("CHANNEL_STATUS", $this->input->post("channel_status"));
-            $this->db->insert('kk_channel');
-            redirect(base_url('CodeIgniterTraining/index.php/crudchannel/index'));
+        $query = $this->db
+            ->set("CHANNEL_NAME", strtoupper($this->input->post("channel_name")))
+            ->set("CHANNEL_STATUS", $this->input->post("channel_status"))
+            ->insert('kk_channel');
+        
+            return $query;
     }
 
     public function get_channel($channel_ID)
@@ -92,8 +94,11 @@ class Channel_model extends CI_Model
 
     public function update_channel_status()
     {
-        $this->db->where('CHANNEL_ID', $this->input->post("channel_id"));
-        $this->db->set('CHANNEL_STATUS', $this->input->post("channel_status"));
-        $this->db->update('kk_channel');
+        $query = $this->db
+            ->where('CHANNEL_ID', $this->input->post("channel_id"))
+            ->set('CHANNEL_STATUS', $this->input->post("channel_status"))
+            ->update('kk_channel');
+
+        return $query;
     }
 }
