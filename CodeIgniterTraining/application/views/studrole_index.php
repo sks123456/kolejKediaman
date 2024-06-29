@@ -34,6 +34,20 @@
       <!--  Header End -->
       <div class="body-wrapper">
         <div class="container-fluid">
+
+          <!--  Alert Message -->
+        <?php if ($this->session->flashdata('error')) : ?>
+            <div class="alert alert-danger">
+              <?= $this->session->flashdata('error') ?>
+            </div>
+          <?php endif; ?>
+
+          <?php if ($this->session->flashdata('success')) : ?>
+            <div class="alert alert-success">
+              <?= $this->session->flashdata('success') ?>
+            </div>
+          <?php endif; ?>
+          
           <div class="d-md-flex align-items-center justify-content-between mb-7">
             <div class="mb-4 mb-md-0">
               <h4 class="fs-6 mb-0">Student Role Register</h4>

@@ -41,8 +41,8 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $role->STUD_MATRIC ?>"><i class="fa fa-edit"></i></a>
-                    <div class="modal fade" id="updateModal<?= $role->STUD_MATRIC ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                    <a class="btn btn-info btn-sm edit-channel" data-bs-toggle="modal" data-bs-target="#updateModal<?= $role->ROLE_MODEL_ID ?>" onclick="return confirm('Confirmation for updating the student leader?')"><i class="fa fa-edit"></i></a>
+                    <div class="modal fade" id="updateModal<?= $role->ROLE_MODEL_ID ?>" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content" style="width:100%">
                                 <div class="modal-header d-flex align-items-center">
@@ -50,8 +50,8 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form id="updateRoleForm<?= $role->STUD_MATRIC ?>" method="post" action="<?= base_url('your_controller/updateRole') ?>">
-                                        <input type="hidden" id="roleId<?= $role->STUD_MATRIC ?>" name="role_id" value="<?= $role->STUD_MATRIC ?>">
+                                    <form id="updateRoleForm<?= $role->ROLE_MODEL_ID ?>" method="post" action="<?= base_url() ?>CodeIgniterTraining/index.php/register_studrole/update">
+                                        <input type="hidden" id="roleId<?= $role->ROLE_MODEL_ID ?>" name="role_id" value="<?= $role->ROLE_MODEL_ID ?>">
                                         <div class="mb-3">
                                             <label for="updateSession<?= $role->STUD_MATRIC ?>" class="form-label">Session</label>
                                             <input type="text" class="form-control" id="updateSession<?= $role->STUD_MATRIC ?>" name="session" value="<?= $role->CODE_SEM ?>" readonly>
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="btn btn-danger btn-sm" href=""><i class="fa fa-trash"></i></a>
+                    <a class="btn btn-danger btn-sm" href="<?= base_url('CodeIgniterTraining/index.php/register_studrole/delete/' . $role->ROLE_MODEL_ID) ?>" onclick="return confirm('Confirmation for deleting the student leader?')"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
         <?php endforeach; ?>

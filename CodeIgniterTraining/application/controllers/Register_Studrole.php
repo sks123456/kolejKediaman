@@ -3,26 +3,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Register_Studrole extends CI_Controller
 {
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->library('form_validation');
+        $this->load->library('session');
         $this->load->helper('url');
+        $this->load->model("Role_model");
+        $this->load->model("AcademicSess_model");
+        $this->load->model("Student_model");
     }
 
     public function index()
     {
-        $this->load->helper('url');
-        $this->load->model("AcademicSess_model");
-        $this->load->model("Role_model");
-
         // Fetch session data containing only session ID and session name
-        $sessions = $this->AcademicSess_model->get_all_academic_sess();
-
+        $sessions = $this->AcademicSess_model->get_all_academic_ses();
         $role_models = $this->Role_model->get_all_role();
 
         // Pass the session data to the view
         $data['sessions'] = $sessions;
         $data['roles'] = $role_models;
+
         // Load the view
         $this->load->view('studrole_index', $data); // Pass both session and student data to the view
     }
@@ -30,8 +31,6 @@ class Register_Studrole extends CI_Controller
     // Function to handle form submission and insert data
     public function save()
     {
-        $this->load->model("Role_model");
-
         // Load form validation library
         $this->load->library('form_validation');
 
@@ -53,20 +52,28 @@ class Register_Studrole extends CI_Controller
                 'STATUS' => $this->input->post('studrole_status')
             );
 
+            // Check for duplicate entry
+            if ($this->Role_model->checkDuplicateRole($data['CODE_SEM'], $data['STUD_MATRIC'], $data['ROLE'])) {
+                // If duplicate found, set flashdata error message and redirect
+                $this->session->set_flashdata('error', 'This student with the selected role in the session already exists.');
+                redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index'));
+            }
+
             // Insert data into database
             if ($this->Role_model->insert_role($data)) {
-                // Insert successful, redirect or load success view
-                redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index')); // Create this view or adjust the path
+                // Insert successful, set success message and redirect
+                $this->session->set_flashdata('success', 'Student leader saved successfully.');
+                redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index'));
             } else {
                 // Insert failed, show error
-                $this->load->view('error'); // Create this view or adjust the path
+                $this->session->set_flashdata('error', 'Failed to save student leader.');
+                redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index'));
             }
         }
     }
-    public function check_student_id() {
-        // Load necessary models
-        $this->load->model('Student_model');
 
+    public function check_student_id()
+    {
         // Get the student ID from the POST request
         $student_id = $this->input->post('student_id');
 
@@ -92,4 +99,37 @@ class Register_Studrole extends CI_Controller
         // Return the response in JSON format
         echo json_encode($response);
     }
+
+    public function update()
+    {
+        $result = $this->Role_model->update_role();
+
+        // Update role status in the database
+        if ($result) {
+            // Set success message
+            $this->session->set_flashdata('success', 'Role status updated successfully.');
+        } else {
+            // Set error message
+            $this->session->set_flashdata('error', 'Failed to update role status.');
+        }
+
+        // Redirect back to the role list page
+        redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index'));
+    }
+
+    public function delete($role_id)
+    {
+        $result = $this->Role_model->delete_role_id($role_id);
+
+        if ($result) {
+            // Set success flashdata message
+            $this->session->set_flashdata('success', 'Student leader deleted successfully.');
+        } else {
+            // Set error flashdata message
+            $this->session->set_flashdata('error', 'Failed to delete student leader.');
+        }
+
+        redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index')); // Redirect to channel index page
+    }
 }
+

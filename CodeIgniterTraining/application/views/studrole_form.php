@@ -15,10 +15,10 @@
                 <!-- Session -->
                 <div class="mb-3">
                     <label>Academic Session</label>
-                    <select class="form-control" name="session_id">
+                    <select class="form-control" name="session_id" required>
                         <option value="">-- Please Choose --</option>
                         <?php foreach ($sessions as $session) : ?>
-                            <option value="<?= $session->SEM_KOD_SESISEM ?>"><?= $session->SEM_DESC ?></option>
+                            <option value="<?= $session->SEM_KOD_SESISEM ?>"><?= $session->SEM_DESC ?> <?= $session->SEM_PERINGKAT ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <div class="mb-3">
                     <label>Matric ID</label>
-                    <input type="text" class="form-control" name="student_id" id="student_id">
+                    <input type="text" class="form-control" name="student_id" id="student_id" required>
                 </div>
             </div>
 
