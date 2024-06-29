@@ -67,10 +67,12 @@ class Uniform_model extends CI_Model
     }
     public function save_uniform()
     {
-        $this->db->set("UNIFORM_NAME", strtoupper($this->input->post("uniform_name")));
-            $this->db->set("UNIFORM_STATUS", $this->input->post("uniform_status"));
-            $this->db->insert('kk_uniform');
-            redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index'));
+        $query = $this->db
+            ->set("UNIFORM_NAME", strtoupper($this->input->post("uniform_name")))
+            ->set("UNIFORM_STATUS", $this->input->post("uniform_status"))
+            ->insert('kk_uniform');
+        
+        return $query;
     }
 
     public function get_uniform($uniform_ID)
@@ -84,8 +86,11 @@ class Uniform_model extends CI_Model
 
     public function update_uniform_status()
     {
-        $this->db->where('UNIFORM_ID', $this->input->post("uniform_id"));
-        $this->db->set('UNIFORM_STATUS', $this->input->post("uniform_status"));
-        $this->db->update('kk_uniform');
+        $query = $this->db
+            ->where('UNIFORM_ID', $this->input->post("uniform_id"))
+            ->set('UNIFORM_STATUS', $this->input->post("uniform_status"))
+            ->update('kk_uniform');
+        
+        return $query;
     }
 }

@@ -8,6 +8,7 @@ class CrudUniform extends CI_Controller
         parent::__construct();
         $this->load->model('uniform_model');
         $this->load->library('pagination');
+        $this->load->library('session');
     }
 
     public function index()
@@ -76,28 +77,32 @@ class CrudUniform extends CI_Controller
 
         if ($uniformFound) {
             // Display an error alert
-            echo '<script>';
-            echo 'alert("Saluran Uniform sudah wujud!");';
-            echo 'window.location.href = "' . base_url('CodeIgniterTraining/index.php/uniform') . '";';
-            echo '</script>';
+            $this->session->set_flashdata('error', 'Uniform already exists!');
         } else {
             $uniformFound = $this->uniform_model->save_uniform();
+            // Optionally, set a success flashdata message
+            $this->session->set_flashdata('success', 'Uniform saved successfully!');
         }
+
+        redirect(base_url('CodeIgniterTraining/index.php/uniform')); // Redirect to channel index page
     }
 
     public function delete($uniform_id)
     {
-        //load the url using helper
+        // Load the URL helper
         $this->load->helper('url');
 
-        //injecting data from model to $this
+        // Load the model
         $this->load->model("uniform_model");
 
-        //delete operations
+        // Perform delete operation
         $this->uniform_model->delete_uniform_id($uniform_id);
 
-        redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index'));
+        // Set success message
+        $this->session->set_flashdata('success', 'Uniform deleted successfully.');
+        redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index')); // Redirect to index
     }
+
 
     public function updateUniform($uniform_id)
     {
@@ -120,6 +125,9 @@ class CrudUniform extends CI_Controller
         $this->load->model("uniform_model");
         $this->uniform_model->update_uniform_status();
 
-        redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index'));
+        // Set success message
+        $this->session->set_flashdata('success', 'Uniform status updated successfully.');
+        redirect(base_url('CodeIgniterTraining/index.php/cruduniform/index')); // Redirect to index
     }
+
 }

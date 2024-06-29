@@ -22,7 +22,7 @@
                 <td><?= $uniform->UNIFORM_NAME ?></td>
                 <td class="text-center"><span class="<?= $statusClass ?>"><?= $uniform->UNIFORM_STATUS ?></td>
                 <td>
-                    <a class="btn btn-info btn-sm edit-uniform" data-bs-toggle="modal" data-bs-target="#updateModal<?= $uniform->UNIFORM_ID ?>"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-info btn-sm edit-uniform" data-bs-toggle="modal" data-bs-target="#updateModal<?= $uniform->UNIFORM_ID ?>" onclick="return confirm('Confirmation for updating the uniform?')"><i class="fa fa-edit"></i></a>
                     <!-- .modal for add task -->
                     <div class="modal fade" id="updateModal<?= $uniform->UNIFORM_ID ?>" tabindex="-1" role="dialog" aria-hidden="true">
                         <div class="modal-dialog" role="document">
