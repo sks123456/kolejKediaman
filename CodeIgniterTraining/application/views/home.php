@@ -21,9 +21,7 @@
 
 <body>
   <!-- Preloader -->
-  <div class="preloader">
-    <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/favicon.png" alt="loader" class="lds-ripple img-fluid" />
-  </div>
+  
   <div id="main-wrapper">
     <!-- Sidebar Start -->
     <?php $this->load->view('newSide'); ?>
@@ -57,44 +55,48 @@
               <div class="card bg-box position-relative text-bg-info">
                 <div class="card-body text-center">
                   <h2 class="fw-bold fs-8 text-white">
-                    <?php echo $studentCount; // Dynamically populate student count ?>
+                    <?php echo $studentCount; // Dynamically populate student count 
+                    ?>
                   </h2>
                   <h6 class="text-white mb-0 fw-bold">Students</h6>
                 </div>
               </div>
             </div>
-            
+
             <!-- Application -->
             <div class="col-sm-6 col-lg-3">
               <div class="card bg-box position-relative text-bg-secondary">
                 <div class="card-body text-center">
                   <h2 class="fw-bold fs-8 text-white">
-                    <?php echo $applicationCount; // Dynamically populate application count ?>
+                    <?php echo $applicationCount; // Dynamically populate application count 
+                    ?>
                   </h2>
                   </h2>
                   <h6 class="text-white mb-0 fw-bold">Applications</h6>
                 </div>
               </div>
             </div>
-            
+
             <!-- Rooms -->
             <div class="col-sm-6 col-lg-3">
               <div class="card bg-box position-relative text-bg-success">
                 <div class="card-body text-center">
                   <h2 class="fw-bold fs-8 text-white">
-                    <?php echo $rejectedCount; // Dynamically populate rejected count ?>
+                    <?php echo $rejectedCount; // Dynamically populate rejected count 
+                    ?>
                   </h2>
                   <h6 class="text-white mb-0 fw-bold">Rejected</h6>
                 </div>
               </div>
             </div>
-            
+
             <!-- Student Role -->
             <div class="col-sm-6 col-lg-3">
               <div class="card bg-box position-relative text-bg-warning">
                 <div class="card-body text-center">
                   <h2 class="fw-bold fs-8 text-white">
-                    <?php echo $roomCount; // Dynamically populate room count ?>
+                    <?php echo $roomCount; // Dynamically populate room count 
+                    ?>
                   </h2>
                   <h6 class="text-white mb-0 fw-bold">Rooms</h6>
                 </div>
@@ -108,37 +110,21 @@
               <div class="card w-100">
                 <div class="card-body">
                   <div class="d-md-flex align-items-center no-block">
-                    <h4 class="card-title">Total Application</h4>
-                    <div class="ms-auto">
-                      <select class="form-select">
-                        <option selected>2024</option>
-                        <option value="1">2023</option>
-                        <option value="2">2022</option>
-                      </select>
-                    </div>
+                  <h4 class="card-title">Total Application based on gender in <?= $sessions->SESSION_NAME ?></h4>
                   </div>
                   <!-- Row -->
                   <div class="row mt-4">
                     <div class="col-md-7">
-                      <div id="sales-of-the-month" class="m-auto"></div>
+                      <canvas id="pieChart"></canvas>
                       <!-- <div class="round-overlap sales"><i class="mdi mdi-cart"></i></div> -->
                     </div>
                     <div class="col-md-5 align-self-center">
-                      <h1 class="mb-0">65<small>%</small></h1>
-                      <h6 class="text-muted">160 Total Application</h6>
-                      <ul class="list-icons mt-4 list-style-none">
-                        <li class="my-1 py-1 hstack gap-2">
-                          <i class="fa fa-circle text-success"></i> Approve
-                        </li>
-                        <li class="my-1 py-1 hstack gap-2">
-                          <i class="fa fa-circle text-warning"></i> Pending
-                        </li>
-                        <li class="my-1 py-1 hstack gap-2">
-                          <i class="fa fa-circle text-danger"></i> Rejected
-                        </li>
-                      </ul>
+                      <h1 class="mb-0"><?=$highest_gender?><small>%</small></h1>
+                      <h6 class="text-muted"><?=$applicationCount?> Total Application</h6>
+                      
                     </div>
                   </div>
+
                   <!-- Row -->
                 </div>
               </div>
@@ -181,7 +167,6 @@
           $("html").attr("data-color-theme", e);
           $(e).prop("checked", !0);
         }
-        
       </script>
       <button class="btn btn-info p-3 rounded-circle d-flex align-items-center justify-content-center customizer-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
         <iconify-icon icon="solar:settings-linear" class="fs-7"></iconify-icon>
@@ -324,6 +309,26 @@
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/js/dashboards/dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var ctx = document.getElementById('pieChart').getContext('2d');
+      var pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: <?php echo json_encode($pieChartData); ?>,
+        options: {
+          responsive: true,
+          legend: {
+            position: 'top',
+          },
+        }
+      });
+    });
+  </script>
+
+
 </body>
 
 </html>

@@ -35,12 +35,13 @@ class Session_model extends CI_Model
         return $query->result();
     }
 
-    public function checkDuplicateSemester($semester, $session_id = null) {
+    public function checkDuplicateSemester($semester, $session_id = null)
+    {
         $this->db->where('ACADEMIC_ID', $semester);
         if ($session_id) {
             $this->db->where('SESSION_ID !=', $session_id);
         }
-        $query = $this->db->get('kk_session'); 
+        $query = $this->db->get('kk_session');
 
         return $query->num_rows() > 0;
     }
@@ -75,8 +76,8 @@ class Session_model extends CI_Model
         $query = $this->db
             ->set("SESSION_STATUS", $session_status)
             ->insert('kk_session');
-        
-            return $query;
+
+        return $query;
     }
 
     public function get_session($session_ID)
@@ -91,23 +92,28 @@ class Session_model extends CI_Model
     public function get_active_session($sem)
     {
         // Determine the SEM_PERINGKAT value based on the first character of $sem
-        $sem_peringkat = '';
-        if (strpos($sem, 'D') === 0) {
-            $sem_peringkat = 'DIPLOMA';
-        } elseif (strpos($sem, 'S') === 0) {
-            $sem_peringkat = 'SARJANA MUDA';
+        if ($sem != null) {
+            $sem_peringkat = '';
+            if (strpos($sem, 'D') === 0) {
+                $sem_peringkat = 'DIPLOMA';
+            } elseif (strpos($sem, 'S') === 0) {
+                $sem_peringkat = 'SARJANA MUDA';
+            }
         }
-
+        
         // Perform the query with the join and condition
         $query = $this->db
             ->select('kk_session.*, academic_session.*')
             ->from('kk_session')
             ->join('academic_session', 'kk_session.ACADEMIC_ID = academic_session.SEM_KOD_SESISEM')
-            ->where('kk_session.SESSION_STATUS', 'Active')
-            ->where('academic_session.SEM_PERINGKAT', $sem_peringkat)
-            ->get();
-
-        return $query;
+            ->where('kk_session.SESSION_STATUS', 'Active');
+        
+        if ($sem != null) {
+            $query->where('academic_session.SEM_PERINGKAT', $sem_peringkat);
+        }
+        
+        $result = $query->get();
+        return $result;
     }
 
 
