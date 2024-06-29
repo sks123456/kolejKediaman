@@ -72,9 +72,11 @@ class Session_model extends CI_Model
         // Check if the start date is after the current date
         $current_date = date('Y-m-d'); // Corrected the date format
         $session_status = ($this->input->post("start_date") <= $current_date) ? 'Active' : 'Inactive';
-        $this->db->set("SESSION_STATUS", $session_status);
-
-        $this->db->insert('kk_session');
+        $query = $this->db
+            ->set("SESSION_STATUS", $session_status)
+            ->insert('kk_session');
+        
+            return $query;
     }
 
     public function get_session($session_ID)
@@ -112,9 +114,12 @@ class Session_model extends CI_Model
 
     public function update_session_status($session_ID, $status)
     {
-        $this->db->where('SESSION_ID', $session_ID);
-        $this->db->set('SESSION_STATUS', $status);
-        $this->db->update('kk_session');
+        $query = $this->db
+            ->where('SESSION_ID', $session_ID)
+            ->set('SESSION_STATUS', $status)
+            ->update('kk_session');
+
+        return $query;
     }
 
     public function update_session($file_content, $file_name)

@@ -106,9 +106,14 @@ class CrudSession extends CI_Controller
                 $this->session_model->save_session($file_content, $file_name); // Insert session data
                 $file_path = FCPATH . 'uploads/' . $file_name;
                 $this->handleAfterUpload($file_path); // Handle cleanup if necessary
+
+                // Set success message
+                $this->session->set_flashdata('success', 'Session saved successfully.');
+                redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Redirect to index
             } elseif (isset($upload_result['no_file']) && $upload_result['no_file']) {
                 // Handle case where no file was uploaded
                 $this->session_model->save_session(null, null); // Insert session data without file
+                $this->session->set_flashdata('success', 'Session saved successfully.');
                 redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Redirect to index
             } else {
                 // Handle upload error
@@ -116,6 +121,7 @@ class CrudSession extends CI_Controller
             }
         }
     }
+
 
     public function update()
     {
@@ -135,15 +141,22 @@ class CrudSession extends CI_Controller
             // After successful update, attempt to delete the uploaded file
             $file_path = FCPATH . 'uploads/' . $file_name;
             $this->handleAfterUpload($file_path);
+
+            // Set success message
+            $this->session->set_flashdata('success', 'Session updated successfully.');
+            redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Redirect to index
         } elseif (isset($upload_result['no_file']) && $upload_result['no_file']) {
             // Handle case where no file was uploaded, just update the session without file content
             $this->session_model->update_session(null, null);
-            redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
+            $this->session->set_flashdata('success', 'Session updated successfully.');
+            redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Redirect to index
         } else {
             // Handle the error appropriately (e.g., show a flash message or log the error)
-            echo $upload_result['error_message'];
+            $this->session->set_flashdata('error', $upload_result['error_message']);
+            redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Redirect to index
         }
     }
+
 
     // Abstracted method for handling file upload
     private function handleFileUpload()
@@ -199,17 +212,20 @@ class CrudSession extends CI_Controller
 
     public function delete($session_id)
     {
-        //load the url using helper
+        // Load the URL helper
         $this->load->helper('url');
 
-        //injecting data from model to $this
+        // Load the model
         $this->load->model("session_model");
 
-        //delete operations
+        // Perform delete operation
         $this->session_model->delete_session_id($session_id);
 
-        redirect(base_url('CodeIgniterTraining/index.php/crudsession/index'));
+        // Set success message
+        $this->session->set_flashdata('success', 'Session deleted successfully.');
+        redirect(base_url('CodeIgniterTraining/index.php/crudsession/index')); // Redirect to index
     }
+
 
     public function updateSession($session_id)
     {
