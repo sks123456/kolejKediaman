@@ -199,4 +199,18 @@ class Room_model extends CI_Model
         $query = $this->db->get('kk_room');
         return $query->row();
     }
+
+    public function get_rooms_from_kk_db($session_id)
+    {
+        $this->db->db_select('kk_db'); // Switch to kk_db database
+        $this->db->where('KOD_SESI', $session_id);
+        $query = $this->db->get('k_room');
+        return $query->result();
+    }
+
+    public function insert_room_data($data)
+    {
+        $this->db->db_select('fyp_kk'); // Switch to fyp_kk database
+        return $this->db->insert('kk_room', $data); // Insert into kk_room table
+    }
 }

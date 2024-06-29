@@ -12,7 +12,7 @@ class Room_generate extends CI_Controller
         $this->load->database(); // Load default database configuration (fyp_kk)
         $this->load->database('kk_db', TRUE); // Load kk_db database configuration
         $this->load->model('Session_model');
-        $this->load->model('Room_model');
+        $this->load->model('Room_model'); // Load Room_model
     }
 
     public function index()
@@ -100,16 +100,12 @@ class Room_generate extends CI_Controller
             // Get session ID from form submission
             $session_id = $this->input->post('session_id');
 
-            // Get room data from kk_db where the session ID matches
-            $this->db->db_select('kk_db'); // Switch to kk_db database
-            $this->db->where('KOD_SESI', $session_id);
-            $query = $this->db->get('k_room');
-            $rooms = $query->result();
+            // Fetch room data from kk_db where the session ID matches
+            $rooms = $this->Room_model->get_rooms_from_kk_db($session_id);
 
-            // Insert the room data into fyp_kk in the kk_room table
-            $this->db->db_select('fyp_kk'); // Switch back to fyp_kk database
+            // Insert room data into fyp_kk in the kk_room table
             foreach ($rooms as $room) {
-                $data = array(
+                $insert_data = array(
                     'ROOM_CODE' => $room->ROOM_CODE,
                     'KOD_SESI' => $room->KOD_SESI,
                     'ROOM_TYPE' => $room->ROOM_TYPE,
@@ -125,8 +121,11 @@ class Room_generate extends CI_Controller
                     'CHARGE_PER_SEM' => $room->CHARGE_PER_SEM,
                     'ROOM_GENDER' => $room->ROOM_GENDER
                 );
-                $this->db->insert('kk_room', $data); // Insert into kk_room table
+
+                $this->Room_model->insert_room_data($insert_data);
             }
+
+            $this->session->set_flashdata('success', 'Rooms created successfully.');
 
             // Redirect to the room generate list page
             redirect(base_url('CodeIgniterTraining/index.php/room_generate/index'));
@@ -144,7 +143,7 @@ class Room_generate extends CI_Controller
         // Check if any room is filled
         $is_room_filled = false;
         foreach ($rooms as $room) {
-            if ($room->FILLED_ROOM!= 0) {
+            if ($room->FILLED_ROOM != 0) {
                 $is_room_filled = true;
                 break;
             }
@@ -152,28 +151,23 @@ class Room_generate extends CI_Controller
 
         if (!$rooms) {
             // Room not found
-            $message = 'Room not found.';
+            $this->session->set_flashdata('error', 'Room not found.');
         } elseif ($is_room_filled) {
             // Cannot delete room with FILLED_ROOM not equal to 0
-            $message = 'Cannot delete the filled room.';
+            $this->session->set_flashdata('error', 'Cannot delete the filled room.');
         } else {
             // Delete the rooms
             $result = $this->Room_model->delete_room_by_session($kod_sesi);
 
             if ($result) {
-                $message = 'Rooms deleted successfully.';
+                $this->session->set_flashdata('success', 'Rooms deleted successfully.');
             } else {
-                $message = 'Failed to delete rooms.';
+                $this->session->set_flashdata('error', 'Failed to delete rooms.');
             }
         }
 
-        // Display a JavaScript prompt message
-        echo '<script>alert("'.$message.'"); window.location.href="'.base_url('CodeIgniterTraining/index.php/room_generate/index').'";</script>';
-        exit;
-
-        // Always redirect after processing POST data
+        // Redirect to the room generate list page
         redirect(base_url('CodeIgniterTraining/index.php/room_generate/index'));
     }
-
 }
 ?>

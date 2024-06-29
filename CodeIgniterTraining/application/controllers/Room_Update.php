@@ -86,6 +86,7 @@ class Room_update extends CI_Controller
         // Load the view
         $this->load->view('room_update_index', $data);
     }
+
     public function search_room()
     {
         $room_code = $this->input->post('room_code');
@@ -96,7 +97,8 @@ class Room_update extends CI_Controller
     }
 
     // Room_update Controller
-    public function updateRoom() {
+    public function updateRoom()
+    {
         $room_id = $this->input->post('room_id');
         $status_active = $this->input->post('status_active');
     
@@ -104,22 +106,17 @@ class Room_update extends CI_Controller
         $room_data = $this->Room_Model->get_room_by_id($room_id);
         if ($room_data->FILLED_ROOM!= 0 && $status_active == 0) {
             // Cannot update STATUS_ACTIVE to 0 if FILLED_ROOM is not 0
-            $message = 'Cannot update room status to inactive if the room is filled.';
+            $this->session->set_flashdata('error', 'Cannot update room status to inactive if the room is filled.');
         } else {
             if ($this->Room_Model->update_room_status($room_id, $status_active)) {
                 // Success
-                $message = 'Room status updated successfully.';
+                $this->session->set_flashdata('success', 'Room status updated successfully.');
             } else {
                 // Error
-                $message = 'Failed to update room status.';
+                $this->session->set_flashdata('error', 'Failed to update room status.');
             }
         }
     
-        // Display a JavaScript prompt message
-        echo '<script>alert("'.$message.'"); window.location.href="'.base_url('CodeIgniterTraining/index.php/room_update/index').'";</script>';
-        exit;
+        redirect(base_url('CodeIgniterTraining/index.php/room_update/index'));
     }
-
-
-
 }
