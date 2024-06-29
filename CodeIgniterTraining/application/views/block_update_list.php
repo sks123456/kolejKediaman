@@ -36,7 +36,7 @@
                     <?php if ($record->total_filled_room == 0) : ?>
 
                         <td>
-                            <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-kolej="<?= $record->KOLEJ ?>" data-block="<?= $record->BLOCK ?>"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-kolej="<?= $record->KOLEJ ?>" data-block="<?= $record->BLOCK ?>" onclick="return confirm('Confirmation for updating the block active status?')"><i class="fa fa-edit"></i></button>
                         </td>
                     <?php endif ?>
                 </tr>

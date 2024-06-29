@@ -131,7 +131,6 @@ $student_data = $this->session->userdata('student_data');
                         <td>: ${application.MERIT_KOLEJ}</td>
                     </tr>
                 </table>
-                <div id="document-content"></div>
             `;
             detailsContainer.innerHTML = detailsHtml;
             if (application.APPLICATION_UPLOAD_NAME) {

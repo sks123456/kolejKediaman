@@ -57,7 +57,7 @@
                         <?= htmlspecialchars($roomStatus, ENT_QUOTES, 'UTF-8') ?>
                     </td>
                     <td>
-                        <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-room_id="<?= $record->ROOM_CODE ?>" data-status_active="<?= $record->STATUS_ACTIVE ?>">
+                        <button class="btn btn-info btn-sm edit-btn" data-bs-toggle="modal" data-bs-target="#updateModal" data-session="<?= $record->KOD_SESI ?>" data-room_id="<?= $record->ROOM_CODE ?>" data-status_active="<?= $record->STATUS_ACTIVE ?>" onclick="return confirm('Confirmation for updating the room active status?')">
                             <i class="fa fa-edit"></i>
                         </button>
                     </td>

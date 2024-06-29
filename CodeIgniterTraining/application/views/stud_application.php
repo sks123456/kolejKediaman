@@ -113,7 +113,7 @@ $student_data = $this->session->userdata('student_data');
                                                             <h3 class="box-title">Declaration of Acknowledgment</h3>
                                                         </div>
                                                         <div class="box-body">
-                                                            <iframe src="../pengakuan/pengakuan.pdf" width="100%" height="600px"></iframe>
+                                                            <iframe src="../pengakuan/Declaration.pdf" width="100%" height="600px"></iframe>
                                                             <h4>Jumlah Merit</h4>
                                                             <div class="box-body">
                                                                 <table class="table col-md-6">

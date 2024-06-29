@@ -112,20 +112,32 @@ class Room_model extends CI_Model
 
     public function update_room_status($room_id, $status_active)
     {
+        // Determine the status to update based on status_active
+        $status = ($status_active == 0) ? 0 : 1;
+
+        // Prepare data to update
         $data = array(
-            'STATUS_ACTIVE' => $status_active
+            'STATUS_ACTIVE' => $status_active,
+            'ROOM_STATUS' => $status
         );
 
+        // Set WHERE condition
         $this->db->where('ROOM_CODE', $room_id);
+
+        // Perform update operation
         return $this->db->update('kk_room', $data);
     }
 
 
 
+
     public function update_block_status($session, $kolej, $block, $status_active)
     {
+        $status = ($status_active == 0) ? 0 : 1;
+
         $data = array(
-            'STATUS_ACTIVE' => $status_active
+            'STATUS_ACTIVE' => $status_active,
+            'ROOM_STATUS' => $status
         );
 
         $this->db->where('BLOCK', $block);

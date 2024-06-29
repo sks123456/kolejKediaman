@@ -6,9 +6,8 @@ class Room_update extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        error_reporting(0);
         $this->load->model('Room_Model');
-        $this->load->library("session");
+        $this->load->library('session');
         $this->load->helper('url');
     }
 
@@ -104,10 +103,11 @@ class Room_update extends CI_Controller
     
         // Check if FILLED_ROOM is not equal to 0
         $room_data = $this->Room_Model->get_room_by_id($room_id);
-        if ($room_data->FILLED_ROOM!= 0 && $status_active == 0) {
+        if ($room_data->FILLED_ROOM != 0 && $status_active == 0) {
             // Cannot update STATUS_ACTIVE to 0 if FILLED_ROOM is not 0
             $this->session->set_flashdata('error', 'Cannot update room status to inactive if the room is filled.');
         } else {
+            // Update room status
             if ($this->Room_Model->update_room_status($room_id, $status_active)) {
                 // Success
                 $this->session->set_flashdata('success', 'Room status updated successfully.');
@@ -120,3 +120,4 @@ class Room_update extends CI_Controller
         redirect(base_url('CodeIgniterTraining/index.php/room_update/index'));
     }
 }
+?>
