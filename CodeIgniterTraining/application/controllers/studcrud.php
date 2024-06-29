@@ -47,7 +47,7 @@ class studcrud extends CI_Controller
                 // Output the decoded BLOB data as a PDF
                 echo $blobData;
             } else {
-                echo "Decoded BLOB data is empty or invalid.";
+                echo "There are no current active Session to register";
             }
         } else {
             echo "No active session found.";

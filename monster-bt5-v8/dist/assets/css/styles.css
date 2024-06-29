@@ -15819,7 +15819,7 @@ ul {
     height: calc(100vh - 50px);
   }
   [data-layout=vertical] body[data-sidebartype=mini-sidebar] .left-sidebar .brand-logo {
-    padding: 0 12px;
+    padding: 0 5px;
   }
   [data-layout=vertical] body[data-sidebartype=mini-sidebar] .left-sidebar .user-profile .profile-img {
     width: 35px;

@@ -17,7 +17,7 @@ $student_data = $this->session->userdata('student_data');
       </ul>
 
       <div class="d-block d-lg-none">
-        <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/light-logo.svg" class="" width="180" alt="" />
+        <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/fypkk_logo-light.png" class="" width="180" alt="" />
       </div>
       <a class="navbar-toggler border-0 text-white nav-icon-hover" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <iconify-icon icon="solar:menu-dots-bold" class="fs-7"></iconify-icon>
