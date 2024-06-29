@@ -119,7 +119,7 @@
                       <!-- <div class="round-overlap sales"><i class="mdi mdi-cart"></i></div> -->
                     </div>
                     <div class="col-md-5 align-self-center">
-                      <h1 class="mb-0"><?=$highest_gender?><small>%</small></h1>
+                      <h1 class="mb-0"><?=$highest_gender?><small>%</small> <?=$highest_gender2?></h1>
                       <h6 class="text-muted"><?=$applicationCount?> Total Application</h6>
                       
                     </div>
