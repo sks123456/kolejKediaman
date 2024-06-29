@@ -7,6 +7,14 @@ class Session_model extends CI_Model
         return $this->db->count_all('kk_session');
     }
 
+    public function getAllSessions()
+    {
+        $this->db->select('*');
+        $this->db->from('kk_session');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function get_all_session($limit, $offset)
     {
         // query to get paginated session records with a join
@@ -100,18 +108,18 @@ class Session_model extends CI_Model
                 $sem_peringkat = 'SARJANA MUDA';
             }
         }
-        
+
         // Perform the query with the join and condition
         $query = $this->db
             ->select('kk_session.*, academic_session.*')
             ->from('kk_session')
             ->join('academic_session', 'kk_session.ACADEMIC_ID = academic_session.SEM_KOD_SESISEM')
             ->where('kk_session.SESSION_STATUS', 'Active');
-        
+
         if ($sem != null) {
             $query->where('academic_session.SEM_PERINGKAT', $sem_peringkat);
         }
-        
+
         $result = $query->get();
         return $result;
     }

@@ -169,44 +169,44 @@
           </a>
           <ul aria-expanded="false" class="collapse first-level">
           <li class="sidebar-item">
-              <a href="<?php echo base_url('CodeIgniterTraining/index.php/report/query_list');?>" class="sidebar-link">
+              <a href="<?php echo base_url('CodeIgniterTraining/index.php/reports/overall');?>" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">Overall Report</span>
               </a>
             </li>  
           <li class="sidebar-item">
-              <a href="<?php echo base_url('CodeIgniterTraining/index.php/allocation_list');?>" class="sidebar-link">
+              <a href="<?php echo base_url('CodeIgniterTraining/index.php/reports/room_allocation');?>" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">List of Room Allocation</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-input-groups.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
+            <a href="<?php echo base_url('CodeIgniterTraining/index.php/reports/applicants_without_room');?>" class="sidebar-link">
+            <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">List of Applicant without Room</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-input-grid.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
+            <a href="<?php echo base_url('CodeIgniterTraining/index.php/reports/rooms');?>" class="sidebar-link">
+            <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">List of Rooms</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-checkbox-radio.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
+            <a href="<?php echo base_url('CodeIgniterTraining/index.php/reports/channel_gender_stats');?>" class="sidebar-link">
+            <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">Channels or Gender Statistics</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-bootstrap-touchspin.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
+            <a href="<?php echo base_url('CodeIgniterTraining/index.php/reports/vacant_rooms');?>" class="sidebar-link">
+            <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">Vacant Room Statistics</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-bootstrap-switch.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
+            <a href="<?php echo base_url('CodeIgniterTraining/index.php/reports/validation_stats');?>" class="sidebar-link">
+            <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">Validation Status Statistics</span>
               </a>
             </li>
