@@ -169,63 +169,45 @@
           </a>
           <ul aria-expanded="false" class="collapse first-level">
           <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-inputs.html" class="sidebar-link">
+              <a href="<?php echo base_url('CodeIgniterTraining/index.php/report/query_list');?>" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">Overall Report</span>
               </a>
             </li>  
           <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-inputs.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
-                <span class="hide-menu">List of Applications</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-input-groups.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
-                <span class="hide-menu">List of Appeal Applications</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-input-grid.html" class="sidebar-link">
-                <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
-                <span class="hide-menu">LIst of Applications Categorized by Status</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-checkbox-radio.html" class="sidebar-link">
+              <a href="<?php echo base_url('CodeIgniterTraining/index.php/allocation_list');?>" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">List of Room Allocation</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-bootstrap-touchspin.html" class="sidebar-link">
+              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-input-groups.html" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">List of Applicant without Room</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-bootstrap-switch.html" class="sidebar-link">
+              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-input-grid.html" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
                 <span class="hide-menu">List of Rooms</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-select2.html" class="sidebar-link">
+              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-checkbox-radio.html" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
-                <span class="hide-menu">Channels or Gender</span>
+                <span class="hide-menu">Channels or Gender Statistics</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-dual-listbox.html" class="sidebar-link">
+              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-bootstrap-touchspin.html" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
-                <span class="hide-menu">Vacant Room</span>
+                <span class="hide-menu">Vacant Room Statistics</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-dual-listbox.html" class="sidebar-link">
+              <a href="<?php echo base_url() ?>monster-bt5-v8/dist/main/form-bootstrap-switch.html" class="sidebar-link">
                 <iconify-icon icon="solar:stop-circle-line-duotone" class="sidebar-icon"></iconify-icon>
-                <span class="hide-menu">Validation Status</span>
+                <span class="hide-menu">Validation Status Statistics</span>
               </a>
             </li>
           </ul>

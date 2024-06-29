@@ -41,6 +41,7 @@ class Room_model extends CI_Model
         $this->db->from('kk_room');
         $this->db->where('CAPACITY', $room_capacity);
         $this->db->where('KOD_SESI', $academic_id);
+        $this->db->where('STATUS_ACTIVE = 1');
         $this->db->where('FILLED_ROOM < CAPACITY');
         if (!empty($religion)) {
             $this->db->where('ROOM_TYPE', $religion);

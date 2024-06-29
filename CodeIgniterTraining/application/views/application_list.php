@@ -1,4 +1,4 @@
-<table id="senarai_session" class="table table-bordered table-hover" style="width:fit-content;">
+<table id="senarai_session" class="table table-bordered" style="width:fit-content;">
     <thead>
         <tr class="text-center">
             <th onclick="sortTable(0)">Status <span class="sort-icon">&uarr;</span></th>

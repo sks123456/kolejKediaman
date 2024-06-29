@@ -17,12 +17,6 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>monster-bt5-v8/dist/assets/libs/owl.carousel/dist/assets/owl.carousel.min.css" />
 </head>
 
-<style>
-    .text-center {
-        text-align: center;
-    }
-</style>
-
 <body>
   <!-- Preloader -->
   <div class="preloader">
@@ -81,7 +75,7 @@
                 <div class="card-body p-4">
                   <?php if (!empty($students)) : ?>
                     <div class="table-responsive mb-4">
-                      <table id="example2" class="table border text-nowrap mb-0 align-middle">
+                      <table class="table border text-nowrap mb-0 align-middle">
                         <thead class="text-center">
                           <tr>
                             <th>Matric ID</th>
