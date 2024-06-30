@@ -74,6 +74,7 @@ class Application_model extends CI_Model
         $data = array(
             'APPLICATION_STATUS' => $status
         );
+        $this->db->set("VALIDATE_BY", date('Y-m-d H:i:s')); // Set submitted_by as current datetime
         $this->db->where('APPLICATION_ID', $application_id);
         $this->db->update('application', $data);
     }

@@ -20,14 +20,38 @@ class Reports extends CI_Controller
         $this->load->view('reports/overall', $data);
     }
 
+    public function filter() {
+        // Get filter parameters from the form
+        $session_selected = $this->input->post('session_selected');
+        $block = $this->input->post('block');
+        $gender = $this->input->post('gender');
+        $room_type = $this->input->post('room_type');
+    
+        // Pass the filter parameters to the model
+        $data['room_allocations'] = $this->Report_model->getFilteredRoomAllocations($session_selected, $block, $gender, $room_type);
+        $data['listBlock'] = $this->Report_model->getAllRoomType();
+        $data['sessions'] = $this->Session_model->getAllSessions();
+    
+        // Pass the filter parameters back to the view
+        $data['session_selected'] = $session_selected;
+        $data['block'] = $block;
+        $data['gender'] = $gender;
+        $data['room_type'] = $room_type;
+    
+        // Load the view with the filtered data
+        $this->load->view('reports/room_allocation', $data);
+    }
+    
     public function room_allocation()
     {
         $session_id = $this->input->get('session_id');
+        $data['listBlock']= $this->Report_model->getAllRoomType();
         $data['room_allocations'] = $this->Report_model->getRoomAllocations($session_id);
         $data['sessions'] = $this->Session_model->getAllSessions();
         $this->load->view('reports/room_allocation', $data);
     }
 
+    
     
     // public function download_excel() {
     //     $session_id = $this->input->post('session_id');
