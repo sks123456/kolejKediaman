@@ -35,13 +35,13 @@
                 <div class="container-fluid">
                     <div class="d-md-flex align-items-center justify-content-between mb-7">
                         <div class="mb-4 mb-md-0">
-                            <h4 class="fs-6 mb-0">Room Report</h4>
+                            <h4 class="fs-6 mb-0">Channel Gender Statistics</h4>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0">
                                     <li class="breadcrumb-item">
                                         <a class="text-muted text-decoration-none" href="http://localhost/FYP_kk/CodeIgniterTraining/index.php/">Reports</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Room Report</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Channel Gender Statistics</li>
                                 </ol>
                             </nav>
                         </div>
@@ -54,82 +54,91 @@
                             <div class="card w-100 position-relative overflow-hidden">
                                 <div class="px-4 py-3 border-bottom">
                                     <div class="d-flex align-items-center">
-                                        <h4 class="card-title mb-0">List of Rooms</h4>
-                                        <div class="ms-auto">
-                                            <div class="row align-items-center">
-                                                <div class="col-md-6">
-                                                    <form class="app-search position-relative" action="" method="get">
-                                                        <select class="form-control rounded-pill border-0 shadow" style="width: max-content;" name="session_id">
-                                                            <option value="">Select Session</option>
-                                                            <?php foreach ($sessions as $session) : ?>
-                                                                <option value="<?php echo $session->SESSION_ID; ?>" <?php echo set_select('session_id', $session->SESSION_ID, isset($_GET['session_id']) && $_GET['session_id'] == $session->SESSION_ID); ?>>
-                                                                    <?php echo $session->SESSION_NAME; ?>
-                                                                </option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                </div>
-                                                <div class="col-md-6 d-flex justify-content-end">
-                                                    <button type="submit" class="srh-btn btn" style="border: none; background: none; cursor: pointer;">
-                                                        <iconify-icon icon="solar:magnifer-linear" class="me-2"></iconify-icon>
-                                                    </button>
-                                                    <!-- <form action="<?php echo base_url('CodeIgniterTraining/index.php/reports/download_excel'); ?>" method="post" style="margin-left: 10px;">
-                                                        <input type="hidden" name="session_id" value="<?php echo isset($_GET['session_id']) ? $_GET['session_id'] : ''; ?>">
-                                                        <button type="submit" class="btn btn-primary">Download Excel</button>
-                                                    </form> -->
-                                                </div>
+                                        <h4 class="me-3 mb-0">Channel Gender Statistics</h4>
+                                        <button class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</button>
+                                    </div>
+                                </div>
+
+                                <!-- Filter Form Modal -->
+                                <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="filterModalLabel">Filter Form</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/reports/channel_gender_stats" method="post" enctype="multipart/form-data">
+                                                    <div class="container">
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="session_selected">Permohonan:</label>
+                                                                    <select class="form-control" name="session_selected">
+                                                                        <option value="">-- Select Session --</option>
+                                                                        <?php foreach ($sessions as $session) : ?>
+                                                                            <option value="<?php echo $session->SESSION_ID; ?>" <?php echo set_select('session_selected', $session->SESSION_ID, isset($session_selected) && $session_selected == $session->SESSION_ID); ?>>
+                                                                                <?php echo $session->SESSION_NAME; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="status">Status:</label>
+                                                                    <select class="form-control" name="status" id="status">
+                                                                        <option value="">-- Select Status --</option>
+                                                                        <?php foreach ($listStatus as $statusItem) : ?>
+                                                                            <option value="<?= $statusItem->APPLICATION_STATUS; ?>" <?php echo set_select('status', $statusItem->APPLICATION_STATUS, isset($status) && $status == $statusItem->APPLICATION_STATUS); ?>>
+                                                                                <?= $statusItem->APPLICATION_STATUS; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <button type="submit" class="btn btn-primary pull-right">Find</button>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <button type="reset" action="<?= base_url() ?>CodeIgniterTraining/index.php/reports/Overall" class="btn btn-secondary pull-right">Reset</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="card-body p-2">
+                                <div class="card-body p-4">
                                     <div class="table-responsive mb-4">
                                         <table class="table border text-nowrap mb-0 align-middle">
                                             <thead class="text-center">
-                                                <tr class="text-center">
+                                                <tr>
                                                     <th>No.</th>
-                                                    <th>Room Code</th>
-                                                    <th>Room Type</th>
-                                                    <th>Room GENDER</th>
-                                                    <th>KOLEJ</th>
-                                                    <th>Block</th>
-                                                    <th>Room Level</th>
-                                                    <th>Room Description</th>
-                                                    <th>CAPACITY</th>
-                                                    <th>FILLED_ROOM</th>
-                                                    <th>Room Status</th>
+                                                    <th>CHANNEL NAME</th>
+                                                    <th>MALE</th>
+                                                    <th>FEMALE</th>
+                                                    <th>UNKNOWN GENDER</th>
+                                                    <th>TOTAL APPLICATION</th>
+
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
                                                 <?php
                                                 $counter = 1; // Initialize the counter variable
-                                                foreach ($rooms as $rooms) : ?>
+                                                foreach ($stats as $stat) : ?>
                                                     <tr>
                                                         <td><?php echo $counter++; ?></td> <!-- Display and increment the counter -->
-                                                        <td><?= $rooms->ROOM_CODE ?></td>
-                                                        <td><?= $rooms->ROOM_TYPE ?></td>
-                                                        <td><?= $rooms->ROOM_GENDER ?></td>
-                                                        <td><?= $rooms->KOLEJ ?></td>
-                                                        <td><?= $rooms->BLOCK ?></td>
-                                                        <td><?= $rooms->ROOM_LEVEL ?></td>
-                                                        <td><?= $rooms->ROOM_DESC ?></td>
-                                                        <td><?= $rooms->CAPACITY ?></td>
-                                                        <td><?= $rooms->FILLED_ROOM ?></td>
-                                                        <td style="background-color <?php
-                                                                                    if ($rooms->ROOM_STATUS === '2') {
-                                                                                        $statusClass =  'badge rounded-pill bg-danger-subtle text-danger fw-semibold fs-2';
-                                                                                        $roomStatus = "Full";
-                                                                                    } elseif ($rooms->ROOM_STATUS === '1') {
-                                                                                        $statusClass = 'badge rounded-pill bg-success-subtle text-success fw-semibold fs-2';
-                                                                                        $roomStatus = "Available";
-                                                                                    } else {
-                                                                                        $statusClass = 'badge rounded-pill bg-warning-subtle text-warning fw-semibold fs-2';
-                                                                                        $roomStatus = "Not Available";
-                                                                                    }
-                                                                                    ?>;" text-align: center; class="<?= $statusClass ?>">
-                                                            <?= $roomStatus ?>
-                                                        </td>
+                                                        <td><?php echo $stat->CHANNEL_NAME; ?></td>
+                                                        <td><?php echo $stat->MALE; ?></td>
+                                                        <td><?php echo $stat->FEMALE; ?></td>
+                                                        <td><?php echo $stat->UNKNOWN_GENDER; ?></td>
+                                                        <td><?php echo $stat->TOTAL_APPLICATION; ?></td>
                                                     </tr>
                                                 <?php endforeach; ?>
                                             </tbody>
@@ -142,6 +151,13 @@
 
                 </div>
             </div>
+            <script>
+                document.querySelector('.btn-secondary').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = '<?= base_url() ?>CodeIgniterTraining/index.php/reports/channel_gender_stats';
+                });
+            </script>
+
             <script>
                 function handleColorTheme(e) {
                     $("html").attr("data-color-theme", e);

@@ -158,9 +158,12 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="text-center">
-                                                <?php foreach ($applications as $application) : ?>
+                                                <?php
+                                                $counter = 1; // Initialize the counter variable
+
+                                                foreach ($applications as $application) : ?>
                                                     <tr>
-                                                        <td><?php echo $application->APPLICATION_ID; ?></td>
+                                                        <td><?php echo $counter++; ?></td> <!-- Display and increment the counter -->
                                                         <td><?php echo $application->STUD_MATRIC; ?></td>
                                                         <td><?php echo $application->NAMA_PELAJAR; ?></td>
                                                         <td><?= $application->CHANNEL_NAME ?></td>

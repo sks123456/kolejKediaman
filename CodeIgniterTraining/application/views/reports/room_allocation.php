@@ -54,7 +54,7 @@
                             <div class="card w-100 position-relative overflow-hidden">
                                 <div class="px-4 py-3 border-bottom">
                                     <div class="d-flex align-items-center">
-                                        <h4 class="me-3 mb-0">List Of Application</h4>
+                                        <h4 class="me-3 mb-0">List Of Room Allocation</h4>
                                         <button class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</button>
                                     </div>
                                 </div>

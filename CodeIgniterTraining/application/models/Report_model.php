@@ -69,7 +69,7 @@ class Report_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     public function getFilteredRoomAllocations($session_selected, $block, $gender, $room_type, $channel)
     {
         $this->db->select('*');
@@ -146,13 +146,26 @@ class Report_model extends CI_Model
         return $query->result();
     }
 
-    public function getChannelGenderStats($session_id = null)
+    public function getChannelGenderStats($session_id = null, $status = null)
     {
-        $this->db->select('*');
-        $this->db->from('channel_gender_stats');
+        $this->db->select('c.CHANNEL_NAME');
+        $this->db->select('SUM(CASE WHEN s.GENDER = "M" THEN 1 ELSE 0 END) AS MALE');
+        $this->db->select('SUM(CASE WHEN s.GENDER = "F" THEN 1 ELSE 0 END) AS FEMALE');
+        $this->db->select('SUM(CASE WHEN s.GENDER IS NULL THEN 1 ELSE 0 END) AS UNKNOWN_GENDER');
+        $this->db->select('COUNT(*) AS TOTAL_APPLICATION');
+
+        $this->db->from('application a');
+        $this->db->join('kk_channel c', 'a.CHANNEL_ID = c.CHANNEL_ID');
+        $this->db->join('student_profile s', 'a.STUD_MATRIC = s.STUD_MATRIC');
+        
         if ($session_id) {
-            $this->db->where('session_id', $session_id);
+            $this->db->where('a.SESSION_ID', $session_id);
         }
+        if ($status) {
+            $this->db->where('a.APPLICATION_STATUS', $status);
+        }
+        $this->db->group_by('c.CHANNEL_NAME');
+
         $query = $this->db->get();
         return $query->result();
     }

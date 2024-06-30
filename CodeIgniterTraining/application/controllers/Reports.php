@@ -123,9 +123,12 @@ class Reports extends CI_Controller
 
     public function channel_gender_stats()
     {
-        $session_id = $this->input->get('session_id');
-        $data['stats'] = $this->Report_model->getChannelGenderStats($session_id);
+        $session_id = $this->input->post('session_selected');
+        $status = $this->input->post('status');
+        $data['stats'] = $this->Report_model->getChannelGenderStats($session_id,$status);
         $data['sessions'] = $this->Session_model->getAllSessions();
+        $data['listStatus'] = $this->Report_model->getAllApplicationStatus();
+
         $this->load->view('reports/channel_gender_stats', $data);
     }
 
