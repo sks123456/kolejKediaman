@@ -12,6 +12,7 @@ public function getAllApplications($session_id = null) {
     $query = $this->db->get();
     return $query->result();
 }
+
 public function getAllRoomType(){
     $this->db->select('*');
     $this->db->from('kk_room');
@@ -19,13 +20,20 @@ public function getAllRoomType(){
     $query = $this->db->get();
     return $query->result();
 }
+public function getAllChannels(){
+    $this->db->select('*');
+    $this->db->from('kk_channel');
+    $query = $this->db->get();
+    return $query->result();
+}
 
-public function getFilteredRoomAllocations($session_selected, $block, $gender, $room_type) {
+public function getFilteredRoomAllocations($session_selected, $block, $gender, $room_type, $channel) {
     $this->db->select('*');
     $this->db->from('kk_room_allocation');
     $this->db->join('application', 'kk_room_allocation.application_id = application.application_id');
     $this->db->join('kk_room', 'kk_room_allocation.room_code = kk_room.room_code');
     $this->db->join('kk_session', 'application.session_id = kk_session.SESSION_ID');
+    $this->db->join('kk_channel', 'application.channel_id = kk_channel.CHANNEL_ID');
     $this->db->join('student_profile', 'application.STUD_MATRIC = student_profile.STUD_MATRIC');
 
     // Apply filters if they are set
@@ -38,6 +46,9 @@ public function getFilteredRoomAllocations($session_selected, $block, $gender, $
    
     if (!empty($gender)) {
         $this->db->where('kk_room.room_gender', $gender);
+    }
+    if (!empty($channel)) {
+        $this->db->where('application.channel_id', $channel);
     }
     if (!empty($room_type)) {
         if ($room_type == 'Muslim') {
@@ -57,6 +68,7 @@ public function getRoomAllocations($session_id = null) {
     $this->db->join('application', 'kk_room_allocation.application_id = application.application_id');
     $this->db->join('kk_room', 'kk_room_allocation.room_code = kk_room.room_code');
     $this->db->join('kk_session', 'application.session_id = kk_session.SESSION_ID');
+    $this->db->join('kk_channel', 'application.channel_id = kk_channel.CHANNEL_ID');
     $this->db->join('student_profile', 'application.STUD_MATRIC = student_profile.STUD_MATRIC');
 
     if ($session_id) {

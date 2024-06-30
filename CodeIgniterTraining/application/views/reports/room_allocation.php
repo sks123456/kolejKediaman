@@ -122,6 +122,21 @@
                                                         </div>
                                                     </div>
                                                     <div class="row mb-3">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="gender">Channel:</label>
+                                                                <select class="form-control" name="channel" id="channel">
+                                                                    <option value="">-- Select Channel --</option>
+                                                                    <?php foreach ($listChannel as $channel) : ?>
+                                                                        <option value="<?= $channel->CHANNEL_ID; ?>" <?php echo set_select('channel', $channel->CHANNEL_ID, isset($channel) && $channel == $channel->CHANNEL_ID); ?>>
+                                                                            <?= $channel->CHANNEL_NAME; ?>
+                                                                        </option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
                                                         <div class="col-md-12">
                                                             <button type="submit" class="btn btn-primary pull-right">Find</button>
                                                         </div>
@@ -143,7 +158,8 @@
                                         <th>No.</th>
                                         <th>Student Name</th>
                                         <th>Gender</th>
-                                        <th>Religion</th>
+                                        <th>Religion</th>                                        
+                                        <th>Channel</th>
                                         <th>Validate Date</th>
                                         <th>Room Codes</th>
                                         <th>College</th>
@@ -161,6 +177,7 @@
                                             <td><?php echo $room_allocation->NAMA_PELAJAR; ?></td>
                                             <td><?php echo $room_allocation->GENDER; ?></td>
                                             <td><?php echo $room_allocation->RELIGION; ?></td>
+                                            <td><?php echo $room_allocation->CHANNEL_NAME; ?></td>
                                             <td><?php echo $room_allocation->VALIDATE_BY; ?></td>
                                             <td><?php echo $room_allocation->ROOM_CODE; ?></td>
                                             <td><?php echo $room_allocation->KOLEJ; ?></td>
