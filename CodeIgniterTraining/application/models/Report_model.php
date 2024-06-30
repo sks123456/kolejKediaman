@@ -132,7 +132,7 @@ class Report_model extends CI_Model
         $this->db->join('student_profile', 'application.STUD_MATRIC = student_profile.STUD_MATRIC');
 
         if ($session_id) {
-            $this->db->where('session_id', $session_id);
+            $this->db->where('application.session_id', $session_id);
         }
 
         $this->db->where('application.APPLICATION_STATUS', 'APPROVED');
