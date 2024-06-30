@@ -157,7 +157,7 @@ class Report_model extends CI_Model
         $this->db->from('application a');
         $this->db->join('kk_channel c', 'a.CHANNEL_ID = c.CHANNEL_ID');
         $this->db->join('student_profile s', 'a.STUD_MATRIC = s.STUD_MATRIC');
-
+        
         if ($session_id) {
             $this->db->where('a.SESSION_ID', $session_id);
         }
@@ -183,48 +183,12 @@ class Report_model extends CI_Model
 
     public function getValidationStats($session_id = null)
     {
-        // Load the database library
-        $this->load->database();
-
-        // List all possible statuses
-        $possible_statuses = [
-            'Have not Validate',
-            'Validated',
-            'Staff Rejected',
-            'Waiting Staff Approve',
-            'Student Rejected'
-        ];
-
-        // Create an array to store the results
-        $results = [];
-
-        // Loop through each status and count the corresponding records
-        foreach ($possible_statuses as $status) {
-            // Select query with subquery simulation
-            $this->db->select("
-        '$status' AS VALIDATION_STATUS,
-        COALESCE(SUM(CASE WHEN s.GENDER = 'M' THEN 1 ELSE 0 END), 0) AS MALE,
-        COALESCE(SUM(CASE WHEN s.GENDER = 'F' THEN 1 ELSE 0 END), 0) AS FEMALE,
-        COALESCE(SUM(CASE WHEN s.GENDER = 'NULL' THEN 1 ELSE 0 END), 0) AS UNDEFINED_GENDER,
-        COALESCE(COUNT(a.STUD_MATRIC), 0) AS TOTAL
-    ", FALSE);
-            $this->db->from('application a');
-            $this->db->join('student_profile s', 'a.STUD_MATRIC = s.STUD_MATRIC', 'left');
-            $this->db->where("(
-        (a.APPLICATION_STATUS = 'Approved' AND '$status' = 'Have not Validate') OR
-        (a.APPLICATION_STATUS = 'complete' AND '$status' = 'Validated') OR
-        (a.APPLICATION_STATUS = 'rejected' AND '$status' = 'Staff Rejected') OR
-        (a.APPLICATION_STATUS = 'SUBMITTED' AND '$status' = 'Waiting Staff Approve') OR
-        (a.APPLICATION_STATUS = 'NO-ACCEPT' AND '$status' = 'Student Rejected')
-    )", NULL, FALSE);
-
-            if ($session_id !== null) {
-                $this->db->where('a.SESSION_ID', $session_id);
-            }
-            $query = $this->db->get();
-            $results[] = $query->row_array();
+        $this->db->select('*');
+        $this->db->from('validation_stats');
+        if ($session_id) {
+            $this->db->where('session_id', $session_id);
         }
-
-        return $results;
+        $query = $this->db->get();
+        return $query->result();
     }
 }
