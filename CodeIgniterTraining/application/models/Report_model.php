@@ -126,10 +126,17 @@ class Report_model extends CI_Model
     public function getApplicantsWithoutRoom($session_id = null)
     {
         $this->db->select('*');
-        $this->db->from('applicants_without_room');
+        $this->db->from('application');
+        $this->db->join('kk_session', 'application.session_id = kk_session.SESSION_ID');
+        $this->db->join('kk_channel', 'application.channel_id = kk_channel.CHANNEL_ID');
+        $this->db->join('student_profile', 'application.STUD_MATRIC = student_profile.STUD_MATRIC');
+
         if ($session_id) {
             $this->db->where('session_id', $session_id);
         }
+
+        $this->db->where('application.APPLICATION_STATUS', 'APPROVED');
+
         $query = $this->db->get();
         return $query->result();
     }
