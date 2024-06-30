@@ -180,7 +180,7 @@ class cetak extends CI_Controller
             // If it's not a POST request, return an error
             echo json_encode(array('success' => false, 'error' => 'Invalid request method.'));
         }
-        redirect(base_url('CodeIgniterTraining/index.php/student'));
+        redirect(base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan'));
     }
     
 }

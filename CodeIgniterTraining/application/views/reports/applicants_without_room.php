@@ -90,6 +90,7 @@
                                             <thead class="text-center">
                                                 <tr>
                                                     <th>No.</th>
+                                                    <th>Matric No.</th>
                                                     <th>Student Name</th>
                                                     <th>Gender</th>
                                                     <th>Religion</th>
@@ -105,6 +106,7 @@
                                                 foreach ($applicants as $applicant) : ?>
                                                     <tr>
                                                         <td class="text-center"><?php echo $counter++; ?></td> <!-- Display and increment the counter -->
+                                                        <td class="text-center"><?php echo $applicant->STUD_MATRIC; ?></td>
                                                         <td><?php echo $applicant->NAMA_PELAJAR; ?></td>
                                                         <td class="text-center"><?php echo $applicant->GENDER; ?></td>
                                                         <td class="text-center"><?php echo $applicant->RELIGION; ?></td>

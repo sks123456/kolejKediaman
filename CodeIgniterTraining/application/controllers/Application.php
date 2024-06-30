@@ -192,7 +192,7 @@ class Application extends CI_Controller
         } else {
             // Handle the error appropriately (e.g., show a flash message or log the error)
             $this->application_model->submit_application(null, null);
-            redirect(base_url('CodeIgniterTraining/index.php/cetak/index/'));
+            redirect(base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan'));
         }
     }
 
