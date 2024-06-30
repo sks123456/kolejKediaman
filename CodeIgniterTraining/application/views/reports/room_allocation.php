@@ -58,143 +58,140 @@
                                         <button class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</button>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- Filter Form Modal -->
-                            <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="filterModalLabel">Filter Form</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <!-- Filter Form Modal -->
+                                <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="filterModalLabel">Filter Form</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/reports/filter" method="post" enctype="multipart/form-data">
+                                                    <div class="container">
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="session_selected">Permohonan:</label>
+                                                                    <select class="form-control" name="session_selected">
+                                                                        <option value="">-- Select Session --</option>
+                                                                        <?php foreach ($sessions as $session) : ?>
+                                                                            <option value="<?php echo $session->SESSION_ID; ?>" <?php echo set_select('session_selected', $session->SESSION_ID, isset($session_selected) && $session_selected == $session->SESSION_ID); ?>>
+                                                                                <?php echo $session->SESSION_NAME; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="status">Block:</label>
+                                                                    <select class="form-control" name="block" id="block">
+                                                                        <option value="">-- Select Block --</option>
+                                                                        <?php foreach ($listBlock as $blockItem) : ?>
+                                                                            <option value="<?= $blockItem->BLOCK; ?>" <?php echo set_select('block', $blockItem->BLOCK, isset($block) && $block == $blockItem->BLOCK); ?>>
+                                                                                <?= $blockItem->BLOCK; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="gender">Gender:</label>
+                                                                    <select class="form-control" name="gender" id="gender">
+                                                                        <option value="">-- Select Gender --</option>
+                                                                        <option value="m" <?php echo set_select('gender', 'm', isset($gender) && $gender == 'm'); ?>>Male</option>
+                                                                        <option value="f" <?php echo set_select('gender', 'f', isset($gender) && $gender == 'f'); ?>>Female</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="room_type">Religion:</label>
+                                                                    <select class="form-control" name="room_type" id="room_type">
+                                                                        <option value="">-- Select Religion --</option>
+                                                                        <option value="Muslim" <?php echo set_select('room_type', 'Muslim', isset($room_type) && $room_type == 'Muslim'); ?>>Room for Muslim</option>
+                                                                        <option value="Others" <?php echo set_select('room_type', 'Others', isset($room_type) && $room_type == 'Others'); ?>>Room for non-Muslim</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="gender">Channel:</label>
+                                                                    <select class="form-control" name="channel" id="channel">
+                                                                        <option value="">-- Select Channel --</option>
+                                                                        <?php foreach ($listChannel as $channel) : ?>
+                                                                            <option value="<?= $channel->CHANNEL_ID; ?>" <?php echo set_select('channel', $channel->CHANNEL_ID, isset($channel) && $channel == $channel->CHANNEL_ID); ?>>
+                                                                                <?= $channel->CHANNEL_NAME; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-12">
+                                                                <button type="submit" class="btn btn-primary pull-right">Find</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                            <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/reports/filter" method="post" enctype="multipart/form-data">
-                                                <div class="container">
-                                                    <div class="row mb-3">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="session_selected">Permohonan:</label>
-                                                                <select class="form-control" name="session_selected">
-                                                                    <option value="">-- Select Session --</option>
-                                                                    <?php foreach ($sessions as $session) : ?>
-                                                                        <option value="<?php echo $session->SESSION_ID; ?>" <?php echo set_select('session_selected', $session->SESSION_ID, isset($session_selected) && $session_selected == $session->SESSION_ID); ?>>
-                                                                            <?php echo $session->SESSION_NAME; ?>
-                                                                        </option>
-                                                                    <?php endforeach; ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="status">Block:</label>
-                                                                <select class="form-control" name="block" id="block">
-                                                                    <option value="">-- Select Block --</option>
-                                                                    <?php foreach ($listBlock as $blockItem) : ?>
-                                                                        <option value="<?= $blockItem->BLOCK; ?>" <?php echo set_select('block', $blockItem->BLOCK, isset($block) && $block == $blockItem->BLOCK); ?>>
-                                                                            <?= $blockItem->BLOCK; ?>
-                                                                        </option>
-                                                                    <?php endforeach; ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-3">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="gender">Gender:</label>
-                                                                <select class="form-control" name="gender" id="gender">
-                                                                    <option value="">-- Select Gender --</option>
-                                                                    <option value="m" <?php echo set_select('gender', 'm', isset($gender) && $gender == 'm'); ?>>Male</option>
-                                                                    <option value="f" <?php echo set_select('gender', 'f', isset($gender) && $gender == 'f'); ?>>Female</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="room_type">Religion:</label>
-                                                                <select class="form-control" name="room_type" id="room_type">
-                                                                    <option value="">-- Select Religion --</option>
-                                                                    <option value="Muslim" <?php echo set_select('room_type', 'Muslim', isset($room_type) && $room_type == 'Muslim'); ?>>Room for Muslim</option>
-                                                                    <option value="Others" <?php echo set_select('room_type', 'Others', isset($room_type) && $room_type == 'Others'); ?>>Room for non-Muslim</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-3">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label for="gender">Channel:</label>
-                                                                <select class="form-control" name="channel" id="channel">
-                                                                    <option value="">-- Select Channel --</option>
-                                                                    <?php foreach ($listChannel as $channel) : ?>
-                                                                        <option value="<?= $channel->CHANNEL_ID; ?>" <?php echo set_select('channel', $channel->CHANNEL_ID, isset($channel) && $channel == $channel->CHANNEL_ID); ?>>
-                                                                            <?= $channel->CHANNEL_NAME; ?>
-                                                                        </option>
-                                                                    <?php endforeach; ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-3">
-                                                        <div class="col-md-12">
-                                                            <button type="submit" class="btn btn-primary pull-right">Find</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body p-4">
+                                    <div class="table-responsive mb-4">
+                                        <table class="table border text-nowrap mb-0 align-middle">
+                                            <thead class="text-center">
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Student Name</th>
+                                                    <th>Gender</th>
+                                                    <th>Religion</th>
+                                                    <th>Channel</th>
+                                                    <th>Validate Date</th>
+                                                    <th>Room Codes</th>
+                                                    <th>College</th>
+                                                    <th>Block</th>
+
+                                                    <!-- Add more columns as needed -->
+                                                </tr>
+                                            </thead>
+                                            <tbody class="text-center">
+                                                <?php
+                                                $counter = 1; // Initialize the counter variable
+                                                foreach ($room_allocations as $room_allocation) : ?>
+                                                    <tr>
+                                                        <td><?php echo $counter++; ?></td> <!-- Display and increment the counter -->
+                                                        <td><?php echo $room_allocation->NAMA_PELAJAR; ?></td>
+                                                        <td><?php echo $room_allocation->GENDER; ?></td>
+                                                        <td><?php echo $room_allocation->RELIGION; ?></td>
+                                                        <td><?php echo $room_allocation->CHANNEL_NAME; ?></td>
+                                                        <td><?php echo $room_allocation->VALIDATE_BY; ?></td>
+                                                        <td><?php echo $room_allocation->ROOM_CODE; ?></td>
+                                                        <td><?php echo $room_allocation->KOLEJ; ?></td>
+                                                        <td><?php echo $room_allocation->BLOCK; ?></td>
+
+                                                        <!-- Add more columns as needed -->
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="card-body p-4">
-                        <div class="table-responsive mb-4">
-                            <table class="table border text-nowrap mb-0 align-middle">
-                                <thead class="text-center">
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Student Name</th>
-                                        <th>Gender</th>
-                                        <th>Religion</th>                                        
-                                        <th>Channel</th>
-                                        <th>Validate Date</th>
-                                        <th>Room Codes</th>
-                                        <th>College</th>
-                                        <th>Block</th>
-
-                                        <!-- Add more columns as needed -->
-                                    </tr>
-                                </thead>
-                                <tbody class="text-center">
-                                    <?php
-                                    $counter = 1; // Initialize the counter variable
-                                    foreach ($room_allocations as $room_allocation) : ?>
-                                        <tr>
-                                            <td><?php echo $counter++; ?></td> <!-- Display and increment the counter -->
-                                            <td><?php echo $room_allocation->NAMA_PELAJAR; ?></td>
-                                            <td><?php echo $room_allocation->GENDER; ?></td>
-                                            <td><?php echo $room_allocation->RELIGION; ?></td>
-                                            <td><?php echo $room_allocation->CHANNEL_NAME; ?></td>
-                                            <td><?php echo $room_allocation->VALIDATE_BY; ?></td>
-                                            <td><?php echo $room_allocation->ROOM_CODE; ?></td>
-                                            <td><?php echo $room_allocation->KOLEJ; ?></td>
-                                            <td><?php echo $room_allocation->BLOCK; ?></td>
-
-                                            <!-- Add more columns as needed -->
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-
-    </div>
     </div>
     <script>
         $(document).ready(function() {
