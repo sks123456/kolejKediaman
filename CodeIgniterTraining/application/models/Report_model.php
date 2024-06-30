@@ -172,10 +172,14 @@ class Report_model extends CI_Model
 
     public function getVacantRooms($session_id = null)
     {
-        $this->db->select('*');
-        $this->db->from('vacant_rooms');
+        $this->db->select('KOLEJ, BLOCK, ROOM_LEVEL, ROOM_GENDER, ROOM_TYPE, SUM(CAPACITY) AS TOTAL_CAPACITY, SUM(CAPACITY - FILLED_ROOM) AS TOTAL_EMPTY_SPOTS');
+        $this->db->from('kk_room');
+        $this->db->where('FILLED_ROOM < CAPACITY'); // Filter for rooms with empty spots
+        $this->db->group_by('KOLEJ, BLOCK, ROOM_LEVEL, ROOM_GENDER, ROOM_TYPE'); // Group by kolej, block, room level, room gender, and room type
+
         if ($session_id) {
-            $this->db->where('session_id', $session_id);
+            $this->db->join('kk_session', 'kk_room.KOD_SESI = kk_session.ACADEMIC_ID');
+            $this->db->where('kk_session.session_id', $session_id);
         }
         $query = $this->db->get();
         return $query->result();
