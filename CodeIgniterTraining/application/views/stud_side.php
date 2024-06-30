@@ -54,31 +54,31 @@ $student_data = $this->session->userdata('student_data');
                 <!-- ---------------------------------- -->
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan')); ?>">
-                        <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
+                        <iconify-icon icon="solar:file-text-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Rules</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/studapplication')); ?>">
-                        <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
+                        <iconify-icon icon="solar:document-add-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Application</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/index/')); ?><?= $student_data['STUD_MATRIC'] ?>">
-                        <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
+                    <iconify-icon icon="solar:printer-2-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Print</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/stud_status/')); ?><?= $student_data['STUD_MATRIC'] ?>">
-                        <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
+                        <iconify-icon icon="solar:check-square-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Application Status</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="<?php echo (base_url('CodeIgniterTraining/index.php/cetak/pengesahan/')); ?><?= $student_data['STUD_MATRIC'] ?>">
-                        <iconify-icon icon="solar:screencast-2-linear" class="aside-icon"></iconify-icon>
+                        <iconify-icon icon="solar:file-check-linear" class="aside-icon"></iconify-icon>
                         <span class="hide-menu">Validation</span>
                     </a>
                 </li>

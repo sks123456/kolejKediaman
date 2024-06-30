@@ -47,7 +47,7 @@ $student_data = $this->session->userdata('student_data');
                             <section class="content">
                                 <?php if (empty($applications)) : ?>
                                     <div class="alert alert-info">
-                                        <strong>Info!</strong> Tiada permohonan ditemui untuk pelajar ini.
+                                        <strong>Info!</strong> No application found for this student.
                                     </div>
                                 <?php else : ?>
                                     <div class="list-group">
