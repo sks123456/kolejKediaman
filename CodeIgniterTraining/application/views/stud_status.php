@@ -48,7 +48,7 @@
                                     <div class="d-flex align-items-center">
                                         <?php if (empty($applications)) : ?>
                                             <div class="alert alert-info">
-                                                <strong>Info!</strong> Tiada permohonan dalam sesi semasa ditemui.
+                                                <strong>Info!</strong> No application found in the current session.
                                             </div>
                                         <?php else : ?>
                                             <?php foreach ($applications as $application) : ?>

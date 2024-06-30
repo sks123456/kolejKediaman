@@ -16,7 +16,7 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        //get application for bar chart
+        // Get application for bar chart
         $data['applications'] = $this->Application_model->getApplicationsByChannelAndStatus();
 
         // Get student count
@@ -25,27 +25,29 @@ class Dashboard extends CI_Controller
 
         // Get application count
         $applicationCountQuery = $this->db->query("
-        SELECT COUNT(*) as count 
-        FROM application 
-        JOIN kk_session ON application.SESSION_ID = kk_session.SESSION_ID 
-        WHERE kk_session.SESSION_STATUS = 'Active'
-    ");
+            SELECT COUNT(*) as count 
+            FROM application 
+            JOIN kk_session ON application.SESSION_ID = kk_session.SESSION_ID 
+            WHERE kk_session.SESSION_STATUS = 'Active'
+        ");
         $data['applicationCount'] = $applicationCountQuery->row()->count;
 
         // Get rejected application count
         $rejectedCountQuery = $this->db->query("
-        SELECT COUNT(*) as count 
-        FROM application 
-        JOIN kk_session ON application.SESSION_ID = kk_session.SESSION_ID 
-        WHERE kk_session.SESSION_STATUS = 'Active'
-        AND application.APPLICATION_STATUS = 'Rejected';
-
+            SELECT COUNT(*) as count 
+            FROM application 
+            JOIN kk_session ON application.SESSION_ID = kk_session.SESSION_ID 
+            WHERE kk_session.SESSION_STATUS = 'Active'
+            AND application.APPLICATION_STATUS = 'Rejected'
         ");
         $data['rejectedCount'] = $rejectedCountQuery->row()->count;
 
         // Get room count
-        $roomCountQuery = $this->db->query("SELECT COUNT(*) as count FROM kk_room JOIN kk_session ON kk_room.KOD_SESI = kk_session.ACADEMIC_ID 
-");
+        $roomCountQuery = $this->db->query("
+            SELECT COUNT(*) as count 
+            FROM kk_room 
+            JOIN kk_session ON kk_room.KOD_SESI = kk_session.ACADEMIC_ID
+        ");
         $data['roomCount'] = $roomCountQuery->row()->count;
 
         // Get pie chart data based on selected semester (e.g., 2022, 2023, etc.)
@@ -57,14 +59,20 @@ class Dashboard extends CI_Controller
         $data['semester'] = $sessions;
         $data['pieChartData'] = $this->getPieChartData();
 
-        if ($this->getMaleCount() >= $this->getFemaleCount()) {
-
-            $data['highest_gender'] = round(($this->getMaleCount() / $data['applicationCount']) * 100, 2);
-            $data['highest_gender2'] = "Male";
+        // Calculate highest gender percentage
+        if ($data['applicationCount'] > 0) {
+            if ($this->getMaleCount() >= $this->getFemaleCount()) {
+                $data['highest_gender'] = round(($this->getMaleCount() / $data['applicationCount']) * 100, 2);
+                $data['highest_gender2'] = "Male";
+            } else {
+                $data['highest_gender'] = round(($this->getFemaleCount() / $data['applicationCount']) * 100, 2);
+                $data['highest_gender2'] = "Female";
+            }
         } else {
-            $data['highest_gender'] = round(($this->getFemaleCount() / $data['applicationCount']) * 100, 2);
-            $data['highest_gender2'] = "Female";
+            $data['highest_gender'] = 0;
+            $data['highest_gender2'] = "";
         }
+
         // Load the view and pass the data
         $this->load->view('home', $data);
     }
@@ -82,7 +90,10 @@ class Dashboard extends CI_Controller
             'labels' => ['Male', 'Female'],
             'datasets' => [
                 [
-                    'data' => [$totalMale, $totalFemale],
+                    'data' => [
+                        $totalMale > 0 ? $totalMale : 0,
+                        $totalFemale > 0 ? $totalFemale : 0
+                    ],
                     'backgroundColor' => ['#36A2EB', '#FF6384']
                 ]
             ]

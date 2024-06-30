@@ -165,6 +165,7 @@ $student_data = $this->session->userdata('student_data');
             <!-- ------------------------------- -->
             <!-- start language Dropdown -->
             <!-- ------------------------------- -->
+            <!--
             <li class="nav-item hover-dd dropdown">
               <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" aria-expanded="false">
                 <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/svgs/icon-flag-en.svg" alt="" width="20px" height="20px" class="rounded-circle object-fit-cover round-20" />
@@ -198,6 +199,7 @@ $student_data = $this->session->userdata('student_data');
                 </div>
               </div>
             </li>
+            -->
             <!-- ------------------------------- -->
             <!-- end language Dropdown -->
             <!-- ------------------------------- -->

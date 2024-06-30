@@ -58,7 +58,7 @@
                                             <?php else : ?>
                                                 <?php if (empty($applications)) : ?>
                                                     <div class="alert alert-info">
-                                                        <strong>Info!</strong> Tiada permohonan yang sah dalam sesi semasa ditemui. Sila buat permohonan terlebih dahulu dan memastikan permohonan diterima.
+                                                        <strong>Info!</strong> No valid application was found in the current session. Please make an application first and ensure it is accepted.
                                                     </div>
                                                 <?php else : ?>
                                                     <form id="pengesahanForm" action="<?= base_url('CodeIgniterTraining/index.php/cetak/pengesahanReturn') ?>" method="post">
