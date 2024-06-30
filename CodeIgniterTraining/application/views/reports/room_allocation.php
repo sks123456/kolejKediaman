@@ -136,8 +136,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="row mb-3">
-                                                            <div class="col-md-12">
+                                                            <div class="col-md-6">
                                                                 <button type="submit" class="btn btn-primary pull-right">Find</button>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <button type="reset" action="<?= base_url() ?>CodeIgniterTraining/index.php/reports/room_allocation" class="btn btn-secondary pull-right">Reset</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -198,6 +202,12 @@
             <?php if (isset($session_selected) || isset($block) || isset($gender) || isset($room_type)) : ?>
                 $('#filterModal').modal('show');
             <?php endif; ?>
+        });
+    </script>
+    <script>
+        document.querySelector('.btn-secondary').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = '<?= base_url() ?>CodeIgniterTraining/index.php/reports/room_allocation';
         });
     </script>
 

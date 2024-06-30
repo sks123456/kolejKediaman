@@ -15,8 +15,35 @@ class Reports extends CI_Controller
     public function overall()
     {
         $session_id = $this->input->get('session_id');
+        $data['listChannel'] = $this->Report_model->getAllChannels();
+        $data['listStatus'] = $this->Report_model->getAllApplicationStatus();
         $data['applications'] = $this->Report_model->getAllApplications($session_id);
         $data['sessions'] = $this->Session_model->getAllSessions();
+        $this->load->view('reports/overall', $data);
+    }
+
+    public function filterOverall()
+    {
+        // Get filter parameters from the form
+        $session_selected = $this->input->post('session_selected');
+        $status = $this->input->post('status');
+        $channel = $this->input->post('channel');
+        $gender = $this->input->post('gender');
+
+        // Pass the filter parameters to the model
+        $data['applications'] = $this->Report_model->getFilteredApplications($session_selected, $status, $gender, $channel);
+        $data['listChannel'] = $this->Report_model->getAllChannels();
+        $data['sessions'] = $this->Session_model->getAllSessions();
+        $data['listStatus'] = $this->Report_model->getAllApplicationStatus();
+
+
+        // Pass the filter parameters back to the view
+        $data['session_selected'] = $session_selected;
+        $data['status'] = $status;
+        $data['gender'] = $gender;
+        $data['channel'] = $channel;
+
+        // Load the view with the filtered data
         $this->load->view('reports/overall', $data);
     }
 

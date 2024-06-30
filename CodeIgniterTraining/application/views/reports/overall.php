@@ -54,25 +54,87 @@
                             <div class="card w-100 position-relative overflow-hidden">
                                 <div class="px-4 py-3 border-bottom">
                                     <div class="d-flex align-items-center">
-                                        <h4 class="card-title mb-0">List of Applicants</h4>
-                                        <div class="ms-auto">
-                                            <div class="row align-items-center">
-                                                <div class="col-md-6">
-                                                    <form class="app-search position-relative" action="" method="get">
-                                                        <select class="form-control rounded-pill border-0 shadow" style="width: max-content;" name="session_id">
-                                                            <option value="">Select Session</option>
-                                                            <?php foreach ($sessions as $session) : ?>
-                                                                <option value="<?php echo $session->SESSION_ID; ?>" <?php echo set_select('session_id', $session->SESSION_ID, isset($_GET['session_id']) && $_GET['session_id'] == $session->SESSION_ID); ?>>
-                                                                    <?php echo $session->SESSION_NAME; ?>
-                                                                </option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                </div>
-                                                <div class="col-md-6 d-flex justify-content-end">
-                                                    <button type="submit" class="srh-btn btn" style="border: none; background: none; cursor: pointer;">
-                                                        <iconify-icon icon="solar:magnifer-linear" class="me-2"></iconify-icon>
-                                                    </button>
-                                                </div>
+                                        <h4 class="me-3 mb-0">List Of Application</h4>
+                                        <button class="btn btn-primary ms-auto" data-bs-toggle="modal" data-bs-target="#filterModal">Filter</button>
+                                    </div>
+                                </div>
+
+                                <!-- Filter Form Modal -->
+                                <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="filterModalLabel">Filter Form</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/reports/filterOverall" method="post" enctype="multipart/form-data">
+                                                    <div class="container">
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="session_selected">Permohonan:</label>
+                                                                    <select class="form-control" name="session_selected">
+                                                                        <option value="">-- Select Session --</option>
+                                                                        <?php foreach ($sessions as $session) : ?>
+                                                                            <option value="<?php echo $session->SESSION_ID; ?>" <?php echo set_select('session_selected', $session->SESSION_ID, isset($session_selected) && $session_selected == $session->SESSION_ID); ?>>
+                                                                                <?php echo $session->SESSION_NAME; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="status">Status:</label>
+                                                                    <select class="form-control" name="status" id="status">
+                                                                        <option value="">-- Select Status --</option>
+                                                                        <?php foreach ($listStatus as $statusItem) : ?>
+                                                                            <option value="<?= $statusItem->APPLICATION_STATUS; ?>" <?php echo set_select('status', $statusItem->APPLICATION_STATUS, isset($status) && $status == $statusItem->APPLICATION_STATUS); ?>>
+                                                                                <?= $statusItem->APPLICATION_STATUS; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="gender">Gender:</label>
+                                                                    <select class="form-control" name="gender" id="gender">
+                                                                        <option value="">-- Select Gender --</option>
+                                                                        <option value="m" <?php echo set_select('gender', 'm', isset($gender) && $gender == 'm'); ?>>Male</option>
+                                                                        <option value="f" <?php echo set_select('gender', 'f', isset($gender) && $gender == 'f'); ?>>Female</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="gender">Channel:</label>
+                                                                    <select class="form-control" name="channel" id="channel">
+                                                                        <option value="">-- Select Channel --</option>
+                                                                        <?php foreach ($listChannel as $channel) : ?>
+                                                                            <option value="<?= $channel->CHANNEL_ID; ?>" <?php echo set_select('channel', $channel->CHANNEL_ID, isset($channel) && $channel == $channel->CHANNEL_ID); ?>>
+                                                                                <?= $channel->CHANNEL_NAME; ?>
+                                                                            </option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-3">
+                                                            <div class="col-md-6">
+                                                                <button type="submit" class="btn btn-primary pull-right">Find</button>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <button type="reset" action="<?= base_url() ?>CodeIgniterTraining/index.php/reports/Overall" class="btn btn-secondary pull-right">Reset</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -84,18 +146,44 @@
                                         <table class="table border text-nowrap mb-0 align-middle">
                                             <thead class="text-center">
                                                 <tr>
-                                                    <th>Application ID</th>
+                                                    <th>No.</th>
+                                                    <th>Matrics</th>
                                                     <th>Student Name</th>
-                                                    <th>Session ID</th>
+                                                    <th>Channel</th>
+                                                    <th>Merit</th>
+                                                    <th>Merit College</th>
+                                                    <th>Vehicle</th>
+                                                    <th>Document</th>
                                                     <!-- Add more columns as needed -->
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody class="text-center">
                                                 <?php foreach ($applications as $application) : ?>
                                                     <tr>
                                                         <td><?php echo $application->APPLICATION_ID; ?></td>
                                                         <td><?php echo $application->STUD_MATRIC; ?></td>
-                                                        <td><?php echo $application->SESSION_ID; ?></td>
+                                                        <td><?php echo $application->NAMA_PELAJAR; ?></td>
+                                                        <td><?= $application->CHANNEL_NAME ?></td>
+                                                        <td><?= $application->MERIT ?></td>
+                                                        <td><?= $application->MERIT_KOLEJ ?></td>
+                                                        <td style="background-color: <?php
+                                                                                        if ($application->VEHICLE === 'M') {
+                                                                                            echo 'orange';
+                                                                                        } elseif ($application->VEHICLE === 'C') {
+                                                                                            echo 'red';
+                                                                                        } else {
+                                                                                            echo 'green';
+                                                                                        }
+                                                                                        ?>;">
+                                                        </td>
+
+                                                        <td>
+                                                            <?php if ($application->DOCUMENT) : ?>
+                                                                <a href="<?= base_url('CodeIgniterTraining/index.php/application_approval/download/' . $application->APPLICATION_ID) ?>" target="_blank"><?= $application->APPLICATION_UPLOAD_NAME ?></a>
+                                                            <?php else : ?>
+                                                                Tiada Dokumen
+                                                            <?php endif; ?>
+                                                        </td>
                                                         <!-- Add more columns as needed -->
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -109,6 +197,13 @@
 
                 </div>
             </div>
+            <script>
+                document.querySelector('.btn-secondary').addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = '<?= base_url() ?>CodeIgniterTraining/index.php/reports/Overall';
+                });
+            </script>
+
             <script>
                 function handleColorTheme(e) {
                     $("html").attr("data-color-theme", e);
