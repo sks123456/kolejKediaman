@@ -160,7 +160,7 @@ class cetak extends CI_Controller
                 }
             } elseif ($approval === 'reject') {
                 // Update the application status to rejected
-                if ($this->Application_model->updateStatus($applicationID, 'rejected')) {
+                if ($this->Application_model->updateStatus($applicationID, 'NO-ACCEPT')) {
                     // Operation was successful
                     $response['success'] = true;
                 } else {
