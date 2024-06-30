@@ -95,42 +95,49 @@ class Room_generate extends CI_Controller
             // Form validation failed, redirect back to index or show error
             redirect(base_url('CodeIgniterTraining/index.php/room_generate/index'));
         } else {
-            // Form validation passed, proceed to create room
-
             // Get session ID from form submission
             $session_id = $this->input->post('session_id');
 
-            // Fetch room data from kk_db where the session ID matches
-            $rooms = $this->Room_model->get_rooms_from_kk_db($session_id);
+            // Check if session exists in kk_db
+            $session_exists = $this->Room_model->check_session_exists($session_id);
 
-            // Insert room data into fyp_kk in the kk_room table
-            foreach ($rooms as $room) {
-                $insert_data = array(
-                    'ROOM_CODE' => $room->ROOM_CODE,
-                    'KOD_SESI' => $room->KOD_SESI,
-                    'ROOM_TYPE' => $room->ROOM_TYPE,
-                    'KOLEJ' => $room->KOLEJ,
-                    'BLOCK' => $room->BLOCK,
-                    'ROOM_LEVEL' => $room->ROOM_LEVEL,
-                    'ROOM_DESC' => $room->ROOM_DESC,
-                    'CAPACITY' => $room->CAPACITY,
-                    'FILLED_ROOM' => $room->FILLED_ROOM,
-                    'ROOM_STATUS' => $room->ROOM_STATUS,
-                    'STATUS_ACTIVE' => $room->STATUS_ACTIVE,
-                    'DAILY_CHARGE' => $room->DAILY_CHARGE,
-                    'CHARGE_PER_SEM' => $room->CHARGE_PER_SEM,
-                    'ROOM_GENDER' => $room->ROOM_GENDER
-                );
+            if ($session_exists) {
+                // Session exists, fetch room data from kk_db
+                $rooms = $this->Room_model->get_rooms_from_kk_db($session_id);
 
-                $this->Room_model->insert_room_data($insert_data);
+                // Insert room data into fyp_kk in the kk_room table
+                foreach ($rooms as $room) {
+                    $insert_data = array(
+                        'ROOM_CODE' => $room->ROOM_CODE,
+                        'KOD_SESI' => $room->KOD_SESI,
+                        'ROOM_TYPE' => $room->ROOM_TYPE,
+                        'KOLEJ' => $room->KOLEJ,
+                        'BLOCK' => $room->BLOCK,
+                        'ROOM_LEVEL' => $room->ROOM_LEVEL,
+                        'ROOM_DESC' => $room->ROOM_DESC,
+                        'CAPACITY' => $room->CAPACITY,
+                        'FILLED_ROOM' => $room->FILLED_ROOM,
+                        'ROOM_STATUS' => $room->ROOM_STATUS,
+                        'STATUS_ACTIVE' => $room->STATUS_ACTIVE,
+                        'DAILY_CHARGE' => $room->DAILY_CHARGE,
+                        'CHARGE_PER_SEM' => $room->CHARGE_PER_SEM,
+                        'ROOM_GENDER' => $room->ROOM_GENDER
+                    );
+
+                    $this->Room_model->insert_room_data($insert_data);
+                }
+
+                $this->session->set_flashdata('success', 'Rooms created successfully.');
+            } else {
+                // Session does not exist
+                $this->session->set_flashdata('error', 'Session does not exist in kk_db.');
             }
-
-            $this->session->set_flashdata('success', 'Rooms created successfully.');
 
             // Redirect to the room generate list page
             redirect(base_url('CodeIgniterTraining/index.php/room_generate/index'));
         }
     }
+
 
     public function delete_room()
     {

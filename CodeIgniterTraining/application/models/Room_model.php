@@ -226,4 +226,13 @@ class Room_model extends CI_Model
         $this->db->db_select('fyp_kk'); // Switch to fyp_kk database
         return $this->db->insert('kk_room', $data); // Insert into kk_room table
     }
+
+    public function check_session_exists($session_id)
+    {
+        $this->db->db_select('kk_db');
+        $this->db->where('KOD_SESI', $session_id);
+        $query = $this->db->get('k_room'); // Replace with the correct table name
+        return $query->num_rows() > 0;
+    }
+
 }

@@ -26,11 +26,10 @@ class Role_model extends CI_Model
     }
 
     // Function to check for duplicate role entry
-    public function checkDuplicateRole($session_id, $student_id, $studrole_role)
+    public function checkDuplicateRole($session_id, $student_id)
     {
         $this->db->where('CODE_SEM', $session_id);
         $this->db->where('STUD_MATRIC', $student_id);
-        $this->db->where('ROLE', $studrole_role);
         $query = $this->db->get('kk_role_model');
         return $query->num_rows() > 0;
     }
@@ -42,7 +41,7 @@ class Role_model extends CI_Model
         $status = $this->input->post('status');
 
         $this->db->set('STATUS', $status);
-        $this->db->where('STUD_MATRIC', $role_id);
+        $this->db->where('ROLE_MODEL_ID', $role_id);
         return $this->db->update('kk_role_model');
     }
 

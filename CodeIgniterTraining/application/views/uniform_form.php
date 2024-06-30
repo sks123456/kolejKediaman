@@ -1,6 +1,6 @@
 <!-- Saluran Permohonan Form -->
 <div class="modal-body">
-    <form role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/cruduniform/<?= isset($update) && $update ? 'update' : 'save' ?>" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    <form role="uniformForm" role="form" action="<?= base_url() ?>CodeIgniterTraining/index.php/cruduniform/<?= isset($update) && $update ? 'update' : 'save' ?>" method="post" enctype="multipart/form-data">
 
         <!-- Uniform Name and ID -->
         <div class="form-group mb-3">
@@ -18,18 +18,37 @@
 
         <!-- Status -->
         <div class="form-group mb-3">
+            <?php if ($update && !empty($uniform)) : ?>
+                <?php $row = $uniform ?>
+                <!-- Hidden field for channel_id -->
+                <input type="hidden" name="uniform_id" value="<?= $row->UNIFORM_ID ?>">
+            <?php endif; ?>
             <label>Uniform Status</label>
             <div class="row">
+                <?php if ($update && !empty($uniform)) : ?>
+                    <?php $row = $uniform ?>
                 <div class="col-md-3">
                     <label class="radio-inline">
-                        <input type="radio" name="uniform_status" value="Active" <?= $update && !empty($uniform) && $row->UNIFORM_STATUS == 'Active' ? 'checked' : '' ?> required> Active
+                        <input type="radio" name="uniform_status" value="Active" <?= ($row->UNIFORM_STATUS == 'Active') ? 'checked' : '' ?> required> Active
                     </label>
                 </div>
                 <div class="col-md-3">
                     <label class="radio-inline">
-                        <input type="radio" name="uniform_status" value="Non-Active" <?= $update && !empty($uniform) && $row->UNIFORM_STATUS == 'Non-Active' ? 'checked' : '' ?> required> Non-Active
+                        <input type="radio" name="uniform_status" value="Non-Active" <?= ($row->UNIFORM_STATUS == 'Non-Active') ? 'checked' : '' ?> required> Non-Active
                     </label>
                 </div>
+                <?php else : ?>
+                <div class="col-md-3">
+                    <label class="radio-inline">
+                        <input type="radio" name="uniform_status" value="Active" required> Active
+                    </label>
+                </div>
+                <div class="col-md-3">
+                    <label class="radio-inline">
+                        <input type="radio" name="uniform_status" value="Non-Active" required> Non-Active
+                    </label>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -38,7 +57,7 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
             Close
         </button>
-        <button type="submit" class="btn btn-success">
+        <button type="submit" class="btn btn-success" onclick="validateForm();">
             <?= $update ? 'Update' : 'Save' ?>
         </button>
     </div>
@@ -47,14 +66,13 @@
     <script>
         function validateForm() {
             // Check if all required fields are filled
-            const uniformName = document.querySelector('input[name="uniform_name"]').value.trim();
-            const uniformStatus = document.querySelector('input[name="uniform_status"]:checked');
-
-            if (!uniformName || !uniformStatus) {
-                alert('All fields are required.');
-                return false;
+            var form = document.getElementById('uniformForm');
+            if (!form.checkValidity()) {
+                // If form is not valid, prevent submission and display a message (optional)
+                event.preventDefault();
+                event.stopPropagation();
+                alert('Please fill out all required fields.');
             }
-            return true; // Proceed with form submission
         }
 
         // Automatically close the modal on form submit success

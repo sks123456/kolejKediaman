@@ -44,17 +44,27 @@ class Register_Studrole extends CI_Controller
             // Validation failed, reload form view with errors
             $this->load->view('studrole_form');
         } else {
-            // Validation passed, prepare data for insertion
+            // Get student ID
+            $student_id = $this->input->post('student_id');
+
+            // Check if STUD_MATRIC starts with "S"
+            if (strpos($student_id, 'S') !== 0) {
+                // Not a degree student, set flashdata error message and redirect
+                $this->session->set_flashdata('error', 'Only degree students can be added.');
+                redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index'));
+            }
+
+            // Prepare data for insertion
             $data = array(
                 'CODE_SEM' => $this->input->post('session_id'),
-                'STUD_MATRIC' => $this->input->post('student_id'),
+                'STUD_MATRIC' => $student_id,
                 'ROLE' => $this->input->post('studrole_role'),
                 'STATUS' => $this->input->post('studrole_status')
             );
 
             // Check for duplicate entry
-            if ($this->Role_model->checkDuplicateRole($data['CODE_SEM'], $data['STUD_MATRIC'], $data['ROLE'])) {
-                // If duplicate found, set flashdata error message and redirect
+            if ($this->Role_model->checkDuplicateRole($data['CODE_SEM'], $data['STUD_MATRIC'])) {
+                // Duplicate found, set flashdata error message and redirect
                 $this->session->set_flashdata('error', 'This student with the selected role in the session already exists.');
                 redirect(base_url('CodeIgniterTraining/index.php/register_studrole/index'));
             }
@@ -71,6 +81,7 @@ class Register_Studrole extends CI_Controller
             }
         }
     }
+
 
     public function check_student_id()
     {
