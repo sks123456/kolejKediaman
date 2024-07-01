@@ -14,7 +14,7 @@ class studcrud extends CI_Controller
         $this->load->view('stud_main');
     }
 
-    public function peraturan()
+    public function rules()
     {
         // Load necessary libraries and models
         // Retrieve user data from session

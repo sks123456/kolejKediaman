@@ -36,21 +36,21 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sila Log Masuk</p>
+    <p class="login-box-msg">Plese Login Here</p>
 
     <?php if (isset($error)) { ?>
         <div style="color: red;"><?php echo $error; ?></div>
     <?php } ?>
     <form action="<?php echo base_url('CodeIgniterTraining/index.php/logincontroller/login'); ?>" method="post">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="No Matrik" name="student_id">
+        <input type="text" class="form-control" placeholder="Matric ID" name="student_id">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="row">
         <!-- Move the button to the right side -->
         <div class="col-xs-8"></div>
         <div class="col-xs-4">
-          <button type="submit" class="btn bg-purple btn-block btn-flat">Log Masuk</button>
+          <button type="submit" class="btn bg-purple btn-block btn-flat">Login</button>
         </div>
       </div>
     </form>

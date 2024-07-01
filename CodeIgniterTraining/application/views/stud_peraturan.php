@@ -48,7 +48,7 @@ $student_data = $this->session->userdata('student_data');
                     <div class="container mt-5 ">
                         <div class="row">
                             <div class="box-body">
-                                <iframe src="http://localhost/FYP_kk/CodeIgniterTraining/index.php/studcrud/peraturan" width="100%" height="902.75px" frameborder="0"></iframe>
+                                <iframe src="http://localhost/FYP_kk/CodeIgniterTraining/index.php/studcrud/rules" width="100%" height="902.75px" frameborder="0"></iframe>
                             </div>
                         </div>
                     </div>

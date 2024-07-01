@@ -1,4 +1,4 @@
-<table id="room_list" class="table table-bordered table-hover" style="width:1160px;">
+<table id="room_list" class="table table-bordered" style="width:1160px;">
     <thead>
         <tr class="text-center">
             <th>Session</th>

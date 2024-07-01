@@ -1,10 +1,4 @@
-<style>
-    .text-center {
-        text-align: center;
-    }
-</style>
-
-<table id="room_list" class="table table-bordered table-hover text-center" style="width: 1160px;">
+<table id="room_list" class="table table-bordered text-center" style="width: 1160px;">
     <thead>
         <tr class="text-center">
             <th><a href="?sort=ROOM_CODE&dir=<?= $sortColumn == 'ROOM_CODE' && $sortDirection == 'asc' ? 'desc' : 'asc' ?>">Room Code <?= $sortColumn == 'ROOM_CODE' ? ($sortDirection == 'asc' ? '&#9650;' : '&#9660;') : '' ?></a></th>

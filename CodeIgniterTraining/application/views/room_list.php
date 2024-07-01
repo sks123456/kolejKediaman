@@ -1,4 +1,4 @@
-<table id="room_list" class="table table-bordered table-hover" style="width:fit-content;">
+<table id="room_list" class="table table-bordered" style="width:fit-content;">
     <thead>
         <?php
         $sortColumn = isset($_GET['sort']) ? $_GET['sort'] : ''; // Initialize $sortColumn with the sort parameter from the URL

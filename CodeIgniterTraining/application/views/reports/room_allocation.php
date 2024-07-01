@@ -73,7 +73,7 @@
                                                         <div class="row mb-3">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="session_selected">Permohonan:</label>
+                                                                    <label for="session_selected">Application:</label>
                                                                     <select class="form-control" name="session_selected">
                                                                         <option value="">-- Select Session --</option>
                                                                         <?php foreach ($sessions as $session) : ?>

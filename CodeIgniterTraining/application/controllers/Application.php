@@ -188,7 +188,7 @@ class Application extends CI_Controller
             $file_path = realpath($upload_result['full_path']);
             $this->handleAfterUpload($file_path);
 
-            redirect(base_url('CodeIgniterTraining/index.php/student'));
+            redirect(base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan'));
         } else {
             // Handle the error appropriately (e.g., show a flash message or log the error)
             $this->application_model->submit_application(null, null);

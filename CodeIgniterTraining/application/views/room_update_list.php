@@ -1,10 +1,4 @@
-<style>
-    .text-center {
-        text-align: center;
-    }
-</style>
-
-<table id="room_list" class="table table-bordered table-hover text-center" style="width:1160px;">
+<table id="room_list" class="table table-bordered text-center" style="width:1160px;">
     <thead>
         <tr class="text-center">
             <th>SESSION</th>
