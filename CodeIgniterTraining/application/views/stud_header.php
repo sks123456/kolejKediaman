@@ -25,119 +25,6 @@ $student_data = $this->session->userdata('student_data');
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <div class="d-flex align-items-center justify-content-between">
           <ul class="navbar-nav d-flex d-lg-none flex-row">
-            <!-- ------------------------------- -->
-            <!-- start notification Dropdown -->
-            <!-- ------------------------------- -->
-            <li class="nav-item hover-dd dropdown">
-              <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" aria-expanded="false">
-                <iconify-icon icon="solar:bell-linear"></iconify-icon>
-                <div class="notify">
-                  <span class="heartbit"></span> <span class="point"></span>
-                </div>
-              </a>
-              < class="dropdown-menu dropdown-menu-start content-dd dropdown-menu-animate-up mailbox" aria-labelledby="drop2">
-                <div class="d-flex border-bottom align-items-center justify-content-between py-3 px-4">
-                  <div class="mb-0 fs-4 text-dark">Notifications</div>
-                </div>
-                <div class="message-body" data-simplebar>
-                  <a href="javascript:void(0)" class="p-3 pe-0 d-flex align-items-center dropdown-item gap-3 border-bottom">
-                    <span class="flex-shrink-0 bg-danger-subtle rounded-circle round d-flex align-items-center justify-content-center fs-6 text-danger">
-                      <iconify-icon icon="solar:widget-3-linear"></iconify-icon>
-                    </span>
-                    <div class="w-75 d-inline-block v-middle">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h6 class="mb-0 lh-base">Luanch Admin</h6>
-                        <span class="fs-2 text-nowrap d-block subtext">9:30 AM</span>
-                      </div>
-                      <span class="fs-2 d-block text-truncate text-truncate">Just see the my new admin!</span>
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)" class="p-3 pe-0 d-flex align-items-center dropdown-item gap-3 border-bottom">
-                    <span class="flex-shrink-0 bg-success-subtle rounded-circle round d-flex align-items-center justify-content-center fs-6 text-success">
-                      <iconify-icon icon="solar:calendar-mark-linear"></iconify-icon>
-                    </span>
-                    <div class="w-75 d-inline-block v-middle">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h6 class="mb-0 lh-base">Event today</h6>
-                        <span class="fs-2 text-nowrap d-block subtext">9:10 AM</span>
-                      </div>
-
-                      <span class="fs-2 d-block text-truncate text-truncate">Just a reminder that you have event</span>
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)" class="p-3 pe-0 d-flex align-items-center dropdown-item gap-3 border-bottom">
-                    <span class="flex-shrink-0 bg-primary-subtle rounded-circle round d-flex align-items-center justify-content-center fs-6 text-primary">
-                      <iconify-icon icon="solar:settings-minimalistic-linear"></iconify-icon>
-                    </span>
-                    <div class="w-75 d-inline-block v-middle">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h6 class="mb-0 lh-base">Settings</h6>
-                        <span class="fs-2 text-nowrap d-block subtext">9:08 AM</span>
-                      </div>
-                      <span class="fs-2 d-block text-truncate text-truncate">You can customize this template as you want</span>
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)" class="p-3 pe-0 d-flex align-items-center dropdown-item gap-3 border-bottom">
-                    <span class="flex-shrink-0 bg-warning-subtle rounded-circle round d-flex align-items-center justify-content-center fs-6 text-warning">
-                      <iconify-icon icon="solar:link-circle-linear"></iconify-icon>
-                    </span>
-                    <div class="w-75 d-inline-block v-middle">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h6 class="mb-0 lh-base">Luanch Admin</h6>
-                        <span class="fs-2 text-nowrap d-block subtext">9:30 AM</span>
-                      </div>
-                      <span class="fs-2 d-block text-truncate text-truncate">Just see the my new admin!</span>
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)" class="p-3 pe-0 d-flex align-items-center dropdown-item gap-3 border-bottom">
-                    <span class="flex-shrink-0 bg-success-subtle rounded-circle round d-flex align-items-center justify-content-center fs-6 text-success">
-                      <iconify-icon icon="solar:calendar-linear"></iconify-icon>
-                    </span>
-                    <div class="w-75 d-inline-block v-middle">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h6 class="mb-0 lh-base">Event today</h6>
-                        <span class="fs-2 text-nowrap d-block subtext">9:10 AM</span>
-                      </div>
-                      <span class="fs-2 d-block text-truncate text-truncate">Just a reminder that you have event</span>
-                    </div>
-                  </a>
-                  <a href="javascript:void(0)" class="p-3 pe-0 d-flex align-items-center dropdown-item gap-3 border-bottom">
-                    <span class="flex-shrink-0 bg-primary-subtle rounded-circle round d-flex align-items-center justify-content-center fs-6 text-primary">
-                      <iconify-icon icon="solar:settings-linear"></iconify-icon>
-                    </span>
-                    <div class="w-75 d-inline-block v-middle">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <h6 class="mb-0 lh-base">Settings</h6>
-                        <span class="fs-2 text-nowrap d-block subtext">9:08 AM</span>
-                      </div>
-                      <span class="fs-2 d-block text-truncate text-truncate">You can customize this template as you want</span>
-                    </div>
-                  </a>
-                </div>
-                <div>
-                  <a class="d-flex align-items-center pt-3 pb-2 justify-content-center text-dark" href="javascript:void(0);">
-                    <span class="fw-semibold">Check all notifications</span>
-                    <iconify-icon icon="solar:alt-arrow-right-linear"></iconify-icon>
-                  </a>
-                </div>
-
-            <li class="nav-item hover-dd dropdown">
-              <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" aria-expanded="false">
-                <iconify-icon icon="solar:inbox-linear"></iconify-icon>
-                <div class="notify">
-                  <span class="heartbit"></span> <span class="point"></span>
-                </div>
-              </a>
-              <div class="dropdown-menu dropdown-menu-start content-dd dropdown-menu-animate-up mailbox" aria-labelledby="drop2">
-                <div class="d-flex border-bottom align-items-center justify-content-between py-3 px-4">
-                  <h5 class="mb-0 fs-4 text-dark">You have 4 new messages</h5>
-                </div>
-
-              </div>
-            </li>
-            <!-- ------------------------------- -->
-            <!-- end mailbox Dropdown -->
-            <!-- ------------------------------- -->
 
             <!-- ------------------------------- -->
             <!-- start mega-dropdown Dropdown -->
@@ -213,6 +100,7 @@ $student_data = $this->session->userdata('student_data');
                   <div class="user-profile-img">
                     <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-1.jpg" class="rounded-circle" width="30" height="30" alt="" />
                   </div>
+                  
                 </div>
               </a>
               <div class="dropdown-menu dropdown-menu-end content-dd dropdown-menu-animate-up user-dd animated flipInY" aria-labelledby="drop1">
@@ -222,6 +110,7 @@ $student_data = $this->session->userdata('student_data');
                   </div>
                   <div class="d-flex align-items-center py-9 mx-7 border-bottom">
                     <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/profile/user-1.jpg" class="rounded-circle" width="80" height="80" alt="" />
+                    <h6><?= $student_data['STUD_MATRIC'] ?></h6>
                     <div class="ms-3">
                       <h5 class="mb-1 fs-4"><?= $student_data['NAMA_PELAJAR'] ?></h5>
                       <span class="mb-1 d-block"><?= $student_data['PROGRAM'] ?></span>

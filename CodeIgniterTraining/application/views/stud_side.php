@@ -6,7 +6,7 @@ $student_data = $this->session->userdata('student_data');
         <!-- Start Vertical Layout Sidebar -->
         <!-- ---------------------------------- -->
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="<?php echo base_url('CodeIgniterTraining/index.php/dashboard'); ?>" class="text-nowrap logo-img">
+            <a href="<?php echo base_url('CodeIgniterTraining/index.php/studcrud/viewPeraturan'); ?>" class="text-nowrap logo-img">
                 <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/fypkk_logo-dark.png" width="172" height="50" class="light-logo" alt="Logo-Dark" />
                 <img src="<?php echo base_url() ?>monster-bt5-v8/dist/assets/images/logos/fypkk_logo-light.png" width="172" height="50" class="dark-logo" alt="Logo-light" />
             </a>
